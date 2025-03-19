@@ -1,0 +1,8 @@
+Line 33: Class MSGrid.Grid of control GrdCT was not a loaded control class.
+Line 39: The property name _Version in GrdCT is invalid.
+Line 40: The property name _ExtentX in GrdCT is invalid.
+Line 41: The property name _ExtentY in GrdCT is invalid.
+Line 42: The property name _StockProps in GrdCT is invalid.
+Line 53: The property name Rows in GrdCT is invalid.
+Line 54: The property name Cols in GrdCT is invalid.
+Line 55: The property name FixedRows in GrdCT is invalid.

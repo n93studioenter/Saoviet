@@ -1,0 +1,3 @@
+The cab file for your application has been built as 'C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\Package\saoviet.CAB'.
+
+There is also a batch file in the support directory (C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\Package\Support\saoviet.BAT) that will allow you to recreate the cab file in case you make changes to some of the files.

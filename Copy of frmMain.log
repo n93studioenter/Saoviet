@@ -1,0 +1,6 @@
+Line 30: Class ComctlLib.Toolbar of control tbToolBar was not a loaded control class.
+Line 281: Class MSComDlg.CommonDialog of control dlgCommonDialog was not a loaded control class.
+Line 413: Class Crystal.CrystalReport of control Rpt was not a loaded control class.
+Line 423: Class ComctlLib.StatusBar of control sbStatusBar was not a loaded control class.
+Line 860: Class MSForms.Label of control Label2 was not a loaded control class.
+Line 934: Class ComctlLib.ImageList of control ImageList1 was not a loaded control class.

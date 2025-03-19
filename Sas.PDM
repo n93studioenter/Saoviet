@@ -1,0 +1,1581 @@
+[Root]
+Most Recent Package=Sao Viet Accountting
+
+
+[Package|Dep File 1|Root]
+SubWizProgID=PDWizard.DepPkgSubWiz
+BuildFolder=C:\Documents and Settings\setup
+
+[Package|Dep File 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Dep File 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Dep File 1|Files Found]
+
+[Package|Dep File 1|Files Released]
+SAS.HLP=
+
+[Package|Dep File 1|Missing Dependency Information]
+C:\WINDOWS\system32\CRYSTL32.OCX=
+C:\WINDOWS\system32\ZLIBTOOL.OCX=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\msxml3.dll=
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\WINDOWS\system32\wininet.dll=
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=
+C:\WINDOWS\system32\dao360.dll=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=
+
+[Package|Dep File 1|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSMASK32.OCX=
+C:\WINDOWS\system32\COMCTL32.OCX=
+C:\WINDOWS\system32\COMDLG32.OCX=
+C:\WINDOWS\system32\CRYSTL32.OCX=
+
+[Package|Dep File 1|Files Added]
+
+[Package|Dep File 1|Files Removed]
+
+[Package|Dep File 1|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\wininet.dll=Yes
+C:\WINDOWS\system32\msxml3.dll=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\COMCTL32.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSOUTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\ZLIBTOOL.OCX=Yes
+C:\WINDOWS\system32\CRYSTL32.OCX=Yes
+C:\WINDOWS\system32\msstdfmt.dll=Yes
+C:\WINDOWS\system32\dao360.dll=Yes
+D:\Sao Viet\Accounting\saoviet.exe=Yes
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=Yes
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+
+[Package|Dep File 1|Configure Registry Files]
+Applicable=No
+
+[Package|Dep File 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Dep File 1|Install Locations]
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\wininet.dll=$(WinSysPath)
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=$(WinSysPath)
+C:\WINDOWS\system32\msxml3.dll=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSOUTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\GRID32.OCX=$(AppPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ZLIBTOOL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CRYSTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\WINDOWS\system32\dao360.dll=$(WinSysPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=$(AppPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\CRPE32.DLL=$(WinSysPath)
+C:\WINDOWS\system32\IMPLODE.DLL=$(WinSysPath)
+C:\WINDOWS\system32\PG32.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\CO2C40EN.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT20.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\CRXLAT32.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\P2BBND.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2BDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2CTDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2IRDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2SODBC.DLL=$(WinSysPath)
+C:\WINDOWS\system32\u2ddisk.dll=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2DMAPI.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FCR.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FDIF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FHTML.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FREC.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FRTF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FSEPV.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FTEXT.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWKS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWORDW.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FXLS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\Sao Viet\Accounting\saoviet.exe=$(AppPath)
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+
+[Package|Dep File 1|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=Yes
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=No
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=No
+
+[Package|Dep File 1|Distribution]
+Type=single
+Size=1.44 MB
+Title=Sao Viet Accounting
+
+[Package|Dep File 1|IconGroups]
+Group0=Sao Viet Accounting
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|Dep File 1|Sao Viet Accounting]
+Icon1=saoviet.exe
+Title1=Sao Viet Accounting
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Dep File 1|DepFile]
+DepCabFile=saoviet.CAB
+DepCabRun=saoviet.INF
+
+[Package|Dep File 1|Package]
+PackageFolder=C:\Documents and Settings\setup
+ProjectFolder=D:\Sao Viet\Accounting
+ServerSideCab=
+File1=C:\Documents and Settings\setup\saoviet.DEP
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Sao Viet1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=c:\donggoi\a\dong goi phan mem
+
+[Package|Sao Viet1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Sao Viet1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Sao Viet1|Files Found]
+VNIVowelMap.txt=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt
+UnicodeVowels.xml=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml
+
+[Package|Sao Viet1|Files Released]
+SAS.HLP=
+
+[Package|Sao Viet1|Missing Dependency Information]
+C:\WINDOWS\system32\CRYSTL32.OCX=
+C:\WINDOWS\system32\ZLIBTOOL.OCX=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\msxml3.dll=
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\WINDOWS\system32\wininet.dll=
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=
+C:\WINDOWS\system32\dao360.dll=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=
+
+[Package|Sao Viet1|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSMASK32.OCX=
+C:\WINDOWS\system32\COMCTL32.OCX=
+C:\WINDOWS\system32\COMDLG32.OCX=
+C:\WINDOWS\system32\CRYSTL32.OCX=
+
+[Package|Sao Viet1|Files Added]
+vnivowelmap.txt=
+unicodevowels.xml=
+e:\pm sao viet nan cap\pm nan cap\accounting\dummy.xml=
+
+[Package|Sao Viet1|Files Removed]
+
+[Package|Sao Viet1|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\wininet.dll=Yes
+C:\WINDOWS\system32\msxml3.dll=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\COMCTL32.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSOUTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\ZLIBTOOL.OCX=Yes
+C:\WINDOWS\system32\CRYSTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\WINDOWS\system32\msstdfmt.dll=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=Yes
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+C:\WINDOWS\system32\CRPE32.DLL=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=Yes
+
+[Package|Sao Viet1|Configure Registry Files]
+Applicable=No
+
+[Package|Sao Viet1|Configure Remote Servers]
+Applicable=No
+
+[Package|Sao Viet1|Install Locations]
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\wininet.dll=$(WinSysPath)
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=$(WinSysPath)
+C:\WINDOWS\system32\msxml3.dll=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSOUTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\GRID32.OCX=$(AppPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ZLIBTOOL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CRYSTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\WINDOWS\system32\dao360.dll=$(WinSysPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=$(AppPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\CRPE32.DLL=$(WinSysPath)
+C:\WINDOWS\system32\IMPLODE.DLL=$(WinSysPath)
+C:\WINDOWS\system32\PG32.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\CO2C40EN.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT20.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\CRXLAT32.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\P2BBND.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2BDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2CTDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2IRDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2SODBC.DLL=$(WinSysPath)
+C:\WINDOWS\system32\u2ddisk.dll=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2DMAPI.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FCR.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FDIF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FHTML.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FREC.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FRTF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FSEPV.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FTEXT.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWKS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWORDW.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FXLS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\Sao Viet\Accounting\saoviet.exe=$(AppPath)
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+D:\Sao Viet\Accounting\VNIVowelMap.txt=$(AppPath)
+D:\Sao Viet\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=$(AppPath)
+D:\Data\saoviet.exe=$(AppPath)
+
+[Package|Sao Viet1|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=Yes
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=No
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+D:\Sao Viet\Accounting\saoviet.exe=Yes
+D:\Sao Viet\Accounting\VNIVowelMap.txt=Yes
+D:\Sao Viet\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=No
+
+[Package|Sao Viet1|Distribution]
+Type=single
+Size=1.44 MB
+Title=Sao Viet Accounting
+
+[Package|Sao Viet1|Package]
+PackageFolder=d:\Dong Goi\SAO VIET ACCOUNTING
+ProjectFolder=E:\PM Sao Viet nan cap\PM Nan cap\Accounting
+ServerSideCab=
+File1=d:\Dong Goi\SAO VIET ACCOUNTING\setup.exe
+File2=d:\Dong Goi\SAO VIET ACCOUNTING\Setup.Lst
+File3=d:\Dong Goi\SAO VIET ACCOUNTING\saoviet.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Sao Viet1|IconGroups]
+Group0=Sao Viet Accounting
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|Sao Viet1|Sao Viet Accounting]
+Icon1=saoviet.exe
+Title1=Sao Viet Accounting
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|kaka|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=c:\donggoi\a\dong goi phan mem
+
+[Package|kaka|Configure DAO ISAMs]
+Applicable=No
+
+[Package|kaka|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|kaka|Files Found]
+VNIVowelMap.txt=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt
+UnicodeVowels.xml=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml
+
+[Package|kaka|Files Released]
+SAS.HLP=
+
+[Package|kaka|Missing Dependency Information]
+C:\WINDOWS\system32\CRYSTL32.OCX=
+C:\WINDOWS\system32\ZLIBTOOL.OCX=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\msxml3.dll=
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\WINDOWS\system32\wininet.dll=
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=
+C:\WINDOWS\system32\dao360.dll=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=
+
+[Package|kaka|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSMASK32.OCX=
+C:\WINDOWS\system32\COMCTL32.OCX=
+C:\WINDOWS\system32\COMDLG32.OCX=
+C:\WINDOWS\system32\CRYSTL32.OCX=
+
+[Package|kaka|Files Added]
+vnivowelmap.txt=
+unicodevowels.xml=
+e:\pm sao viet nan cap\pm nan cap\accounting\dummy.xml=
+
+[Package|kaka|Files Removed]
+
+[Package|kaka|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\wininet.dll=Yes
+C:\WINDOWS\system32\msxml3.dll=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\COMCTL32.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSOUTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\ZLIBTOOL.OCX=Yes
+C:\WINDOWS\system32\CRYSTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\WINDOWS\system32\msstdfmt.dll=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=Yes
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+C:\WINDOWS\system32\CRPE32.DLL=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=Yes
+
+[Package|kaka|Configure Registry Files]
+Applicable=No
+
+[Package|kaka|Configure Remote Servers]
+Applicable=No
+
+[Package|kaka|Install Locations]
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\wininet.dll=$(WinSysPath)
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=$(WinSysPath)
+C:\WINDOWS\system32\msxml3.dll=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSOUTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\GRID32.OCX=$(AppPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ZLIBTOOL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CRYSTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\WINDOWS\system32\dao360.dll=$(WinSysPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=$(AppPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\CRPE32.DLL=$(WinSysPath)
+C:\WINDOWS\system32\IMPLODE.DLL=$(WinSysPath)
+C:\WINDOWS\system32\PG32.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\CO2C40EN.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT20.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\CRXLAT32.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\P2BBND.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2BDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2CTDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2IRDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2SODBC.DLL=$(WinSysPath)
+C:\WINDOWS\system32\u2ddisk.dll=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2DMAPI.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FCR.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FDIF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FHTML.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FREC.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FRTF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FSEPV.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FTEXT.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWKS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWORDW.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FXLS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\Sao Viet\Accounting\saoviet.exe=$(AppPath)
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+D:\Sao Viet\Accounting\VNIVowelMap.txt=$(AppPath)
+D:\Sao Viet\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=$(AppPath)
+D:\Data\saoviet.exe=$(AppPath)
+
+[Package|kaka|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=Yes
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=No
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+D:\Sao Viet\Accounting\saoviet.exe=Yes
+D:\Sao Viet\Accounting\VNIVowelMap.txt=Yes
+D:\Sao Viet\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=No
+
+[Package|kaka|Distribution]
+Type=single
+Size=1.44 MB
+Title=Sao Viet Accounting
+
+[Package|kaka|Package]
+PackageFolder=d:\Dong Goi\SAO VIET ACCOUNTING
+ProjectFolder=E:\PM Sao Viet nan cap\PM Nan cap\Accounting
+ServerSideCab=
+File1=d:\Dong Goi\SAO VIET ACCOUNTING\setup.exe
+File2=d:\Dong Goi\SAO VIET ACCOUNTING\Setup.Lst
+File3=d:\Dong Goi\SAO VIET ACCOUNTING\saoviet.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|kaka|IconGroups]
+Group0=Sao Viet Accounting
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|kaka|Sao Viet Accounting]
+Icon1=saoviet.exe
+Title1=Sao Viet Accounting
+StartIn1=$(AppPath)
+Key1=Icon1
+
+
+[Package|Sao Viet|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=e:\phan mem dong goi
+
+[Package|Sao Viet|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Sao Viet|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Sao Viet|Files Found]
+VNIVowelMap.txt=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt
+UnicodeVowels.xml=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml
+
+[Package|Sao Viet|Files Released]
+SAS.HLP=
+
+[Package|Sao Viet|Missing Dependency Information]
+C:\WINDOWS\system32\CRYSTL32.OCX=
+C:\WINDOWS\system32\ZLIBTOOL.OCX=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\msxml3.dll=
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\WINDOWS\system32\wininet.dll=
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=
+C:\WINDOWS\system32\dao360.dll=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=
+
+[Package|Sao Viet|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSMASK32.OCX=
+C:\WINDOWS\system32\COMCTL32.OCX=
+C:\WINDOWS\system32\COMDLG32.OCX=
+C:\WINDOWS\system32\CRYSTL32.OCX=
+
+[Package|Sao Viet|Files Added]
+vnivowelmap.txt=
+unicodevowels.xml=
+e:\pm sao viet nan cap\pm nan cap\accounting\dummy.xml=
+
+[Package|Sao Viet|Files Removed]
+
+[Package|Sao Viet|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\wininet.dll=Yes
+C:\WINDOWS\system32\msxml3.dll=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\COMCTL32.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSOUTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\ZLIBTOOL.OCX=Yes
+C:\WINDOWS\system32\CRYSTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\WINDOWS\system32\msstdfmt.dll=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=Yes
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+C:\WINDOWS\system32\CRPE32.DLL=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=Yes
+
+[Package|Sao Viet|Configure Registry Files]
+Applicable=No
+
+[Package|Sao Viet|Configure Remote Servers]
+Applicable=No
+
+[Package|Sao Viet|Install Locations]
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\wininet.dll=$(WinSysPath)
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=$(WinSysPath)
+C:\WINDOWS\system32\msxml3.dll=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSOUTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\GRID32.OCX=$(AppPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ZLIBTOOL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CRYSTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\WINDOWS\system32\dao360.dll=$(WinSysPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=$(AppPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\CRPE32.DLL=$(WinSysPath)
+C:\WINDOWS\system32\IMPLODE.DLL=$(WinSysPath)
+C:\WINDOWS\system32\PG32.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\CO2C40EN.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT20.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\CRXLAT32.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\P2BBND.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2BDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2CTDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2IRDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2SODBC.DLL=$(WinSysPath)
+C:\WINDOWS\system32\u2ddisk.dll=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2DMAPI.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FCR.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FDIF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FHTML.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FREC.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FRTF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FSEPV.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FTEXT.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWKS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWORDW.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FXLS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\Sao Viet\Accounting\saoviet.exe=$(AppPath)
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+D:\Sao Viet\Accounting\VNIVowelMap.txt=$(AppPath)
+D:\Sao Viet\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=$(AppPath)
+D:\Data\saoviet.exe=$(AppPath)
+
+[Package|Sao Viet|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=Yes
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=No
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+D:\Sao Viet\Accounting\saoviet.exe=Yes
+D:\Sao Viet\Accounting\VNIVowelMap.txt=Yes
+D:\Sao Viet\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=No
+
+[Package|Sao Viet|Distribution]
+Type=single
+Size=1.44 MB
+Title=Sao Viet Accounting
+
+[Package|Sao Viet|Package]
+PackageFolder=d:\Dong Goi\SAO VIET ACCOUNTING
+ProjectFolder=E:\PM Sao Viet nan cap\PM Nan cap\Accounting
+ServerSideCab=
+File1=d:\Dong Goi\SAO VIET ACCOUNTING\setup.exe
+File2=d:\Dong Goi\SAO VIET ACCOUNTING\Setup.Lst
+File3=d:\Dong Goi\SAO VIET ACCOUNTING\saoviet.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Sao Viet|IconGroups]
+Group0=Sao Viet Accounting
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|Sao Viet|Sao Viet Accounting]
+Icon1=saoviet.exe
+Title1=Sao Viet Accounting
+StartIn1=$(AppPath)
+Key1=Icon1
+
+
+[Package|Sao Viet Acountting|Root]
+SubWizProgID=PDWizard.DepPkgSubWiz
+BuildFolder=e:\phan mem dong goi
+
+[Package|Sao Viet Acountting|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Sao Viet Acountting|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Sao Viet Acountting|Files Found]
+VNIVowelMap.txt=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt
+UnicodeVowels.xml=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml
+
+[Package|Sao Viet Acountting|Files Released]
+SAS.HLP=
+
+[Package|Sao Viet Acountting|Missing Dependency Information]
+C:\WINDOWS\system32\CRYSTL32.OCX=
+C:\WINDOWS\system32\ZLIBTOOL.OCX=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\msxml3.dll=
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\WINDOWS\system32\wininet.dll=
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=
+C:\WINDOWS\system32\dao360.dll=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=
+
+[Package|Sao Viet Acountting|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSMASK32.OCX=
+C:\WINDOWS\system32\COMCTL32.OCX=
+C:\WINDOWS\system32\COMDLG32.OCX=
+C:\WINDOWS\system32\CRYSTL32.OCX=
+
+[Package|Sao Viet Acountting|Files Added]
+e:\pm sao viet nan cap\pm nan cap\accounting\vnivowelmap.txt=
+e:\pm sao viet nan cap\pm nan cap\accounting\unicodevowels.xml=
+e:\pm sao viet nan cap\pm nan cap\accounting\dummy.xml=
+
+[Package|Sao Viet Acountting|Files Removed]
+
+[Package|Sao Viet Acountting|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\wininet.dll=Yes
+C:\WINDOWS\system32\msxml3.dll=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\COMCTL32.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSOUTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\ZLIBTOOL.OCX=Yes
+C:\WINDOWS\system32\CRYSTL32.OCX=Yes
+C:\WINDOWS\system32\msstdfmt.dll=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=Yes
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+C:\WINDOWS\system32\CRPE32.DLL=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=Yes
+
+[Package|Sao Viet Acountting|Configure Registry Files]
+Applicable=No
+
+[Package|Sao Viet Acountting|Configure Remote Servers]
+Applicable=No
+
+[Package|Sao Viet Acountting|Install Locations]
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\wininet.dll=$(WinSysPath)
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=$(WinSysPath)
+C:\WINDOWS\system32\msxml3.dll=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSOUTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\GRID32.OCX=$(AppPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ZLIBTOOL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CRYSTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\WINDOWS\system32\dao360.dll=$(WinSysPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=$(AppPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\CRPE32.DLL=$(WinSysPath)
+C:\WINDOWS\system32\IMPLODE.DLL=$(WinSysPath)
+C:\WINDOWS\system32\PG32.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\CO2C40EN.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT20.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\CRXLAT32.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\P2BBND.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2BDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2CTDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2IRDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2SODBC.DLL=$(WinSysPath)
+C:\WINDOWS\system32\u2ddisk.dll=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2DMAPI.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FCR.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FDIF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FHTML.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FREC.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FRTF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FSEPV.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FTEXT.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWKS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWORDW.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FXLS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\Sao Viet\Accounting\saoviet.exe=$(AppPath)
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+D:\Sao Viet\Accounting\VNIVowelMap.txt=$(AppPath)
+D:\Sao Viet\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=$(AppPath)
+D:\Data\saoviet.exe=$(AppPath)
+
+[Package|Sao Viet Acountting|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=Yes
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=No
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+D:\Sao Viet\Accounting\saoviet.exe=Yes
+D:\Sao Viet\Accounting\VNIVowelMap.txt=Yes
+D:\Sao Viet\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=No
+
+[Package|Sao Viet Acountting|Distribution]
+Type=single
+Size=1.44 MB
+Title=Sao Viet Accounting
+
+[Package|Sao Viet Acountting|IconGroups]
+Group0=Sao Viet Accounting
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|Sao Viet Acountting|Sao Viet Accounting]
+Icon1=saoviet.exe
+Title1=Sao Viet Accounting
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Sao Viet Acountting|DepFile]
+DepCabFile=saoviet.CAB
+DepCabRun=saoviet.INF
+
+[Package|Sao Viet Acountting|Package]
+PackageFolder=e:\phan mem dong goi
+ProjectFolder=E:\PM Sao Viet nan cap\PM Nan cap\Accounting
+ServerSideCab=
+File1=e:\phan mem dong goi\saoviet.DEP
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Sao Viet Accountting1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=e:\phanmem
+
+[Package|Sao Viet Accountting1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Sao Viet Accountting1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Sao Viet Accountting1|Files Found]
+VNIVowelMap.txt=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt
+UnicodeVowels.xml=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml
+
+[Package|Sao Viet Accountting1|Files Released]
+SAS.HLP=
+
+[Package|Sao Viet Accountting1|Missing Dependency Information]
+C:\WINDOWS\system32\CRYSTL32.OCX=
+C:\WINDOWS\system32\ZLIBTOOL.OCX=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\msxml3.dll=
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\WINDOWS\system32\wininet.dll=
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=
+C:\WINDOWS\system32\dao360.dll=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=
+
+[Package|Sao Viet Accountting1|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSMASK32.OCX=
+C:\WINDOWS\system32\COMCTL32.OCX=
+C:\WINDOWS\system32\COMDLG32.OCX=
+C:\WINDOWS\system32\CRYSTL32.OCX=
+
+[Package|Sao Viet Accountting1|Files Added]
+e:\pm sao viet nan cap\pm nan cap\accounting\vnivowelmap.txt=
+e:\pm sao viet nan cap\pm nan cap\accounting\unicodevowels.xml=
+e:\pm sao viet nan cap\pm nan cap\accounting\dummy.xml=
+
+[Package|Sao Viet Accountting1|Files Removed]
+
+[Package|Sao Viet Accountting1|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\wininet.dll=Yes
+C:\WINDOWS\system32\msxml3.dll=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\COMCTL32.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSOUTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\ZLIBTOOL.OCX=Yes
+C:\WINDOWS\system32\CRYSTL32.OCX=Yes
+C:\WINDOWS\system32\msstdfmt.dll=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=Yes
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+C:\WINDOWS\system32\CRPE32.DLL=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6StKit.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Sao Viet Accountting1|Configure Registry Files]
+Applicable=No
+
+[Package|Sao Viet Accountting1|Configure Remote Servers]
+Applicable=No
+
+[Package|Sao Viet Accountting1|Install Locations]
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\wininet.dll=$(WinSysPath)
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=$(WinSysPath)
+C:\WINDOWS\system32\msxml3.dll=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSOUTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\GRID32.OCX=$(AppPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ZLIBTOOL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CRYSTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\WINDOWS\system32\dao360.dll=$(WinSysPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=$(AppPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\CRPE32.DLL=$(WinSysPath)
+C:\WINDOWS\system32\IMPLODE.DLL=$(WinSysPath)
+C:\WINDOWS\system32\PG32.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\CO2C40EN.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT20.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\CRXLAT32.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\P2BBND.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2BDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2CTDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2IRDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2SODBC.DLL=$(WinSysPath)
+C:\WINDOWS\system32\u2ddisk.dll=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2DMAPI.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FCR.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FDIF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FHTML.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FREC.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FRTF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FSEPV.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FTEXT.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWKS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWORDW.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FXLS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\Sao Viet\Accounting\saoviet.exe=$(AppPath)
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+D:\Sao Viet\Accounting\VNIVowelMap.txt=$(AppPath)
+D:\Sao Viet\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=$(AppPath)
+D:\Data\saoviet.exe=$(AppPath)
+
+[Package|Sao Viet Accountting1|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=Yes
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=No
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+D:\Sao Viet\Accounting\saoviet.exe=Yes
+D:\Sao Viet\Accounting\VNIVowelMap.txt=Yes
+D:\Sao Viet\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=No
+
+[Package|Sao Viet Accountting1|Distribution]
+Type=single
+Size=1.44 MB
+Title=Sao Viet Accounting
+
+[Package|Sao Viet Accountting1|DepFile]
+DepCabFile=saoviet.CAB
+DepCabRun=saoviet.INF
+
+[Package|Sao Viet Accountting1|Package]
+PackageFolder=e:\phan mem dong goi
+ProjectFolder=E:\PM Sao Viet nan cap\PM Nan cap\Accounting
+ServerSideCab=
+File1=e:\phan mem dong goi\saoviet.DEP
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Sao Viet Accountting1|IconGroups]
+Group0=Sao Viet Accounting
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|Sao Viet Accountting1|Sao Viet Accounting]
+Icon1=saoviet.exe
+Title1=Sao Viet Accounting
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|a|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=e:\phanmem
+
+[Package|a|Configure DAO ISAMs]
+Applicable=No
+
+[Package|a|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|a|Files Found]
+VNIVowelMap.txt=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt
+UnicodeVowels.xml=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml
+
+[Package|a|Files Released]
+SAS.HLP=
+
+[Package|a|Missing Dependency Information]
+C:\WINDOWS\system32\CRYSTL32.OCX=
+C:\WINDOWS\system32\ZLIBTOOL.OCX=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\msxml3.dll=
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\WINDOWS\system32\wininet.dll=
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=
+C:\WINDOWS\system32\dao360.dll=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=
+
+[Package|a|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSMASK32.OCX=
+C:\WINDOWS\system32\COMCTL32.OCX=
+C:\WINDOWS\system32\COMDLG32.OCX=
+C:\WINDOWS\system32\CRYSTL32.OCX=
+
+[Package|a|Files Added]
+e:\pm sao viet nan cap\pm nan cap\accounting\vnivowelmap.txt=
+e:\pm sao viet nan cap\pm nan cap\accounting\unicodevowels.xml=
+e:\pm sao viet nan cap\pm nan cap\accounting\dummy.xml=
+
+[Package|a|Files Removed]
+
+[Package|a|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\wininet.dll=Yes
+C:\WINDOWS\system32\msxml3.dll=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\COMCTL32.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSOUTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\ZLIBTOOL.OCX=Yes
+C:\WINDOWS\system32\CRYSTL32.OCX=Yes
+C:\WINDOWS\system32\msstdfmt.dll=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=Yes
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+C:\WINDOWS\system32\CRPE32.DLL=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6StKit.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|a|Configure Registry Files]
+Applicable=No
+
+[Package|a|Configure Remote Servers]
+Applicable=No
+
+[Package|a|Install Locations]
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\wininet.dll=$(WinSysPath)
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=$(WinSysPath)
+C:\WINDOWS\system32\msxml3.dll=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSOUTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\GRID32.OCX=$(AppPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ZLIBTOOL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CRYSTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\WINDOWS\system32\dao360.dll=$(WinSysPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=$(AppPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\CRPE32.DLL=$(WinSysPath)
+C:\WINDOWS\system32\IMPLODE.DLL=$(WinSysPath)
+C:\WINDOWS\system32\PG32.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\CO2C40EN.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT20.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\CRXLAT32.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\P2BBND.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2BDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2CTDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2IRDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2SODBC.DLL=$(WinSysPath)
+C:\WINDOWS\system32\u2ddisk.dll=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2DMAPI.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FCR.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FDIF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FHTML.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FREC.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FRTF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FSEPV.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FTEXT.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWKS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWORDW.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FXLS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\Sao Viet\Accounting\saoviet.exe=$(AppPath)
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+D:\Sao Viet\Accounting\VNIVowelMap.txt=$(AppPath)
+D:\Sao Viet\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=$(AppPath)
+D:\Data\saoviet.exe=$(AppPath)
+
+[Package|a|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=Yes
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=No
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+D:\Sao Viet\Accounting\saoviet.exe=Yes
+D:\Sao Viet\Accounting\VNIVowelMap.txt=Yes
+D:\Sao Viet\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=No
+
+[Package|a|Distribution]
+Type=single
+Size=1.44 MB
+Title=Sao Viet Accounting
+
+[Package|a|DepFile]
+DepCabFile=saoviet.CAB
+DepCabRun=saoviet.INF
+
+[Package|a|Package]
+PackageFolder=e:\phan mem dong goi
+ProjectFolder=E:\PM Sao Viet nan cap\PM Nan cap\Accounting
+ServerSideCab=
+File1=e:\phan mem dong goi\saoviet.DEP
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|a|IconGroups]
+Group0=Sao Viet Accounting
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|a|Sao Viet Accounting]
+Icon1=saoviet.exe
+Title1=Sao Viet Accounting
+StartIn1=$(AppPath)
+Key1=Icon1
+
+
+[Package|Sao Viet Accountting|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=d:\SV
+
+[Package|Sao Viet Accountting|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Sao Viet Accountting|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Sao Viet Accountting|Files Found]
+VNIVowelMap.txt=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt
+UnicodeVowels.xml=E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml
+
+[Package|Sao Viet Accountting|Files Released]
+SAS.HLP=
+backup1.mdb=
+
+[Package|Sao Viet Accountting|Missing Dependency Information]
+C:\WINDOWS\system32\CRYSTL32.OCX=
+C:\WINDOWS\system32\ZLIBTOOL.OCX=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\msxml3.dll=
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\WINDOWS\system32\wininet.dll=
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=
+C:\WINDOWS\system32\dao360.dll=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\crystl32.ocx=
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\MSLDBUSR.DLL=
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\VietStar.exe=
+
+[Package|Sao Viet Accountting|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSMASK32.OCX=
+C:\WINDOWS\system32\COMCTL32.OCX=
+C:\WINDOWS\system32\COMDLG32.OCX=
+C:\WINDOWS\system32\CRYSTL32.OCX=
+C:\WINDOWS\system32\scrrun.dll=
+
+[Package|Sao Viet Accountting|Files Added]
+e:\pm sao viet nan cap\pm nan cap\accounting\vnivowelmap.txt=
+e:\pm sao viet nan cap\pm nan cap\accounting\unicodevowels.xml=
+e:\pm sao viet nan cap\pm nan cap\accounting\dummy.xml=
+e:\pm sao viet nan cap\pm nan cap\accountingvs1_ phat trien lan 2\vietstar.exe=
+
+[Package|Sao Viet Accountting|Files Removed]
+
+[Package|Sao Viet Accountting|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\wininet.dll=Yes
+C:\WINDOWS\system32\msxml3.dll=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\COMCTL32.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSOUTL32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\ZLIBTOOL.OCX=Yes
+C:\WINDOWS\system32\msstdfmt.dll=Yes
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6StKit.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\WINDOWS\system32\Crystl32.OCX=Yes
+C:\WINDOWS\system32\crpe32.dll=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\MSLDBUSR.DLL=Yes
+C:\WINDOWS\system32\scrrun.dll=Yes
+C:\WINDOWS\system32\msvcrt.dll=Yes
+D:\VietStar18.exe=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\VietStar.exe=Yes
+
+[Package|Sao Viet Accountting|Configure Registry Files]
+Applicable=No
+
+[Package|Sao Viet Accountting|Configure Remote Servers]
+Applicable=No
+
+[Package|Sao Viet Accountting|Install Locations]
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\MSLDBUSR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\wininet.dll=$(WinSysPath)
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll=$(WinSysPath)
+C:\WINDOWS\system32\msxml3.dll=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSOUTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\GRID32.OCX=$(AppPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ZLIBTOOL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CRYSTL32.OCX=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\WINDOWS\system32\dao360.dll=$(WinSysPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=$(AppPath)
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\CRPE32.DLL=$(WinSysPath)
+C:\WINDOWS\system32\IMPLODE.DLL=$(WinSysPath)
+C:\WINDOWS\system32\PG32.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\CO2C40EN.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT20.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\CRXLAT32.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\P2BBND.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2BDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2CTDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2IRDAO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\P2SODBC.DLL=$(WinSysPath)
+C:\WINDOWS\system32\u2ddisk.dll=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2DMAPI.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FCR.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FDIF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FHTML.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FREC.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FRTF.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FSEPV.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FTEXT.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWKS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FWORDW.DLL=$(WinPath)\Crystal
+C:\WINDOWS\Crystal\U2FXLS.DLL=$(WinPath)\Crystal
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\Sao Viet\Accounting\saoviet.exe=$(AppPath)
+D:\Sao Viet\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+D:\Sao Viet\Accounting\VNIVowelMap.txt=$(AppPath)
+D:\Sao Viet\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\MSLDBUSR.DLL=$(WinSysPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=$(AppPath)
+D:\Data\saoviet.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\crystl32.ocx=$(WinSysPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\VietStar17.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\MSLDBUSR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\scrrun.dll=$(WinSysPath)
+C:\WINDOWS\system32\msvcrt.dll=$(WinSysPathSysFile)
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\Data\backup1.MDB=$(AppPath)
+D:\VietStar18.exe=$(AppPath)
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\VietStar.exe=$(AppPath)
+
+[Package|Sao Viet Accountting|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrator\Desktop\2_11+2013\Accounting_26_10\Accounting_18_10\saoviet.exe=Yes
+C:\Program Files\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\WINDOWS\system32\GRID32.OCX=Yes
+C:\Documents and Settings\Admin\Desktop\3_12_2013\Accounting\saoviet.exe=No
+C:\Program Files\Microsoft Office\Office12\EXCEL.EXE=Yes
+D:\Sao Viet\Accounting\saoviet.exe=Yes
+D:\Sao Viet\Accounting\VNIVowelMap.txt=Yes
+D:\Sao Viet\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\saoviet.exe=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\VNIVowelMap.txt=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\UnicodeVowels.xml=Yes
+E:\PM Sao Viet nan cap\PM Nan cap\Accounting\Dummy.xml=Yes
+D:\Data\saoviet.exe=No
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\VietStar17.exe=No
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\Data\backup1.MDB=Yes
+D:\VietStar18.exe=No
+E:\PM Sao Viet nan cap\PM Nan cap\Accountingvs1_ Phat trien lan 2\VietStar.exe=Yes
+
+[Package|Sao Viet Accountting|Distribution]
+Type=multi
+Size=1.44 MB
+Title=Sao Viet Accounting
+
+[Package|Sao Viet Accountting|DepFile]
+DepCabFile=saoviet.CAB
+DepCabRun=saoviet.INF
+
+[Package|Sao Viet Accountting|Package]
+PackageFolder=d:\Data
+ProjectFolder=E:\PM Sao Viet nan cap\PM Nan cap\Accounting
+ServerSideCab=
+File1=d:\Data\setup.exe
+File2=d:\Data\Setup.Lst
+File3=d:\Data\saoviet.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Sao Viet Accountting|IconGroups]
+Group0=Sao Viet Accounting
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|Sao Viet Accountting|Sao Viet Accounting]
+Icon1=saoviet.exe
+Title1=Sao Viet Accounting
+StartIn1=$(AppPath)
+Key1=Icon1
