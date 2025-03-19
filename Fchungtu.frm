@@ -22,6 +22,12 @@ Begin VB.Form FrmChungtu
    Tag             =   "0"
    WhatsThisButton =   -1  'True
    WhatsThisHelp   =   -1  'True
+   Begin VB.Timer Timer2 
+      Enabled         =   0   'False
+      Interval        =   2000
+      Left            =   11640
+      Top             =   240
+   End
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
       Interval        =   2000
@@ -2927,6 +2933,25 @@ Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
 Const TM = "111"
 Const NH = "112"
 
+Dim Stt As Integer
+
+Dim IdDuyet As Integer
+Dim item As ClsFileImport
+Dim i As Integer
+Dim displayInfo As String
+Dim xmlDoc As Object
+Dim fDialog As Object
+Dim dlhDonNode As Object
+Dim ttChungNode As Object
+Dim ndhDonNode As Object
+Dim mstNode As Object
+Dim TTNode As Object
+Dim tenNode As Object
+Dim DChiNode As Object
+Dim convertedDate As Date
+Dim FilePath As String
+Dim cbbThang As String
+
 Public MaSoCT As Long
 Dim ngay(0 To 1) As Date                              ' Ngµy chøng tõ
 Dim loaict As Integer                                        ' Lo¹i chøng tõ
@@ -2942,18 +2967,18 @@ Dim SetLoaiEnable As Boolean
 Dim shct As String
 Dim xddu As Boolean
 Dim TenTC As String, DiachiTC As String, ctgoc As String, TenNX As String, DiaChiNX As String, TenBH As String, DiaChiBH As String, MSTBH As String, unc1 As String, unc2 As String, unc3 As String, MaKHBH As Long, HanTT As Date
-Attribute DiachiTC.VB_VarUserMemId = 1073938446
-Attribute ctgoc.VB_VarUserMemId = 1073938446
-Attribute TenNX.VB_VarUserMemId = 1073938446
-Attribute DiaChiNX.VB_VarUserMemId = 1073938446
-Attribute TenBH.VB_VarUserMemId = 1073938446
-Attribute DiaChiBH.VB_VarUserMemId = 1073938446
-Attribute MSTBH.VB_VarUserMemId = 1073938446
-Attribute unc1.VB_VarUserMemId = 1073938446
-Attribute unc2.VB_VarUserMemId = 1073938446
-Attribute unc3.VB_VarUserMemId = 1073938446
-Attribute MaKHBH.VB_VarUserMemId = 1073938446
-Attribute HanTT.VB_VarUserMemId = 1073938446
+Attribute DiachiTC.VB_VarUserMemId = 1073938463
+Attribute ctgoc.VB_VarUserMemId = 1073938463
+Attribute TenNX.VB_VarUserMemId = 1073938463
+Attribute DiaChiNX.VB_VarUserMemId = 1073938463
+Attribute TenBH.VB_VarUserMemId = 1073938463
+Attribute DiaChiBH.VB_VarUserMemId = 1073938463
+Attribute MSTBH.VB_VarUserMemId = 1073938463
+Attribute unc1.VB_VarUserMemId = 1073938463
+Attribute unc2.VB_VarUserMemId = 1073938463
+Attribute unc3.VB_VarUserMemId = 1073938463
+Attribute MaKHBH.VB_VarUserMemId = 1073938463
+Attribute HanTT.VB_VarUserMemId = 1073938463
 Dim HD() As tpHoaDon, hdcount As Integer
 Attribute HD.VB_VarUserMemId = 1073938459
 Attribute hdcount.VB_VarUserMemId = 1073938459
@@ -2993,13 +3018,19 @@ Dim hien_bang_tinh As Boolean
 Attribute hien_bang_tinh.VB_VarUserMemId = 1073938478
 Public tongtientruoc As Double
 Attribute tongtientruoc.VB_VarUserMemId = 1073938479
-Public Sub AddImportData(ByVal name As String, ByVal soHD As String, ByVal soTK As String, ByVal ngay As Date, ByVal types As String, ByVal path As String)
+Public Sub AutoCLickLoai()
+    OptLoai(0).Value = True
+    OptLoai_LostFocus 0
+    RFocus CboThang
+    DisplayFileImportList
+End Sub
+Public Sub AddImportData(ByVal Name As String, ByVal sohd As String, ByVal soTK As String, ByVal ngay As Date, ByVal types As String, ByVal path As String)
     Dim fileImport As ClsFileImport
     Set fileImport = New ClsFileImport
 
     ' Gán giá tr? cho các thu?c tính
-    fileImport.name = name
-    fileImport.soHD = soHD
+    fileImport.Name = Name
+    fileImport.sohd = sohd
     fileImport.soTK = soTK
     fileImport.ngay = ngay
     fileImport.types = types
@@ -3007,26 +3038,109 @@ Public Sub AddImportData(ByVal name As String, ByVal soHD As String, ByVal soTK 
     fileImportList.Add fileImport
 
 End Sub
-Public Sub DisplayFileImportList()
-    Dim item As ClsFileImport
-    Dim i As Integer
-    Dim displayInfo As String
-
-    displayInfo = "Danh sách FileImport:" & vbCrLf
-
-    ' Duy?t qua t?ng d?i tu?ng trong fileImportList
-    For i = 1 To fileImportList.count
-        Set item = fileImportList(i)
-        displayInfo = displayInfo & "Tên: " & item.name & ", " & _
-                      "Ngày: " & item.ngay & ", " & _
-                      "S? HÐ: " & item.soHD & ", " & _
-                      "S? TK: " & item.soTK & ", " & _
-                      "Lo?i: " & item.patTH & vbCrLf
-    Next i
-
-    ' Hi?n th? thông tin
-    MsgBox displayInfo
+Public Sub DoneSetup()
+     Timer1.Enabled = True
 End Sub
+
+Public Sub DisplayFileImportList()
+    
+    IdDuyet = 1
+    Set item = fileImportList(IdDuyet)
+    DuyetItemList item.patTH
+    
+    ' Hi?n th? thông tin
+End Sub
+Private Sub DuyetItemList(ByVal fname As String)
+    Set xmlDoc = CreateObject("MSXML2.DOMDocument.3.0")
+    xmlDoc.async = False
+    xmlDoc.validateOnParse = False
+    FilePath = fname
+    If xmlDoc.Load(FilePath) Then
+        ' L?y các node
+        Set dlhDonNode = xmlDoc.selectSingleNode("/HDon/DLHDon")
+        Set ttChungNode = xmlDoc.selectSingleNode("/HDon/DLHDon/TTChung")
+        Set ndhDonNode = xmlDoc.selectSingleNode("/HDon/DLHDon/NDHDon")
+        Set mstNode = xmlDoc.selectSingleNode("/HDon/DLHDon/NDHDon/NBan/MST")
+        Set tenNode = xmlDoc.selectSingleNode("/HDon/DLHDon/NDHDon/NBan/Ten")
+        Set DChiNode = xmlDoc.selectSingleNode("/HDon/DLHDon/NDHDon/NBan/DChi")
+        Set TTNode = xmlDoc.selectSingleNode("/HDon/DLHDon/NDHDon/TToan/TgTCThue")
+        ' Hi?n th? thông tin
+        If Not dlhDonNode Is Nothing Then
+            ' txtID.Text = dlhDonNode.Attributes.getNamedItem("Id").Text
+        Else
+            MsgBox "Không tìm th?y DLHDon."
+        End If
+
+        If Not ttChungNode Is Nothing Then
+            Dim shDonNode As Object
+            Dim shKHHDNode As Object
+            Dim shNLapNode As Object
+
+            Set shDonNode = ttChungNode.getElementsByTagName("SHDon")(0)
+            Set shKHHDNode = ttChungNode.getElementsByTagName("KHHDon")(0)
+            Set shNLapNode = ttChungNode.getElementsByTagName("NLap")(0)
+
+            If Not shDonNode Is Nothing Then
+                txt(0).Text = shDonNode.Text
+                txtVT(1).Text = shKHHDNode.Text
+
+                If Not shNLapNode Is Nothing Then
+                    convertedDate = CDate(shNLapNode.Text)
+                    MedNgay(0).Text = Format(convertedDate, "dd/mm/yy")
+                    cbbThang = CboThang.Text    ' L?y giá tr? du?c ch?n t? ComboBox
+                    Dim monthValue As Integer
+                    Dim monthValue2 As Integer
+                    monthValue = Month(CDate(cbbThang))
+                    monthValue2 = Month(CDate(convertedDate))
+                    ' So sánh tháng l?y du?c v?i tháng hi?n t?i
+                    If monthValue <> monthValue2 Then
+                        Dim dateString As String
+                        dateString = "1/" & monthValue & "/" & Year(Date)
+                        MedNgay(1).Text = Format(dateString, "dd/mm/yy")
+                    End If
+                End If
+                If Not mstNode Is Nothing Then
+                    txtVT(9).Text = mstNode.Text
+                    GetcustomerByMST txtVT(9).Text, tenNode.Text, DChiNode.Text
+                Else
+                    MsgBox "Không tìm th?y MST."
+                End If
+                txt(1).Text = "Noi dung chi phi quan ly"
+                txtchungtu(0).Text = 6422
+                txtChungtu_LostFocus (0)
+                txtchungtu(5).Text = TTNode.Text
+                RFocus txtchungtu(6)
+                txtChungtu_KeyPress 6, 13
+
+                txtchungtu(0).Text = 1331
+                txtChungtu_LostFocus (0)
+                txtchungtu(2).Text = 8
+                txtChungtu_LostFocus (2)
+                RFocus txtchungtu(6)
+                txtChungtu_KeyPress 6, 13
+
+                txtchungtu(0).Text = 1111
+                FThuChi.FThuChiForm = 1
+                If Stt <> 2 Then
+                    txtChungtu_LostFocus (0)
+                End If
+
+                Stt = Stt + 1
+            Else
+                MsgBox "Không tìm th?y SHDon."
+            End If
+        Else
+            MsgBox "Không tìm th?y TTChung."
+        End If
+
+        If Not ndhDonNode Is Nothing Then
+            ' X? lý ndhDonNode n?u c?n
+        End If
+    Else
+        MsgBox "L?i khi t?i file XML: " & xmlDoc.parseError.reason
+    End If
+End Sub
+
 Private Sub CboLoai_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 And KHDetail Then
         'RFocus txtVT(7)
@@ -3205,7 +3319,7 @@ Private Sub CboThang_DblClick()
     Label(26).Caption = ""
 End Sub
 
-Private Sub CboThang_DragDrop(source As Control, X As Single, y As Single)
+Private Sub CboThang_DragDrop(source As Control, X As Single, Y As Single)
     Label(26).Caption = ""
 End Sub
 
@@ -3541,7 +3655,7 @@ Public Sub CmdChitiet_chon()
                 h.MaKhachHang = HD(hdcount).MaKhachHang
                 h.MauSo = HD(hdcount).MauSo
                 h.KyHieu = HD(hdcount).KyHieu
-                h.soHD = HD(hdcount).soHD
+                h.sohd = HD(hdcount).sohd
                 h.NgayPH = HD(hdcount).NgayPH
                 h.tygia = HD(hdcount).tygia
             Else
@@ -3585,7 +3699,7 @@ Public Sub CmdChitiet_chon()
             ' --------------------
             ' vua them vao sau
             If hdcount <= 0 Then
-                h.soHD = txt(0).Text    'so hoa don
+                h.sohd = txt(0).Text    'so hoa don
             End If
             h.KyHieu = txtVT(1).Text
             h.MatHang = txt(1).Text
@@ -3916,7 +4030,7 @@ Sub in_hoa_don_tong_hop(Index As Integer, in_hd As Integer)
     Dim sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String
     Dim tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As New ClsTaikhoan, tiennt As Double
     Dim ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As New ClsVattu
-    Dim dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As New Cls154, lanin As Integer, stt As Integer, loaitien As String
+    Dim dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As New Cls154, lanin As Integer, Stt As Integer, loaitien As String
     Dim chophep_in As Integer
     chophep_in = 0
     SetRptInfo
@@ -3948,9 +4062,9 @@ Sub in_hoa_don_tong_hop(Index As Integer, in_hd As Integer)
                             .col = 3
                             loaitien = .Text
                         End If
-                        frmMain.Rpt.Formulas(80 + stt) = "TKNo" + CStr(stt) + "='" + xxx + "'"
-                        frmMain.Rpt.Formulas(90 + stt) = "PSNo" + CStr(stt) + "=" + DoiDau(v)
-                        stt = stt + 1
+                        frmMain.Rpt.Formulas(80 + Stt) = "TKNo" + CStr(Stt) + "='" + xxx + "'"
+                        frmMain.Rpt.Formulas(90 + Stt) = "PSNo" + CStr(Stt) + "=" + DoiDau(v)
+                        Stt = Stt + 1
                     Else
                         .col = 7
                         tien = Cdbl5(.Text)
@@ -3996,9 +4110,9 @@ C1:
                     X = Cdbl5(.Text)
                     If X <> 0 Then
                         If Left(xxx, Len(shtk)) = shtk Then ttien = ttien + X
-                        frmMain.Rpt.Formulas(80 + stt) = "TKCo" + CStr(stt) + "='" + xxx + "'"
-                        frmMain.Rpt.Formulas(90 + stt) = "PSCo" + CStr(stt) + "=" + DoiDau(X)
-                        stt = stt + 1
+                        frmMain.Rpt.Formulas(80 + Stt) = "TKCo" + CStr(Stt) + "='" + xxx + "'"
+                        frmMain.Rpt.Formulas(90 + Stt) = "PSCo" + CStr(Stt) + "=" + DoiDau(X)
+                        Stt = Stt + 1
                         .col = 4
                         X = Cdbl5(.Text)
                         If Cdbl5(.Text) <> 0 Then
@@ -4239,7 +4353,7 @@ B:
                     Else
                         frmMain.Rpt.Formulas(13) = "TyLe='ThuÕ GTGT (" + CStr(HD(hdcount).TyLe) + "%):'"
                     End If
-                    frmMain.Rpt.Formulas(18) = "HoaDon='" + ABCtoVNI("Ho¸ ®¬n : ") + HD(hdcount).MauSo + ABCtoVNI(" - Sè : ") + HD(hdcount).soHD + ABCtoVNI(" - Sè : ") + HD(hdcount).KyHieu + ABCtoVNI(" - Ngµy : ") + Format(HD(hdcount).NgayPH, Mask_DR) + "'"
+                    frmMain.Rpt.Formulas(18) = "HoaDon='" + ABCtoVNI("Ho¸ ®¬n : ") + HD(hdcount).MauSo + ABCtoVNI(" - Sè : ") + HD(hdcount).sohd + ABCtoVNI(" - Sè : ") + HD(hdcount).KyHieu + ABCtoVNI(" - Ngµy : ") + Format(HD(hdcount).NgayPH, Mask_DR) + "'"
                 End If
                 ms = HD(hdcount).MaKhachHang
             Else
@@ -4273,10 +4387,10 @@ B:
             ''                        In_hoa_don2 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, stt, loaitien
             ''                     '   End If
             If in_hd = 0 Then
-                In_hoa_don1 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, stt, loaitien
+                In_hoa_don1 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, Stt, loaitien
             End If
             If in_hd = 1 Then
-                In_hoa_don2 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, stt, loaitien
+                In_hoa_don2 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, Stt, loaitien
             End If
 
             chophep_in = 1
@@ -4395,7 +4509,7 @@ Public Sub CmdPhieu_Click(Index As Integer)
     in_hoa_don_tong_hop Index, 0
     '   End If
 End Sub
-Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String, tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As ClsTaikhoan, tiennt As Double, ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As ClsVattu, dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As Cls154, lanin As Integer, stt As Integer, loaitien As String)
+Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String, tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As ClsTaikhoan, tiennt As Double, ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As ClsVattu, dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As Cls154, lanin As Integer, Stt As Integer, loaitien As String)
     tiennt = 0
     v = 0
     sodu = 0
@@ -4512,7 +4626,7 @@ Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sod
     Case 0, 7, 8:
         If hdcount >= 0 Then
             frmMain.Rpt.Formulas(11) = "TyLe=" + CStr(HD(hdcount).TyLe)
-            frmMain.Rpt.Formulas(16) = "SoHD='" + HD(hdcount).soHD + "'"
+            frmMain.Rpt.Formulas(16) = "SoHD='" + HD(hdcount).sohd + "'"
             ms = HD(hdcount).MaKhachHang
             HTTT = HD(hdcount).HTTT
             frmMain.Rpt.Formulas(17) = "TyGia=" + DoiDau(HD(hdcount).tygia)
@@ -4573,7 +4687,7 @@ Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sod
 
 End Sub
 
-Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String, tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As ClsTaikhoan, tiennt As Double, ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As ClsVattu, dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As Cls154, lanin As Integer, stt As Integer, loaitien As String)
+Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String, tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As ClsTaikhoan, tiennt As Double, ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As ClsVattu, dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As Cls154, lanin As Integer, Stt As Integer, loaitien As String)
     Dim sql
     sql = "select * from license"
     Dim lisen
@@ -5083,7 +5197,7 @@ End Function
 '====================================================================================================
 ' C¸c chøc n¨ng thªm, ghi, xãa
 '====================================================================================================
-Private Sub Command_Click(Index As Integer)
+Public Sub Command_Click(Index As Integer)
     Dim so_dem
     so_dem = kiem_tra_333_133
     ngay(0) = CVDate(MedNgay(0).Text)
@@ -5809,7 +5923,7 @@ Private Sub Command3_Click()
 End Sub
 
 
-Sub GetcustomerByMST(ByVal mst As String, ByVal name As String, ByVal Address As String)
+Sub GetcustomerByMST(ByVal mst As String, ByVal Name As String, ByVal Address As String)
     Dim rs_ktra As Recordset
     Dim Query As String
 
@@ -5831,7 +5945,7 @@ Sub GetcustomerByMST(ByVal mst As String, ByVal name As String, ByVal Address As
         Dim getMst As String
         getMst = Right(txtVT(9).Text, 4)
         txtVT(0).Text = getMst
-        txtVT(7).Text = name
+        txtVT(7).Text = Name
         txtVT(8).Text = Address
     End If
 
@@ -5857,7 +5971,7 @@ Dim FilePath As String
     ' T?o h?p tho?i m? file
     Set fDialog = CreateObject("MSComDlg.CommonDialog")
     fDialog.ShowOpen
-    FilePath = fDialog.FileName
+    FilePath = fDialog.fileName
 
     ' Kh?i t?o MSXML
     Set xmlDoc = CreateObject("MSXML2.DOMDocument.3.0")
@@ -5957,14 +6071,15 @@ Private Sub Command4_Click()
     Load frmLocImport
     frmLocImport.Show vbModal
 End Sub
+Public Sub MultiImportData()
+OptLoai_Click 0
+End Sub
 
-Private Sub cmdReset_Click()
+Public Sub cmdReset_Click()
     ' Làm r?ng danh sách fileImportList
-    Set fileImportList = New Collection
 End Sub
 Private Sub Form_Activate()
 
-    Set fileImportList = New Collection
 
     Dim ithang As Integer
     'Add item cho cbbThang
@@ -6098,10 +6213,16 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
         Unload Me
     End If
 End Sub
+Public Sub ListReset()
+Set fileImportList = New Collection
+End Sub
 '====================================================================================================
 ' Khëi t¹o cöa sæ nhËp
 '====================================================================================================
 Private Sub Form_Load()
+    
+    Stt = 1
+    ListReset
     ColumnSetUp Grid2, 0, 1300, 2
     ColumnSetUp Grid2, 1, 940, 2
     ColumnSetUp Grid2, 2, 940, 2
@@ -6247,11 +6368,11 @@ LoiNgay:
 
 End Sub
 
-Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, y As Single)
+Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     If Button = 2 Then PopupMenu mnPU
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, y As Single)
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     Dim i
 
 
@@ -6355,7 +6476,7 @@ Private Sub GrdChungtu_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then GrdChungtu_DblClick
 End Sub
 
-Private Sub GrdChungtu_MouseDown(Button As Integer, Shift As Integer, X As Single, y As Single)
+Private Sub GrdChungtu_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     If Button = 2 Then
         SearchObj 1, , GrdChungtu, GrdChungtu.col
     End If
@@ -6505,7 +6626,7 @@ End Sub
 '====================================================================================================
 ' §Æt chÕ ®é nhËp cho lo¹i phiÕu t­¬ng øng
 '====================================================================================================
-Private Sub OptLoai_Click(Index As Integer)
+Public Sub OptLoai_Click(Index As Integer)
 ' chon nut khau hao
     txtVT(2).Text = ""
     OptLoai(Index).Value = True
@@ -6629,12 +6750,12 @@ Private Sub OptLoai_LostFocus(Index As Integer)
     AddMonthToCbo CboThang
 End Sub
 
-Private Sub OptLoai_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, y As Single)
+Private Sub OptLoai_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
     OptLoai(Index).Value = True
     RFocus CboThang
 End Sub
 
-Private Sub OptLoai_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, y As Single)
+Private Sub OptLoai_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
     Dim i
     '        For i = 0 To 4
     '        If OptLoai(i).Value = False Then OptLoai(i).BackColor = &HC0FFC0    ' &H80000003
@@ -6682,7 +6803,24 @@ End Sub
 Private Sub Timer1_Timer()
 ' Khi Timer dã h?t th?i gian (sau 2 giây)
     Command_Click 1
+
     Timer1.Enabled = False
+    Command_Click 0
+    Timer2.Enabled = True
+  
+
+
+End Sub
+
+Private Sub Timer2_Timer()
+    Timer2.Enabled = False
+    IdDuyet = IdDuyet + 1
+    Dim item2 As ClsFileImport
+
+    If IdDuyet <= fileImportList.count Then
+        Set item2 = fileImportList(IdDuyet)
+        DuyetItemList item2.patTH
+    End If
 End Sub
 
 Private Sub txt_Click(Index As Integer)
@@ -8425,7 +8563,7 @@ Public Function HienPhieuTrenManHinh(p As Integer) As Integer
                         .MaKhachHang = rs_chungtu!MaKhachHang
                         .loai = rs_chungtu!LoaiHD
                         .KyHieu = rs_chungtu!KyHieu
-                        .soHD = rs_chungtu!shd
+                        .sohd = rs_chungtu!shd
                         .NgayPH = rs_chungtu!NgayPH
                         .MatHang = rs_chungtu!MatHang
                         .SoLuong = rs_chungtu!SoLuong
@@ -8598,7 +8736,7 @@ KT1:
                         .MaKhachHang = rs_chungtu!MaKhachHang
                         .loai = rs_chungtu!LoaiHD
                         .KyHieu = rs_chungtu!KyHieu
-                        .soHD = rs_chungtu!shd
+                        .sohd = rs_chungtu!shd
                         .NgayPH = rs_chungtu!NgayPH
                         .MatHang = rs_chungtu!MatHang
                         .SoLuong = rs_chungtu!SoLuong
@@ -9821,7 +9959,7 @@ Private Sub txtsh_LostFocus(Index As Integer)
         Set tkxt = New ClsTaikhoan
         tkxt.InitTaikhoanSohieu txtsh(0).Text
         txtsh(0).tag = IIf(tkxt.MaSo > 0 And tkxt.tkcon = 0, tkxt.MaSo, 0)
-        lb(0).Caption = tkxt.Ten
+        Lb(0).Caption = tkxt.Ten
         vis = (tkxt.tk_id = TKCNKH_ID Or tkxt.tk_id = TKCNPT_ID Or (tkxt.loai = 6 And pDTTP <> 0))
         If Left(txtsh(0).Text, 3) = "154" Then
             vis = True
@@ -9829,7 +9967,7 @@ Private Sub txtsh_LostFocus(Index As Integer)
 
         Label(19).Enabled = vis
         txtsh(1).Enabled = vis
-        lb(1).Enabled = vis
+        Lb(1).Enabled = vis
         cmd(1).Enabled = vis
         cmd(0).tag = IIf(tkxt.tk_id = TKCNKH_ID Or tkxt.tk_id = TKCNPT_ID, 1, IIf(tkxt.loai = 6 And pDTTP <> 0, 2, 0))
         Set tkxt = Nothing
@@ -9838,14 +9976,14 @@ Private Sub txtsh_LostFocus(Index As Integer)
             Set khxt = New ClsKhachHang
             khxt.InitKhachHangSohieu txtsh(1).Text
             txtsh(1).tag = khxt.MaSo
-            lb(1).Caption = khxt.Ten
+            Lb(1).Caption = khxt.Ten
             Set khxt = Nothing
         End If
         If cmd(0).tag = 2 Then
             Set tpxt = New Cls154
             tpxt.InitTPSohieu txtsh(1).Text
             txtsh(1).tag = tpxt.MaSo
-            lb(1).Caption = tpxt.TenVattu
+            Lb(1).Caption = tpxt.TenVattu
             Set tpxt = Nothing
         End If
 
@@ -9853,7 +9991,7 @@ Private Sub txtsh_LostFocus(Index As Integer)
             Set tpxt = New Cls154
             tpxt.InitTPSohieu txtsh(1).Text
             txtsh(1).tag = tpxt.MaSo
-            lb(1).Caption = tpxt.TenVattu
+            Lb(1).Caption = tpxt.TenVattu
             Set tpxt = Nothing
         End If
 

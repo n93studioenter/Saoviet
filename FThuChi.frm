@@ -347,6 +347,7 @@ Private Sub Command_Click()
     FrmChungtu.checkinbangke.Value = checkinbangke.Value
     FrmChungtu.Checkinbangkevahoadon.Value = Checkinbangkevahoadon.Value
     Unload Me
+    FrmChungtu.DoneSetup
 End Sub
 
 Private Sub Form_Activate()

@@ -2,14 +2,28 @@ VERSION 5.00
 Object = "{A8B3B723-0B5A-101B-B22E-00AA0037B2FC}#1.0#0"; "GRID32.OCX"
 Begin VB.Form frmLocImport 
    Caption         =   "Import Data"
-   ClientHeight    =   5610
+   ClientHeight    =   3615
    ClientLeft      =   75
    ClientTop       =   315
-   ClientWidth     =   10365
+   ClientWidth     =   10035
    LinkTopic       =   "Form4"
-   ScaleHeight     =   5610
-   ScaleWidth      =   10365
+   ScaleHeight     =   3615
+   ScaleWidth      =   10035
    StartUpPosition =   2  'CenterScreen
+   Begin VB.Timer Timer1 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   0
+      Top             =   0
+   End
+   Begin VB.CommandButton btnImport 
+      Caption         =   "Import"
+      Height          =   615
+      Left            =   360
+      TabIndex        =   6
+      Top             =   2880
+      Width           =   9615
+   End
    Begin VB.ComboBox Combo2 
       Height          =   315
       Left            =   4320
@@ -32,7 +46,7 @@ Begin VB.Form frmLocImport
       Left            =   6960
       TabIndex        =   1
       Top             =   120
-      Width           =   1815
+      Width           =   3015
    End
    Begin MSGrid.Grid Grid1 
       Height          =   1815
@@ -117,14 +131,15 @@ Private Sub LocData(fromdate As Integer, todate As Integer)
         ' C?u hình MSFlexGrid
         With Grid1
             .Rows = 1    ' Ð?t l?i s? hàng v? 1, ch? còn l?i tiêu d? c?t
-            .Cols = 5    ' S? c?t
+            .Cols = 5  ' S? c?t
             .ColWidth(0) = 2000
             .ColWidth(1) = 2000    ' Ð?t d? r?ng c?t Path (3000 twips)
             .ColWidth(2) = 2000    ' Ð?t d? r?ng c?t Time (2000 twips)
             .ColWidth(3) = 2000
             ' Thêm tiêu d? cho c?t
-            .AddItem "NBan" & vbTab & "SoHD" & vbTab & "Path" & vbTab & "Time" & vbTab & "MaTK"    ' Thêm tiêu d? c?t
-
+            .AddItem "NBan" & vbTab & "SoHD" & vbTab & "Time" & vbTab & "MaTK" & vbTab & "Noi dung"     ' Thêm tiêu d? c?t
+            'Clear List import
+            FrmChungtu.ListReset
             ' Duy?t qua t?ng t?p trong thu m?c
             For Each file In folder.Files
                 'Doc de lay ngay ra
@@ -155,13 +170,12 @@ Private Sub LocData(fromdate As Integer, todate As Integer)
                     If Month(convertedDate) >= fromdate And Month(convertedDate) <= todate Then
                         'Them du lieu cho list frmChungtu
                         FrmChungtu.AddImportData ttNguoiBan.Text, shDonNode.Text, "6621", Format(convertedDate, "dd/mm/yy"), "1", file.path
-                        
-                        '.AddItem ttNguoiBan.Text & vbTab & shDonNode.Text & vbTab & file.path & vbTab & Format(convertedDate, "dd/mm/yy") & vbTab & "6422"    ' Thêm d? li?u
+                        .AddItem shDonNode.Text & vbTab & Format(convertedDate, "dd/mm/yy") & vbTab & ttNguoiBan.Text & vbTab & "6422" & vbTab & "asdasd"     ' Thêm d? li?u
                     End If
                 End If
             Next file
         End With
-        FrmChungtu.DisplayFileImportList
+
     Else
         MsgBox "Thu m?c không t?n t?i!", vbExclamation
     End If
@@ -170,6 +184,12 @@ Private Sub LocData(fromdate As Integer, todate As Integer)
     Set file = Nothing
     Set folder = Nothing
     Set fso = Nothing
+End Sub
+
+Private Sub btnImport_Click()
+    Me.Hide
+    
+    FrmChungtu.AutoCLickLoai
 End Sub
 
 Private Sub Command1_Click()
@@ -200,3 +220,6 @@ Private Sub Form_Load()
     Command1_Click
 End Sub
 
+Private Sub Timer1_Timer()
+    Timer1.Enabled = False
+End Sub
