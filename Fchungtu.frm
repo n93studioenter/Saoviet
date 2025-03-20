@@ -24,13 +24,13 @@ Begin VB.Form FrmChungtu
    WhatsThisHelp   =   -1  'True
    Begin VB.Timer Timer2 
       Enabled         =   0   'False
-      Interval        =   2000
-      Left            =   11640
-      Top             =   240
+      Interval        =   125
+      Left            =   12240
+      Top             =   120
    End
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
-      Interval        =   2000
+      Interval        =   125
       Left            =   12960
       Top             =   0
    End
@@ -1800,10 +1800,10 @@ Begin VB.Form FrmChungtu
    End
    Begin MSGrid.Grid Grid2 
       Height          =   3015
-      Left            =   4920
+      Left            =   3720
       TabIndex        =   134
       Tag             =   "1"
-      Top             =   5160
+      Top             =   5280
       Width           =   9795
       _Version        =   65536
       _ExtentX        =   17268
@@ -2933,7 +2933,7 @@ Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
 Const TM = "111"
 Const NH = "112"
 
-Dim Stt As Integer
+Dim stt As Integer
 
 Dim IdDuyet As Integer
 Dim item As ClsFileImport
@@ -3121,11 +3121,11 @@ Private Sub DuyetItemList(ByVal fname As String)
 
                 txtchungtu(0).Text = 1111
                 FThuChi.FThuChiForm = 1
-                If Stt <> 2 Then
+                If stt < 2 Then
                     txtChungtu_LostFocus (0)
                 End If
 
-                Stt = Stt + 1
+                stt = stt + 1
             Else
                 MsgBox "Không tìm th?y SHDon."
             End If
@@ -4030,7 +4030,7 @@ Sub in_hoa_don_tong_hop(Index As Integer, in_hd As Integer)
     Dim sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String
     Dim tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As New ClsTaikhoan, tiennt As Double
     Dim ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As New ClsVattu
-    Dim dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As New Cls154, lanin As Integer, Stt As Integer, loaitien As String
+    Dim dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As New Cls154, lanin As Integer, stt As Integer, loaitien As String
     Dim chophep_in As Integer
     chophep_in = 0
     SetRptInfo
@@ -4062,9 +4062,9 @@ Sub in_hoa_don_tong_hop(Index As Integer, in_hd As Integer)
                             .col = 3
                             loaitien = .Text
                         End If
-                        frmMain.Rpt.Formulas(80 + Stt) = "TKNo" + CStr(Stt) + "='" + xxx + "'"
-                        frmMain.Rpt.Formulas(90 + Stt) = "PSNo" + CStr(Stt) + "=" + DoiDau(v)
-                        Stt = Stt + 1
+                        frmMain.Rpt.Formulas(80 + stt) = "TKNo" + CStr(stt) + "='" + xxx + "'"
+                        frmMain.Rpt.Formulas(90 + stt) = "PSNo" + CStr(stt) + "=" + DoiDau(v)
+                        stt = stt + 1
                     Else
                         .col = 7
                         tien = Cdbl5(.Text)
@@ -4110,9 +4110,9 @@ C1:
                     X = Cdbl5(.Text)
                     If X <> 0 Then
                         If Left(xxx, Len(shtk)) = shtk Then ttien = ttien + X
-                        frmMain.Rpt.Formulas(80 + Stt) = "TKCo" + CStr(Stt) + "='" + xxx + "'"
-                        frmMain.Rpt.Formulas(90 + Stt) = "PSCo" + CStr(Stt) + "=" + DoiDau(X)
-                        Stt = Stt + 1
+                        frmMain.Rpt.Formulas(80 + stt) = "TKCo" + CStr(stt) + "='" + xxx + "'"
+                        frmMain.Rpt.Formulas(90 + stt) = "PSCo" + CStr(stt) + "=" + DoiDau(X)
+                        stt = stt + 1
                         .col = 4
                         X = Cdbl5(.Text)
                         If Cdbl5(.Text) <> 0 Then
@@ -4387,10 +4387,10 @@ B:
             ''                        In_hoa_don2 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, stt, loaitien
             ''                     '   End If
             If in_hd = 0 Then
-                In_hoa_don1 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, Stt, loaitien
+                In_hoa_don1 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, stt, loaitien
             End If
             If in_hd = 1 Then
-                In_hoa_don2 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, Stt, loaitien
+                In_hoa_don2 sotien, i, k, xxx, sodu, v, lp, ms, mv, tien, ttien, luong, tkno, TkCo, TK, tiennt, ts, HTTT, tl, thue, v338, v521, X, shtk, vt, dn, DC, dnt, CK, somh, tp, lanin, stt, loaitien
             End If
 
             chophep_in = 1
@@ -4509,7 +4509,7 @@ Public Sub CmdPhieu_Click(Index As Integer)
     in_hoa_don_tong_hop Index, 0
     '   End If
 End Sub
-Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String, tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As ClsTaikhoan, tiennt As Double, ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As ClsVattu, dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As Cls154, lanin As Integer, Stt As Integer, loaitien As String)
+Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String, tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As ClsTaikhoan, tiennt As Double, ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As ClsVattu, dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As Cls154, lanin As Integer, stt As Integer, loaitien As String)
     tiennt = 0
     v = 0
     sodu = 0
@@ -4687,7 +4687,7 @@ Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sod
 
 End Sub
 
-Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String, tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As ClsTaikhoan, tiennt As Double, ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As ClsVattu, dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As Cls154, lanin As Integer, Stt As Integer, loaitien As String)
+Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sodu As Integer, v As Double, lp As Integer, ms As Long, mv As String, tien As Double, ttien As Double, luong As Double, tkno As String, TkCo As String, TK As ClsTaikhoan, tiennt As Double, ts As clsTaiSan, HTTT As String, tl As Integer, thue As Double, v338 As Double, v521 As Double, X As Double, shtk As String, vt As ClsVattu, dn As Double, DC As Double, dnt As Double, CK As Double, somh As Integer, tp As Cls154, lanin As Integer, stt As Integer, loaitien As String)
     Dim sql
     sql = "select * from license"
     Dim lisen
@@ -6221,7 +6221,7 @@ End Sub
 '====================================================================================================
 Private Sub Form_Load()
     
-    Stt = 1
+    stt = 1
     ListReset
     ColumnSetUp Grid2, 0, 1300, 2
     ColumnSetUp Grid2, 1, 940, 2
@@ -6807,9 +6807,6 @@ Private Sub Timer1_Timer()
     Timer1.Enabled = False
     Command_Click 0
     Timer2.Enabled = True
-  
-
-
 End Sub
 
 Private Sub Timer2_Timer()
@@ -6820,6 +6817,11 @@ Private Sub Timer2_Timer()
     If IdDuyet <= fileImportList.count Then
         Set item2 = fileImportList(IdDuyet)
         DuyetItemList item2.patTH
+    Else
+        ' Code to execute if the condition is not met
+        MsgBox "Duyet xong"
+        FThuChi.FThuChiForm = 0
+        
     End If
 End Sub
 

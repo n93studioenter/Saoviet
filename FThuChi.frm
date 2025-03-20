@@ -332,7 +332,7 @@ End Sub
 Private Sub Command_Click()
     Dim i As Integer
     '  ExecuteSQL5 "update chungtu set nguoimuahang = '" + T(4).Text + "'  where sohieu = '" + FrmChungtu.txt(0).Text + "'"
-     ExecuteSQL5 "update chungtu set nguoimuahang = '" + T(4).Text + "',hinhthucthanhtoan = '" + ComboBox1.Text + "',sophieudathang = '" + T(3).Text + "' ,chondiengiai = '" + str(Check1.Value) + "'  where sohieu = '" + FrmChungtu.txt(0).Text + "'"
+    ExecuteSQL5 "update chungtu set nguoimuahang = '" + T(4).Text + "',hinhthucthanhtoan = '" + ComboBox1.Text + "',sophieudathang = '" + T(3).Text + "' ,chondiengiai = '" + str(Check1.Value) + "'  where sohieu = '" + FrmChungtu.txt(0).Text + "'"
     For i = 0 To 3
         s(i) = T(i).Text
     Next
@@ -347,7 +347,9 @@ Private Sub Command_Click()
     FrmChungtu.checkinbangke.Value = checkinbangke.Value
     FrmChungtu.Checkinbangkevahoadon.Value = Checkinbangkevahoadon.Value
     Unload Me
-    FrmChungtu.DoneSetup
+    If FThuChiForm = 1 Then
+        FrmChungtu.DoneSetup
+    End If
 End Sub
 
 Private Sub Form_Activate()
