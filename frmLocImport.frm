@@ -198,10 +198,11 @@ Private Sub LocData(fromdate As Integer, todate As Integer)
                     Dim shDonNode As Object
                     Dim shKHHDNode As Object
                     Dim ttNguoiBan As Object
+                    Dim getMst As Object
 
                     Set ttNguoiBan = xmlDoc.selectSingleNode("/HDon/DLHDon/NDHDon/NBan/Ten")
                     Set ttChungNode = xmlDoc.selectSingleNode("/HDon/DLHDon/TTChung")
-
+                    Set getMst = xmlDoc.selectSingleNode("/HDon/DLHDon/NDHDon/NBan/MST")
                     Set shNLapNode = ttChungNode.getElementsByTagName("NLap")(0)
                     Set shDonNode = ttChungNode.getElementsByTagName("SHDon")(0)
                     Set shKHHDNode = ttChungNode.getElementsByTagName("KHHDon")(0)
@@ -211,9 +212,12 @@ Private Sub LocData(fromdate As Integer, todate As Integer)
                     If Month(convertedDate) <= todate Then
                         'Them du lieu cho list frmChungtu
                         Dim getMaTKCo As String
-                         getMaTKCo = GetSoHieu(shDonNode.Text)
-                         FrmChungtu.AddImportData ttNguoiBan.Text, shDonNode.Text, "6621", Format(convertedDate, "dd/mm/yy"), "1", file.path
-                        .AddItem Format(convertedDate, "dd/mm/yy") & vbTab & shDonNode.Text & vbTab & ttNguoiBan.Text & vbTab & "asd" & vbTab & Format(TTNode.Text, "#,##") & vbTab & getMaTKCo & vbTab & ""     ' Thêm d? li?u
+                        Dim splitResult() As String
+                        getMaTKCo = GetCusByMST(getMst.Text)
+                        splitResult = Split(getMaTKCo, ",")
+
+                        FrmChungtu.AddImportData ttNguoiBan.Text, shDonNode.Text, Format(convertedDate, "dd/mm/yy"), "1", file.path, splitResult(0), splitResult(1), splitResult(2), splitResult(3)
+                        .AddItem Format(convertedDate, "dd/mm/yy") & vbTab & shDonNode.Text & vbTab & ttNguoiBan.Text & vbTab & splitResult(3) & vbTab & Format(TTNode.Text, "#,##") & vbTab & splitResult(0) & vbTab & splitResult(1)     ' Thêm d? li?u
                     End If
                 End If
             Next file
@@ -262,7 +266,8 @@ Private Sub Form_Load()
     Command1_Click
 End Sub
 
-Function GetSoHieu(ByVal SHDon As String) As String
+Function GetCusByMST(ByVal MaST As String) As String
+    Dim numbers(1) As Integer    ' M?ng 2 ph?n t?
 
     Dim rs_ktra As Recordset
     Dim Query As String
@@ -271,52 +276,138 @@ Function GetSoHieu(ByVal SHDon As String) As String
     Dim i As Integer
     Dim rst As String
 
-    ' Lay MaTC tu bang chung tu
-    Query = "SELECT TOP 1 * FROM ChungTu WHERE SoHieu = '" & SHDon & "' AND MaTKNo <> 5108 ORDER BY NgayCT DESC"
-    'Query = "SELECT * from  ChungTu"
+    'Lay ra ma kh
+    Query = "select * from KhachHang where MST = '" & MaST & "'"
+    Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+
+    If Not rs_ktra.EOF Then
+        ' Duy?t qua t?t c? các b?n ghi
+        Do While Not rs_ktra.EOF
+            ' L?y s? lu?ng tru?ng
+            rst = rs_ktra.Fields("MaSo").Value
+
+            rs_ktra.MoveNext
+        Loop
+    Else
+        rst = ""
+    End If
+
+    If rst = "" Then
+        GetCusByMST = ""
+    End If
+
+    ' '''''''''''''''''''
+    Query = "select * from HoaDon    where MaKhachHang  = " & CInt(rst) & " "
     Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
     If Not rs_ktra.EOF Then
         ' Duy?t qua t?t c? các b?n ghi
         Do While Not rs_ktra.EOF
             ' L?y s? lu?ng tru?ng
-            rst = rs_ktra.Fields("MaTKNo").Value
+            rst = rs_ktra.Fields("SoHD").Value
             ' Di chuy?n d?n b?n ghi ti?p theo
+            rs_ktra.MoveNext
+        Loop
+    Else
+        rst = ""
+    End If
+
+    If rst = "" Then
+        GetCusByMST = ""
+    End If
+    ' ''''''''''''''''
+
+
+    ' Lay MaTC tu bang chung tu
+    Query = "SELECT TOP 2 MaTKNo,MaTKCo,Diengiai FROM ChungTu WHERE SoHieu =  '" & rst & "' ORDER BY MaSo DESC"
+    'Query = "SELECT * from  ChungTu"
+    Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+    Dim index As Integer
+    Dim tkco As Integer
+    Dim tkno As Integer
+    Dim tkthue As Integer
+    Dim diengiai As String
+    index = 0
+    If Not rs_ktra.EOF Then
+        ' Duy?t qua t?t c? các b?n ghi
+        Do While Not rs_ktra.EOF
+            ' L?y s? lu?ng tru?ng
+            If index = 0 Then
+                rst = rs_ktra.Fields("MaTKNo").Value
+                tkthue = rst
+            Else
+                tkno = rs_ktra.Fields("MaTKNo").Value
+                tkco = rs_ktra.Fields("MaTKCo").Value
+                diengiai = rs_ktra.Fields("Diengiai").Value
+            End If
+
+            ' Di chuy?n d?n b?n ghi ti?p theo
+            ' Di chuy?n d?n b?n ghi ti?p theo
+            index = index + 1
             rs_ktra.MoveNext
         Loop
     Else
 
     End If
+
     If rst <> "" Then
 
     Else
-        GetSoHieu = rst
+        GetCusByMST = rst
         Exit Function  ' Thoát hàm
 
     End If
 
-    ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
-    Query = "SELECT TOP 1 * FROM HeThongTK WHERE MaTC = " & CInt(rst) & " ORDER BY NgayKC DESC"
-    'Query = "SELECT * from  ChungTu"
+    ' '''''''''''''''''''''''''''''''''''''
+    For i = 1 To 3
 
-    ' M? Recordset d? l?y thông tin khách hàng
-    Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+        ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
+        If i = 1 Then
+            Query = "SELECT TOP 1 * FROM HeThongTK WHERE MaTC = " & tkthue & " ORDER BY NgayKC DESC"
+        End If
+        If i = 2 Then
+            Query = "SELECT TOP 1 * FROM HeThongTK WHERE MaTC = " & tkno & " ORDER BY NgayKC DESC"
+        End If
+        If i = 3 Then
+            Query = "SELECT TOP 1 * FROM HeThongTK WHERE MaTC = " & tkco & " ORDER BY NgayKC DESC"
+        End If
 
-    If Not rs_ktra.EOF Then
-        ' Duy?t qua t?t c? các b?n ghi
-        Do While Not rs_ktra.EOF
-            ' L?y s? lu?ng tru?ng
-            rst = rs_ktra.Fields("SoHieu").Value
-            ' Di chuy?n d?n b?n ghi ti?p theo
-            rs_ktra.MoveNext
-        Loop
-    Else
-        MsgBox "Không có d? li?u."
-    End If
+
+        'Query = "SELECT * from  ChungTu"
+
+        ' M? Recordset d? l?y thông tin khách hàng
+        Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+
+        If Not rs_ktra.EOF Then
+            ' Duy?t qua t?t c? các b?n ghi
+            Do While Not rs_ktra.EOF
+                ' L?y s? lu?ng tru?ng
+                rst = rs_ktra.Fields("SoHieu").Value
+                If i = 1 Then
+                    tkthue = rst
+                End If
+                If i = 2 Then
+                    tkno = rst
+                End If
+                If i = 3 Then
+                    tkco = rst
+                End If
+                ' Di chuy?n d?n b?n ghi ti?p theo
+                rs_ktra.MoveNext
+            Loop
+        Else
+            GetCusByMST = rst
+            Exit Function  ' Thoát hàm
+        End If
+
+    Next i
 
     ' Ðóng Recordset khi không còn s? d?ng
     rs_ktra.Close
     Set rs_ktra = Nothing
-    GetSoHieu = rst
+    Dim result As String
+    result = tkno & "," & tkco & "," & tkthue & "," & diengiai
+    
+    GetCusByMST = result
 End Function
 Public Sub ChangeValueInpput(ByVal values As String)
     Grid1.Row = rowSelect

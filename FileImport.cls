@@ -22,6 +22,10 @@ Private m_SoHD As String
 Private m_SoTK As String
 Private m_Type As String
 Private m_Path As String
+Private m_NoTK As String
+Private m_CoTK As String
+Private m_ThueTK As String
+Private m_DienGiai As String
 
 ' Thu?c tính Name
 Public Property Get name() As String
@@ -73,4 +77,31 @@ End Property
 
 Public Property Let types(Value As String)
     m_Type = Value
+End Property
+
+Public Property Get notk() As String
+    notk = m_NoTK
+End Property
+Public Property Let notk(Value As String)
+    m_NoTK = Value
+End Property
+Public Property Get cotk() As String
+    cotk = m_CoTK
+End Property
+Public Property Let cotk(Value As String)
+    m_CoTK = Value
+End Property
+
+Public Property Get Diengiai() As String
+    Diengiai = m_DienGiai
+End Property
+Public Property Let Diengiai(Value As String)
+    m_DienGiai = Value
+End Property
+ 
+ Public Property Get ThueTK() As String
+    ThueTK = m_ThueTK
+End Property
+Public Property Let ThueTK(Value As String)
+    m_ThueTK = Value
 End Property

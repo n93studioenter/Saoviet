@@ -26,6 +26,7 @@ Private Sub Text1_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
         frmLocImport.ChangeValueInpput Text1.Text
         'Cap nhat item luon cho List
+        MsgBox frmLocImport.rowSelect
         Me.Hide
     End If
 
