@@ -22,6 +22,18 @@ Begin VB.Form FrmChungtu
    Tag             =   "0"
    WhatsThisButton =   -1  'True
    WhatsThisHelp   =   -1  'True
+   Begin VB.Timer Timer5 
+      Enabled         =   0   'False
+      Interval        =   2000
+      Left            =   10080
+      Top             =   600
+   End
+   Begin VB.Timer Timer4 
+      Enabled         =   0   'False
+      Interval        =   2000
+      Left            =   9600
+      Top             =   600
+   End
    Begin VB.CommandButton btnOpenexe 
       Caption         =   "mt"
       Height          =   315
@@ -367,12 +379,12 @@ Begin VB.Form FrmChungtu
       Height          =   315
       Index           =   1
       ItemData        =   "Fchungtu.frx":655C
-      Left            =   8230
+      Left            =   8160
       List            =   "Fchungtu.frx":655E
       TabIndex        =   132
       Text            =   "CboNT"
       ToolTipText     =   "§¬n gi¸ mÆc ®Þnh"
-      Top             =   2040
+      Top             =   2760
       Visible         =   0   'False
       Width           =   1570
    End
@@ -382,13 +394,13 @@ Begin VB.Form FrmChungtu
       Height          =   315
       Index           =   3
       ItemData        =   "Fchungtu.frx":6560
-      Left            =   8230
+      Left            =   9840
       List            =   "Fchungtu.frx":6588
       TabIndex        =   131
       Tag             =   "0"
       Text            =   "CboNT"
       ToolTipText     =   "Ngo¹i tÖ ph¸t sinh"
-      Top             =   2040
+      Top             =   2760
       Visible         =   0   'False
       Width           =   1499
    End
@@ -398,12 +410,12 @@ Begin VB.Form FrmChungtu
       Height          =   315
       Index           =   0
       ItemData        =   "Fchungtu.frx":65B3
-      Left            =   8230
+      Left            =   6360
       List            =   "Fchungtu.frx":65B5
       Style           =   2  'Dropdown List
       TabIndex        =   130
       ToolTipText     =   "Ngo¹i tÖ ph¸t sinh"
-      Top             =   2040
+      Top             =   2640
       Visible         =   0   'False
       Width           =   1575
    End
@@ -1833,7 +1845,7 @@ Begin VB.Form FrmChungtu
       Left            =   3720
       TabIndex        =   134
       Tag             =   "1"
-      Top             =   5280
+      Top             =   5520
       Width           =   9795
       _Version        =   65536
       _ExtentX        =   17268
@@ -2964,6 +2976,9 @@ Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
 Const TM = "111"
 Const NH = "112"
 
+Dim IsImport As Boolean
+
+Dim rs_ktra152 As Recordset
 Dim stt As Integer
 Dim IndexFirst As Integer
 Dim IdDuyet As Integer
@@ -3200,7 +3215,7 @@ End Sub
 
 
 Private Sub btnImport_Click()
-
+    IsImport = True
 ' Duyet du lieu tu tb_import
     Dim rs_ktra As Recordset
     Dim Query As String
@@ -3218,13 +3233,34 @@ Private Sub btnImport_Click()
     End If
 
     ' Xu ly phan tu dau tien
-    
+
     IndexFirst = 1
     Set item = fileImportList(IndexFirst)
-    OptLoai(0).Value = True
-    OptLoai_LostFocus 0
-    RFocus CboThang
-    Xulyimport item
+    Dim notk As String
+    With fileImportList(IndexFirst)
+        notk = .notk
+        If notk = "6422" Then
+
+            OptLoai(0).Value = True
+            OptLoai_LostFocus 0
+            RFocus CboThang
+            Xulyimport item
+        End If
+        If notk = "152" Then
+            OptLoai(1).Value = True
+            OptLoai_LostFocus 1
+            RFocus CboThang
+            Xulyimport item
+        End If
+    End With
+
+
+End Sub
+Private Sub Another()
+
+    rs_ktra152.MoveNext
+    Timer4.Enabled = True
+
 End Sub
 Private Sub Xulyimport(ByVal item As ClsFileImport)
 
@@ -3250,46 +3286,76 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         txt(1).Text = .diengiai
     End With
 
+
     ' txtchungtu(0).Text = 6422
     With fileImportList(IndexFirst)
         txtchungtu(0).Text = .notk
     End With
+    If (txtchungtu(0).Text = "152") Then
+        ' Duyet con ben trong
+        txtChungtu_LostFocus (0)
+        ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
+        Query = "SELECT * from tbimportdetail"
 
-    txtChungtu_LostFocus (0)
-    With fileImportList(IndexFirst)
-        txtchungtu(5).Text = .tongtien
-    End With
-    RFocus txtchungtu(6)
-    txtChungtu_KeyPress 6, 13
+        ' M? Recordset d? l?y thông tin khách hàng
+        Set rs_ktra152 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
 
-    'txtchungtu(0).Text = 1331
-    With fileImportList(IndexFirst)
-        If .ThueTK <> "" Then
-            txtchungtu(0).Text = .ThueTK
-        Else
-            txtchungtu(0).Text = 1331
+        ' Ki?m tra xem Recordset có d? li?u không
+        If Not rs_ktra152.EOF Then
+
+            'MsgBox rs_ktra152!sohieu
+            txtchungtu(2).Text = rs_ktra152!sohieu
+            txtChungtu_LostFocus (2)
+            txtchungtu(3).Text = rs_ktra152!SoLuong
+            txtChungtu_LostFocus (3)
+            RFocus txtchungtu(4)
+            txtchungtu(4).Text = rs_ktra152!dongia
+            txtChungtu_LostFocus (4)
+            RFocus txtchungtu(6)
+             txtChungtu_KeyPress 6, 13
+            Another
         End If
 
-    End With
-    txtChungtu_LostFocus (0)
-    With fileImportList(IndexFirst)
-        txtchungtu(2).Text = .vat
-    End With
+    End If
+    If (txtchungtu(0).Text = "6422") Then
 
-    txtChungtu_LostFocus (2)
-    RFocus txtchungtu(6)
-    txtChungtu_KeyPress 6, 13
-
-    'txtchungtu(0).Text = 1111
-    With fileImportList(IndexFirst)
-        txtchungtu(0).Text = .cotk
-    End With
-    FThuChi.FThuChiForm = 1
-    If stt < 2 Then
         txtChungtu_LostFocus (0)
+        With fileImportList(IndexFirst)
+            txtchungtu(5).Text = .tongtien
+        End With
+        RFocus txtchungtu(6)
+        txtChungtu_KeyPress 6, 13
+
+        'txtchungtu(0).Text = 1331
+        With fileImportList(IndexFirst)
+            If .ThueTK <> "" Then
+                txtchungtu(0).Text = .ThueTK
+            Else
+                txtchungtu(0).Text = 1331
+            End If
+
+        End With
+        txtChungtu_LostFocus (0)
+        With fileImportList(IndexFirst)
+            txtchungtu(2).Text = .vat
+        End With
+
+        txtChungtu_LostFocus (2)
+        RFocus txtchungtu(6)
+        txtChungtu_KeyPress 6, 13
+
+        'txtchungtu(0).Text = 1111
+        With fileImportList(IndexFirst)
+            txtchungtu(0).Text = .cotk
+        End With
+        FThuChi.FThuChiForm = 1
+        If stt < 2 Then
+            txtChungtu_LostFocus (0)
+        End If
+
+        stt = stt + 1
     End If
 
-    stt = stt + 1
 End Sub
 
 Private Sub btnOpenexe_Click()
@@ -4144,11 +4210,11 @@ Public Sub CmdChitiet_Click()
 
                     frmSoLo.txtsolo.Text = IIf(IsNull(bang_sd!solo), "", bang_sd!solo)
                     frmSoLo.txtngaynhap.Text = IIf(IsNull(bang_sd!handung), "01/01/11", bang_sd!handung)
-                    If so_luong > bang_sd!conlai Then
-                        txtchungtu(3).Text = CStr(bang_sd!conlai)
+                    If so_luong > bang_sd!ConLai Then
+                        txtchungtu(3).Text = CStr(bang_sd!ConLai)
                         txtChungtu_KeyPress 3, 13
                         txtChungtu_LostFocus (3)
-                        so_luong = so_luong - bang_sd!conlai
+                        so_luong = so_luong - bang_sd!ConLai
                         CmdChitiet_chon
                         ' lam quanh thu 2
                         bang_sd.MoveNext
@@ -6251,7 +6317,8 @@ Public Sub cmdReset_Click()
 End Sub
 Private Sub Form_Activate()
 
-
+    IsImport = False
+    
     Dim ithang As Integer
     'Add item cho cbbThang
     'For i=0
@@ -7011,6 +7078,34 @@ Private Sub Timer3_Timer()
         MsgBox "Duyet xong"
         FThuChi.FThuChiForm = 0
     End If
+End Sub
+
+Private Sub Timer4_Timer()
+    If Not rs_ktra152.EOF Then
+        Timer4.Enabled = False
+        txtchungtu(0).Text = "152"
+        txtChungtu_LostFocus (0)
+        RFocus txtchungtu(2)
+        txtchungtu(2).Text = rs_ktra152!sohieu
+        txtChungtu_LostFocus (2)
+        txtchungtu(3).Text = rs_ktra152!SoLuong
+        txtChungtu_LostFocus (3)
+        RFocus txtchungtu(4)
+        txtchungtu(4).Text = rs_ktra152!dongia
+        txtChungtu_LostFocus (4)
+        RFocus txtchungtu(5)
+        txtChungtu_LostFocus (5)
+        'RFocus txtchungtu(6)
+        txtChungtu_KeyPress 6, 13
+         rs_ktra152.MoveNext
+        Timer4.Enabled = True
+    End If
+
+End Sub
+
+Private Sub Timer5_Timer()
+Timer5.Enabled = False
+Timer4.Enabled = True
 End Sub
 
 Private Sub txt_Click(Index As Integer)
@@ -7974,7 +8069,9 @@ Public Sub txtChungtu_LostFocus(Index As Integer)
                     End If
                     'bo/////////////////////////////////////
                     'If Len(Trim(txtchungtu(2).Text)) <= 0 Then RFocus txtchungtu(2)
-                    If txtchungtu(2).Enabled = True Then RFocus txtchungtu(2)
+                    If txtchungtu(2).Enabled = True Then
+                        If IsImport = False Then RFocus txtchungtu(2)
+                    End If
                 End If
             Else
                 txtchungtu(2).Enabled = False
@@ -8052,7 +8149,9 @@ Public Sub txtChungtu_LostFocus(Index As Integer)
                     End If
                     If IsMissing(LO_XXXX) Then LO_XXXX = ""
                     If Len(LO_XXXX) > 0 Then luong = SL_XXXX
-                    txtchungtu(3).Text = Format(luong, Mask_2)
+                    If IsImport = False Then
+                        txtchungtu(3).Text = Format(luong, Mask_2)
+                    End If
                     If loaict = 1 Then
                         txtchungtu(5).Text = Format(tien, Mask_2)
                     Else
@@ -8088,7 +8187,12 @@ Public Sub txtChungtu_LostFocus(Index As Integer)
 
                 txtchungtu(1).Text = vattu.TenVattu
                 txtchungtu(2).tag = 1
-                RFocus txtchungtu(3)
+                If IsImport = False Then
+                    RFocus txtchungtu(3)
+                End If
+
+
+
                 VTEnable = True
             End If
         End If
