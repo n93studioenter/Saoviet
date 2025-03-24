@@ -17,8 +17,10 @@ Option Explicit
 
 ' Các thu?c tính
 Private m_Name As String
+Private m_MST As String
 Private m_Ngay As Date
 Private m_SoHD As String
+Private m_KHHD As String
 Private m_SoTK As String
 Private m_Type As String
 Private m_Path As String
@@ -26,6 +28,8 @@ Private m_NoTK As String
 Private m_CoTK As String
 Private m_ThueTK As String
 Private m_DienGiai As String
+Private m_TongTien As String
+Private m_Vat As String
 
 ' Thu?c tính Name
 Public Property Get name() As String
@@ -34,6 +38,14 @@ End Property
 
 Public Property Let name(Value As String)
     m_Name = Value
+End Property
+' Thu?c tính Name
+Public Property Get mst() As String
+    mst = m_MST
+End Property
+
+Public Property Let mst(Value As String)
+    m_MST = Value
 End Property
 
 ' Thu?c tính Ngay
@@ -52,6 +64,13 @@ End Property
 
 Public Property Let soHD(Value As String)
     m_SoHD = Value
+End Property
+Public Property Get khHD() As String
+    khHD = m_KHHD
+End Property
+
+Public Property Let khHD(Value As String)
+    m_KHHD = Value
 End Property
 
 ' Thu?c tính SoTK
@@ -92,10 +111,10 @@ Public Property Let cotk(Value As String)
     m_CoTK = Value
 End Property
 
-Public Property Get Diengiai() As String
-    Diengiai = m_DienGiai
+Public Property Get diengiai() As String
+    diengiai = m_DienGiai
 End Property
-Public Property Let Diengiai(Value As String)
+Public Property Let diengiai(Value As String)
     m_DienGiai = Value
 End Property
  
@@ -104,4 +123,16 @@ End Property
 End Property
 Public Property Let ThueTK(Value As String)
     m_ThueTK = Value
+End Property
+ Public Property Get tongtien() As String
+    tongtien = m_TongTien
+End Property
+Public Property Let tongtien(Value As String)
+    m_TongTien = Value
+End Property
+ Public Property Get vat() As String
+    vat = m_Vat
+End Property
+Public Property Let vat(Value As String)
+    m_Vat = Value
 End Property

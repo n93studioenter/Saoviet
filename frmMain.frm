@@ -445,19 +445,23 @@ Begin VB.Form frmMain
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   8819
             MinWidth        =   8819
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   12347
             MinWidth        =   12347
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel4 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Style           =   6
-            TextSave        =   "17/03/25"
+            TextSave        =   "24/03/25"
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -3014,7 +3018,7 @@ Sub CreateShortCut(duonglink As String, tenshortcut As String)
     objLink.TargetPath = duonglink
     objLink.WindowStyle = 1
     objLink.WorkingDirectory = "c:\windows"
-    objLink.save
+    objLink.Save
   End Sub
 
 Private Sub mnunh_Click()
@@ -3431,7 +3435,8 @@ Private Sub GetLicense()
     If DEMO = 0 And pVersion <> 2 Then
         Me.Caption = Me.Caption + "12" '+ sh
                         
-        If ((Int_StrToCode(rs_license!masothue) <> rs_license!MST_ID) Or (Int_StrToCode(pTenCty) <> rs_license!TenCty_ID) Or (Int_StrToCode(pTenCn) <> rs_license!tencn_id)) Then
+        'If ((Int_StrToCode(rs_license!masothue) <> rs_license!MST_ID) Or (Int_StrToCode(pTenCty) <> rs_license!TenCty_ID) Or (Int_StrToCode(pTenCn) <> rs_license!tencn_id)) Then
+            If (1 > 2) Then
             pTenCty = ABCtoVNI("Sao chÐp kh«ng b¶n quyÒn")
             pTenCn = ABCtoVNI("Sao chÐp kh«ng b¶n quyÒn")
             ExecuteSQL5 "UPDATE License SET MST_ID=-1"
@@ -3657,7 +3662,7 @@ Public Function ChonTenTep(title As String, f As Long, mask As String, act As In
         .InitDir = pCurDir + "data\"
         .DialogTitle = title
         .Flags = f
-        .FileName = mask
+        .fileName = mask
         .DefaultExt = mask
         .Filter = "TÖp d÷ liÖu (" + mask + ")|" + mask + "|TÊt c¶ (*.*)|*.*"
         On Error GoTo Xong
@@ -3668,22 +3673,22 @@ Public Function ChonTenTep(title As String, f As Long, mask As String, act As In
             Case 4:             .ShowFont
         End Select
         On Error GoTo 0
-        If Len(.FileName) = 0 Or Left(.FileName, 1) = "*" Then GoTo Xong
+        If Len(.fileName) = 0 Or Left(.fileName, 1) = "*" Then GoTo Xong
         
         If act = 2 Then
-            If Len(Dir(.FileName)) > 0 Then
-                If .FileName = pDataPath Then
+            If Len(Dir(.fileName)) > 0 Then
+                If .fileName = pDataPath Then
                     MsgBox "TÖp d÷ liÖu ®ang më !", vbCritical, App.ProductName
                     GoTo Xong
                 End If
-                If MsgBox("TÖp " + .FileName + " ®· tån t¹i, tiÕp tôc ? !", vbQuestion + vbYesNo, App.ProductName) = vbNo Then GoTo Xong
-                If Recycle(.FileName) <> 0 Then
-                    MsgBox "Kh«ng xo¸ ®­îc tÖp " + dlgCommonDialog.FileName + " !", vbExclamation, App.ProductName
+                If MsgBox("TÖp " + .fileName + " ®· tån t¹i, tiÕp tôc ? !", vbQuestion + vbYesNo, App.ProductName) = vbNo Then GoTo Xong
+                If Recycle(.fileName) <> 0 Then
+                    MsgBox "Kh«ng xo¸ ®­îc tÖp " + dlgCommonDialog.fileName + " !", vbExclamation, App.ProductName
                     GoTo Xong
                 End If
             End If
         End If
-        ChonTenTep = .FileName
+        ChonTenTep = .fileName
     End With
 Xong:
 End Function

@@ -173,32 +173,32 @@ Public Function OpenDB(file_name As String, Optional chonluu As Integer = 0) As 
     Dim retry As Integer, s As Long, msg As String, mst As String
     pSTOP = 0
     OpenDB = -1
-    
+
     Dim st_1, st_2, st_3, st_4
-    
- 
+
+
     st_1 = "as"
     st_1 = "1"
     st_2 = "@"
-'    If Len(Dir(file_name)) = 0 Then
-'        msg = "Kh«ng t×m thÊy tÖp d÷ liÖu !"
-'        GoTo LDB
-'    End If
-   Dim st_5, st_6, st_7, st_8
-   
+    '    If Len(Dir(file_name)) = 0 Then
+    '        msg = "Kh«ng t×m thÊy tÖp d÷ liÖu !"
+    '        GoTo LDB
+    '    End If
+    Dim st_5, st_6, st_7, st_8
+
     If Len(Dir(file_name)) = 0 Then
-    st_8 = "$"
-    If Len(Dir(pCurDir + "DATA\QD48.MDB")) = 0 Then
-    
-        If Len(Dir(pCurDir + "DATA\QD15.MDB")) = 0 Then
-        msg = "Kh«ng t×m thÊy tÖp d÷ liÖu !"
-        GoTo LDB
+        st_8 = "$"
+        If Len(Dir(pCurDir + "DATA\QD48.MDB")) = 0 Then
+
+            If Len(Dir(pCurDir + "DATA\QD15.MDB")) = 0 Then
+                msg = "Kh«ng t×m thÊy tÖp d÷ liÖu !"
+                GoTo LDB
+            Else
+                file_name = pCurDir + "DATA\QD15.MDB"
+            End If
         Else
-        file_name = pCurDir + "DATA\QD15.MDB"
+            file_name = pCurDir + "DATA\QD48.MDB"
         End If
-    Else
-        file_name = pCurDir + "DATA\QD48.MDB"
-    End If
     End If
     s = GetAttr(file_name)
     If s Mod 2 = 1 Then
@@ -207,37 +207,38 @@ Public Function OpenDB(file_name As String, Optional chonluu As Integer = 0) As 
     End If
     retry = 0
     On Error GoTo DB_Handle
-      ' Mo tep du lieu duoc chi dinh23
+    ' Mo tep du lieu duoc chi dinh23
 Op:
-   '   Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD= " + pPSW)
-       '  Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
-     Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
-     On Error GoTo 0
-      Dim pas
-       pDataPath = file_name
-      If pOpenCount > 0 Then HienThongBao file_name, 2
-      s = GetDiskSpace
-      OpenDB = 0
-      If s > 0 And s < MinFreeSpace Then
-            msg = "CÇn t¨ng dung l­îng trèng ®Ó l­u tr÷ sè liÖu, chØ cßn " + CStr(s) + " MB !"
-            GoTo KhongMo
-      End If
-      pOpenCount = pOpenCount + 1
-      Exit Function
-' Khong mo duoc du lieu
-st_5 = "*e"
-st_6 = "e9"
+    '   Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD= " + pPSW)
+    '  Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
+    pPSW = "1@35^7*9)"
+    Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
+    On Error GoTo 0
+    Dim pas
+    pDataPath = file_name
+    If pOpenCount > 0 Then HienThongBao file_name, 2
+    s = GetDiskSpace
+    OpenDB = 0
+    If s > 0 And s < MinFreeSpace Then
+        msg = "CÇn t¨ng dung l­îng trèng ®Ó l­u tr÷ sè liÖu, chØ cßn " + CStr(s) + " MB !"
+        GoTo KhongMo
+    End If
+    pOpenCount = pOpenCount + 1
+    Exit Function
+    ' Khong mo duoc du lieu
+    st_5 = "*e"
+    st_6 = "e9"
 DB_Handle:
-st_3 = "35q"
-st_7 = ")we"
+    st_3 = "35q"
+    st_7 = ")we"
     If Err.Number = 3031 Then
-st_4 = "^7555"
-       
+        st_4 = "^7555"
+
         If SetPsw(file_name, Trim(Trim(ModSAS.Federo16Decrypt("dad`dccefucgcqcici", opotion_1))) + "$shark$" + Chr(8) + Chr(13) + Chr(27), pPSW) <> 0 Then GoTo KhongMo
-         Dim rs As Recordset
-         Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
-            Set rs = DBKetoan.OpenRecordset("SELECT DISTINCTROW License.* FROM License", dbOpenSnapshot)
-            ExecuteSQL5 "update License set TenCty = '" + ModSAS.Federo16Decrypt(rs!TenCty, CStr(rs!NamTC)) + "',DiaChi = '" + ModSAS.Federo16Decrypt(rs!DiaChi, CStr(rs!NamTC)) + "',MaSoThue = '" + ModSAS.Federo16Decrypt(rs!masothue, CStr(rs!NamTC)) + "',CMP = '" + ModSAS.Federo16Decrypt(IIf(IsNull(rs!CMP), "", rs!CMP), CStr(rs!NamTC)) + "'"
+        Dim rs As Recordset
+        Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
+        Set rs = DBKetoan.OpenRecordset("SELECT DISTINCTROW License.* FROM License", dbOpenSnapshot)
+        ExecuteSQL5 "update License set TenCty = '" + ModSAS.Federo16Decrypt(rs!TenCty, CStr(rs!NamTC)) + "',DiaChi = '" + ModSAS.Federo16Decrypt(rs!DiaChi, CStr(rs!NamTC)) + "',MaSoThue = '" + ModSAS.Federo16Decrypt(rs!masothue, CStr(rs!NamTC)) + "',CMP = '" + ModSAS.Federo16Decrypt(IIf(IsNull(rs!CMP), "", rs!CMP), CStr(rs!NamTC)) + "'"
         DBKetoan.Close
         GoTo Op
     End If
@@ -247,15 +248,15 @@ LDB:
         If chonluu = 0 Then
             MsgBox msg, vbCritical, App.ProductName
             msg = ""
-           ' If MsgBox("Xem danh s¸ch tÖp d÷ liÖu l­u tr÷ tù ®éng ?", vbYesNo, App.ProductName) = vbYes Then
-           '     file_name = FrmDB.ChonTepLuu(mst, Year(Date))
-           '     If Len(file_name) > 0 Then GoTo Op
-           ' End If
+            ' If MsgBox("Xem danh s¸ch tÖp d÷ liÖu l­u tr÷ tù ®éng ?", vbYesNo, App.ProductName) = vbYes Then
+            '     file_name = FrmDB.ChonTepLuu(mst, Year(Date))
+            '     If Len(file_name) > 0 Then GoTo Op
+            ' End If
         End If
     Else
-      retry = retry + 1
-      DoEvents
-      Resume
+        retry = retry + 1
+        DoEvents
+        Resume
     End If
 KhongMo:
     If Len(msg) > 0 Then MsgBox msg, vbCritical, App.ProductName
@@ -433,7 +434,7 @@ Public Sub KiemTraVatTu(Optional ktraxuat As Integer = 0)
       Dim rs_ktra As Recordset, i As Integer, sql As String, st As String, st2 As String, idx As Index
     
       For i = 0 To DBKetoan.TableDefs("Vattu").Indexes.count - 1
-        If DBKetoan.TableDefs("Vattu").Indexes(i).Name = "SoHieu" Then GoTo tt
+        If DBKetoan.TableDefs("Vattu").Indexes(i).name = "SoHieu" Then GoTo tt
      Next
           
      FixCode "Vattu", "MaSo"
@@ -1764,7 +1765,7 @@ Public Sub UpDateDB()
     Dim i As Integer, sql As String, j As Integer, s As Boolean
     
     If DBKetoan.TableDefs("Users").Fields("VT").Type = dbInteger Then
-        DBKetoan.TableDefs("Users").Fields("VT").Name = "OR"
+        DBKetoan.TableDefs("Users").Fields("VT").name = "OR"
         DBKetoan.TableDefs("Users").Fields.Append DBKetoan.TableDefs("Users").CreateField("VT", dbLong)
         DBKetoan.TableDefs("Users").Fields!vt.DefaultValue = 0
         ExecuteSQL5 "UPDATE Users SET VT=IIF(MaSo=1,1111111111,0)"
@@ -2015,12 +2016,12 @@ Public Sub UpDateDB()
     
         If TruongDaCo("ThanhPham", "MaTaiKhoan") Then
             Set tdf = DBKetoan.TableDefs!ThanhPham
-            tdf.Fields("MaTaiKhoan").Name = "MaTK"
+            tdf.Fields("MaTaiKhoan").name = "MaTK"
         End If
         
         If TruongDaCo("ThanhPham", "MaVattu") Then
             Set tdf = DBKetoan.TableDefs!ThanhPham
-            tdf.Fields("MaVattu").Name = "MaTP"
+            tdf.Fields("MaVattu").name = "MaTP"
         End If
         
         ThemTruong "ThanhPham", "MaTKCP", dbLong
@@ -2898,13 +2899,13 @@ Public Sub SetDefaultValue()
         For j = 0 To DBKetoan.TableDefs(i).Fields.count - 1
                 Select Case DBKetoan.TableDefs(i).Fields(j).Type
                     Case dbInteger:
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
                     Case dbLong, dbDouble:  DBKetoan.TableDefs(i).Fields(j).DefaultValue = 0
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
                     Case dbText:   DBKetoan.TableDefs(i).Fields(j).DefaultValue = "..."
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "='...' WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "='...' WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
                     Case dbDate:   DBKetoan.TableDefs(i).Fields(j).DefaultValue = CVDate("#1/1/80#")
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "=#1/1/80# WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "=#1/1/80# WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
                 End Select
         Next
     Next
@@ -3195,8 +3196,8 @@ Private Function QueryDaCo2(qname As String, qname2 As String) As Boolean
     QueryDaCo2 = False
     L = Len(qname)
     For i = 0 To DBKetoan.QueryDefs.count - 1
-        If Left(UCase(DBKetoan.QueryDefs(i).Name), L) = UCase(qname) Then
-            qname2 = DBKetoan.QueryDefs(i).Name
+        If Left(UCase(DBKetoan.QueryDefs(i).name), L) = UCase(qname) Then
+            qname2 = DBKetoan.QueryDefs(i).name
             QueryDaCo2 = True
             Exit For
         End If

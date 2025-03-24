@@ -117,6 +117,7 @@ Form=frmLocImport.frm
 Module=Module3; Module3.bas
 Class=ClsFileImport; FileImport.cls
 Form=ftmInput.frm
+Form=ftmtest.frm
 IconForm="frmMain"
 Startup="Sub Main"
 HelpFile="SAS.HLP"
