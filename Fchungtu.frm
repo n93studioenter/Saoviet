@@ -24,13 +24,13 @@ Begin VB.Form FrmChungtu
    WhatsThisHelp   =   -1  'True
    Begin VB.Timer Timer5 
       Enabled         =   0   'False
-      Interval        =   2000
+      Interval        =   1000
       Left            =   10080
       Top             =   600
    End
    Begin VB.Timer Timer4 
       Enabled         =   0   'False
-      Interval        =   2000
+      Interval        =   500
       Left            =   9600
       Top             =   600
    End
@@ -72,7 +72,7 @@ Begin VB.Form FrmChungtu
    End
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
-      Interval        =   125
+      Interval        =   2000
       Left            =   12960
       Top             =   0
    End
@@ -3072,11 +3072,12 @@ Public Sub AutoCLickLoai()
     RFocus CboThang
     DisplayFileImportList
 End Sub
-Public Sub AddImportData(ByVal name As String, ByVal mst As String, ByVal soHD As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal tongtien As String, ByVal vat As String)
+Public Sub AddImportData(ByVal id As String, ByVal name As String, ByVal mst As String, ByVal soHD As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal tongtien As String, ByVal vat As String)
     Dim fileImport As ClsFileImport
     Set fileImport = New ClsFileImport
 
     ' Gán giá tr? cho các thu?c tính
+    fileImport.id = id
     fileImport.name = name
     fileImport.mst = mst
     fileImport.soHD = soHD
@@ -3229,7 +3230,7 @@ Private Sub btnImport_Click()
         ' Duy?t qua t?t c? các b?n ghi
         Do While Not rs_ktra.EOF
             ' L?y s? lu?ng tru?ng
-            AddImportData rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!tongtien, rs_ktra!vat
+            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!tongtien, rs_ktra!vat
             rs_ktra.MoveNext
         Loop
     End If
@@ -3297,7 +3298,9 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         ' Duyet con ben trong
         txtChungtu_LostFocus (0)
         ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
-        Query = "SELECT * from tbimportdetail"
+        With fileImportList(IndexFirst)
+            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' "
+        End With
 
         ' M? Recordset d? l?y thông tin khách hàng
         Set rs_ktra152 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
@@ -7083,7 +7086,7 @@ Private Sub Timer3_Timer()
 End Sub
 
 Private Sub Timer4_Timer()
-    
+
     If Not rs_ktra152.EOF Then
         Timer4.Enabled = False
         txtchungtu(0).Text = tempchungtu
@@ -7114,7 +7117,7 @@ Private Sub Timer4_Timer()
             txtchungtu(0) = .cotk
             txtChungtu_LostFocus (0)
             txtChungtu_KeyPress 6, 13
-
+            Timer5.Enabled = True
         End With
 
     End If
@@ -7124,6 +7127,7 @@ End Sub
 Private Sub Timer5_Timer()
     Timer5.Enabled = False
     Command_Click 1
+    Timer3.Enabled = True
 End Sub
 
 Private Sub txt_Click(Index As Integer)

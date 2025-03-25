@@ -272,7 +272,7 @@ Private Sub LocData(fromdate As Integer, todate As Integer)
                         End If
 
 
-                        FrmChungtu.AddImportData ttNguoiBan.Text, shDonNode.Text, Format(convertedDate, "dd/mm/yy"), "1", file.path, tkno, TkCo, tkThue, diengiai, "", "", "", ""
+                        FrmChungtu.AddImportData "", ttNguoiBan.Text, shDonNode.Text, Format(convertedDate, "dd/mm/yy"), "1", file.path, tkno, TkCo, tkThue, diengiai, "", "", "", ""
                         .AddItem Format(convertedDate, "dd/mm/yy") & vbTab & shDonNode.Text & vbTab & ttNguoiBan.Text & vbTab & diengiai & vbTab & Format(TTNode.Text, "#,##") & vbTab & tkno & vbTab & TkCo   ' Thêm d? li?u
                     End If
                 End If

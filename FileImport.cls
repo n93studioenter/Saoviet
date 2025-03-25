@@ -16,6 +16,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 ' Các thu?c tính
+Private m_ID As String
 Private m_Name As String
 Private m_MST As String
 Private m_Ngay As Date
@@ -30,7 +31,13 @@ Private m_ThueTK As String
 Private m_DienGiai As String
 Private m_TongTien As String
 Private m_Vat As String
+Public Property Get id() As String
+    id = m_ID
+End Property
 
+Public Property Let id(Value As String)
+    m_ID = Value
+End Property
 ' Thu?c tính Name
 Public Property Get name() As String
     name = m_Name
