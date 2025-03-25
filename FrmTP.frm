@@ -160,7 +160,6 @@ Begin VB.Form FrmTP
    End
    Begin VB.CommandButton SSCmdF 
       BackColor       =   &H80000013&
-      Caption         =   "­"
       BeginProperty Font 
          Name            =   "Wingdings"
          Size            =   9.75
@@ -727,7 +726,7 @@ Private Sub Form_Load()
     TK.InitTaikhoanSohieu txtShTk(0).Text
 End Sub
 
-Private Sub Form_Unload(CANCEL As Integer)
+Private Sub Form_Unload(Cancel As Integer)
     Set tp = Nothing
 End Sub
 

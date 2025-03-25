@@ -2978,6 +2978,8 @@ Const NH = "112"
 
 Dim IsImport As Boolean
 
+Dim tempchungtu As String
+
 Dim rs_ktra152 As Recordset
 Dim stt As Integer
 Dim IndexFirst As Integer
@@ -3253,8 +3255,6 @@ Private Sub btnImport_Click()
             Xulyimport item
         End If
     End With
-
-
 End Sub
 Private Sub Another()
 
@@ -3290,8 +3290,10 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
     ' txtchungtu(0).Text = 6422
     With fileImportList(IndexFirst)
         txtchungtu(0).Text = .notk
+        tempchungtu = .notk
     End With
     If (txtchungtu(0).Text = "152") Then
+        FThuChi.FThuChiForm = 2
         ' Duyet con ben trong
         txtChungtu_LostFocus (0)
         ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
@@ -3312,7 +3314,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             txtchungtu(4).Text = rs_ktra152!dongia
             txtChungtu_LostFocus (4)
             RFocus txtchungtu(6)
-             txtChungtu_KeyPress 6, 13
+            txtChungtu_KeyPress 6, 13
             Another
         End If
 
@@ -7081,9 +7083,10 @@ Private Sub Timer3_Timer()
 End Sub
 
 Private Sub Timer4_Timer()
+    
     If Not rs_ktra152.EOF Then
         Timer4.Enabled = False
-        txtchungtu(0).Text = "152"
+        txtchungtu(0).Text = tempchungtu
         txtChungtu_LostFocus (0)
         RFocus txtchungtu(2)
         txtchungtu(2).Text = rs_ktra152!sohieu
@@ -7097,15 +7100,30 @@ Private Sub Timer4_Timer()
         txtChungtu_LostFocus (5)
         'RFocus txtchungtu(6)
         txtChungtu_KeyPress 6, 13
-         rs_ktra152.MoveNext
+        rs_ktra152.MoveNext
         Timer4.Enabled = True
+    Else
+        Timer4.Enabled = False
+        'Xu ly cac  tai khoan 1331, 1111
+        With fileImportList(IndexFirst)
+            txtchungtu(0) = .ThueTK
+            txtChungtu_LostFocus (0)
+            txtchungtu(2).Text = .vat
+            txtChungtu_LostFocus (2)
+            txtChungtu_KeyPress 6, 13
+            txtchungtu(0) = .cotk
+            txtChungtu_LostFocus (0)
+            txtChungtu_KeyPress 6, 13
+
+        End With
+
     End If
 
 End Sub
 
 Private Sub Timer5_Timer()
-Timer5.Enabled = False
-Timer4.Enabled = True
+    Timer5.Enabled = False
+    Command_Click 1
 End Sub
 
 Private Sub txt_Click(Index As Integer)

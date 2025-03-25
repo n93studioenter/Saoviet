@@ -329,7 +329,7 @@ Private Sub Timer1_Timer()
     Unload Me ' Ðóng form sau khi Timer h?t th?i gian
 End Sub
 
-Private Sub Command_Click()
+Public Sub Command_Click()
     Dim i As Integer
     '  ExecuteSQL5 "update chungtu set nguoimuahang = '" + T(4).Text + "'  where sohieu = '" + FrmChungtu.txt(0).Text + "'"
     ExecuteSQL5 "update chungtu set nguoimuahang = '" + T(4).Text + "',hinhthucthanhtoan = '" + ComboBox1.Text + "',sophieudathang = '" + T(3).Text + "' ,chondiengiai = '" + str(Check1.Value) + "'  where sohieu = '" + FrmChungtu.txt(0).Text + "'"
@@ -349,6 +349,10 @@ Private Sub Command_Click()
     Unload Me
     If FThuChiForm = 1 Then
         FrmChungtu.DoneSetup
+    End If
+
+    If FThuChiForm = 2 Then
+        FrmChungtu.Timer5.Enabled = True
     End If
 End Sub
 
@@ -419,6 +423,9 @@ Private Sub Form_Activate()
            ComboBox1.Text = rs_chungtu!bb
         End If
         If FThuChiForm = 1 Then
+        Command_Click
+        End If
+        If FThuChiForm = 2 Then
         Command_Click
         End If
 End Sub
