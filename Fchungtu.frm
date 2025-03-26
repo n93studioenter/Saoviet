@@ -3180,7 +3180,12 @@ Private Sub DuyetItemList(ByVal fname As String)
                     If .ThueTK <> "" Then
                         txtchungtu(0).Text = .ThueTK
                     Else
+                        If .notk = 5111 Then
+                        txtchungtu(0).Text = 33311
+                        Else
                         txtchungtu(0).Text = 1331
+                        End If
+                        
                     End If
 
                 End With
@@ -3219,7 +3224,7 @@ End Sub
 
 Private Sub btnImport_Click()
     IsImport = True
-' Duyet du lieu tu tb_import
+    ' Duyet du lieu tu tb_import
     Dim rs_ktra As Recordset
     Dim Query As String
     Dim rst As String
@@ -3241,20 +3246,7 @@ Private Sub btnImport_Click()
     Set item = fileImportList(IndexFirst)
     Dim notk As String
     With fileImportList(IndexFirst)
-        notk = .notk
-        If notk = "6422" Then
-
-            OptLoai(0).Value = True
-            OptLoai_LostFocus 0
-            RFocus CboThang
-            Xulyimport item
-        End If
-        If notk = "152" Then
-            OptLoai(1).Value = True
-            OptLoai_LostFocus 1
-            RFocus CboThang
-            Xulyimport item
-        End If
+        Xulyimport item
     End With
 End Sub
 Private Sub Another()
@@ -3266,6 +3258,21 @@ End Sub
 Private Sub Xulyimport(ByVal item As ClsFileImport)
 
 ' Do data tu tbimport len form
+    If item.notk = "6422" Then
+        OptLoai(0).Value = True
+        OptLoai_LostFocus 0
+        RFocus CboThang
+    End If
+    If item.notk = "152" Then
+        OptLoai(1).Value = True
+        OptLoai_LostFocus 1
+        RFocus CboThang
+    End If
+    If item.notk = "5111" Then
+        OptLoai(8).Value = True
+        OptLoai_LostFocus 8
+        RFocus CboThang
+    End If
     txt(0).Text = item.soHD
     txtVT(1).Text = item.khHD
     MedNgay(1).Text = Format(item.ngay, "dd/mm/yy")
@@ -3293,6 +3300,37 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         txtchungtu(0).Text = .notk
         tempchungtu = .notk
     End With
+    If (txtchungtu(0).Text = "5111") Or (txtchungtu(0).Text = "5112") Then
+         FThuChi.FThuChiForm = 2
+         
+         txtChungtu_LostFocus (0)
+        ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
+        With fileImportList(IndexFirst)
+            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' "
+        End With
+
+        ' M? Recordset d? l?y thông tin khách hàng
+        Set rs_ktra152 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+
+        ' Ki?m tra xem Recordset có d? li?u không
+        If Not rs_ktra152.EOF Then
+
+            'MsgBox rs_ktra152!sohieu
+            txtchungtu(2).Text = rs_ktra152!sohieu
+            txtChungtu_LostFocus (2)
+            txtchungtu(3).Text = rs_ktra152!SoLuong
+            txtChungtu_LostFocus (3)
+            RFocus txtchungtu(4)
+            txtchungtu(4).Text = rs_ktra152!dongia
+            txtChungtu_LostFocus (4)
+            RFocus txtchungtu(6)
+            txtChungtu_KeyPress 6, 13
+            Another
+        End If
+
+        
+    End If
+
     If (txtchungtu(0).Text = "152") Then
         FThuChi.FThuChiForm = 2
         ' Duyet con ben trong
@@ -3727,10 +3765,13 @@ Public Sub CmdChitiet_chon()
     If (loaict = 2 Or loaict = 8) And (vattu.MaSo > 0) And (co >= 0) And (nt > txtchungtu(3).tag) And STDetail And Left(taikhoan.sohieu, 4) <> "5113" And Chk.Value = 0 And Me.Visible Then
         'MsgBox "§· xuÊt qu¸ l­îng tån!", vbCritical, App.ProductName
         'Exit Sub
-        If MsgBox("§· xuÊt qu¸ l­îng tån! TiÕp tôc ?", vbYesNo + vbCritical, App.ProductName) <> vbYes Then
-            RFocus txtchungtu(3)
-            Exit Sub
+        If IsImport = False Then
+            If MsgBox("§· xuÊt qu¸ l­îng tån! TiÕp tôc ?", vbYesNo + vbCritical, App.ProductName) <> vbYes Then
+                RFocus txtchungtu(3)
+                Exit Sub
+            End If
         End If
+
     End If
 
     If (loaict = 2) And (taikhoan.tk_id = TKVT_ID) And (txtchungtu(3).tag = 0 And txtchungtu(6).tag = 0) And (nt = 0) And STDetail Then
@@ -4215,11 +4256,11 @@ Public Sub CmdChitiet_Click()
 
                     frmSoLo.txtsolo.Text = IIf(IsNull(bang_sd!solo), "", bang_sd!solo)
                     frmSoLo.txtngaynhap.Text = IIf(IsNull(bang_sd!handung), "01/01/11", bang_sd!handung)
-                    If so_luong > bang_sd!ConLai Then
-                        txtchungtu(3).Text = CStr(bang_sd!ConLai)
+                    If so_luong > bang_sd!conlai Then
+                        txtchungtu(3).Text = CStr(bang_sd!conlai)
                         txtChungtu_KeyPress 3, 13
                         txtChungtu_LostFocus (3)
-                        so_luong = so_luong - bang_sd!ConLai
+                        so_luong = so_luong - bang_sd!conlai
                         CmdChitiet_chon
                         ' lam quanh thu 2
                         bang_sd.MoveNext
@@ -7109,7 +7150,13 @@ Private Sub Timer4_Timer()
         Timer4.Enabled = False
         'Xu ly cac  tai khoan 1331, 1111
         With fileImportList(IndexFirst)
-            txtchungtu(0) = .ThueTK
+            If .notk <> "5111" Then
+                'txtchungtu(0) = .ThueTK
+                txtchungtu(0).Text = "1331"
+            Else
+                txtchungtu(0).Text = "33311"
+            End If
+
             txtChungtu_LostFocus (0)
             txtchungtu(2).Text = .vat
             txtChungtu_LostFocus (2)
