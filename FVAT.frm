@@ -808,7 +808,7 @@ Er:
     With h ' neu khach hang da co roi , thi lay thong tin dua vao class khach hang h
         .MaKhachHang = ckh.MaSo
         .KyHieu = IIf(Len(T(1).Text) > 0, T(1).Text, "...")
-        .sohd = IIf(Len(T(2).Text) > 0, T(2).Text, "...")
+        .soHD = IIf(Len(T(2).Text) > 0, T(2).Text, "...")
         .NgayPH = MedNgay.Text
         .MatHang = IIf(Len(T(3).Text) > 0, T(3).Text, "...")
         .SoLuong = Cdbl5(T(4).Text)
@@ -979,7 +979,7 @@ Public Sub GetPhieu(ttdb As Boolean)
   End If
     
     T(1).Text = h.KyHieu
-    T(2).Text = h.sohd
+    T(2).Text = h.soHD
     If h.ThanhTien <> 0 Then T(5).Text = Format(h.ThanhTien, Mask_0)
     T(3).Text = h.MatHang
     T(4).Text = Format(h.SoLuong, Mask_2)

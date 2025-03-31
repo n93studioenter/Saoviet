@@ -30,7 +30,7 @@ Begin VB.Form FrmChungtu
    End
    Begin VB.Timer Timer4 
       Enabled         =   0   'False
-      Interval        =   500
+      Interval        =   2000
       Left            =   9600
       Top             =   600
    End
@@ -58,15 +58,15 @@ Begin VB.Form FrmChungtu
    End
    Begin VB.TextBox Text1 
       Height          =   285
-      Left            =   9480
+      Left            =   9360
       TabIndex        =   164
       Text            =   "Text1"
-      Top             =   360
+      Top             =   240
       Width           =   2535
    End
    Begin VB.Timer Timer2 
       Enabled         =   0   'False
-      Interval        =   125
+      Interval        =   2000
       Left            =   12240
       Top             =   120
    End
@@ -2969,7 +2969,21 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
+ ' Ð?u tiên, khai báo các API c?n thi?t
+Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" _
+    (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+
+Private Declare Function IsWindow Lib "user32" (ByVal hwnd As Long) As Long
+ 
+
+' Bi?n toàn c?c d? luu handle c?a c?a s? ?ng d?ng dã m?
+Dim hWndApp As Long
+ 
+ 
+ 
+ 
 Public fileImportList As Collection
+
 
 Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
 
@@ -3015,18 +3029,18 @@ Dim SetLoaiEnable As Boolean
 Dim shct As String
 Dim xddu As Boolean
 Dim TenTC As String, DiachiTC As String, ctgoc As String, TenNX As String, DiaChiNX As String, TenBH As String, DiaChiBH As String, MSTBH As String, unc1 As String, unc2 As String, unc3 As String, MaKHBH As Long, HanTT As Date
-Attribute DiachiTC.VB_VarUserMemId = 1073938463
-Attribute ctgoc.VB_VarUserMemId = 1073938463
-Attribute TenNX.VB_VarUserMemId = 1073938463
-Attribute DiaChiNX.VB_VarUserMemId = 1073938463
-Attribute TenBH.VB_VarUserMemId = 1073938463
-Attribute DiaChiBH.VB_VarUserMemId = 1073938463
-Attribute MSTBH.VB_VarUserMemId = 1073938463
-Attribute unc1.VB_VarUserMemId = 1073938463
-Attribute unc2.VB_VarUserMemId = 1073938463
-Attribute unc3.VB_VarUserMemId = 1073938463
-Attribute MaKHBH.VB_VarUserMemId = 1073938463
-Attribute HanTT.VB_VarUserMemId = 1073938463
+Attribute DiachiTC.VB_VarUserMemId = 1073938468
+Attribute ctgoc.VB_VarUserMemId = 1073938468
+Attribute TenNX.VB_VarUserMemId = 1073938468
+Attribute DiaChiNX.VB_VarUserMemId = 1073938468
+Attribute TenBH.VB_VarUserMemId = 1073938468
+Attribute DiaChiBH.VB_VarUserMemId = 1073938468
+Attribute MSTBH.VB_VarUserMemId = 1073938468
+Attribute unc1.VB_VarUserMemId = 1073938468
+Attribute unc2.VB_VarUserMemId = 1073938468
+Attribute unc3.VB_VarUserMemId = 1073938468
+Attribute MaKHBH.VB_VarUserMemId = 1073938468
+Attribute HanTT.VB_VarUserMemId = 1073938468
 Dim HD() As tpHoaDon, hdcount As Integer
 Attribute HD.VB_VarUserMemId = 1073938459
 Attribute hdcount.VB_VarUserMemId = 1073938459
@@ -3273,9 +3287,18 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         OptLoai_LostFocus 8
         RFocus CboThang
     End If
+
+    Dim myDate As Date
+    myDate = CDate(item.ngay)
     txt(0).Text = item.soHD
     txtVT(1).Text = item.khHD
-    MedNgay(1).Text = Format(item.ngay, "dd/mm/yy")
+    MedNgay(0).Text = Format(item.ngay, "dd/mm/yy")
+    If Month(myDate) <> Month(Now) Then
+        MedNgay(1).Text = DateSerial(Year(Date), Month(Date), 1)
+    Else
+        MedNgay(1).Text = Format(item.ngay, "dd/mm/yy")
+    End If
+
     Dim rs_ktra As Recordset
     Dim Query As String
     Dim rst As String
@@ -3301,12 +3324,12 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         tempchungtu = .notk
     End With
     If (txtchungtu(0).Text = "5111") Or (txtchungtu(0).Text = "5112") Then
-         FThuChi.FThuChiForm = 2
-         
-         txtChungtu_LostFocus (0)
+        FThuChi.FThuChiForm = 2
+
+        txtChungtu_LostFocus (0)
         ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
         With fileImportList(IndexFirst)
-            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' "
+            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' AND DVT <> 'Exception'"
         End With
 
         ' M? Recordset d? l?y thông tin khách hàng
@@ -3328,7 +3351,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             Another
         End If
 
-        
+
     End If
 
     If (txtchungtu(0).Text = "152") Then
@@ -3337,7 +3360,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         txtChungtu_LostFocus (0)
         ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
         With fileImportList(IndexFirst)
-            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' "
+            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' AND DVT <> 'Exception' ORDER BY DonGia ASC"
         End With
 
         ' M? Recordset d? l?y thông tin khách hàng
@@ -3403,10 +3426,70 @@ End Sub
 
 Private Sub btnOpenexe_Click()
     Dim exePath As String
-    exePath = "C:\TCP\Saoviet\SourceTool\SaovietTool\SaovietTool\bin\Debug\net8.0-windows\SaovietTool.exe"    ' Thay b?ng du?ng d?n th?c t?
-    Shell exePath, vbNormalFocus
+    exePath = "C:\TCP\Saoviet\SaovietWF\SaovietWF\bin\Debug\SaovietWF.exe"    ' Thay b?ng du?ng d?n th?c t?
+    Shell exePath, vbNormalFocus  ' Thay d?i du?ng d?n t?i ?ng d?ng c?a b?n
+    ' Ð?i m?t chút d? ?ng d?ng m?
+    DoEvents
+    ' Thêm th?i gian ch? d? ?ng d?ng có th?i gian kh?i d?ng
+    Sleep 1000  ' Ngh? 1 giây (1000 milliseconds)
+    
+    ' L?y handle c?a c?a s? ?ng d?ng
+    hWndApp = FindWindow(vbNullString, "frmMain") ' Thay d?i tiêu d? c?a ?ng d?ng
+    ' Ki?m tra xem handle có h?p l? hay không tru?c khi ki?m tra liên t?c
+    If hWndApp = 0 Then
+        MsgBox "Không th? tìm th?y c?a s? ?ng d?ng."
+    Else
+        ' B?t d?u ki?m tra c? quay
+        CheckWindow
+    End If
 End Sub
+Private Sub CheckWindow()
+' Ki?m tra liên t?c xem c?a s? còn t?n t?i hay không
+    Do
+        If IsWindow(hWndApp) = 0 Then
+            'btnImport_Click
+            Dim FilePath As String
+            Dim FileNum As Integer
+            Dim fileContent As String
+            FilePath = "C:\S.T.E 25\S.T.E 25\Hoadon\status.txt"
 
+            FileNum = FreeFile    'L?y s? file t? do
+
+            Dim lineText As String
+            Dim allText As String
+
+            ' M? file d? d?c
+            Open FilePath For Input As #FileNum
+
+            ' Ð?c t?ng dòng d?n h?t file
+            Do Until EOF(FileNum)
+                Line Input #FileNum, lineText
+                allText = allText & lineText & vbCrLf    'N?i dòng và xu?ng dòng
+            Loop
+
+            ' Ðóng file
+            Close #FileNum
+            Dim textss As String
+            textss = "ButtonClicked"
+            Dim textss2 As String
+            textss2 = SuperTrim(allText)
+            If textss = textss2 Then
+                btnImport_Click
+            End If
+
+            Exit Do
+        End If
+        DoEvents  ' Cho phép ?ng d?ng x? lý các s? ki?n khác
+    Loop
+End Sub
+Function SuperTrim(ByVal s As String) As String
+    ' Xóa t?t c? ký t? tr?ng (kho?ng tr?ng, tab, xu?ng dòng)
+    s = Replace(s, vbTab, "")
+    s = Replace(s, vbCrLf, "")
+    s = Replace(s, vbCr, "")
+    s = Replace(s, vbLf, "")
+    SuperTrim = Trim(s)  ' Xóa kho?ng tr?ng d?u/cu?i (ASCII 32)
+End Function
 Private Sub CboLoai_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 And KHDetail Then
         'RFocus txtVT(7)
@@ -3851,7 +3934,7 @@ Public Sub CmdChitiet_chon()
     taikhoan.KtraPhatsinh thang, IIf(no > 0, no, co), IIf(no > 0, -1, 1)
     If co > 0 And ((Left(taikhoan.sohieu, Len(TM)) = TM) Or (Left(taikhoan.sohieu, Len(NH)) = NH)) Then
         taikhoan.SoDuNgay ngay(0), n, c, X
-        If n - c < co Then
+        If n - c < co And IsImport = False Then
             If MsgBox("Chi v­ît sè d­! TiÕp tôc ?", vbYesNo + vbCritical, App.ProductName) <> vbYes Then
                 RFocus txtchungtu(6)
                 Exit Sub
@@ -6362,8 +6445,6 @@ Public Sub cmdReset_Click()
     ' Làm r?ng danh sách fileImportList
 End Sub
 Private Sub Form_Activate()
-
-    IsImport = False
     
     Dim ithang As Integer
     'Add item cho cbbThang
@@ -7121,6 +7202,7 @@ Private Sub Timer3_Timer()
         Xulyimport item2
     Else
         ' Code to execute if the condition is not met
+        
         MsgBox "Duyet xong"
         FThuChi.FThuChiForm = 0
     End If
@@ -7148,6 +7230,27 @@ Private Sub Timer4_Timer()
         Timer4.Enabled = True
     Else
         Timer4.Enabled = False
+        'Xu li tai khoan chiec khau .....
+        Dim Query As String
+        With fileImportList(IndexFirst)
+            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' AND DVT = 'Exception' ORDER BY DonGia ASC"
+        End With
+         Exit Sub
+        Set rs_ktra152 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+        If Not rs_ktra152.EOF Then
+            ' Duy?t qua t?t c? các b?n ghi
+            Do While Not rs_ktra152.EOF
+                RFocus txtchungtu(0)
+                txtchungtu(0).Text = rs_ktra152!sohieu
+                txtChungtu_LostFocus (0)
+                RFocus txtchungtu(2)
+                RFocus txtchungtu(6)
+                txtchungtu(6).Text = rs_ktra152!dongia
+
+                rs_ktra152.MoveNext
+            Loop
+        End If
+        
         'Xu ly cac  tai khoan 1331, 1111
         With fileImportList(IndexFirst)
             If .notk <> "5111" Then
@@ -7157,6 +7260,15 @@ Private Sub Timer4_Timer()
                 txtchungtu(0).Text = "33311"
             End If
 
+            Dim myDate As Date
+            myDate = CDate(item.ngay)
+            MedNgay(0).Text = item.ngay
+            If Month(myDate) <> Month(Now) Then
+                MedNgay(1).Text = DateSerial(Year(Date), Month(Date), 1)
+            Else
+                MedNgay(1).Text = Format(item.ngay, "dd/mm/yy")
+            End If
+            
             txtChungtu_LostFocus (0)
             txtchungtu(2).Text = .vat
             txtChungtu_LostFocus (2)

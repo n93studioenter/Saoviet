@@ -2660,7 +2660,7 @@ Private Sub LoadInfo()
      Text(26).Text = rs!Tenhoadon
      Text(27).Text = rs!sofax
     
-     If boolean_kiemtra() Then Active.Visible = False
+     If boolean_kiemtra() Then active.Visible = False
     rs.Close
     Set rs = Nothing
     
