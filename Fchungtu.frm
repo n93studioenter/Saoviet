@@ -5507,7 +5507,7 @@ Sub tinhkyhieu()
 
     End If
 End Sub
-Public Sub Test()
+Public Sub test()
     Command_Click 1
 
 End Sub
@@ -7235,7 +7235,6 @@ Private Sub Timer4_Timer()
         With fileImportList(IndexFirst)
             Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' AND DVT = 'Exception' ORDER BY DonGia ASC"
         End With
-         Exit Sub
         Set rs_ktra152 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
         If Not rs_ktra152.EOF Then
             ' Duy?t qua t?t c? các b?n ghi
@@ -7244,13 +7243,22 @@ Private Sub Timer4_Timer()
                 txtchungtu(0).Text = rs_ktra152!sohieu
                 txtChungtu_LostFocus (0)
                 RFocus txtchungtu(2)
-                RFocus txtchungtu(6)
-                txtchungtu(6).Text = rs_ktra152!dongia
+                If rs_ktra152!sohieu = "6422" Then
+                    RFocus txtchungtu(5)
+                    txtchungtu(5).Text = rs_ktra152!dongia
+                     txtChungtu_LostFocus (5)
+                    txtChungtu_KeyPress 6, 13
+                End If
+                If rs_ktra152!sohieu = "711" Then
+                    RFocus txtchungtu(6)
+                    txtchungtu(6).Text = rs_ktra152!dongia
+                    txtChungtu_KeyPress 6, 13
+                End If
 
                 rs_ktra152.MoveNext
             Loop
         End If
-        
+
         'Xu ly cac  tai khoan 1331, 1111
         With fileImportList(IndexFirst)
             If .notk <> "5111" Then
@@ -7268,7 +7276,7 @@ Private Sub Timer4_Timer()
             Else
                 MedNgay(1).Text = Format(item.ngay, "dd/mm/yy")
             End If
-            
+
             txtChungtu_LostFocus (0)
             txtchungtu(2).Text = .vat
             txtChungtu_LostFocus (2)
@@ -8411,6 +8419,10 @@ Public Sub txtChungtu_LostFocus(Index As Integer)
                         Else
                             tien = tien + Cdbl5(.Text)
                         End If
+                         If Left(sh, 3) = "711" Then
+                            .col = 7
+                            tien = tien - Cdbl5(.Text)
+                        End If
                         If Left(sh, 3) = "338" Then
                             .col = 7
                             tien = tien - Cdbl5(.Text)
@@ -8692,8 +8704,7 @@ Public Sub txtChungtu_LostFocus(Index As Integer)
     End Select
     '////////////
     dathuchien = False
-End Sub
-'====================================================================================================
+End Sub    '====================================================================================================
 ' §Æt chÕ ®é nhËp cho lo¹i chøng tõ
 '====================================================================================================
 Public Sub SetLoaiChungtu(loai As Integer)

@@ -10,6 +10,14 @@ Begin VB.Form Formimport
    ScaleHeight     =   6645
    ScaleWidth      =   12705
    StartUpPosition =   3  'Windows Default
+   Begin VB.TextBox Text1 
+      Height          =   375
+      Left            =   8280
+      TabIndex        =   4
+      Text            =   "Text1"
+      Top             =   4560
+      Width           =   1455
+   End
    Begin VB.CommandButton Command1 
       Caption         =   "Command1"
       Height          =   495
