@@ -3329,13 +3329,13 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
     Dim rs_ktra As Recordset
     Dim Query As String
     Dim rst As String
-    Query = "SELECT Ten, DiaChi, MST FROM KhachHang WHERE MST = '" & .mst & "'"
+    Query = "SELECT Ten, DiaChi, MST FROM KhachHang WHERE MST = '" & item.mst & "'"
     Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
     If Not rs_ktra.EOF Then
         ' Duy?t qua t?t c? các b?n ghi
         Do While Not rs_ktra.EOF
             ' L?y s? lu?ng tru?ng
-            txtVT(9).Text = .mst
+            txtVT(9).Text = item.mst
             rs_ktra.MoveNext
 
         Loop
@@ -3398,7 +3398,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             RFocus txtchungtu(2)
             txtchungtu(2).Text = rs_ktra154!sohieu
             txtChungtu_LostFocus (2)
-            txtchungtu(5).Text = .tongtien
+            txtchungtu(5).Text = item.tongtien
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
 
@@ -3407,7 +3407,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         '1331
         txtchungtu(0).Text = 1331
         txtChungtu_LostFocus (0)
-        txtchungtu(2).Text = .vat
+        txtchungtu(2).Text = item.vat
         txtChungtu_LostFocus (2)
         RFocus txtchungtu(6)
         txtChungtu_KeyPress 6, 13
