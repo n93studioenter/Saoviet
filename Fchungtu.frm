@@ -7,7 +7,7 @@ Begin VB.Form FrmChungtu
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   0  'None
    Caption         =   "NhËp chøng tõ"
-   ClientHeight    =   8490
+   ClientHeight    =   8685
    ClientLeft      =   60
    ClientTop       =   705
    ClientWidth     =   18180
@@ -16,7 +16,7 @@ Begin VB.Form FrmChungtu
    KeyPreview      =   -1  'True
    LinkTopic       =   "Voucher"
    PaletteMode     =   1  'UseZOrder
-   ScaleHeight     =   8490
+   ScaleHeight     =   8685
    ScaleWidth      =   18180
    StartUpPosition =   2  'CenterScreen
    Tag             =   "0"
@@ -30,13 +30,13 @@ Begin VB.Form FrmChungtu
    End
    Begin VB.Timer Timer5 
       Enabled         =   0   'False
-      Interval        =   1000
+      Interval        =   250
       Left            =   10080
       Top             =   600
    End
    Begin VB.Timer Timer4 
       Enabled         =   0   'False
-      Interval        =   2000
+      Interval        =   250
       Left            =   9600
       Top             =   600
    End
@@ -50,7 +50,7 @@ Begin VB.Form FrmChungtu
    End
    Begin VB.Timer Timer3 
       Enabled         =   0   'False
-      Interval        =   1000
+      Interval        =   250
       Left            =   120
       Top             =   4560
    End
@@ -72,13 +72,13 @@ Begin VB.Form FrmChungtu
    End
    Begin VB.Timer Timer2 
       Enabled         =   0   'False
-      Interval        =   2000
+      Interval        =   250
       Left            =   12240
       Top             =   120
    End
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
-      Interval        =   2000
+      Interval        =   250
       Left            =   12960
       Top             =   0
    End
@@ -1851,10 +1851,10 @@ Begin VB.Form FrmChungtu
       Left            =   3720
       TabIndex        =   134
       Tag             =   "1"
-      Top             =   5520
+      Top             =   5280
       Width           =   9795
       _Version        =   65536
-      _ExtentX        =   17268
+      _ExtentX        =   17277
       _ExtentY        =   5318
       _StockProps     =   77
       BackColor       =   16777215
@@ -1945,7 +1945,7 @@ Begin VB.Form FrmChungtu
       Left            =   9840
       TabIndex        =   157
       Tag             =   "Month"
-      Top             =   8280
+      Top             =   8400
       Width           =   2295
    End
    Begin VB.Label Label 
@@ -1965,7 +1965,7 @@ Begin VB.Form FrmChungtu
       Left            =   12360
       TabIndex        =   156
       Tag             =   "Month"
-      Top             =   8280
+      Top             =   8400
       Width           =   1335
    End
    Begin MSForms.Label Label2 
@@ -3246,7 +3246,7 @@ End Sub
 Private Sub btnImport_Click()
 
     Set fileImportList = New Collection
-
+    
     IsImport = True
     ' Duyet du lieu tu tb_import
     Dim rs_ktra As Recordset
@@ -3329,13 +3329,13 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
     Dim rs_ktra As Recordset
     Dim Query As String
     Dim rst As String
-    Query = "SELECT Ten, DiaChi, MST FROM KhachHang WHERE MST = '" & item.mst & "'"
+    Query = "SELECT Ten, DiaChi, MST FROM KhachHang WHERE MST = '" & .mst & "'"
     Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
     If Not rs_ktra.EOF Then
         ' Duy?t qua t?t c? các b?n ghi
         Do While Not rs_ktra.EOF
             ' L?y s? lu?ng tru?ng
-            txtVT(9).Text = item.mst
+            txtVT(9).Text = .mst
             rs_ktra.MoveNext
 
         Loop
@@ -3356,7 +3356,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         txtChungtu_LostFocus (0)
         ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
         With fileImportList(IndexFirst)
-            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' AND DVT <> 'Exception'"
+            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & .id & "' AND DVT <> 'Exception'"
         End With
 
         ' M? Recordset d? l?y thông tin khách hàng
@@ -3389,7 +3389,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         RFocus txtchungtu(1)
         'MsgBox item.sohieutp
         With fileImportList(IndexFirst)
-            Query = "SELECT * FROM TP154 WHERE SoHieu='" & item.sohieutp & "'"
+            Query = "SELECT * FROM TP154 WHERE SoHieu='" & .sohieutp & "'"
         End With
         Dim rs_ktra154 As Recordset
         ' M? Recordset d? l?y thông tin khách hàng
@@ -3398,7 +3398,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             RFocus txtchungtu(2)
             txtchungtu(2).Text = rs_ktra154!sohieu
             txtChungtu_LostFocus (2)
-            txtchungtu(5).Text = item.tongtien
+            txtchungtu(5).Text = .tongtien
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
 
@@ -3407,7 +3407,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         '1331
         txtchungtu(0).Text = 1331
         txtChungtu_LostFocus (0)
-        txtchungtu(2).Text = item.vat
+        txtchungtu(2).Text = .vat
         txtChungtu_LostFocus (2)
         RFocus txtchungtu(6)
         txtChungtu_KeyPress 6, 13
@@ -3429,7 +3429,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         txtChungtu_LostFocus (0)
         ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
         With fileImportList(IndexFirst)
-            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' AND DVT <> 'Exception' ORDER BY DonGia ASC"
+            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & .id & "' AND DVT <> 'Exception' ORDER BY DonGia ASC"
         End With
 
         ' M? Recordset d? l?y thông tin khách hàng
@@ -7322,7 +7322,7 @@ Private Sub Timer4_Timer()
         'Xu li tai khoan chiec khau .....
         Dim Query As String
         With fileImportList(IndexFirst)
-            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & item.id & "' AND DVT = 'Exception' ORDER BY DonGia ASC"
+            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & .id & "' AND DVT = 'Exception' ORDER BY DonGia ASC"
         End With
         Set rs_ktra152 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
         If Not rs_ktra152.EOF Then
@@ -7335,7 +7335,7 @@ Private Sub Timer4_Timer()
                 If rs_ktra152!sohieu = "6422" Then
                     RFocus txtchungtu(5)
                     txtchungtu(5).Text = rs_ktra152!dongia
-                     txtChungtu_LostFocus (5)
+                    txtChungtu_LostFocus (5)
                     txtChungtu_KeyPress 6, 13
                 End If
                 If rs_ktra152!sohieu = "711" Then
@@ -7358,12 +7358,13 @@ Private Sub Timer4_Timer()
             End If
 
             Dim myDate As Date
-            myDate = CDate(item.ngay)
-            MedNgay(0).Text = item.ngay
+            myDate = CDate(.ngay)
+            CboThang.Text = Month(myDate) & "/" & Year(myDate)
+            MedNgay(0).Text = .ngay
             If Month(myDate) <> Month(Now) Then
                 MedNgay(1).Text = DateSerial(Year(Date), Month(Date), 1)
             Else
-                MedNgay(1).Text = Format(item.ngay, "dd/mm/yy")
+                MedNgay(1).Text = Format(.ngay, "dd/mm/yy")
             End If
 
             txtChungtu_LostFocus (0)
@@ -10539,7 +10540,7 @@ Private Sub txtsh_LostFocus(Index As Integer)
         Set tkxt = New ClsTaikhoan
         tkxt.InitTaikhoanSohieu txtsh(0).Text
         txtsh(0).tag = IIf(tkxt.MaSo > 0 And tkxt.tkcon = 0, tkxt.MaSo, 0)
-        lb(0).Caption = tkxt.Ten
+        Lb(0).Caption = tkxt.Ten
         vis = (tkxt.tk_id = TKCNKH_ID Or tkxt.tk_id = TKCNPT_ID Or (tkxt.loai = 6 And pDTTP <> 0))
         If Left(txtsh(0).Text, 3) = "154" Then
             vis = True
@@ -10547,7 +10548,7 @@ Private Sub txtsh_LostFocus(Index As Integer)
 
         Label(19).Enabled = vis
         txtsh(1).Enabled = vis
-        lb(1).Enabled = vis
+        Lb(1).Enabled = vis
         cmd(1).Enabled = vis
         cmd(0).tag = IIf(tkxt.tk_id = TKCNKH_ID Or tkxt.tk_id = TKCNPT_ID, 1, IIf(tkxt.loai = 6 And pDTTP <> 0, 2, 0))
         Set tkxt = Nothing
@@ -10556,14 +10557,14 @@ Private Sub txtsh_LostFocus(Index As Integer)
             Set khxt = New ClsKhachHang
             khxt.InitKhachHangSohieu txtsh(1).Text
             txtsh(1).tag = khxt.MaSo
-            lb(1).Caption = khxt.Ten
+            Lb(1).Caption = khxt.Ten
             Set khxt = Nothing
         End If
         If cmd(0).tag = 2 Then
             Set tpxt = New Cls154
             tpxt.InitTPSohieu txtsh(1).Text
             txtsh(1).tag = tpxt.MaSo
-            lb(1).Caption = tpxt.TenVattu
+            Lb(1).Caption = tpxt.TenVattu
             Set tpxt = Nothing
         End If
 
@@ -10571,7 +10572,7 @@ Private Sub txtsh_LostFocus(Index As Integer)
             Set tpxt = New Cls154
             tpxt.InitTPSohieu txtsh(1).Text
             txtsh(1).tag = tpxt.MaSo
-            lb(1).Caption = tpxt.TenVattu
+            Lb(1).Caption = tpxt.TenVattu
             Set tpxt = Nothing
         End If
 
