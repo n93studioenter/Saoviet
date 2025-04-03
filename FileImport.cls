@@ -31,6 +31,7 @@ Private m_ThueTK As String
 Private m_DienGiai As String
 Private m_TongTien As String
 Private m_Vat As String
+Private m_SohieuTP As String
 Public Property Get id() As String
     id = m_ID
 End Property
@@ -142,4 +143,10 @@ End Property
 End Property
 Public Property Let vat(Value As String)
     m_Vat = Value
+End Property
+ Public Property Get sohieutp() As String
+    sohieutp = m_SohieuTP
+End Property
+Public Property Let sohieutp(Value As String)
+    m_SohieuTP = Value
 End Property
