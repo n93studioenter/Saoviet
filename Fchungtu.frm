@@ -22,6 +22,46 @@ Begin VB.Form FrmChungtu
    Tag             =   "0"
    WhatsThisButton =   -1  'True
    WhatsThisHelp   =   -1  'True
+   Begin VB.TextBox txtNgaychungtu 
+      Height          =   285
+      Left            =   11040
+      TabIndex        =   169
+      Text            =   "Text2"
+      Top             =   3840
+      Width           =   1335
+   End
+   Begin VB.TextBox txtNgayghiso 
+      Height          =   285
+      Left            =   11040
+      TabIndex        =   168
+      Text            =   "Text2"
+      Top             =   3360
+      Width           =   1335
+   End
+   Begin VB.OptionButton OptLoai 
+      BackColor       =   &H0080FF80&
+      Caption         =   "T¶i hãa ®¬n"
+      BeginProperty Font 
+         Name            =   "VK Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00400000&
+      Height          =   395
+      Index           =   5
+      Left            =   120
+      MaskColor       =   &H80000001&
+      Style           =   1  'Graphical
+      TabIndex        =   167
+      Tag             =   "35"
+      ToolTipText     =   "Depreciation"
+      Top             =   240
+      Width           =   1575
+   End
    Begin VB.Timer timer3311 
       Enabled         =   0   'False
       Interval        =   500
@@ -43,23 +83,23 @@ Begin VB.Form FrmChungtu
    Begin VB.CommandButton btnOpenexe 
       Caption         =   "mt"
       Height          =   315
-      Left            =   600
+      Left            =   8880
       TabIndex        =   166
-      Top             =   4680
+      Top             =   5400
       Width           =   855
    End
    Begin VB.Timer Timer3 
       Enabled         =   0   'False
       Interval        =   250
-      Left            =   120
-      Top             =   4560
+      Left            =   4320
+      Top             =   5880
    End
    Begin VB.CommandButton btnImport 
       Caption         =   "Import"
       Height          =   375
-      Left            =   1560
+      Left            =   10320
       TabIndex        =   165
-      Top             =   4680
+      Top             =   5400
       Width           =   735
    End
    Begin VB.TextBox Text1 
@@ -657,7 +697,7 @@ Begin VB.Form FrmChungtu
       Style           =   1  'Graphical
       TabIndex        =   110
       Tag             =   "Conversion"
-      Top             =   550
+      Top             =   1110
       Width           =   1575
    End
    Begin VB.CommandButton CmdChitiet 
@@ -1463,7 +1503,7 @@ Begin VB.Form FrmChungtu
       Style           =   1  'Graphical
       TabIndex        =   22
       Tag             =   "Sales Invoice"
-      Top             =   1865
+      Top             =   2370
       Width           =   1575
    End
    Begin VB.CommandButton SSCmdV 
@@ -1505,7 +1545,7 @@ Begin VB.Form FrmChungtu
       TabIndex        =   26
       Tag             =   "34"
       ToolTipText     =   "Assets Revaluation"
-      Top             =   3600
+      Top             =   4070
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1529,7 +1569,7 @@ Begin VB.Form FrmChungtu
       TabIndex        =   25
       Tag             =   "33"
       ToolTipText     =   "Assets Decreasing"
-      Top             =   3170
+      Top             =   3630
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1553,7 +1593,7 @@ Begin VB.Form FrmChungtu
       TabIndex        =   24
       Tag             =   "32"
       ToolTipText     =   "Assets Increasing"
-      Top             =   2730
+      Top             =   3210
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1577,7 +1617,7 @@ Begin VB.Form FrmChungtu
       Style           =   1  'Graphical
       TabIndex        =   20
       Tag             =   "Common"
-      Top             =   120
+      Top             =   680
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1600,7 +1640,7 @@ Begin VB.Form FrmChungtu
       Style           =   1  'Graphical
       TabIndex        =   21
       Tag             =   "Import Inventory"
-      Top             =   985
+      Top             =   1530
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1623,7 +1663,7 @@ Begin VB.Form FrmChungtu
       Style           =   1  'Graphical
       TabIndex        =   107
       Tag             =   "Export Inventory"
-      Top             =   1430
+      Top             =   1950
       Width           =   1575
    End
    Begin VB.TextBox txt 
@@ -1681,7 +1721,7 @@ Begin VB.Form FrmChungtu
       Style           =   1  'Graphical
       TabIndex        =   23
       Tag             =   "Conversion"
-      Top             =   2300
+      Top             =   2790
       Width           =   1575
    End
    Begin VB.CommandButton Command 
@@ -1795,7 +1835,7 @@ Begin VB.Form FrmChungtu
       TabIndex        =   27
       Tag             =   "35"
       ToolTipText     =   "Depreciation"
-      Top             =   4050
+      Top             =   4500
       Width           =   1575
    End
    Begin MSMask.MaskEdBox MedNgay 
@@ -1848,10 +1888,10 @@ Begin VB.Form FrmChungtu
    End
    Begin MSGrid.Grid Grid2 
       Height          =   3015
-      Left            =   3720
+      Left            =   3600
       TabIndex        =   134
       Tag             =   "1"
-      Top             =   5280
+      Top             =   5160
       Width           =   9795
       _Version        =   65536
       _ExtentX        =   17277
@@ -2163,7 +2203,7 @@ Begin VB.Form FrmChungtu
       Left            =   0
       TabIndex        =   111
       Tag             =   "Bill Code"
-      Top             =   0
+      Top             =   120
       Width           =   1815
    End
    Begin VB.Label LbKho 
@@ -2347,6 +2387,7 @@ Begin VB.Form FrmChungtu
       TabIndex        =   95
       Tag             =   "Address"
       Top             =   0
+      Visible         =   0   'False
       Width           =   1695
    End
    Begin VB.Label Label1 
@@ -3092,15 +3133,15 @@ Public Sub AutoCLickLoai()
     RFocus CboThang
     DisplayFileImportList
 End Sub
-Public Sub AddImportData(ByVal id As String, ByVal name As String, ByVal mst As String, ByVal soHD As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal tongtien As String, ByVal vat As String, ByVal sohieutp As String)
+Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As String, ByVal sohd As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal TongTien As String, ByVal VAT As String, ByVal sohieutp As String)
     Dim fileImport As ClsFileImport
     Set fileImport = New ClsFileImport
 
     ' Gán giá tr? cho các thu?c tính
     fileImport.id = id
-    fileImport.name = name
+    fileImport.Name = Name
     fileImport.mst = mst
-    fileImport.soHD = soHD
+    fileImport.sohd = sohd
     fileImport.khHD = khHD
     fileImport.ngay = ngay
     fileImport.types = types
@@ -3109,8 +3150,8 @@ Public Sub AddImportData(ByVal id As String, ByVal name As String, ByVal mst As 
     fileImport.notk = tkno
     fileImport.ThueTK = tkThue
     fileImport.diengiai = diengiai
-    fileImport.tongtien = tongtien
-    fileImport.vat = vat
+    fileImport.TongTien = TongTien
+    fileImport.VAT = VAT
     fileImport.sohieutp = sohieutp
     fileImportList.Add fileImport
 
@@ -3259,7 +3300,7 @@ Private Sub btnImport_Click()
         ' Duy?t qua t?t c? các b?n ghi
         Do While Not rs_ktra.EOF
             ' L?y s? lu?ng tru?ng
-            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!tongtien, rs_ktra!vat, rs_ktra!sohieutp
+            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!TongTien, rs_ktra!VAT, rs_ktra!sohieutp
             rs_ktra.MoveNext
         Loop
     End If
@@ -3317,14 +3358,17 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
     Dim myDate As Date
     myDate = CDate(item.ngay)
-    txt(0).Text = item.soHD
+    txt(0).Text = item.sohd
     txtVT(1).Text = item.khHD
+
+    CboThang.Text = Month(myDate) & "/" & Year(myDate)
     MedNgay(0).Text = Format(item.ngay, "dd/mm/yy")
-    If Month(myDate) <> Month(Now) Then
-        MedNgay(1).Text = DateSerial(Year(Date), Month(Date), 1)
-    Else
-        MedNgay(1).Text = Format(item.ngay, "dd/mm/yy")
-    End If
+
+    ' If Month(myDate) <> Month(Date) Then
+    ' MedNgay(1).Text = DateSerial(Year(Date), Month(Date), 1)
+    'Else
+    MedNgay(1).Text = Format(item.ngay, "dd/mm/yy")
+    'End If
 
     Dim rs_ktra As Recordset
     Dim Query As String
@@ -3398,7 +3442,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             RFocus txtchungtu(2)
             txtchungtu(2).Text = rs_ktra154!sohieu
             txtChungtu_LostFocus (2)
-            txtchungtu(5).Text = item.tongtien
+            txtchungtu(5).Text = item.TongTien
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
 
@@ -3407,7 +3451,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         '1331
         txtchungtu(0).Text = 1331
         txtChungtu_LostFocus (0)
-        txtchungtu(2).Text = item.vat
+        txtchungtu(2).Text = item.VAT
         txtChungtu_LostFocus (2)
         RFocus txtchungtu(6)
         txtChungtu_KeyPress 6, 13
@@ -3455,10 +3499,17 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
     End If
     If (txtchungtu(0).Text = "6422") Then
+        With fileImportList(IndexFirst)
+            MedNgay(0).Text = Format(.ngay, "dd/mm/yy")
+            MedNgay(1).Text = Format(.ngay, "dd/mm/yy")
+            txtNgaychungtu.Text = Format(.ngay, "dd/mm/yy")
+            txtNgayghiso.Text = Format(.ngay, "dd/mm/yy")
+        End With
 
         txtChungtu_LostFocus (0)
         With fileImportList(IndexFirst)
-            txtchungtu(5).Text = .tongtien
+            txtchungtu(5).Text = .TongTien
+
         End With
         RFocus txtchungtu(6)
         txtChungtu_KeyPress 6, 13
@@ -3474,7 +3525,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         End With
         txtChungtu_LostFocus (0)
         With fileImportList(IndexFirst)
-            txtchungtu(2).Text = .vat
+            txtchungtu(2).Text = .VAT
         End With
 
         txtChungtu_LostFocus (2)
@@ -3504,6 +3555,8 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         End With
 
     End If
+    'MedNgay(0).Text = txtNgaychungtu.Text
+    'MedNgay(1).Text = txtNgayghiso.Text
 
 End Sub
 
@@ -3963,7 +4016,7 @@ Public Sub CmdChitiet_chon()
         End If
     End If
 
-    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vBH > 0 And vattu.vat > 0 And vBH <> vattu.vat Then
+    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vBH > 0 And vattu.VAT > 0 And vBH <> vattu.VAT Then
         If MsgBox("MÆt hµng kh«ng cïng thuÕ suÊt VAT! TiÕp tôc ?", vbYesNo + vbCritical, App.ProductName) <> vbYes Then
             RFocus txtchungtu(2)
             Exit Sub
@@ -4090,7 +4143,7 @@ Public Sub CmdChitiet_chon()
                 h.MaKhachHang = HD(hdcount).MaKhachHang
                 h.MauSo = HD(hdcount).MauSo
                 h.KyHieu = HD(hdcount).KyHieu
-                h.soHD = HD(hdcount).soHD
+                h.sohd = HD(hdcount).sohd
                 h.NgayPH = HD(hdcount).NgayPH
                 h.tygia = HD(hdcount).tygia
             Else
@@ -4134,7 +4187,7 @@ Public Sub CmdChitiet_chon()
             ' --------------------
             ' vua them vao sau
             If hdcount <= 0 Then
-                h.soHD = txt(0).Text    'so hoa don
+                h.sohd = txt(0).Text    'so hoa don
             End If
             h.KyHieu = txtVT(1).Text
             h.MatHang = txt(1).Text
@@ -4382,7 +4435,7 @@ KT:
         MSTBH = ckh.mst
         MaKHBH = ckh.MaSo
     End If
-    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vattu.vat > 0 Then vBH = vattu.vat
+    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vattu.VAT > 0 Then vBH = vattu.VAT
     NhapDongMoi taikhoan.sohieu
 
     Erase mct1
@@ -4788,7 +4841,7 @@ B:
                     Else
                         frmMain.Rpt.Formulas(13) = "TyLe='ThuÕ GTGT (" + CStr(HD(hdcount).TyLe) + "%):'"
                     End If
-                    frmMain.Rpt.Formulas(18) = "HoaDon='" + ABCtoVNI("Ho¸ ®¬n : ") + HD(hdcount).MauSo + ABCtoVNI(" - Sè : ") + HD(hdcount).soHD + ABCtoVNI(" - Sè : ") + HD(hdcount).KyHieu + ABCtoVNI(" - Ngµy : ") + Format(HD(hdcount).NgayPH, Mask_DR) + "'"
+                    frmMain.Rpt.Formulas(18) = "HoaDon='" + ABCtoVNI("Ho¸ ®¬n : ") + HD(hdcount).MauSo + ABCtoVNI(" - Sè : ") + HD(hdcount).sohd + ABCtoVNI(" - Sè : ") + HD(hdcount).KyHieu + ABCtoVNI(" - Ngµy : ") + Format(HD(hdcount).NgayPH, Mask_DR) + "'"
                 End If
                 ms = HD(hdcount).MaKhachHang
             Else
@@ -5061,7 +5114,7 @@ Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sod
     Case 0, 7, 8:
         If hdcount >= 0 Then
             frmMain.Rpt.Formulas(11) = "TyLe=" + CStr(HD(hdcount).TyLe)
-            frmMain.Rpt.Formulas(16) = "SoHD='" + HD(hdcount).soHD + "'"
+            frmMain.Rpt.Formulas(16) = "SoHD='" + HD(hdcount).sohd + "'"
             ms = HD(hdcount).MaKhachHang
             HTTT = HD(hdcount).HTTT
             frmMain.Rpt.Formulas(17) = "TyGia=" + DoiDau(HD(hdcount).tygia)
@@ -5236,11 +5289,11 @@ Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sod
         dem1 = 100
         dem = 90
         Dim g, kk As Integer
-        Dim tongtien As Double
+        Dim TongTien As Double
         Dim thoat As Boolean
         thoat = True
         kk = 1
-        tongtien = 0
+        TongTien = 0
         Dim mang_stt(100) As String
         Dim mang_diengiai(100) As String
         Dim mang_dvt(100) As String
@@ -5635,8 +5688,20 @@ End Function
 Public Sub Command_Click(Index As Integer)
     Dim so_dem
     so_dem = kiem_tra_333_133
-    ngay(0) = CVDate(MedNgay(0).Text)
-    ngay(1) = CVDate(MedNgay(1).Text)
+    If IsImport = False Then
+        ngay(0) = CVDate(MedNgay(0).Text)
+        ngay(1) = CVDate(MedNgay(1).Text)
+    Else
+        If IndexFirst <= fileImportList.count Then
+            With fileImportList(IndexFirst)
+                ngay(0) = .ngay
+                ngay(1) = .ngay
+            End With
+        End If
+    End If
+
+
+
     Dim chungtu As New ClsChungtu, mtk As Long, mvt As Long, mtk2 As Long, sops As Double, psnt As Double, psnt2 As Double, mtc As Long, mtc2 As Long
     Dim MaCT As Long, GhiChu As String, loai As Integer, mhdx As Integer, MaTP As Long, j As Integer, sh As String, bg As Boolean
     Dim rs_chungtu As Recordset, i As Integer, mn As Long, mk As Long, sql As String, X As New ClsTaikhoan, ctdx As Long, m As Long
@@ -5898,8 +5963,11 @@ Public Sub Command_Click(Index As Integer)
                     If pSoVV > 0 And CboVV(0).ListIndex >= 0 Then chungtu.MaDT1 = CboVV(0).ItemData(CboVV(0).ListIndex)
                     If pSoVV > 1 And CboVV(1).ListIndex >= 0 Then chungtu.MaDT2 = CboVV(1).ItemData(CboVV(1).ListIndex)
                     If pSoVV > 2 And CboVV(2).ListIndex >= 0 Then chungtu.MaDT3 = CboVV(2).ItemData(CboVV(2).ListIndex)
-                    chungtu.NgayCT = MedNgay(0).Text
-                    chungtu.NgayGS = MedNgay(1).Text
+                    If IsImport = False Then
+                        chungtu.NgayCT = MedNgay(0).Text
+                        chungtu.NgayGS = MedNgay(1).Text
+                    End If
+
                     ' GHI CHU CHUNG TU ---------------------------------------------------------
 
 
@@ -6358,7 +6426,7 @@ Private Sub Command3_Click()
 End Sub
 
 
-Sub GetcustomerByMST(ByVal mst As String, ByVal name As String, ByVal Address As String)
+Sub GetcustomerByMST(ByVal mst As String, ByVal Name As String, ByVal Address As String)
     Dim rs_ktra As Recordset
     Dim Query As String
 
@@ -6380,7 +6448,7 @@ Sub GetcustomerByMST(ByVal mst As String, ByVal name As String, ByVal Address As
         Dim getMst As String
         getMst = Right(txtVT(9).Text, 4)
         txtVT(0).Text = getMst
-        txtVT(7).Text = name
+        txtVT(7).Text = Name
         txtVT(8).Text = Address
     End If
 
@@ -7076,6 +7144,9 @@ End Sub
 '====================================================================================================
 Public Sub OptLoai_Click(Index As Integer)
 ' chon nut khau hao
+    If Index = 5 Then
+        btnOpenexe_Click
+    End If
     txtVT(2).Text = ""
     OptLoai(Index).Value = True
     Dim i
@@ -7280,12 +7351,13 @@ Private Sub Timer3_Timer()
     IndexFirst = IndexFirst + 1
     Dim item2 As ClsFileImport
 
+     
     If IndexFirst <= fileImportList.count Then
         Set item2 = fileImportList(IndexFirst)
         Xulyimport item2
     Else
         ' Code to execute if the condition is not met
-        
+
         MsgBox "Duyet xong"
         FThuChi.FThuChiForm = 0
     End If
@@ -7361,6 +7433,7 @@ Private Sub Timer4_Timer()
             myDate = CDate(.ngay)
             CboThang.Text = Month(myDate) & "/" & Year(myDate)
             MedNgay(0).Text = .ngay
+            MedNgay(0).Text = .ngay
             If Month(myDate) <> Month(Now) Then
                 MedNgay(1).Text = DateSerial(Year(Date), Month(Date), 1)
             Else
@@ -7368,7 +7441,7 @@ Private Sub Timer4_Timer()
             End If
 
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = .vat
+            txtchungtu(2).Text = .VAT
             txtChungtu_LostFocus (2)
             txtChungtu_KeyPress 6, 13
             txtchungtu(0) = .cotk
@@ -9144,7 +9217,7 @@ Public Function HienPhieuTrenManHinh(p As Integer) As Integer
                         .MaKhachHang = rs_chungtu!MaKhachHang
                         .loai = rs_chungtu!LoaiHD
                         .KyHieu = rs_chungtu!KyHieu
-                        .soHD = rs_chungtu!shd
+                        .sohd = rs_chungtu!shd
                         .NgayPH = rs_chungtu!NgayPH
                         .MatHang = rs_chungtu!MatHang
                         .SoLuong = rs_chungtu!SoLuong
@@ -9317,7 +9390,7 @@ KT1:
                         .MaKhachHang = rs_chungtu!MaKhachHang
                         .loai = rs_chungtu!LoaiHD
                         .KyHieu = rs_chungtu!KyHieu
-                        .soHD = rs_chungtu!shd
+                        .sohd = rs_chungtu!shd
                         .NgayPH = rs_chungtu!NgayPH
                         .MatHang = rs_chungtu!MatHang
                         .SoLuong = rs_chungtu!SoLuong
