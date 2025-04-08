@@ -3042,6 +3042,7 @@ Dim IsImport As Boolean
 Dim tempchungtu As String
 
 Dim rs_ktra152 As Recordset
+Dim rs_ktra711 As Recordset
 Dim stt As Integer
 Dim IndexFirst As Integer
 Dim IdDuyet As Integer
@@ -3133,7 +3134,7 @@ Public Sub AutoCLickLoai()
     RFocus CboThang
     DisplayFileImportList
 End Sub
-Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As String, ByVal sohd As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal TongTien As String, ByVal VAT As String, ByVal sohieutp As String)
+Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As String, ByVal sohd As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal TongTien As String, ByVal vat As String, ByVal sohieutp As String)
     Dim fileImport As ClsFileImport
     Set fileImport = New ClsFileImport
 
@@ -3151,7 +3152,7 @@ Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As 
     fileImport.ThueTK = tkThue
     fileImport.diengiai = diengiai
     fileImport.TongTien = TongTien
-    fileImport.VAT = VAT
+    fileImport.vat = vat
     fileImport.sohieutp = sohieutp
     fileImportList.Add fileImport
 
@@ -3300,7 +3301,7 @@ Private Sub btnImport_Click()
         ' Duy?t qua t?t c? các b?n ghi
         Do While Not rs_ktra.EOF
             ' L?y s? lu?ng tru?ng
-            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!TongTien, rs_ktra!VAT, rs_ktra!sohieutp
+            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!TongTien, rs_ktra!vat, rs_ktra!sohieutp
             rs_ktra.MoveNext
         Loop
     End If
@@ -3334,8 +3335,16 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
     'Set rstUPdate = DBKetoan.OpenRecordset(QueryUpdate, dbOpenSnapshot)
     ExecuteSQL5 QueryUpdate
 
+
     ' Do data tu tbimport len form
-    If item.notk = "6422" Then
+    If item.notk = "711" Then
+        OptLoai(0).Value = True
+        OptLoai_LostFocus 0
+        RFocus CboThang
+
+    End If
+
+    If item.notk = "6422" Or item.notk = "6421" Then
         OptLoai(0).Value = True
         OptLoai_LostFocus 0
         RFocus CboThang
@@ -3394,6 +3403,44 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         txtchungtu(0).Text = .notk
         tempchungtu = .notk
     End With
+
+
+    If txtchungtu(0).Text = "711" Then
+        FThuChi.FThuChiForm = 2
+
+        txtChungtu_LostFocus (0)
+        ' T?o truy v?n SQL d? l?y thông tin khách hàng theo MST
+        With fileImportList(IndexFirst)
+            Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & .id & "' AND DVT = 'Exception'"
+        End With
+        Set rs_ktra711 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+        If Not rs_ktra711.EOF Then
+            txtchungtu(6).Text = rs_ktra711!dongia
+            RFocus txtchungtu(6)
+            txtChungtu_KeyPress 6, 13
+            '1331 thue
+            txtchungtu(0).Text = item.ThueTK
+            txtChungtu_LostFocus (0)
+            txtchungtu(2).Text = item.vat
+            Dim number As Long
+            Dim vat As Integer
+            vat = CInt(item.vat)
+            number = CLng(Replace(txtchungtu(5).Text, ",", ""))
+            number = number * vat / 100
+            txtchungtu(5).Text = number * (-1)
+            RFocus txtchungtu(6)
+            txtChungtu_KeyPress 6, 13
+            '3311
+            RFocus txtchungtu(0)
+            txtchungtu(0).Text = item.cotk
+            txtChungtu_LostFocus (0)
+            RFocus txtchungtu(6)
+            txtChungtu_KeyPress 6, 13
+            rs_ktra711.MoveNext
+            Timer5_Timer
+        End If
+    End If
+
     If (txtchungtu(0).Text = "5111") Or (txtchungtu(0).Text = "5112") Then
         FThuChi.FThuChiForm = 2
 
@@ -3451,7 +3498,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         '1331
         txtchungtu(0).Text = 1331
         txtChungtu_LostFocus (0)
-        txtchungtu(2).Text = item.VAT
+        txtchungtu(2).Text = item.vat
         txtChungtu_LostFocus (2)
         RFocus txtchungtu(6)
         txtChungtu_KeyPress 6, 13
@@ -3525,7 +3572,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         End With
         txtChungtu_LostFocus (0)
         With fileImportList(IndexFirst)
-            txtchungtu(2).Text = .VAT
+            txtchungtu(2).Text = .vat
         End With
 
         txtChungtu_LostFocus (2)
@@ -4016,7 +4063,7 @@ Public Sub CmdChitiet_chon()
         End If
     End If
 
-    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vBH > 0 And vattu.VAT > 0 And vBH <> vattu.VAT Then
+    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vBH > 0 And vattu.vat > 0 And vBH <> vattu.vat Then
         If MsgBox("MÆt hµng kh«ng cïng thuÕ suÊt VAT! TiÕp tôc ?", vbYesNo + vbCritical, App.ProductName) <> vbYes Then
             RFocus txtchungtu(2)
             Exit Sub
@@ -4435,7 +4482,7 @@ KT:
         MSTBH = ckh.mst
         MaKHBH = ckh.MaSo
     End If
-    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vattu.VAT > 0 Then vBH = vattu.VAT
+    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vattu.vat > 0 Then vBH = vattu.vat
     NhapDongMoi taikhoan.sohieu
 
     Erase mct1
@@ -7441,7 +7488,7 @@ Private Sub Timer4_Timer()
             End If
 
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = .VAT
+            txtchungtu(2).Text = .vat
             txtChungtu_LostFocus (2)
             txtChungtu_KeyPress 6, 13
             txtchungtu(0) = .cotk
