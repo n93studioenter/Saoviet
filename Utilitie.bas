@@ -1755,9 +1755,9 @@ Public Sub InitDateVars(MedNgay As MaskEdBox, ngay As Date)
     On Error GoTo 0
 End Sub
 
-Public Function Recycle(ByVal FileName As String) As Integer
+Public Function Recycle(ByVal fileName As String) As Integer
     On Error GoTo KT
-    Kill FileName
+    Kill fileName
     On Error GoTo 0
     Exit Function
 KT:
@@ -1833,22 +1833,22 @@ Public Sub FCenter(f As Form)
     f.Left = (Screen.Width - f.Width) / 2
 End Sub
 
-Public Sub Add32Font(FileName As String)
+Public Sub Add32Font(fileName As String)
     Dim lResult As Long
     Dim strFontPath As String, strFontname As String
     Dim hKey As Long
     
-    If Len(Dir(pWinDir + "\FONTS\" + FileName)) = 0 Then
+    If Len(Dir(pWinDir + "\FONTS\" + fileName)) = 0 Then
         On Error Resume Next
-        FileCopy pCurDir + "FONTS\" + FileName, pWinDir + "\FONTS\" + FileName
+        FileCopy pCurDir + "FONTS\" + fileName, pWinDir + "\FONTS\" + fileName
         On Error GoTo 0
     End If
     
-    If Len(Dir(pWinDir + "\FONTS\" + FileName)) = 0 Then Exit Sub
+    If Len(Dir(pWinDir + "\FONTS\" + fileName)) = 0 Then Exit Sub
     
     'This is the font name and path
     strFontPath = Space$(MAX_PATH)
-    strFontname = FileName
+    strFontname = fileName
     If nt Then
     'Windows NT - Call and get the path to the
     '\windows\system directory
@@ -2145,7 +2145,7 @@ Public Sub InBaoCaoRPT(Optional nn As Integer = 0)
     On Error GoTo 0
     Exit Sub
 LoiIn:
-    MsgBox "Error " + CStr(Err.Number) + ": " + Err.Description, vbExclamation, App.ProductName
+    MsgBox "Error " + CStr(Err.number) + ": " + Err.Description, vbExclamation, App.ProductName
 End Sub
 
 Public Function ThangCuoiNamTC() As Integer
@@ -2668,7 +2668,7 @@ Dim Status As Long
         KEY_WRITE, ByVal 0&, hKey, _
         ByVal 0&) <> ERROR_SUCCESS _
     Then
-        MsgBox "Error " & Err.Number & " opening key" & _
+        MsgBox "Error " & Err.number & " opening key" & _
             vbCrLf & Err.Description
         Exit Sub
     End If
@@ -2681,7 +2681,7 @@ Dim Status As Long
             ByVal key_value, Len(key_value))
 
         If Status <> ERROR_SUCCESS Then
-            MsgBox "Error " & Err.Number & " setting key" & _
+            MsgBox "Error " & Err.number & " setting key" & _
                 vbCrLf & Err.Description
         End If
     Else
@@ -2694,7 +2694,7 @@ Dim Status As Long
     Exit Sub
 
 SetStartupError:
-    MsgBox Err.Number & " " & Err.Description
+    MsgBox Err.number & " " & Err.Description
     Exit Sub
 End Sub
 ' Return True if the program is set to run at startup.
