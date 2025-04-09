@@ -59,7 +59,7 @@ Begin VB.Form frmSplash
          BackColor       =   &H80000013&
          Caption         =   "Accounting Software"
          BeginProperty Font 
-            Name            =   "Gautami"
+            Name            =   "Arial"
             Size            =   18
             Charset         =   0
             Weight          =   700
@@ -81,7 +81,7 @@ Begin VB.Form frmSplash
          BackColor       =   &H80000013&
          Caption         =   "SAO VIET Software Center"
          BeginProperty Font 
-            Name            =   "Gautami"
+            Name            =   "Arial"
             Size            =   13.5
             Charset         =   0
             Weight          =   700
@@ -102,7 +102,7 @@ Begin VB.Form frmSplash
          BackColor       =   &H80000013&
          Caption         =   "Version 6.0"
          BeginProperty Font 
-            Name            =   "Gautami"
+            Name            =   "Arial"
             Size            =   12
             Charset         =   0
             Weight          =   700
@@ -123,7 +123,7 @@ Begin VB.Form frmSplash
          BackColor       =   &H80000013&
          Caption         =   "WWW.SAOVIET.COM"
          BeginProperty Font 
-            Name            =   "Gautami"
+            Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
             Weight          =   700
@@ -195,56 +195,60 @@ Attribute VB_Exposed = False
 
 Option Explicit
 
+
+
 Public Sub StartSAS()
-        pDataPath = GetSetting(IniPath, "Environment", "Path", pCurDir + "DATA\KETOAN.MDB")
-        ' §Æt c¸c format
-        Mask_0 = GetSetting(IniPath, "Environment", "IntMask", "###,###,###,###")
-        If Cdbl5("1,5") <> 1.5 Then sDecimal = "." Else sDecimal = ","
-        pThang = GetSetting(IniPath, "Environment", "NDecimal", 2)
-        Select Case pThang
-            Case 0:                Mask_2 = Mask_0
-            Case 1:                Mask_2 = "###0.0"
-            Case 2:                Mask_2 = "Standard"
-            Case 3:                 Mask_2 = "###0.000"
-            Case 4:                 Mask_2 = "###0.0000"
-            Case Else:          Mask_2 = GetSetting(IniPath, "Environment", "DblMask", "Standard")
-        End Select
-        Mask_N = 10 ^ pThang
-        Mask_D = GetShortDateFormat
-        ' §äc File INI
-        pThangDauKy = GetSetting(IniPath, "Environment", "StartMonth", "1")
-        pTKTrunggian = GetSetting(IniPath, "Environment", "TmpAccount", "5")
-        SHCT_Len = GetSetting(IniPath, "Environment", "InvCodeLen", 2)
-        
-        ShTkSPDo = GetSetting(IniPath, "ProductCost", "TK_SPDO", "154")
-        ShTkTP = GetSetting(IniPath, "ProductCost", "TK_SPDO", "155")
-        ShTkKQ = GetSetting(IniPath, "ProductCost", "TK_XDKQ", "911")
-        
-        Set WSpace = DBEngine.CreateWorkspace(CStr(Time), "Admin", "", dbUseJet)
-        Workspaces.Append WSpace
-                
-        Do While OpenDB(pDataPath) <> 0
-            dlgCommonDialog.Flags = &H4&
-            dlgCommonDialog.FileName = "*.MDB"
-            On Error GoTo QuitSAS
-            dlgCommonDialog.ShowOpen
-            On Error GoTo 0
-            pDataPath = dlgCommonDialog.FileName
-        Loop
-        
-        pThang = Month(Date)
-        pWinDir = GetWinDir
-        
-        Select Case UCase(App.EXEName)
-            Case "SERVER":  pProcessMode = 2
-            Case "CLIENT":  pProcessMode = 1
-            Case Else: pProcessMode = 0
-        End Select
-        
-        Exit Sub
+    pDataPath = GetSetting(IniPath, "Environment", "Path", pCurDir + "DATA\KETOAN.MDB")
+    ' §Æt c¸c format
+    ' pDataPath = "C:\S.T.E 25\S.T.E 25\DATA\KT.MDB"
+
+    Mask_0 = GetSetting(IniPath, "Environment", "IntMask", "###,###,###,###")
+    If Cdbl5("1,5") <> 1.5 Then sDecimal = "." Else sDecimal = ","
+    pThang = GetSetting(IniPath, "Environment", "NDecimal", 2)
+    Select Case pThang
+    Case 0: Mask_2 = Mask_0
+    Case 1: Mask_2 = "###0.0"
+    Case 2: Mask_2 = "Standard"
+    Case 3: Mask_2 = "###0.000"
+    Case 4: Mask_2 = "###0.0000"
+    Case Else: Mask_2 = GetSetting(IniPath, "Environment", "DblMask", "Standard")
+    End Select
+    Mask_N = 10 ^ pThang
+    Mask_D = GetShortDateFormat
+    ' §äc File INI
+    pThangDauKy = GetSetting(IniPath, "Environment", "StartMonth", "1")
+    pTKTrunggian = GetSetting(IniPath, "Environment", "TmpAccount", "5")
+    SHCT_Len = GetSetting(IniPath, "Environment", "InvCodeLen", 2)
+
+    ShTkSPDo = GetSetting(IniPath, "ProductCost", "TK_SPDO", "154")
+    ShTkTP = GetSetting(IniPath, "ProductCost", "TK_SPDO", "155")
+    ShTkKQ = GetSetting(IniPath, "ProductCost", "TK_XDKQ", "911")
+
+    Set WSpace = DBEngine.CreateWorkspace(CStr(Time), "Admin", "", dbUseJet)
+    Workspaces.Append WSpace
+
+    Do While OpenDB(pDataPath) <> 0
+        dlgCommonDialog.Flags = &H4&
+        dlgCommonDialog.fileName = "*.MDB"
+        On Error GoTo QuitSAS
+        dlgCommonDialog.ShowOpen
+        On Error GoTo 0
+        pDataPath = dlgCommonDialog.fileName
+    Loop
+     
+    pThang = Month(Date)
+    pWinDir = GetWinDir
+
+    Select Case UCase(App.EXEName)
+    Case "SERVER": pProcessMode = 2
+    Case "CLIENT": pProcessMode = 1
+    Case Else: pProcessMode = 0
+    End Select
+
+    Exit Sub
 QuitSAS:
-        WSpace.Close
-        End
+    WSpace.Close
+    End
 End Sub
 
 Private Sub Form_Load()

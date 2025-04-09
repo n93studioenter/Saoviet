@@ -136,30 +136,32 @@ Sub Main()
     If Not CheckMinRez(800, 600) Then
         MsgBox "CÇn ®Æt mµn h×nh tèi thiÓu lµ 800x600", vbCritical, App.ProductName
     End If
-    
+
     Screen.MousePointer = 11
-    
+
     pCurDir = App.path
     If Right(pCurDir, 1) <> "\" Then pCurDir = pCurDir + "\"
     If EXESize > 0 Then
         If FileLen(pCurDir + App.EXEName + ".EXE") < EXESize - 512 Or FileLen(pCurDir + App.EXEName + ".EXE") > EXESize + 512 Then End
     End If
     IniPath = Dir(App.path, vbDirectory)
-    
+
     If Not FontDaCo(sFONTNAME) Then Add32Font "VKNT.FON"
-    
-    pPSW = Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(8) + Chr(13) + Chr(13)
+
+    'pPSW = Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(8) + Chr(13) + Chr(13)
+ 
+    pPSW = "1@35^7*9)"
     'Chr(8) + Chr(13) + Chr(27) + Chr(27)
     'Load frmSplash
     frmSplash.Show
     frmSplash.Refresh
     frmSplash.StartSAS
-     
+
     Load frmMain
-    
+
     Unload frmSplash
     Set frmSplash = Nothing
-     
+
     frmMain.Show 0
     Screen.MousePointer = 0
 
@@ -211,7 +213,7 @@ Public Function OpenDB(file_name As String, Optional chonluu As Integer = 0) As 
 Op:
     '   Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD= " + pPSW)
     '  Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
-    pPSW = "1@35^7*9)"
+    'pPSW = "1@35^7*9)"
     Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
     On Error GoTo 0
     Dim pas
@@ -231,7 +233,7 @@ Op:
 DB_Handle:
     st_3 = "35q"
     st_7 = ")we"
-    If Err.Number = 3031 Then
+    If Err.number = 3031 Then
         st_4 = "^7555"
 
         If SetPsw(file_name, Trim(Trim(ModSAS.Federo16Decrypt("dad`dccefucgcqcici", opotion_1))) + "$shark$" + Chr(8) + Chr(13) + Chr(27), pPSW) <> 0 Then GoTo KhongMo
@@ -323,7 +325,7 @@ Public Function ExecuteSQL5(sql As String, Optional msg As Boolean = True) As In
       Exit Function
 ErrLock:
 If msg Then
-    Select Case Err.Number
+    Select Case Err.number
         Case 13:
             MsgBox "Kh«ng nhËn d¹ng ®­îc kiÓu d÷ liÖu", vbExclamation, App.ProductName
         Case 3040, 3043, 3566, 3572, 3575:
@@ -338,10 +340,10 @@ If msg Then
         Case 3075:
             MsgBox "Kh«ng sö dông dÊu ' trong c¸c chuçi", vbExclamation, App.ProductName
         Case Else
-            MsgBox "Error " + CStr(Err.Number) + ": " + Err.Description, vbExclamation, App.ProductName
+            MsgBox "Error " + CStr(Err.number) + ": " + Err.Description, vbExclamation, App.ProductName
     End Select
 End If
-    ExecuteSQL5 = Err.Number
+    ExecuteSQL5 = Err.number
 End Function
 '======================================================================================
 ' FUNCTION SelectSQL : §äc th«ng tin tõ mét tr­êng (cã Alias lµ F1) trong b¶n ghi víi ®iÒu kiÖn cho trong biÕn chung pSelectSQL.
@@ -418,12 +420,12 @@ Public Sub SetSQL(qname As String, sql As String)
     On Error GoTo 0
     Exit Sub
 QueryErr:
-    Select Case Err.Number
+    Select Case Err.number
         Case 3006, 3008, 3009, 3202, 3045, 3046, 3186, 3187, 3188, 3189, 3196, 3211, 3212, 3218, 3260, 3261, 3262, 3356, 3576, 3623:
             DBEngine.Idle
             Resume
         Case Else
-            MsgBox CStr(Err.Number) + ": " + Err.Description, vbExclamation, App.ProductName
+            MsgBox CStr(Err.number) + ": " + Err.Description, vbExclamation, App.ProductName
     End Select
 End Sub
 '======================================================================================
@@ -434,7 +436,7 @@ Public Sub KiemTraVatTu(Optional ktraxuat As Integer = 0)
       Dim rs_ktra As Recordset, i As Integer, sql As String, st As String, st2 As String, idx As Index
     
       For i = 0 To DBKetoan.TableDefs("Vattu").Indexes.count - 1
-        If DBKetoan.TableDefs("Vattu").Indexes(i).name = "SoHieu" Then GoTo tt
+        If DBKetoan.TableDefs("Vattu").Indexes(i).Name = "SoHieu" Then GoTo tt
      Next
           
      FixCode "Vattu", "MaSo"
@@ -1765,7 +1767,7 @@ Public Sub UpDateDB()
     Dim i As Integer, sql As String, j As Integer, s As Boolean
     
     If DBKetoan.TableDefs("Users").Fields("VT").Type = dbInteger Then
-        DBKetoan.TableDefs("Users").Fields("VT").name = "OR"
+        DBKetoan.TableDefs("Users").Fields("VT").Name = "OR"
         DBKetoan.TableDefs("Users").Fields.Append DBKetoan.TableDefs("Users").CreateField("VT", dbLong)
         DBKetoan.TableDefs("Users").Fields!vt.DefaultValue = 0
         ExecuteSQL5 "UPDATE Users SET VT=IIF(MaSo=1,1111111111,0)"
@@ -2016,12 +2018,12 @@ Public Sub UpDateDB()
     
         If TruongDaCo("ThanhPham", "MaTaiKhoan") Then
             Set tdf = DBKetoan.TableDefs!ThanhPham
-            tdf.Fields("MaTaiKhoan").name = "MaTK"
+            tdf.Fields("MaTaiKhoan").Name = "MaTK"
         End If
         
         If TruongDaCo("ThanhPham", "MaVattu") Then
             Set tdf = DBKetoan.TableDefs!ThanhPham
-            tdf.Fields("MaVattu").name = "MaTP"
+            tdf.Fields("MaVattu").Name = "MaTP"
         End If
         
         ThemTruong "ThanhPham", "MaTKCP", dbLong
@@ -2899,13 +2901,13 @@ Public Sub SetDefaultValue()
         For j = 0 To DBKetoan.TableDefs(i).Fields.count - 1
                 Select Case DBKetoan.TableDefs(i).Fields(j).Type
                     Case dbInteger:
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
                     Case dbLong, dbDouble:  DBKetoan.TableDefs(i).Fields(j).DefaultValue = 0
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
                     Case dbText:   DBKetoan.TableDefs(i).Fields(j).DefaultValue = "..."
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "='...' WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "='...' WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
                     Case dbDate:   DBKetoan.TableDefs(i).Fields(j).DefaultValue = CVDate("#1/1/80#")
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "=#1/1/80# WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "=#1/1/80# WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
                 End Select
         Next
     Next
@@ -3015,15 +3017,15 @@ End Function
 
 Public Function SetPsw(file_name As String, psw1 As String, psw2 As String) As Integer
     Dim p As String, i As Integer, px As String
-    
+
     px = psw1
     SetPsw = -1
     On Error Resume Next
 
     DBKetoan.Close
-    
+
     Do While True
-        
+
         i = InStr(px, "$")
         If i > 0 Then
             p = Left(px, i - 1)
@@ -3032,12 +3034,14 @@ Public Function SetPsw(file_name As String, psw1 As String, psw2 As String) As I
             p = px
             px = ""
         End If
-        Err.Number = 0
+        Err.number = 0
         Set DBKetoan = WSpace.OpenDatabase(file_name, True, False, ";PWD=" + p)
-        If Err.Number = 0 Then
+        If Err.number = 0 Then
+            'psw2 = "1@35^7*9)"
             DBKetoan.NewPassword p, psw2
             DBKetoan.Close
-            If Err.Number = 0 Then Exit Do
+
+            If Err.number = 0 Then Exit Do
         End If
         If Len(p) = 0 Then GoTo KT
     Loop
@@ -3196,8 +3200,8 @@ Private Function QueryDaCo2(qname As String, qname2 As String) As Boolean
     QueryDaCo2 = False
     L = Len(qname)
     For i = 0 To DBKetoan.QueryDefs.count - 1
-        If Left(UCase(DBKetoan.QueryDefs(i).name), L) = UCase(qname) Then
-            qname2 = DBKetoan.QueryDefs(i).name
+        If Left(UCase(DBKetoan.QueryDefs(i).Name), L) = UCase(qname) Then
+            qname2 = DBKetoan.QueryDefs(i).Name
             QueryDaCo2 = True
             Exit For
         End If

@@ -73,6 +73,7 @@ Public Const SPI_SETNONCLIENTMETRICS = 42
 Public Const SPI_GETICONTITLELOGFONT = 31
 Public Const SPI_SETICONTITLELOGFONT = 34
 Public Const sFONTNAME = "VK Sans Serif"
+'Public Const sFONTNAME = "MS Sans Serif"
 
 Public Type LOGFONT
     lfHeight As Long
@@ -214,6 +215,12 @@ End Sub
 '======================================================================================
 Public Function Int_RecsetToCbo(pstr_sql As String, Cbo As Object, Optional id As Integer = 0) As Integer
     Dim recset As Recordset
+    
+    If IsNull(DBKetoan) Then
+
+        Exit Function
+    End If
+
     Set recset = DBKetoan.OpenRecordset(pstr_sql, dbOpenSnapshot)
     Cbo.Clear
     If recset.RecordCount > 0 Then
@@ -325,9 +332,9 @@ Public Sub SetRptInfo()
         
     frmMain.Rpt.Formulas(0) = "TenCty='" + pTenCty + "'"
     If Len(Trim(pTenCn)) = 0 Or Left(pTenCn, 1) = "." Then
-        frmMain.Rpt.Formulas(1) = "TenCn='MST: " + frmMain.LbCty(8).Caption + "'"
+        frmMain.Rpt.Formulas(1) = "TenCn='MST: " + frmMain.lbCty(8).Caption + "'"
     Else
-        frmMain.Rpt.Formulas(1) = "TenCn='" + pTenCn + " - MST: " + frmMain.LbCty(8).Caption + "'"
+        frmMain.Rpt.Formulas(1) = "TenCn='" + pTenCn + " - MST: " + frmMain.lbCty(8).Caption + "'"
     End If
     frmMain.Rpt.Formulas(2) = "Nam=" + CStr(pNamTC)
     For i = 3 To 128
@@ -618,7 +625,7 @@ Public Function BangDaCo(T As String) As Boolean
     
     BangDaCo = False
     For i = 0 To DBKetoan.TableDefs.count - 1
-        If UCase(DBKetoan.TableDefs(i).Name) = UCase(T) Then
+        If UCase(DBKetoan.TableDefs(i).name) = UCase(T) Then
             BangDaCo = True
             Exit For
         End If
@@ -631,7 +638,7 @@ Public Function TruongDaCo(T As String, f As String) As Boolean
     TruongDaCo = False
     If BangDaCo(T) Then
         For i = 0 To DBKetoan.TableDefs(T).Fields.count - 1
-            If UCase(DBKetoan.TableDefs(T).Fields(i).Name) = UCase(f) Then
+            If UCase(DBKetoan.TableDefs(T).Fields(i).name) = UCase(f) Then
                 TruongDaCo = True
                 Exit For
             End If
@@ -792,9 +799,9 @@ Public Sub SetFont(frm As Form, Optional c As Integer = 0)
                     End If
                 End If
                 If TypeOf .Controls(i) Is CommandButton And Len(.Controls(i).tag) > 0 Then
-                    s = pCurDir + frm.Name + "_" + .Controls(i).Name + "_" + CStr(.Controls(i).Index) + ".BMP"
+                    s = pCurDir + frm.name + "_" + .Controls(i).name + "_" + CStr(.Controls(i).Index) + ".BMP"
                     If .Controls(i).Picture <> 0 Then
-                        If UCase(Left(frm.Name, 3)) = "FBC" Or UCase(Right(frm.Name, 4)) = "MAIN" Then SavePicture .Controls(i).Picture, s
+                        If UCase(Left(frm.name, 3)) = "FBC" Or UCase(Right(frm.name, 4)) = "MAIN" Then SavePicture .Controls(i).Picture, s
                         Set .Controls(i).Picture = LoadPicture()
                         .Controls(i).Caption = .Controls(i).tag
                     Else
@@ -1265,19 +1272,19 @@ Public Sub ChuyenDoiFont(ABC2VNI As Boolean)
     Dim i As Integer, j As Integer, rs As Recordset, st As String
     
     For i = 0 To DBKetoan.TableDefs.count - 1
-        If Left(DBKetoan.TableDefs(i).Name, 4) <> "MSys" And UCase(DBKetoan.TableDefs(i).Name) <> "CDTS" And UCase(DBKetoan.TableDefs(i).Name) <> "KQKD" And UCase(DBKetoan.TableDefs(i).Name) <> "LCTT" And UCase(DBKetoan.TableDefs(i).Name) <> "THUE" And UCase(DBKetoan.TableDefs(i).Name) <> "VAT" Then
+        If Left(DBKetoan.TableDefs(i).name, 4) <> "MSys" And UCase(DBKetoan.TableDefs(i).name) <> "CDTS" And UCase(DBKetoan.TableDefs(i).name) <> "KQKD" And UCase(DBKetoan.TableDefs(i).name) <> "LCTT" And UCase(DBKetoan.TableDefs(i).name) <> "THUE" And UCase(DBKetoan.TableDefs(i).name) <> "VAT" Then
             For j = 0 To DBKetoan.TableDefs(i).Fields.count - 1
                 If DBKetoan.TableDefs(i).Fields(j).Type = dbText Then
-                    Set rs = DBKetoan.OpenRecordset(DBKetoan.TableDefs(i).Name, dbOpenTable, dbForwardOnly)
+                    Set rs = DBKetoan.OpenRecordset(DBKetoan.TableDefs(i).name, dbOpenTable, dbForwardOnly)
                     Do While Not rs.EOF
-                        If Not IsNull(rs.Fields(DBKetoan.TableDefs(i).Fields(j).Name)) Then
+                        If Not IsNull(rs.Fields(DBKetoan.TableDefs(i).Fields(j).name)) Then
                             If ABC2VNI Then
-                                st = ABCtoVNI(rs.Fields(DBKetoan.TableDefs(i).Fields(j).Name))
+                                st = ABCtoVNI(rs.Fields(DBKetoan.TableDefs(i).Fields(j).name))
                             Else
-                                st = VNItoABC(rs.Fields(DBKetoan.TableDefs(i).Fields(j).Name))
+                                st = VNItoABC(rs.Fields(DBKetoan.TableDefs(i).Fields(j).name))
                             End If
                             rs.Edit
-                            rs.Fields(DBKetoan.TableDefs(i).Fields(j).Name).Value = Left(st, DBKetoan.TableDefs(i).Fields(j).Size)
+                            rs.Fields(DBKetoan.TableDefs(i).Fields(j).name).Value = Left(st, DBKetoan.TableDefs(i).Fields(j).Size)
                             rs.Update
                         End If
                         rs.MoveNext
@@ -2106,7 +2113,7 @@ Public Function QueryDaCo(qname As String) As Boolean
     Dim i As Integer
     QueryDaCo = False
     For i = 0 To DBKetoan.QueryDefs.count - 1
-        If UCase(DBKetoan.QueryDefs(i).Name) = UCase(qname) Then
+        If UCase(DBKetoan.QueryDefs(i).name) = UCase(qname) Then
             QueryDaCo = True
             Exit For
         End If
@@ -2161,16 +2168,16 @@ Public Sub CopyTable(fname As String, tbl As String)
     
     Set tdf = DBKetoan.CreateTableDef(tbl)
     For i = 1 To db.TableDefs(tbl).Fields.count
-        tdf.Fields.Append tdf.CreateField(db.TableDefs(tbl).Fields(i - 1).Name, db.TableDefs(tbl).Fields(i - 1).Type, db.TableDefs(tbl).Fields(i - 1).Size)
+        tdf.Fields.Append tdf.CreateField(db.TableDefs(tbl).Fields(i - 1).name, db.TableDefs(tbl).Fields(i - 1).Type, db.TableDefs(tbl).Fields(i - 1).Size)
         tdf.Fields(i - 1).DefaultValue = db.TableDefs(tbl).Fields(i - 1).DefaultValue
         tdf.Fields(i - 1).Attributes = db.TableDefs(tbl).Fields(i - 1).Attributes
     Next
         
     For i = 1 To db.TableDefs(tbl).Indexes.count
-        tdf.Indexes.Append tdf.CreateIndex(db.TableDefs(tbl).Indexes(i - 1).Name)
-        tdf.Indexes(db.TableDefs(tbl).Indexes(i - 1).Name).Fields.Append tdf.Indexes(db.TableDefs(tbl).Indexes(i - 1).Name).CreateField(db.TableDefs(tbl).Indexes(i - 1).Fields(0).Name)
-        tdf.Indexes(db.TableDefs(tbl).Indexes(i - 1).Name).Primary = db.TableDefs(tbl).Indexes(i - 1).Primary
-        tdf.Indexes(db.TableDefs(tbl).Indexes(i - 1).Name).Unique = db.TableDefs(tbl).Indexes(i - 1).Unique
+        tdf.Indexes.Append tdf.CreateIndex(db.TableDefs(tbl).Indexes(i - 1).name)
+        tdf.Indexes(db.TableDefs(tbl).Indexes(i - 1).name).Fields.Append tdf.Indexes(db.TableDefs(tbl).Indexes(i - 1).name).CreateField(db.TableDefs(tbl).Indexes(i - 1).Fields(0).name)
+        tdf.Indexes(db.TableDefs(tbl).Indexes(i - 1).name).Primary = db.TableDefs(tbl).Indexes(i - 1).Primary
+        tdf.Indexes(db.TableDefs(tbl).Indexes(i - 1).name).Unique = db.TableDefs(tbl).Indexes(i - 1).Unique
     Next
     DBKetoan.TableDefs.Append tdf
     
@@ -2245,15 +2252,15 @@ Public Sub CopyTable2(tbl As String, tbl2 As String, Optional CP As Integer)
         Set tdf = DBKetoan.CreateTableDef(tbl2)
            
            For i = 1 To DBKetoan.TableDefs(tbl).Fields.count
-            tdf.Fields.Append tdf.CreateField(DBKetoan.TableDefs(tbl).Fields(i - 1).Name, DBKetoan.TableDefs(tbl).Fields(i - 1).Type, DBKetoan.TableDefs(tbl).Fields(i - 1).Size)
+            tdf.Fields.Append tdf.CreateField(DBKetoan.TableDefs(tbl).Fields(i - 1).name, DBKetoan.TableDefs(tbl).Fields(i - 1).Type, DBKetoan.TableDefs(tbl).Fields(i - 1).Size)
             tdf.Fields(i - 1).DefaultValue = DBKetoan.TableDefs(tbl).Fields(i - 1).DefaultValue
             tdf.Fields(i - 1).Attributes = DBKetoan.TableDefs(tbl).Fields(i - 1).Attributes
         Next
         For i = 1 To DBKetoan.TableDefs(tbl).Indexes.count
-            tdf.Indexes.Append tdf.CreateIndex(DBKetoan.TableDefs(tbl).Indexes(i - 1).Name)
-            tdf.Indexes(DBKetoan.TableDefs(tbl).Indexes(i - 1).Name).Fields.Append tdf.Indexes(DBKetoan.TableDefs(tbl).Indexes(i - 1).Name).CreateField(DBKetoan.TableDefs(tbl).Indexes(i - 1).Fields(0).Name)
-            tdf.Indexes(DBKetoan.TableDefs(tbl).Indexes(i - 1).Name).Primary = DBKetoan.TableDefs(tbl).Indexes(i - 1).Primary
-            tdf.Indexes(DBKetoan.TableDefs(tbl).Indexes(i - 1).Name).Unique = DBKetoan.TableDefs(tbl).Indexes(i - 1).Unique
+            tdf.Indexes.Append tdf.CreateIndex(DBKetoan.TableDefs(tbl).Indexes(i - 1).name)
+            tdf.Indexes(DBKetoan.TableDefs(tbl).Indexes(i - 1).name).Fields.Append tdf.Indexes(DBKetoan.TableDefs(tbl).Indexes(i - 1).name).CreateField(DBKetoan.TableDefs(tbl).Indexes(i - 1).Fields(0).name)
+            tdf.Indexes(DBKetoan.TableDefs(tbl).Indexes(i - 1).name).Primary = DBKetoan.TableDefs(tbl).Indexes(i - 1).Primary
+            tdf.Indexes(DBKetoan.TableDefs(tbl).Indexes(i - 1).name).Unique = DBKetoan.TableDefs(tbl).Indexes(i - 1).Unique
         Next
        
         DBKetoan.TableDefs.Append tdf
@@ -2313,13 +2320,13 @@ Public Sub DeleteRel()
     
     On Error GoTo n
     For i = 0 To DBKetoan.TableDefs.count - 1
-        If Left(DBKetoan.TableDefs(i).Name, 4) <> "MSys" Then
+        If Left(DBKetoan.TableDefs(i).name, 4) <> "MSys" Then
             j = 0
             Do While j < DBKetoan.TableDefs(i).Indexes.count
-                L = Len(DBKetoan.TableDefs(i).Name)
-                If Right(DBKetoan.TableDefs(i).Indexes(j).Name, L) = DBKetoan.TableDefs(i).Name Then
+                L = Len(DBKetoan.TableDefs(i).name)
+                If Right(DBKetoan.TableDefs(i).Indexes(j).name, L) = DBKetoan.TableDefs(i).name Then
 
-                    DBKetoan.TableDefs(i).Indexes.Delete DBKetoan.TableDefs(i).Indexes(j).Name
+                    DBKetoan.TableDefs(i).Indexes.Delete DBKetoan.TableDefs(i).Indexes(j).name
                     
                 Else
 n:

@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.5#0"; "COMCTL32.OCX"
 Begin VB.Form FrmBCQT 
    AutoRedraw      =   -1  'True
    BackColor       =   &H00E0E0E0&
@@ -392,7 +392,7 @@ Private Sub Form_Load()
     AddMonthToCbo Combo(1)
 End Sub
 
-Private Sub Form_Unload(CANCEL As Integer)
+Private Sub Form_Unload(Cancel As Integer)
     HienThongBao "", 1
     Set xlapp = Nothing
     Set xlsheet = Nothing
