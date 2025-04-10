@@ -45,15 +45,6 @@ Begin VB.Form Formimport
       _ExtentY        =   7223
       _StockProps     =   77
       BackColor       =   16777215
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
    End
    Begin VB.CommandButton btnImport 
       Caption         =   "Xu ly"
@@ -74,9 +65,8 @@ Attribute VB_Exposed = False
 Option Explicit
 Private fileList As Collection ' Ð? luu danh sách các d?i tu?ng FileInfo
 
-    
-Private Sub btnImport_Click()
 
+Private Sub btnImport_Click()
     Dim FilePath As String
     Dim xmlDoc As Object
     Dim fDialog As Object
@@ -106,7 +96,7 @@ Private Sub btnImport_Click()
 
         ' Hi?n th? thông tin
         If Not dlhDonNode Is Nothing Then
-           ' txtID.Text = dlhDonNode.Attributes.getNamedItem("Id").Text
+            ' txtID.Text = dlhDonNode.Attributes.getNamedItem("Id").Text
         Else
             MsgBox "Không tìm th?y DLHDon."
         End If
@@ -130,7 +120,7 @@ Private Sub btnImport_Click()
                 End If
 
                 If Not mstNode Is Nothing Then
-                   ' txtMST.Text = mstNode.Text
+                    ' txtMST.Text = mstNode.Text
                     'GetcustomerByMST (txtMST.Text)
                 Else
                     MsgBox "Không tìm th?y MST."

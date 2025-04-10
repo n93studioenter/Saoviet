@@ -187,7 +187,7 @@ Private Type tpPhanLoai
       MaSo As Long
       TenPhanLoai As String
       sohieu As String
-      VAT As Integer
+      vat As Integer
       plcha As Long
       plcon As Integer
       cap As Integer
@@ -594,7 +594,7 @@ Private Sub KhoiTao(tiep_tuc As Boolean)
                 Text(2).Text = SelectSQL("SELECT HethongTK.SoHieu AS F1, MaTK AS F2 FROM PhanLoaiVattu INNER JOIN HethongTK ON PhanLoaiVattu.MaTK=HethongTK.MaSo WHERE PhanLoaiVattu.MaSo=" + CStr(Outline.ItemData(Outline.ListIndex)), PhanLoai.MaTK)
             End If
             RFocus Text(1)
-            SendKeys "{END}"
+            'SendKeys "{END}"
       Else
             Text(1).Text = ""
       End If
