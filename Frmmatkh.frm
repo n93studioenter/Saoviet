@@ -105,6 +105,8 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
+Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (Destination As Any, Source As Any, ByVal Length As Long)
+Private Declare Function GetAdaptersInfo Lib "iphlpapi" (lpAdapterInfo As Any, lpSize As Long) As Long
 
 Dim Counter As Integer
 Dim pass As Integer
@@ -114,53 +116,126 @@ Dim ok As Boolean
 '====================================================================================================
 ' Ki”m tra mÀt kh»u
 '====================================================================================================
+
+Public Function GetMacAddress() As String
+    Const OFFSET_LENGTH As Long = 400
+    Dim lSize           As Long
+    Dim baBuffer()      As Byte
+    Dim lIdx            As Long
+    Dim sRetVal         As String
+    
+    Call GetAdaptersInfo(ByVal 0, lSize)
+    If lSize <> 0 Then
+        ReDim baBuffer(0 To lSize - 1) As Byte
+        Call GetAdaptersInfo(baBuffer(0), lSize)
+        Call CopyMemory(lSize, baBuffer(OFFSET_LENGTH), 4)
+        For lIdx = OFFSET_LENGTH + 4 To OFFSET_LENGTH + 4 + lSize - 1
+            sRetVal = IIf(LenB(sRetVal) <> 0, sRetVal & ":", vbNullString) & Right$("0" & Hex$(baBuffer(lIdx)), 2)
+        Next
+    End If
+    GetMacAddress = sRetVal
+End Function
+Public Sub CheckAndCreateTable()
+    Dim tdf As DAO.TableDef
+    Dim fld As DAO.Field
+    Dim tableExists As Boolean
+    Dim tableName As String
+
+    tableName = "tbRegister"    ' Thay d?i tÍn b?ng c?a b?n ? d‚y
+    tableExists = False
+
+    ' Ki?m tra t?n t?i b?ng
+    For Each tdf In DBKetoan.TableDefs
+        If tdf.name = tableName Then
+            tableExists = True
+            Exit For
+        End If
+    Next tdf
+
+    If Not tableExists Then
+        ' T?o b?ng n?u chua t?n t?i
+        Set tdf = DBKetoan.CreateTableDef(tableName)
+
+        ' T?o tru?ng Name
+        Set fld = tdf.CreateField("Name", dbText, 255)
+        tdf.Fields.Append fld
+
+        ' ThÍm b?ng v‡o co s? d? li?u
+        DBKetoan.TableDefs.Append tdf
+        ' ChËn d?a ch? MAC v‡o dÚng d?u tiÍn
+        Dim mac As String
+        mac = GetMacAddress()
+        sql = "INSERT INTO tbRegister(Name) VALUES ('" & mac & "');"
+        DBKetoan.Execute sql
+    End If
+End Sub
+
 Private Sub Command_Click(Index As Integer)
     If Index = 1 Then
         Unload Me
         Exit Sub
     End If
+
+    'Lay dia chi mac
+
+    CheckAndCreateTable
+
+    Dim rs As DAO.Recordset
+    Set rs = DBKetoan.OpenRecordset("SELECT TOP 1 Name FROM tbRegister ")
+    If Not rs.EOF Then
+        ' Ki?m tra xem c?t Name cÛ tr?ng khÙng
+        If IsNull(rs.Fields("Name").Value) Or rs.Fields("Name").Value = "" Then
+             
+        Else
+            MsgBox "DÚng d?u tiÍn c?a c?t Name khÙng tr?ng."
+        End If
+    End If
+
+
+
+
     Select Case FrmMatkhau.tag
-        Case 0:
-            If KiemTraMatKhau(txtPsw.Text) Then
-                HienThongBao VString(CboUser.Text), 3
-                ok = True
-                ExecuteSQL5 "UPDATE Users SET WS='" + GetComputerName1 + "' WHERE MaSo=" + CStr(UserID), False
+    Case 0:
+        If KiemTraMatKhau(txtPsw.Text) Then
+            HienThongBao VString(CboUser.Text), 3
+            ok = True
+            ExecuteSQL5 "UPDATE Users SET WS='" + GetComputerName1 + "' WHERE MaSo=" + CStr(UserID), False
+            Unload Me
+        Else
+            MsgBox "Sai mÀt kh»u !", vbExclamation, App.ProductName
+            Counter = Counter + 1
+            If Counter > 3 Then
                 Unload Me
             Else
+                RFocus txtPsw
+            End If
+        End If
+    Case 1:
+        Select Case pass
+        Case 0:
+            If KiemTraMatKhau(txtPsw.Text) Then
+                pass = 1
+                Label(0).Caption = "MÀt kh»u mÌi"
+                txtPsw.Text = ""
+                RFocus txtPsw
+            Else
                 MsgBox "Sai mÀt kh»u !", vbExclamation, App.ProductName
-                Counter = Counter + 1
-                If Counter > 3 Then
-                    Unload Me
-                Else
-                    RFocus txtPsw
-                End If
+                Unload FrmMatkhau
             End If
         Case 1:
-            Select Case pass
-                Case 0:
-                    If KiemTraMatKhau(txtPsw.Text) Then
-                        pass = 1
-                        Label(0).Caption = "MÀt kh»u mÌi"
-                        txtPsw.Text = ""
-                        RFocus txtPsw
-                    Else
-                        MsgBox "Sai mÀt kh»u !", vbExclamation, App.ProductName
-                        Unload FrmMatkhau
-                    End If
-                Case 1:
-                    psw = txtPsw.Text
-                    pass = 2
-                    txtPsw.Text = ""
-                    RFocus txtPsw
-                Case 2:
-                    If txtPsw.Text = psw Then
-                        ExecuteSQL5 "UPDATE Users SET Psw = " + CStr(Int_StrToCode(psw) + pNamTC) + " WHERE MaSo = " + CStr(CboUser.ItemData(CboUser.ListIndex))
-                        Unload FrmMatkhau
-                    Else
-                        MsgBox "Bπn ch≠a nhÌ ÆÛng mÀt kh»u !", vbExclamation, App.ProductName
-                        RFocus txtPsw
-                    End If
-            End Select
+            psw = txtPsw.Text
+            pass = 2
+            txtPsw.Text = ""
+            RFocus txtPsw
+        Case 2:
+            If txtPsw.Text = psw Then
+                ExecuteSQL5 "UPDATE Users SET Psw = " + CStr(Int_StrToCode(psw) + pNamTC) + " WHERE MaSo = " + CStr(CboUser.ItemData(CboUser.ListIndex))
+                Unload FrmMatkhau
+            Else
+                MsgBox "Bπn ch≠a nhÌ ÆÛng mÀt kh»u !", vbExclamation, App.ProductName
+                RFocus txtPsw
+            End If
+        End Select
     End Select
 End Sub
 
