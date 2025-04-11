@@ -105,7 +105,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
-Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (Destination As Any, Source As Any, ByVal Length As Long)
+Private Declare Sub CopyMemory Lib "Kernel32" Alias "RtlMoveMemory" (Destination As Any, source As Any, ByVal Length As Long)
 Private Declare Function GetAdaptersInfo Lib "iphlpapi" (lpAdapterInfo As Any, lpSize As Long) As Long
 
 Dim Counter As Integer
@@ -165,6 +165,8 @@ Public Sub CheckAndCreateTable()
         ' Chèn d?a ch? MAC vào dòng d?u tiên
         Dim mac As String
         mac = GetMacAddress()
+        Dim sql As String
+
         sql = "INSERT INTO tbRegister(Name) VALUES ('" & mac & "');"
         DBKetoan.Execute sql
     End If
@@ -183,16 +185,13 @@ Private Sub Command_Click(Index As Integer)
     Dim rs As DAO.Recordset
     Set rs = DBKetoan.OpenRecordset("SELECT TOP 1 Name FROM tbRegister ")
     If Not rs.EOF Then
-        ' Ki?m tra xem c?t Name có tr?ng không
-        If IsNull(rs.Fields("Name").Value) Or rs.Fields("Name").Value = "" Then
-             
-        Else
-            MsgBox "Dòng d?u tiên c?a c?t Name không tr?ng."
+        Dim mac As String
+        mac = GetMacAddress()
+        If rs!name <> mac Then
+            MsgBox "Not regisrty"
+            End
         End If
     End If
-
-
-
 
     Select Case FrmMatkhau.tag
     Case 0:

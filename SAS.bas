@@ -148,9 +148,9 @@ Sub Main()
 
     If Not FontDaCo(sFONTNAME) Then Add32Font "VKNT.FON"
 
-    'pPSW = Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(8) + Chr(13) + Chr(13)
- 
-    pPSW = "1@35^7*9)"
+
+    pPSW = Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(8) + Chr(13) + Chr(13)
+   
     'Chr(8) + Chr(13) + Chr(27) + Chr(27)
     'Load frmSplash
     frmSplash.Show
@@ -214,7 +214,21 @@ Op:
     '   Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD= " + pPSW)
     '  Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
     'pPSW = "1@35^7*9)"
+    On Error Resume Next    ' B?t l?i
     Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
+    If Err.number <> 0 Then
+        pPSW = Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(8) + Chr(13) + Chr(13)
+        On Error Resume Next    ' B?t l?i
+        Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
+        If Err.number <> 0 Then
+            pPSW = "1@35^7*9)"
+            Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
+        End If
+        On Error Resume Next    ' B?t l?i
+    End If
+    On Error Resume Next    ' B?t l?i
+
+
     On Error GoTo 0
     Dim pas
     pDataPath = file_name
@@ -228,44 +242,45 @@ Op:
     pOpenCount = pOpenCount + 1
     'Kiem tra co bi ma hoa hay khong
 
-    
-        Exit Function
-        ' Khong mo duoc du lieu
-        st_5 = "*e"
-        st_6 = "e9"
-DB_Handle:
-        st_3 = "35q"
-        st_7 = ")we"
-        If Err.number = 3031 Then
-            st_4 = "^7555"
 
-            If SetPsw(file_name, Trim(Trim(ModSAS.Federo16Decrypt("dad`dccefucgcqcici", opotion_1))) + "$shark$" + Chr(8) + Chr(13) + Chr(27), pPSW) <> 0 Then GoTo KhongMo
-            Dim rs As Recordset
-            Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
-            Set rs = DBKetoan.OpenRecordset("SELECT DISTINCTROW License.* FROM License", dbOpenSnapshot)
-            ExecuteSQL5 "update License set TenCty = '" + ModSAS.Federo16Decrypt(rs!TenCty, CStr(rs!NamTC)) + "',DiaChi = '" + ModSAS.Federo16Decrypt(rs!DiaChi, CStr(rs!NamTC)) + "',MaSoThue = '" + ModSAS.Federo16Decrypt(rs!masothue, CStr(rs!NamTC)) + "',CMP = '" + ModSAS.Federo16Decrypt(IIf(IsNull(rs!CMP), "", rs!CMP), CStr(rs!NamTC)) + "'"
-            DBKetoan.Close
-            GoTo Op
-        End If
-        If retry > 10 Then
-            msg = "Kh«ng më ®­îc tÖp d÷ liÖu !"
+    Exit Function
+    ' Khong mo duoc du lieu
+    st_5 = "*e"
+    st_6 = "e9"
+DB_Handle:
+    st_3 = "35q"
+    st_7 = ")we"
+    If Err.number = 3031 Then
+        st_4 = "^7555"
+
+        If SetPsw(file_name, Trim(Trim(ModSAS.Federo16Decrypt("dad`dccefucgcqcici", opotion_1))) + "$shark$" + Chr(8) + Chr(13) + Chr(27), pPSW) <> 0 Then GoTo KhongMo
+        Dim rs As Recordset
+        Exit Function
+        Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
+        Set rs = DBKetoan.OpenRecordset("SELECT DISTINCTROW License.* FROM License", dbOpenSnapshot)
+        ExecuteSQL5 "update License set TenCty = '" + ModSAS.Federo16Decrypt(rs!TenCty, CStr(rs!NamTC)) + "',DiaChi = '" + ModSAS.Federo16Decrypt(rs!DiaChi, CStr(rs!NamTC)) + "',MaSoThue = '" + ModSAS.Federo16Decrypt(rs!masothue, CStr(rs!NamTC)) + "',CMP = '" + ModSAS.Federo16Decrypt(IIf(IsNull(rs!CMP), "", rs!CMP), CStr(rs!NamTC)) + "'"
+        DBKetoan.Close
+        GoTo Op
+    End If
+    If retry > 10 Then
+        msg = "Kh«ng më ®­îc tÖp d÷ liÖu !"
 LDB:
-            If chonluu = 0 Then
-                MsgBox msg, vbCritical, App.ProductName
-                msg = ""
-                ' If MsgBox("Xem danh s¸ch tÖp d÷ liÖu l­u tr÷ tù ®éng ?", vbYesNo, App.ProductName) = vbYes Then
-                '     file_name = FrmDB.ChonTepLuu(mst, Year(Date))
-                '     If Len(file_name) > 0 Then GoTo Op
-                ' End If
-            End If
-        Else
-            retry = retry + 1
-            DoEvents
-            Resume
+        If chonluu = 0 Then
+            MsgBox msg, vbCritical, App.ProductName
+            msg = ""
+            ' If MsgBox("Xem danh s¸ch tÖp d÷ liÖu l­u tr÷ tù ®éng ?", vbYesNo, App.ProductName) = vbYes Then
+            '     file_name = FrmDB.ChonTepLuu(mst, Year(Date))
+            '     If Len(file_name) > 0 Then GoTo Op
+            ' End If
         End If
+    Else
+        retry = retry + 1
+        DoEvents
+        Resume
+    End If
 KhongMo:
-        If Len(msg) > 0 Then MsgBox msg, vbCritical, App.ProductName
-    End Function
+    If Len(msg) > 0 Then MsgBox msg, vbCritical, App.ProductName
+End Function
 '======================================================================================
 ' Sub CloseUp
 '======================================================================================

@@ -3628,15 +3628,17 @@ End Sub
 
 Private Sub btnOpenexe_Click()
     Dim exePath As String
-    exePath = "C:\TCP\Saoviet\SaovietWF\SaovietWF\bin\Debug\SaovietWF.exe"    ' Thay b?ng du?ng d?n th?c t?
+    exePath = App.path & "\\REPORTS\\bin\Debug\SaovietWF.exe"
+    'MsgBox exePath
+   ' exePath = "C:\TCP\Saoviet\SaovietWF\SaovietWF\bin\Debug\SaovietWF.exe"    ' Thay b?ng du?ng d?n th?c t?
     Shell exePath, vbNormalFocus  ' Thay d?i du?ng d?n t?i ?ng d?ng c?a b?n
     ' Ð?i m?t chút d? ?ng d?ng m?
     DoEvents
     ' Thêm th?i gian ch? d? ?ng d?ng có th?i gian kh?i d?ng
     Sleep 1000  ' Ngh? 1 giây (1000 milliseconds)
-    
+
     ' L?y handle c?a c?a s? ?ng d?ng
-    hWndApp = FindWindow(vbNullString, "frmMain") ' Thay d?i tiêu d? c?a ?ng d?ng
+    hWndApp = FindWindow(vbNullString, "frmMain")    ' Thay d?i tiêu d? c?a ?ng d?ng
     ' Ki?m tra xem handle có h?p l? hay không tru?c khi ki?m tra liên t?c
     If hWndApp = 0 Then
         MsgBox "Không th? tìm th?y c?a s? ?ng d?ng."
