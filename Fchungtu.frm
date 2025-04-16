@@ -22,6 +22,18 @@ Begin VB.Form FrmChungtu
    Tag             =   "0"
    WhatsThisButton =   -1  'True
    WhatsThisHelp   =   -1  'True
+   Begin VB.Timer timer1542 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   11880
+      Top             =   600
+   End
+   Begin VB.Timer timer154 
+      Enabled         =   0   'False
+      Interval        =   200
+      Left            =   11280
+      Top             =   600
+   End
    Begin VB.Timer timerImport 
       Enabled         =   0   'False
       Interval        =   100
@@ -3052,6 +3064,7 @@ Dim IsImport As Boolean
 Dim tempchungtu As String
 
 Dim rs_ktra152 As Recordset
+Dim rs_ktra154c As Recordset
 Dim rs_ktra711 As Recordset
 Dim stt As Integer
 Dim IndexFirst As Integer
@@ -3500,35 +3513,49 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         Dim rs_ktra154 As Recordset
         ' M? Recordset d? l?y thông tin khách hàng
         Set rs_ktra154 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+        Dim hasdata As Boolean
+        hasdata = False
         If Not rs_ktra154.EOF Then
+            hasdata = True
             RFocus txtchungtu(2)
             txtchungtu(2).Text = rs_ktra154!sohieu
             txtChungtu_LostFocus (2)
             txtchungtu(5).Text = item.tongtien
+            txtChungtu_LostFocus (5)
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
 
             rs_ktra154.MoveNext
         End If
-        '1331
-        txtchungtu(0).Text = 1331
-        txtChungtu_LostFocus (0)
-        txtchungtu(2).Text = item.vat
-        txtChungtu_LostFocus (2)
-        RFocus txtchungtu(6)
-        txtChungtu_KeyPress 6, 13
-        '1111
-        With fileImportList(IndexFirst)
-            txtchungtu(0).Text = .cotk
-        End With
-        FThuChi.FThuChiForm = 1
-        If stt < 2 Then
+        If hasdata = True Then
+            '1331
+            txtchungtu(0).Text = 1331
+            txtChungtu_LostFocus (0)
+            txtchungtu(2).Text = item.vat
+            txtChungtu_LostFocus (2)
+            RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
-        End If
+            '1111
+            With fileImportList(IndexFirst)
+                txtchungtu(0).Text = .cotk
+            End With
+            FThuChi.FThuChiForm = 1
+            If stt < 2 Then
+                txtChungtu_KeyPress 6, 13
+            End If
 
-        stt = stt + 1
-    End If
+            stt = stt + 1
+        Else
+            'Xu ly1 con cua 154
+            With fileImportList(IndexFirst)
+                Query = "SELECT * FROM tbimportdetail WHERE ParentId='" & .id & "'"
+            End With
+            Set rs_ktra154c = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
 
+            Xuly154
+
+        End If  'cua hasdata
+    End If      ' end cua 154
     If (txtchungtu(0).Text Like "15*") And (txtchungtu(0).Text <> "154") Then
         ' If (txtchungtu(0).Text = "152" Or txtchungtu(0).Text = "156" Or txtchungtu(0).Text = "153" Or txtchungtu(0).Text = "155") Then
         FThuChi.FThuChiForm = 2
@@ -3629,7 +3656,8 @@ End Sub
 Private Sub btnOpenexe_Click()
     Dim exePath As String
     exePath = App.path & "\\REPORTS\\bin\Debug\SaovietWF.exe"
-    'MsgBox exePath
+    
+    MsgBox exePath
    ' exePath = "C:\TCP\Saoviet\SaovietWF\SaovietWF\bin\Debug\SaovietWF.exe"    ' Thay b?ng du?ng d?n th?c t?
     Shell exePath, vbNormalFocus  ' Thay d?i du?ng d?n t?i ?ng d?ng c?a b?n
     ' Ð?i m?t chút d? ?ng d?ng m?
@@ -4537,10 +4565,10 @@ Public Sub CmdChitiet_Click()
             End If
 
             Set bang_sd = DBKetoan.OpenRecordset(st, dbOpenSnapshot)
-            If bang_sd.RecordCount > 0 Then
+            If bang_sd.recordCount > 0 Then
                 Dim so_luong, i As Integer
                 so_luong = CInt(txtchungtu(3).Text)
-                n = bang_sd.RecordCount
+                n = bang_sd.recordCount
                 If n = 1 Then n = n - 1
                 For i = 0 To n
                     txtChungtu_KeyPress 0, 13
@@ -5256,7 +5284,7 @@ Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sod
     sql = "select * from license"
     Dim lisen
     Set lisen = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If lisen.RecordCount > 0 Then
+    If lisen.recordCount > 0 Then
         frmMain.Rpt.Formulas(1) = "TenCty='" + lisen!TenCty + "'"    ' 'lisen!Tenhoadon
         frmMain.Rpt.Formulas(2) = "TenCn='" + lisen!tencn + "'"
         frmMain.Rpt.Formulas(3) = "DC1='" + lisen!DiaChi + "'"
@@ -5358,7 +5386,7 @@ Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sod
     sql = "select * from PhieuNX order by ThanhTien asc "
     Dim chitiet_sp
     Set chitiet_sp = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If chitiet_sp.RecordCount > 0 Then
+    If chitiet_sp.recordCount > 0 Then
         Dim dem, dem1 As Integer
         Dim stt_dem As String
         Dim gach
@@ -5574,7 +5602,7 @@ Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sod
     Dim kaka As Recordset
     sql22 = "SELECT iif(Nguoimuahang is null ,'...',Nguoimuahang) as aa1 from chungtu where sohieu = '" + FrmChungtu.txt(0).Text + "'"
     Set kaka = DBKetoan.OpenRecordset(sql22, dbOpenSnapshot)
-    If kaka.RecordCount > 0 Then
+    If kaka.recordCount > 0 Then
         frmMain.Rpt.Formulas(200) = "TenNN='" + kaka!AA1 + "'"
     Else
         frmMain.Rpt.Formulas(200) = "TenNN='" + "..." + "'"
@@ -5714,7 +5742,7 @@ Sub tinhkyhieu()
         sql = "SELECT kyhieu as F1 from hoadon where maso in (select max(maso) from hoadon where maso in (select maso from chungtu where maloai = 8))"
         Dim rs_chungtu As Recordset
         Set rs_chungtu = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-        If rs_chungtu.RecordCount > 0 Then txtVT(1).Text = rs_chungtu!f1
+        If rs_chungtu.recordCount > 0 Then txtVT(1).Text = rs_chungtu!f1
         rs_chungtu.Close
 
     End If
@@ -7254,7 +7282,7 @@ Public Sub OptLoai_Click(Index As Integer)
         sql = "SELECT kyhieu as F1 from hoadon where maso in (select max(maso) from hoadon where maso in (select maso from chungtu where maloai = 8))"
         Dim rs_chungtu As Recordset
         Set rs_chungtu = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-        If rs_chungtu.RecordCount > 0 Then txtVT(1).Text = rs_chungtu!f1
+        If rs_chungtu.recordCount > 0 Then txtVT(1).Text = rs_chungtu!f1
         Enable_thong_tin
         ' da bo txtVT(2).Text = SelectSQL("SELECT MauSoHD AS F1 FROM chungtu WHERE  maso in (select max(maso) from chungtu where maloai = 8)")
         rs_chungtu.Close
@@ -7404,6 +7432,84 @@ Private Sub Timer1_Timer()
     Timer1.Enabled = False
     Command_Click 0
     Timer3.Enabled = True
+End Sub
+
+Private Sub Xuly154()
+    If Not rs_ktra154c.EOF Then
+
+        txtchungtu(0).Text = rs_ktra154c!tkno
+        txtChungtu_LostFocus (0)
+        'xu ly 154
+        If rs_ktra154c!MaCT <> "" Then
+            Dim recordCount As Long
+            recordCount = rs_ktra154c.recordCount
+            txtchungtu(2).Text = rs_ktra154c!MaCT
+            txtChungtu_LostFocus (2)
+            txtchungtu(5).Text = rs_ktra154c!SoLuong * rs_ktra154c!dongia
+            txtChungtu_LostFocus (5)
+            ' RFocus txtchungtu(6)
+            txtChungtu_KeyPress 6, 13
+            rs_ktra154c.MoveNext
+            timer154.Enabled = True
+            'Xu ly 152
+        Else
+            txtchungtu(2).Text = rs_ktra154c!sohieu
+            txtChungtu_LostFocus (2)
+            txtchungtu(3).Text = rs_ktra154c!SoLuong
+            txtChungtu_LostFocus (3)
+            RFocus txtchungtu(4)
+
+            txtchungtu(4).Text = rs_ktra154c!dongia
+            txtChungtu_LostFocus (4)
+            RFocus txtchungtu(5)
+            txtChungtu_LostFocus (5)
+            txtChungtu_KeyPress 6, 13
+            rs_ktra154c.MoveNext
+            timer154.Enabled = True
+        End If
+    End If
+End Sub
+Private Sub timer154_Timer()
+    timer154.Enabled = False
+    If Not rs_ktra154c.EOF Then
+        Xuly154
+    Else
+        With fileImportList(IndexFirst)
+            If .notk <> "5111" Then
+                'txtchungtu(0) = .ThueTK
+                txtchungtu(0).Text = "1331"
+            Else
+                txtchungtu(0).Text = "33311"
+            End If
+
+            Dim myDate As Date
+            myDate = CDate(.ngay)
+            CboThang.Text = Month(myDate) & "/" & Year(myDate)
+            MedNgay(0).Text = .ngay
+            MedNgay(0).Text = .ngay
+            If Month(myDate) <> Month(Now) Then
+                MedNgay(1).Text = DateSerial(Year(Date), Month(Date), 1)
+            Else
+                MedNgay(1).Text = Format(.ngay, "dd/mm/yy")
+            End If
+
+            txtChungtu_LostFocus (0)
+            txtchungtu(2).Text = .vat
+            txtChungtu_LostFocus (2)
+            txtChungtu_KeyPress 6, 13
+            txtchungtu(0) = .cotk
+            txtChungtu_LostFocus (0)
+            txtChungtu_KeyPress 6, 13
+            FThuChi.FThuChiForm = 1
+            timer1542.Enabled = True
+        End With
+
+    End If
+End Sub
+
+Private Sub timer1542_Timer()
+    timer1542.Enabled = False
+    FThuChi.Command_Click
 End Sub
 
 Private Sub Timer2_Timer()
@@ -7624,7 +7730,7 @@ Private Sub txt_LostFocus(Index As Integer)
                 sql = "SELECT kyhieu as F1 from hoadon where maso in (select max(maso) from hoadon where maso in (select maso from chungtu where maloai = 8))"
 
                 Set rs_chungtu = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-                If rs_chungtu.RecordCount > 0 Then txtVT(1).Text = rs_chungtu!f1
+                If rs_chungtu.recordCount > 0 Then txtVT(1).Text = rs_chungtu!f1
                 rs_chungtu.Close
                 'rs_chungtu = Null
             End If
@@ -8175,7 +8281,7 @@ Private Function Kiemtrataikhoanchitiet(taikhoan As String) As Boolean
     Dim rs_chungtu
     sql = " select * from hethongtk where SoHieu = '" + Trim(taikhoan) + "' and tkcon = 0 "
     Set rs_chungtu = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If rs_chungtu.RecordCount = 0 Then
+    If rs_chungtu.recordCount = 0 Then
         Kiemtrataikhoanchitiet = False
     Else
         Kiemtrataikhoanchitiet = True
@@ -9192,7 +9298,7 @@ Public Function HienPhieuTrenManHinh(p As Integer) As Integer
     'sql = "SELECT ChungTu" + sh + ".*,HoaDon" + sh + ".MaKhachHang,HoaDon" + sh + ".Loai AS LoaiHD,KyHieu,HoaDon" + sh + ".SoHD AS SHD,NgayPH,MatHang,Soluong,Thanhtien,Tyle,HD,KCT,NK,TS,HoaDon" + sh + ".DC,HTTT,MauSo,KhachHang.Ten,KhachHang.DiaChi,KhachHang.MST,khachhang.sohieu as sohieukhachhang,HDBL,HoaDon" + sh + ".TyGia AS TG FROM (ChungTu" + sh + " LEFT JOIN HoaDon" + sh + " ON ChungTu" + sh + ".MaSo=HoaDon" + sh + ".MaSo) LEFT JOIN KhachHang ON ChungTu" + sh + ".MaKH=KhachHang.MaSo WHERE Chungtu" + sh + ".MaCT=" + CStr(MaSoCT) + IIf(pProcessMode = 1, " AND XuLy<2", "") + " ORDER BY Chungtu" + sh + ".MaSo DESC"
     sql = "SELECT ChungTu" + sh + ".*,HoaDon" + sh + ".MaKhachHang,HoaDon" + sh + ".KyHieu as kyhieuhoadon ,HoaDon" + sh + ".Loai AS LoaiHD,KyHieu,HoaDon" + sh + ".SoHD AS SHD,NgayPH,MatHang,Soluong,Thanhtien,Tyle,HD,KCT,NK,TS,HoaDon" + sh + ".DC,HTTT,MauSo,KhachHang.Ten,KhachHang.DiaChi,KhachHang.MST,khachhang.sohieu as sohieukhachhang,HDBL,HoaDon" + sh + ".TyGia AS TG FROM (ChungTu" + sh + " LEFT JOIN HoaDon" + sh + " ON ChungTu" + sh + ".MaSo=HoaDon" + sh + ".MaSo) LEFT JOIN KhachHang ON ChungTu" + sh + ".MaKH =KhachHang.MaSo WHERE Chungtu" + sh + ".MaCT=" + CStr(MaSoCT) + IIf(pProcessMode = 1, " AND XuLy<2", "") + " ORDER BY Chungtu" + sh + ".MaSo DESC"
     Set rs_chungtu = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If rs_chungtu.RecordCount = 0 Then
+    If rs_chungtu.recordCount = 0 Then
         MsgBox "PhiÕu ®· bÞ xo¸!", vbCritical, App.ProductName
         HienPhieuTrenManHinh = -1
         GoTo KetThuc
@@ -9224,7 +9330,7 @@ Public Function HienPhieuTrenManHinh(p As Integer) As Integer
     Dim rs
 
     Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If rs.RecordCount > 0 Then
+    If rs.recordCount > 0 Then
         Mo_thong_tin
         txtVT(1).Text = rs!kyhieuhoadon
         txtVT(0).Text = CStr(rs!sohieu)
@@ -11057,7 +11163,7 @@ Private Sub TxtVT_Change(Index As Integer)
 
         sql = "SELECT top 1 * FROM KhachHang WHERE SoHieu = '" + qq + "' and left(sohieu,1) <> '#' order by maso desc"
         Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-        If rs.RecordCount <= 0 Then
+        If rs.recordCount <= 0 Then
             sql = "SELECT top 1 * FROM KhachHang WHERE SoHieu = '" + qq + "' order by maso desc"
 
         End If
@@ -11065,7 +11171,7 @@ Private Sub TxtVT_Change(Index As Integer)
     Case 9:
         sql = "SELECT top 1 * FROM KhachHang WHERE MST = '" + CStr(Replace(txtVT(9).Text, ".", "")) + "' and left(sohieu,1) <> '#'  order by maso desc"
         Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-        If rs.RecordCount <= 0 Then
+        If rs.recordCount <= 0 Then
             sql = "SELECT top 1 * FROM KhachHang WHERE MST = '" + CStr(Replace(txtVT(9).Text, ".", "")) + "' order by maso desc"
         End If
     End Select
@@ -11074,7 +11180,7 @@ Private Sub TxtVT_Change(Index As Integer)
     If sql <> "" Then
         Enable_thong_tin
         Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-        If rs.RecordCount > 0 Then
+        If rs.recordCount > 0 Then
             txtVT(7).Text = rs!Ten
             Text1.Text = rs!Ten
             txtVT(8).Text = rs!DiaChi

@@ -458,7 +458,7 @@ End Function
 '======================================================================================
 Public Sub XoaChungtu()
     Dim ckh As New ClsKhachHang, rs As Recordset, tp As Cls154, m As Long
-    
+
     If maloai = 7 Then Exit Sub
     If pProcessMode = 1 Then
         ExecuteSQL5 "UPDATE ChungTu SET XuLy=2 WHERE MaSo = " + CStr(MaSo)
@@ -469,18 +469,18 @@ Public Sub XoaChungtu()
     If maloai <> 4 Then
         If tkno.MaSo > 0 Then tkno.TinhSoDu ThangCT, -sops, -1, -SoPS2No
         If TkCo.MaSo > 0 Then TkCo.TinhSoDu ThangCT, -sops, 1, -SoPS2Co
-         ' TÝnh l¹i tån vËt t­ nÕu cã nhËp xuÊt
-         If MaVattu > 0 Then
+        ' TÝnh l¹i tån vËt t­ nÕu cã nhËp xuÊt
+        If MaVattu > 0 Then
             If (maloai = 1 And tkno.tk_id = TKVT_ID) Or (maloai = 1 And TkCo.tk_id = TKVT_ID And sops = 0) Then TinhTonKho MaKho, IIf(tkno.MaSo > 0, tkno.MaSo, TkCo.MaSo), MaVattu, ThangCT, -1, IIf(tkno.MaSo > 0, -SoPS2No, -SoPS2Co), -sops, -PSUSD
             If (maloai = 2 And TkCo.tk_id = TKVT_ID) Or (maloai = 2 And tkno.tk_id = TKVT_ID And sops = 0) Then TinhTonKho MaKho, IIf(TkCo.MaSo > 0, TkCo.MaSo, tkno.MaSo), MaVattu, ThangCT, 1, IIf(TkCo.MaSo > 0, -SoPS2Co, -SoPS2No), -sops, -PSUSD
-        
+
             If maloai = 2 And MaVattu > 0 And CT_ID < 0 And OutCost <> 0 Then
                 If -CT_ID < 2000000000 Then
                     ExecuteSQL5 "UPDATE ChungTu SET SoXuat = SoXuat - " + DoiDau(SoPS2Co) _
-                        + " WHERE MaSo = " + CStr(-CT_ID)
+                              + " WHERE MaSo = " + CStr(-CT_ID)
                 Else
                     ExecuteSQL5 "UPDATE VTDauNam SET SoXuat = SoXuat - " + DoiDau(SoPS2Co) _
-                        + " WHERE MaSoKho = " + CStr(MaKho) + " AND MaVattu = " + CStr(MaVattu) + " AND MaSo=" + CStr(-CT_ID - 2000000000)
+                              + " WHERE MaSoKho = " + CStr(MaKho) + " AND MaVattu = " + CStr(MaVattu) + " AND MaSo=" + CStr(-CT_ID - 2000000000)
                 End If
             End If
         End If
@@ -503,7 +503,7 @@ Public Sub XoaChungtu()
                     ExecuteSQL5 "UPDATE ChungTu SET SoXuat = SoXuat - " + DoiDau(sops) + " WHERE MaSo = " + CStr(m)
                 Else
                     ExecuteSQL5 "UPDATE CNDauNam SET SoXuat = SoXuat - " + DoiDau(sops) _
-                        + " WHERE MaTaiKhoan = " + CStr(tkno.MaSo) + " AND MaKhachHang = " + CStr(makh) + " AND MaSo=" + CStr(-CT_ID - 2000000000)
+                              + " WHERE MaTaiKhoan = " + CStr(tkno.MaSo) + " AND MaKhachHang = " + CStr(makh) + " AND MaSo=" + CStr(-CT_ID - 2000000000)
                 End If
             End If
             If MaKHC > 0 And CT_ID < 0 Then
@@ -512,11 +512,12 @@ Public Sub XoaChungtu()
                     ExecuteSQL5 "UPDATE ChungTu SET SoXuat = SoXuat - " + DoiDau(sops) + " WHERE MaSo = " + CStr(m)
                 Else
                     ExecuteSQL5 "UPDATE CNDauNam SET SoXuat = SoXuat - " + DoiDau(sops) _
-                        + " WHERE MaTaiKhoan = " + CStr(TkCo.MaSo) + " AND MaKhachHang = " + CStr(MaKHC) + " AND MaSo=" + CStr(-CT_ID - 2000000000)
+                              + " WHERE MaTaiKhoan = " + CStr(TkCo.MaSo) + " AND MaKhachHang = " + CStr(MaKHC) + " AND MaSo=" + CStr(-CT_ID - 2000000000)
                 End If
             End If
         End If
         ExecuteSQL5 "DELETE FROM Chungtu WHERE MaSo=" + CStr(MaSo)
+
     Else
         If tkno.MaSo <> TkCo.MaSo Then
             If tkno.MaSo > 0 And tkno.tk_id = TKVT_ID Then tkno.TinhSoDu ThangCT, -sops, -1, -SoPS2No
@@ -527,15 +528,40 @@ Public Sub XoaChungtu()
         If MaVattu > 0 And CT_ID < 0 And OutCost <> 0 Then
             If -CT_ID < 2000000000 Then
                 ExecuteSQL5 "UPDATE ChungTu SET SoXuat = SoXuat - " + DoiDau(SoPS2Co) _
-                    + " WHERE MaSo = " + CStr(-CT_ID)
+                          + " WHERE MaSo = " + CStr(-CT_ID)
             Else
                 ExecuteSQL5 "UPDATE VTDauNam SET SoXuat = SoXuat - " + DoiDau(SoPS2Co) _
-                    + " WHERE MaSoKho = " + CStr(MaKho) + " AND MaVattu = " + CStr(MaVattu) + " AND MaSo=" + CStr(-CT_ID - 2000000000)
+                          + " WHERE MaSoKho = " + CStr(MaKho) + " AND MaVattu = " + CStr(MaVattu) + " AND MaSo=" + CStr(-CT_ID - 2000000000)
             End If
         End If
         ExecuteSQL5 "DELETE FROM Chungtu WHERE MaSo=" + CStr(MaSo)
     End If
     ExecuteSQL5 "DELETE FROM ChungtuLQ WHERE MaCT=" + CStr(MaCT)
+    'xoa Import
+    'Kiem tra xem den khi nao maso hop le
+    Dim Query As String
+    Query = "select * from HoaDon where MaSo=" + CStr(MaSo)
+    Dim rs_ktra As Recordset
+    Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+    If Not rs_ktra.EOF Then
+        ' Duy?t qua t?t c? các b?n ghi
+        Do While Not rs_ktra.EOF
+            Query = "SELECT * FROM tbimport WHERE SHDon='" & Trim(CStr(rs_ktra!soHD)) & "' AND KHHDon='" & Trim(CStr(rs_ktra!KyHieu)) & "'"
+            Dim rs_ktra2 As Recordset
+            Set rs_ktra2 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+            If Not rs_ktra2.EOF Then
+                Do While Not rs_ktra2.EOF
+                 ExecuteSQL5 "DELETE FROM tbimportdetail WHERE ParentId='" & Trim(CStr(rs_ktra2!id)) & "'"
+                    rs_ktra2.MoveNext
+                Loop
+            End If
+
+          ExecuteSQL5 "DELETE FROM tbimport WHERE SHDon='" & Trim(CStr(rs_ktra!soHD)) & "' AND KHHDon='" & Trim(CStr(rs_ktra!KyHieu)) & "'"
+            rs_ktra.MoveNext
+        Loop
+    End If
+
+
     ExecuteSQL5 "DELETE FROM HoaDon WHERE MaSo=" + CStr(MaSo)
     WSpace.CommitTrans
     If (maloai = 8 And TkCo.tk_id = TKDT_ID) And pGiaVon > 0 And OutCost < 3 And MaVattu > 0 Then

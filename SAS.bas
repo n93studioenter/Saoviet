@@ -148,9 +148,9 @@ Sub Main()
 
     If Not FontDaCo(sFONTNAME) Then Add32Font "VKNT.FON"
 
+    pPSW = "1@35^7*9)1"
+    'pPSW = Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(8) + Chr(13) + Chr(13)
 
-    pPSW = Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(8) + Chr(13) + Chr(13)
-   
     'Chr(8) + Chr(13) + Chr(27) + Chr(27)
     'Load frmSplash
     frmSplash.Show
@@ -214,19 +214,25 @@ Op:
     '   Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD= " + pPSW)
     '  Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
     'pPSW = "1@35^7*9)"
+    'On Error Resume Next    ' B?t l?i
+
+
     On Error Resume Next    ' B?t l?i
     Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
     If Err.number <> 0 Then
+        MsgBox "Database chua duoc cap Licence"
+        End
         pPSW = Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(13) + Chr(27) + Chr(27) + Chr(8) + Chr(8) + Chr(13) + Chr(13)
         On Error Resume Next    ' B?t l?i
         Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
         If Err.number <> 0 Then
-            pPSW = "1@35^7*9)"
+            pPSW = "1@35^7*9)1"
             Set DBKetoan = WSpace.OpenDatabase(file_name, False, False, ";PWD=" + pPSW)
         End If
         On Error Resume Next    ' B?t l?i
     End If
-    On Error Resume Next    ' B?t l?i
+    'On Error Resume Next    ' B?t l?i
+
 
 
     On Error GoTo 0
@@ -3297,6 +3303,7 @@ Public Sub XoaDK()
 End Sub
 
 Public Sub XoaPhieu(mct As Long)
+ 
     ExecuteSQL5 "DELETE * FROM ChungTuP WHERE MaCT=" + CStr(mct)
     ExecuteSQL5 "DELETE HoaDonP.* FROM HoaDonP LEFT JOIN ChungTuP ON HoaDonP.MaSo=ChungTuP.MaSo WHERE IsNull(ChungTuP.MaSo)"
     ExecuteSQL5 "DELETE FROM ChungtuLQP WHERE MaCT=" + CStr(mct)
