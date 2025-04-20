@@ -413,7 +413,7 @@ Private Sub Form_Activate()
     sql = sql + "iif(sophieudathang is null ,'...',sophieudathang) as cc,"
     sql = sql + "iif(chondiengiai is null ,'0',chondiengiai) as chon1  from chungtu where sohieu = '" + FrmChungtu.txt(0).Text + "'"
         Set rs_chungtu = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-        If rs_chungtu.RecordCount > 0 Then
+        If rs_chungtu.recordCount > 0 Then
            T(4).Text = rs_chungtu!AA1
            T(3).Text = rs_chungtu!cc
            If rs_chungtu!chon1 = "2" Then
@@ -460,7 +460,7 @@ Public Sub GetPhieu(s1 As String, s2 As String, s3 As String, makh As Long, Opti
     lbkh.Caption = kh.Ten
     ngay = d
     If Year(d) > 1900 Then MedNgay.Text = Format(d, Mask_D)
-     If Not Me.Visible Then
+    If Not Me.Visible Then
         Me.Show vbModal
     End If
     s1 = s(0)
@@ -470,6 +470,10 @@ Public Sub GetPhieu(s1 As String, s2 As String, s3 As String, makh As Long, Opti
     makh = kh.MaSo
     d = ngay
     Set kh = Nothing
+    If FThuChiForm = 1 Then
+        Command_Click
+    End If
+
 End Sub
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)

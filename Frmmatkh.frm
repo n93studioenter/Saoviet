@@ -146,7 +146,7 @@ Public Sub CheckAndCreateTable()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.name = tableName Then
+        If tdf.Name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -158,6 +158,13 @@ Public Sub CheckAndCreateTable()
 
         ' T?o tru?ng Name
         Set fld = tdf.CreateField("Name", dbText, 255)
+        tdf.Fields.Append fld
+        ' T?o tru?ng hoadonpath
+        Set fld = tdf.CreateField("Hoadonpath", dbText, 255)
+        tdf.Fields.Append fld
+
+        ' T?o tru?ng dbpath
+        Set fld = tdf.CreateField("Dbpath", dbText, 255)
         tdf.Fields.Append fld
 
         ' Thêm b?ng vào co s? d? li?u
@@ -171,6 +178,34 @@ Public Sub CheckAndCreateTable()
         DBKetoan.Execute sql
     End If
 End Sub
+Private Sub importRegister()
+    Dim pathHoadon As String
+    pathHoadon = App.path & "\Hoadon"    ' S?a d?u "\" d? d?m b?o du?ng d?n dúng
+    MsgBox pathHoadon
+    Dim rs As Recordset
+    Dim sql As String
+    Dim hoadonPathValue As String
+    hoadonPathValue = App.path & "\Hoadon"    ' Ðu?ng d?n m?i cho hoadonpath
+
+    ' Truy v?n d? l?y b?n ghi
+    sql = "SELECT * FROM tbRegister"    ' Gi? d?nh b?ng ch? có 1 dòng
+    Set rs = DBKetoan.OpenRecordset(sql)
+
+    If Not rs.EOF Then
+        ' C?p nh?t giá tr? cho hoadonpath
+        rs.Edit
+        rs!Hoadonpath = hoadonPathValue
+        rs!Dbpath = pDataPath    ' C?p nh?t giá tr? cho pathDB
+
+        rs.Update
+        MsgBox "C?p nh?t thành công!"
+    Else
+        MsgBox "Không tìm th?y b?n ghi."
+    End If
+
+    rs.Close
+    Set rs = Nothing
+End Sub
 
 Private Sub Command_Click(Index As Integer)
     If Index = 1 Then
@@ -181,13 +216,14 @@ Private Sub Command_Click(Index As Integer)
     'Lay dia chi mac
 
     CheckAndCreateTable
+    importRegister
 
     Dim rs As DAO.Recordset
     Set rs = DBKetoan.OpenRecordset("SELECT TOP 1 Name FROM tbRegister ")
     If Not rs.EOF Then
         Dim mac As String
         mac = GetMacAddress()
-        If rs!name <> mac Then
+        If rs!Name <> mac Then
             MsgBox "Not regisrty"
             End
         End If

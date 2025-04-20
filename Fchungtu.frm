@@ -3157,15 +3157,15 @@ Public Sub AutoCLickLoai()
     RFocus CboThang
     DisplayFileImportList
 End Sub
-Public Sub AddImportData(ByVal id As String, ByVal name As String, ByVal mst As String, ByVal soHD As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal tongtien As String, ByVal vat As String, ByVal sohieutp As String)
+Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As String, ByVal sohd As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal TongTien As String, ByVal VAT As String, ByVal sohieutp As String)
     Dim fileImport As ClsFileImport
     Set fileImport = New ClsFileImport
 
     ' Gán giá tr? cho các thu?c tính
     fileImport.id = id
-    fileImport.name = name
+    fileImport.Name = Name
     fileImport.mst = mst
-    fileImport.soHD = soHD
+    fileImport.sohd = sohd
     fileImport.khHD = khHD
     fileImport.ngay = ngay
     fileImport.types = types
@@ -3174,8 +3174,8 @@ Public Sub AddImportData(ByVal id As String, ByVal name As String, ByVal mst As 
     fileImport.notk = tkno
     fileImport.ThueTK = tkThue
     fileImport.diengiai = diengiai
-    fileImport.tongtien = tongtien
-    fileImport.vat = vat
+    fileImport.TongTien = TongTien
+    fileImport.VAT = VAT
     fileImport.sohieutp = sohieutp
     fileImportList.Add fileImport
 
@@ -3323,7 +3323,7 @@ Private Sub btnImport_Click()
         ' Duy?t qua t?t c? các b?n ghi
         Do While Not rs_ktra.EOF
             ' L?y s? lu?ng tru?ng
-            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!tongtien, rs_ktra!vat, rs_ktra!sohieutp
+            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!TongTien, rs_ktra!VAT, rs_ktra!sohieutp
             rs_ktra.MoveNext
         Loop
     End If
@@ -3394,7 +3394,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
     Dim myDate As Date
     myDate = CDate(item.ngay)
-    txt(0).Text = item.soHD
+    txt(0).Text = item.sohd
     txtVT(1).Text = item.khHD
 
     CboThang.Text = Month(myDate) & "/" & Year(myDate)
@@ -3448,12 +3448,12 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             '1331 thue
             txtchungtu(0).Text = item.ThueTK
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = item.vat
+            txtchungtu(2).Text = item.VAT
             Dim number As Long
-            Dim vat As Integer
-            vat = CInt(item.vat)
+            Dim VAT As Integer
+            VAT = CInt(item.VAT)
             number = CLng(Replace(txtchungtu(5).Text, ",", ""))
-            number = number * vat / 100
+            number = number * VAT / 100
             txtchungtu(5).Text = number * (-1)
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
@@ -3520,7 +3520,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             RFocus txtchungtu(2)
             txtchungtu(2).Text = rs_ktra154!sohieu
             txtChungtu_LostFocus (2)
-            txtchungtu(5).Text = item.tongtien
+            txtchungtu(5).Text = item.TongTien
             txtChungtu_LostFocus (5)
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
@@ -3531,7 +3531,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             '1331
             txtchungtu(0).Text = 1331
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = item.vat
+            txtchungtu(2).Text = item.VAT
             txtChungtu_LostFocus (2)
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
@@ -3540,10 +3540,10 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
                 txtchungtu(0).Text = .cotk
             End With
             FThuChi.FThuChiForm = 1
-            If stt < 2 Then
-                txtChungtu_KeyPress 6, 13
-            End If
-
+            'If stt < 2 Then
+            ' txtChungtu_KeyPress 6, 13
+            'End If
+            txtChungtu_KeyPress 6, 13
             stt = stt + 1
         Else
             'Xu ly1 con cua 154
@@ -3601,7 +3601,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
         txtChungtu_LostFocus (0)
         With fileImportList(IndexFirst)
-            txtchungtu(5).Text = .tongtien
+            txtchungtu(5).Text = .TongTien
 
         End With
         RFocus txtchungtu(6)
@@ -3618,7 +3618,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         End With
         txtChungtu_LostFocus (0)
         With fileImportList(IndexFirst)
-            txtchungtu(2).Text = .vat
+            txtchungtu(2).Text = .VAT
         End With
 
         txtChungtu_LostFocus (2)
@@ -3655,21 +3655,21 @@ End Sub
 
 Private Sub btnOpenexe_Click()
     Dim exePath As String
-    exePath = App.path & "\\REPORTS\\bin\Debug\SaovietWF.exe"
-    
-    MsgBox exePath
-   ' exePath = "C:\TCP\Saoviet\SaovietWF\SaovietWF\bin\Debug\SaovietWF.exe"    ' Thay b?ng du?ng d?n th?c t?
+    exePath = App.path & "\\Tools\\Debug\SaovietTax.exe"
+
+    'MsgBox exePath
+    ' exePath = "C:\TCP\Saoviet\SaovietWF\SaovietWF\bin\Debug\SaovietWF.exe"    ' Thay b?ng du?ng d?n th?c t?
     Shell exePath, vbNormalFocus  ' Thay d?i du?ng d?n t?i ?ng d?ng c?a b?n
     ' Ð?i m?t chút d? ?ng d?ng m?
     DoEvents
     ' Thêm th?i gian ch? d? ?ng d?ng có th?i gian kh?i d?ng
-    Sleep 1000  ' Ngh? 1 giây (1000 milliseconds)
-
+    Sleep 2000  ' Ngh? 1 giây (1000 milliseconds)
+    
     ' L?y handle c?a c?a s? ?ng d?ng
     hWndApp = FindWindow(vbNullString, "frmMain")    ' Thay d?i tiêu d? c?a ?ng d?ng
     ' Ki?m tra xem handle có h?p l? hay không tru?c khi ki?m tra liên t?c
     If hWndApp = 0 Then
-        MsgBox "Không th? tìm th?y c?a s? ?ng d?ng."
+        MsgBox "Khong tim thay ung dung."
     Else
         ' B?t d?u ki?m tra c? quay
         CheckWindow
@@ -3683,7 +3683,9 @@ Private Sub CheckWindow()
             Dim FilePath As String
             Dim FileNum As Integer
             Dim fileContent As String
-            FilePath = "C:\S.T.E 25\S.T.E 25\Hoadon\status.txt"
+            FilePath = App.path & "\\Hoadon\\status.txt"
+
+            ' FilePath = "C:\S.T.E 25\S.T.E 25\Hoadon\status.txt"
 
             FileNum = FreeFile    'L?y s? file t? do
 
@@ -4113,7 +4115,7 @@ Public Sub CmdChitiet_chon()
         End If
     End If
 
-    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vBH > 0 And vattu.vat > 0 And vBH <> vattu.vat Then
+    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vBH > 0 And vattu.VAT > 0 And vBH <> vattu.VAT Then
         If MsgBox("MÆt hµng kh«ng cïng thuÕ suÊt VAT! TiÕp tôc ?", vbYesNo + vbCritical, App.ProductName) <> vbYes Then
             RFocus txtchungtu(2)
             Exit Sub
@@ -4247,7 +4249,7 @@ Public Sub CmdChitiet_chon()
                 h.MaKhachHang = HD(hdcount).MaKhachHang
                 h.MauSo = HD(hdcount).MauSo
                 h.KyHieu = HD(hdcount).KyHieu
-                h.soHD = HD(hdcount).soHD
+                h.sohd = HD(hdcount).sohd
                 h.NgayPH = HD(hdcount).NgayPH
                 h.tygia = HD(hdcount).tygia
             Else
@@ -4291,7 +4293,7 @@ Public Sub CmdChitiet_chon()
             ' --------------------
             ' vua them vao sau
             If hdcount <= 0 Then
-                h.soHD = txt(0).Text    'so hoa don
+                h.sohd = txt(0).Text    'so hoa don
             End If
             h.KyHieu = txtVT(1).Text
             h.MatHang = txt(1).Text
@@ -4539,7 +4541,7 @@ KT:
         MSTBH = ckh.mst
         MaKHBH = ckh.MaSo
     End If
-    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vattu.vat > 0 Then vBH = vattu.vat
+    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vattu.VAT > 0 Then vBH = vattu.VAT
     NhapDongMoi taikhoan.sohieu
 
     Erase mct1
@@ -4945,7 +4947,7 @@ B:
                     Else
                         frmMain.Rpt.Formulas(13) = "TyLe='ThuÕ GTGT (" + CStr(HD(hdcount).TyLe) + "%):'"
                     End If
-                    frmMain.Rpt.Formulas(18) = "HoaDon='" + ABCtoVNI("Ho¸ ®¬n : ") + HD(hdcount).MauSo + ABCtoVNI(" - Sè : ") + HD(hdcount).soHD + ABCtoVNI(" - Sè : ") + HD(hdcount).KyHieu + ABCtoVNI(" - Ngµy : ") + Format(HD(hdcount).NgayPH, Mask_DR) + "'"
+                    frmMain.Rpt.Formulas(18) = "HoaDon='" + ABCtoVNI("Ho¸ ®¬n : ") + HD(hdcount).MauSo + ABCtoVNI(" - Sè : ") + HD(hdcount).sohd + ABCtoVNI(" - Sè : ") + HD(hdcount).KyHieu + ABCtoVNI(" - Ngµy : ") + Format(HD(hdcount).NgayPH, Mask_DR) + "'"
                 End If
                 ms = HD(hdcount).MaKhachHang
             Else
@@ -5218,7 +5220,7 @@ Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sod
     Case 0, 7, 8:
         If hdcount >= 0 Then
             frmMain.Rpt.Formulas(11) = "TyLe=" + CStr(HD(hdcount).TyLe)
-            frmMain.Rpt.Formulas(16) = "SoHD='" + HD(hdcount).soHD + "'"
+            frmMain.Rpt.Formulas(16) = "SoHD='" + HD(hdcount).sohd + "'"
             ms = HD(hdcount).MaKhachHang
             HTTT = HD(hdcount).HTTT
             frmMain.Rpt.Formulas(17) = "TyGia=" + DoiDau(HD(hdcount).tygia)
@@ -5393,11 +5395,11 @@ Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sod
         dem1 = 100
         dem = 90
         Dim g, kk As Integer
-        Dim tongtien As Double
+        Dim TongTien As Double
         Dim thoat As Boolean
         thoat = True
         kk = 1
-        tongtien = 0
+        TongTien = 0
         Dim mang_stt(100) As String
         Dim mang_diengiai(100) As String
         Dim mang_dvt(100) As String
@@ -6530,7 +6532,7 @@ Private Sub Command3_Click()
 End Sub
 
 
-Sub GetcustomerByMST(ByVal mst As String, ByVal name As String, ByVal Address As String)
+Sub GetcustomerByMST(ByVal mst As String, ByVal Name As String, ByVal Address As String)
     Dim rs_ktra As Recordset
     Dim Query As String
 
@@ -6552,7 +6554,7 @@ Sub GetcustomerByMST(ByVal mst As String, ByVal name As String, ByVal Address As
         Dim getMst As String
         getMst = Right(txtVT(9).Text, 4)
         txtVT(0).Text = getMst
-        txtVT(7).Text = name
+        txtVT(7).Text = Name
         txtVT(8).Text = Address
     End If
 
@@ -7494,14 +7496,13 @@ Private Sub timer154_Timer()
             End If
 
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = .vat
+            txtchungtu(2).Text = .VAT
             txtChungtu_LostFocus (2)
             txtChungtu_KeyPress 6, 13
             txtchungtu(0) = .cotk
             txtChungtu_LostFocus (0)
-            txtChungtu_KeyPress 6, 13
             FThuChi.FThuChiForm = 1
-            timer1542.Enabled = True
+            txtChungtu_KeyPress 6, 13
         End With
 
     End If
@@ -7625,7 +7626,7 @@ Private Sub Timer4_Timer()
             End If
 
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = .vat
+            txtchungtu(2).Text = .VAT
             txtChungtu_LostFocus (2)
             txtChungtu_KeyPress 6, 13
             txtchungtu(0) = .cotk
@@ -9406,7 +9407,7 @@ Public Function HienPhieuTrenManHinh(p As Integer) As Integer
                         .MaKhachHang = rs_chungtu!MaKhachHang
                         .loai = rs_chungtu!LoaiHD
                         .KyHieu = rs_chungtu!KyHieu
-                        .soHD = rs_chungtu!shd
+                        .sohd = rs_chungtu!shd
                         .NgayPH = rs_chungtu!NgayPH
                         .MatHang = rs_chungtu!MatHang
                         .SoLuong = rs_chungtu!SoLuong
@@ -9579,7 +9580,7 @@ KT1:
                         .MaKhachHang = rs_chungtu!MaKhachHang
                         .loai = rs_chungtu!LoaiHD
                         .KyHieu = rs_chungtu!KyHieu
-                        .soHD = rs_chungtu!shd
+                        .sohd = rs_chungtu!shd
                         .NgayPH = rs_chungtu!NgayPH
                         .MatHang = rs_chungtu!MatHang
                         .SoLuong = rs_chungtu!SoLuong

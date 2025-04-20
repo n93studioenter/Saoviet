@@ -198,6 +198,8 @@ Option Explicit
 
 
 Public Sub StartSAS()
+
+
 'SaveSetting "MyApp", "Settings", "FirstRun", "True"
     pDataPath = GetSetting(IniPath, "Environment", "Path", pCurDir + "DATA\KETOAN.MDB")
     ' §Æt c¸c format
