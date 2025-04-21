@@ -119,11 +119,11 @@ Dim ok As Boolean
 
 Public Function GetMacAddress() As String
     Const OFFSET_LENGTH As Long = 400
-    Dim lSize           As Long
-    Dim baBuffer()      As Byte
-    Dim lIdx            As Long
-    Dim sRetVal         As String
-    
+    Dim lSize As Long
+    Dim baBuffer() As Byte
+    Dim lIdx As Long
+    Dim sRetVal As String
+
     Call GetAdaptersInfo(ByVal 0, lSize)
     If lSize <> 0 Then
         ReDim baBuffer(0 To lSize - 1) As Byte
@@ -135,6 +135,153 @@ Public Function GetMacAddress() As String
     End If
     GetMacAddress = sRetVal
 End Function
+Public Sub CheckAndCreateTableDinhDanh()
+    Dim tdf As DAO.TableDef
+    Dim fld As DAO.Field
+    Dim tableExists As Boolean
+    Dim tableName As String
+
+    tableName = "tbDinhdanhtaikhoan"    ' Thay d?i tên b?ng c?a b?n ? dây
+    tableExists = False
+
+    ' Ki?m tra t?n t?i b?ng
+    For Each tdf In DBKetoan.TableDefs
+        If tdf.Name = tableName Then
+            tableExists = True
+            Exit For
+        End If
+    Next tdf
+
+    If Not tableExists Then
+        ' T?o b?ng n?u chua t?n t?i
+        Set tdf = DBKetoan.CreateTableDef(tableName)
+
+        Set fld = tdf.CreateField("ID", dbLong)
+        fld.Attributes = dbAutoIncrField    ' Thi?t l?p thu?c tính t? d?ng tang
+        tdf.Fields.Append fld
+
+        ' T?o tru?ng Name
+        Set fld = tdf.CreateField("Type", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("KeyValue", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("TKNo", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("TKCo", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("TKThue", dbText, 255)
+        tdf.Fields.Append fld
+        ' Thêm b?ng vào co s? d? li?u
+        DBKetoan.TableDefs.Append tdf
+
+    End If
+End Sub
+Public Sub CheckAndCreateTableImport()
+    Dim tdf As DAO.TableDef
+    Dim fld As DAO.Field
+    Dim tableExists As Boolean
+    Dim tableName As String
+
+    tableName = "tbimport"    ' Thay d?i tên b?ng c?a b?n ? dây
+    tableExists = False
+
+    ' Ki?m tra t?n t?i b?ng
+    For Each tdf In DBKetoan.TableDefs
+        If tdf.Name = tableName Then
+            tableExists = True
+            Exit For
+        End If
+    Next tdf
+
+    If Not tableExists Then
+        ' T?o b?ng n?u chua t?n t?i
+        Set tdf = DBKetoan.CreateTableDef(tableName)
+
+        Set fld = tdf.CreateField("ID", dbLong)
+        fld.Attributes = dbAutoIncrField    ' Thi?t l?p thu?c tính t? d?ng tang
+        tdf.Fields.Append fld
+
+        ' T?o tru?ng Name
+        Set fld = tdf.CreateField("SHDon", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("KHHDon", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("NLap", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("Ten", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("Noidung", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("TKCo", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("TKNo", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("TkThue", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("Mst", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("Status", dbInteger)  ' Ho?c dbInteger n?u b?n mu?n ki?u s? nguyên
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("Ngaytao", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("TongTien", dbInteger)  ' Ho?c dbInteger n?u b?n mu?n ki?u s? nguyên
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("Vat", dbInteger)  ' Ho?c dbInteger n?u b?n mu?n ki?u s? nguyên
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("SohieuTP", dbText, 255)
+        tdf.Fields.Append fld
+        ' Thêm b?ng vào co s? d? li?u
+        DBKetoan.TableDefs.Append tdf
+
+    End If
+End Sub
+Public Sub CheckAndCreateTableImportDetail()
+    Dim tdf As DAO.TableDef
+    Dim fld As DAO.Field
+    Dim tableExists As Boolean
+    Dim tableName As String
+
+    tableName = "tbimportdetail"    ' Thay d?i tên b?ng c?a b?n ? dây
+    tableExists = False
+
+    ' Ki?m tra t?n t?i b?ng
+    For Each tdf In DBKetoan.TableDefs
+        If tdf.Name = tableName Then
+            tableExists = True
+            Exit For
+        End If
+    Next tdf
+
+    If Not tableExists Then
+        ' T?o b?ng n?u chua t?n t?i
+        Set tdf = DBKetoan.CreateTableDef(tableName)
+
+        Set fld = tdf.CreateField("ID", dbLong)
+        fld.Attributes = dbAutoIncrField    ' Thi?t l?p thu?c tính t? d?ng tang
+        tdf.Fields.Append fld
+
+        ' T?o tru?ng Name
+        Set fld = tdf.CreateField("ParentId", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("SoHieu", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("SoLuong", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("DonGia", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("DVT", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("Ten", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("MaCT", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("TKNo", dbText, 255)
+        tdf.Fields.Append fld
+        ' Thêm b?ng vào co s? d? li?u
+        DBKetoan.TableDefs.Append tdf
+
+    End If
+End Sub
 Public Sub CheckAndCreateTable()
     Dim tdf As DAO.TableDef
     Dim fld As DAO.Field
@@ -166,7 +313,10 @@ Public Sub CheckAndCreateTable()
         ' T?o tru?ng dbpath
         Set fld = tdf.CreateField("Dbpath", dbText, 255)
         tdf.Fields.Append fld
-
+        Set fld = tdf.CreateField("Username", dbText, 255)
+        tdf.Fields.Append fld
+         Set fld = tdf.CreateField("Password", dbText, 255)
+        tdf.Fields.Append fld
         ' Thêm b?ng vào co s? d? li?u
         DBKetoan.TableDefs.Append tdf
         ' Chèn d?a ch? MAC vào dòng d?u tiên
@@ -179,9 +329,23 @@ Public Sub CheckAndCreateTable()
     End If
 End Sub
 Private Sub importRegister()
+
+    Dim filePath As String
+    Dim fileNumber As Integer
+    fileNumber = FreeFile    ' L?y s? file t? d?ng
+
     Dim pathHoadon As String
     pathHoadon = App.path & "\Hoadon"    ' S?a d?u "\" d? d?m b?o du?ng d?n dúng
-    MsgBox pathHoadon
+    filePath = App.path & "\Hoadon\dpPath.txt"
+
+    ' M? file d? ghi (n?u file dã t?n t?i, nó s? b? ghi dè)
+    Open filePath For Output As #fileNumber
+
+    ' Ghi n?i dung vào file
+    Print #fileNumber, pDataPath
+
+    ' Ðóng file
+    Close #fileNumber
     Dim rs As Recordset
     Dim sql As String
     Dim hoadonPathValue As String
@@ -198,7 +362,6 @@ Private Sub importRegister()
         rs!Dbpath = pDataPath    ' C?p nh?t giá tr? cho pathDB
 
         rs.Update
-        MsgBox "C?p nh?t thành công!"
     Else
         MsgBox "Không tìm th?y b?n ghi."
     End If
@@ -216,6 +379,9 @@ Private Sub Command_Click(Index As Integer)
     'Lay dia chi mac
 
     CheckAndCreateTable
+    CheckAndCreateTableDinhDanh
+    CheckAndCreateTableImport
+     CheckAndCreateTableImportDetail
     importRegister
 
     Dim rs As DAO.Recordset
