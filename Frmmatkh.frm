@@ -112,6 +112,7 @@ Dim Counter As Integer
 Dim pass As Integer
 Dim psw As String
 Dim ok As Boolean
+Dim scecretpws As String
 
 '====================================================================================================
 ' KiÓm tra mËt khÈu
@@ -146,7 +147,7 @@ Public Sub CheckAndCreateTableDinhDanh()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.name = tableName Then
+        If tdf.Name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -187,7 +188,7 @@ Public Sub CheckAndCreateTableImport()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.name = tableName Then
+        If tdf.Name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -248,7 +249,7 @@ Public Sub CheckAndCreateTableImportDetail()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.name = tableName Then
+        If tdf.Name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -295,7 +296,7 @@ Public Sub CheckAndCreateTable()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.name = tableName Then
+        If tdf.Name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -380,22 +381,9 @@ Private Sub Command_Click(Index As Integer)
 
     'Lay dia chi mac
 
-    CheckAndCreateTable
-    'CheckAndCreateTableDinhDanh
-    'CheckAndCreateTableImport
-     'CheckAndCreateTableImportDetail
-    importRegister
+   
 
-    Dim rs As DAO.Recordset
-    Set rs = DBKetoan.OpenRecordset("SELECT TOP 1 Name FROM tbRegister ")
-    If Not rs.EOF Then
-        Dim mac As String
-        mac = GetMacAddress()
-        If rs!name <> mac Then
-            MsgBox "Not regisrty"
-            End
-        End If
-    End If
+
 
     Select Case FrmMatkhau.tag
     Case 0:
@@ -403,8 +391,17 @@ Private Sub Command_Click(Index As Integer)
             HienThongBao VString(CboUser.Text), 3
             ok = True
             ExecuteSQL5 "UPDATE Users SET WS='" + GetComputerName1 + "' WHERE MaSo=" + CStr(UserID), False
+
+            Dim mac As String
+            mac = GetMacAddress()
+            Dim sql As String
+
+            sql = "update tbRegister SET Name= ('" & mac & "');"
+            DBKetoan.Execute sql
+
             Unload Me
         Else
+
             MsgBox "Sai mËt khÈu !", vbExclamation, App.ProductName
             Counter = Counter + 1
             If Counter > 3 Then
@@ -443,11 +440,17 @@ Private Sub Command_Click(Index As Integer)
 End Sub
 
 Private Sub Form_Activate()
+    CheckAndCreateTable
+    'CheckAndCreateTableDinhDanh
+    'CheckAndCreateTableImport
+    'CheckAndCreateTableImportDetail
+    importRegister
+    scecretpws = ""
     If Counter < 0 Then
         Counter = 0
         If Me.tag = 1 Then
             Dim i As Integer
-            
+
             Me.Caption = "Thay ®æi mËt khÈu"
             Label(0).Caption = "MËt khÈu cò"
             SetListIndex CboUser, UserID
@@ -456,20 +459,68 @@ Private Sub Form_Activate()
             ok = False
         End If
     End If
+    Dim rs As DAO.Recordset
+    Set rs = DBKetoan.OpenRecordset("SELECT TOP 1 Name FROM tbRegister ")
+    If Not rs.EOF Then
+        Dim mac As String
+        mac = GetMacAddress()
+        If rs!Name <> mac Then
+            Dim newpsw As Integer
+            newpsw = 64 + Day(Date) + pNamTC
+            scecretpws = Int_StrToCode(CStr(newpsw))
+            ExecuteSQL5 "UPDATE Users SET Psw = " + scecretpws + " WHERE MaSo = " + CStr(CboUser.ItemData(CboUser.ListIndex))
+            'Dang xai o may khac
+            'Cap nhat mat khau theo tohng so he thong
+
+        End If
+    End If
 End Sub
 '====================================================================================================
 ' Thu tuc kiem tra mat khau
 '====================================================================================================
 Private Function KiemTraMatKhau(pstr_psw As String) As Boolean
+
+    Dim newpsw As Integer
+    newpsw = 64 + Day(Date) + pNamTC
+    If pstr_psw <> "" Then
+        If pstr_psw = newpsw Then
+            scecretpws = Int_StrToCode(CStr(newpsw))
+            ExecuteSQL5 "UPDATE Users SET Psw = " + scecretpws + " WHERE MaSo = " + CStr(CboUser.ItemData(CboUser.ListIndex))
+        End If
+    End If
+
     Dim rs_mk As Recordset
-    
+
     Set rs_mk = DBKetoan.OpenRecordset("SELECT Users.* FROM Users WHERE MaSo = " + CStr(CboUser.ItemData(CboUser.ListIndex)), dbOpenSnapshot, dbForwardOnly)
-    If (Int_StrToCode(pstr_psw) = rs_mk!psw - pNamTC) Then
+    If (Int_StrToCode(pstr_psw) = rs_mk!psw - pNamTC Or Int_StrToCode(pstr_psw) = rs_mk!psw) Then
         KiemTraMatKhau = True
     Else
         KiemTraMatKhau = False
         On Error GoTo SaiMK
         KiemTraMatKhau = (CInt5(pstr_psw) = Day(Date) + Month(Date) + pNamTC)
+        On Error GoTo 0
+    End If
+
+    User_Right = rs_mk!UserRight
+    UserID = rs_mk!MaSo
+    UserName = rs_mk!TenNSD
+    frmMain.tag = CStr(rs_mk!vt)
+    frmMain.SetUserRight
+    frmMain.sbStatusBar.Panels(3).ToolTipText = "Log On Time: " + Format(Time, "hh:mm:ss")
+SaiMK:
+    rs_mk.Close
+    Set rs_mk = Nothing
+End Function
+Private Function KiemTraMatKhau2(pstr_psw As String) As Boolean
+    Dim rs_mk As Recordset
+    
+    Set rs_mk = DBKetoan.OpenRecordset("SELECT Users.* FROM Users WHERE MaSo = " + CStr(CboUser.ItemData(CboUser.ListIndex)), dbOpenSnapshot, dbForwardOnly)
+    If (Int_StrToCode(pstr_psw) = rs_mk!psw) Then
+        KiemTraMatKhau2 = True
+    Else
+        KiemTraMatKhau2 = False
+        On Error GoTo SaiMK
+        KiemTraMatKhau2 = (CInt5(pstr_psw) = Day(Date) + Month(Date) + pNamTC)
         On Error GoTo 0
     End If
   
@@ -483,6 +534,7 @@ SaiMK:
     rs_mk.Close
     Set rs_mk = Nothing
 End Function
+
 '====================================================================================================
 ' Xö lý phÝm nãng
 '====================================================================================================
@@ -499,6 +551,7 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
     End If
     If KeyCode = vbKeyEscape Then Unload Me
 End Sub
+
 
 Private Sub Form_Load()
     Counter = -1
