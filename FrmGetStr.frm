@@ -85,7 +85,6 @@ Begin VB.Form FrmGetStr
       Left            =   2040
       TabIndex        =   8
       Top             =   3720
-      Visible         =   0   'False
       Width           =   4575
    End
    Begin VB.Label Label 

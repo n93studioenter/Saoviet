@@ -104,7 +104,7 @@ Public Function SoHieuVTMoi(mpl As Long, Optional loai As Integer = 0) As String
             sql = "SELECT Top 1 SoHieu FROM DoituongCT ORDER BY SoHieu DESC"
     End Select
     Set rs_vt = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If rs_vt.RecordCount > 0 Then
+    If rs_vt.recordCount > 0 Then
         i = 1
         Do While IsNumeric(Right(rs_vt!sohieu, i)) And i <= Len(rs_vt!sohieu)
             dai = i
@@ -123,7 +123,7 @@ Public Function SoHieuVTMoi(mpl As Long, Optional loai As Integer = 0) As String
         GoTo X
     End If
     
-    If rs_vt.RecordCount > 0 Then
+    If rs_vt.recordCount > 0 Then
         If Len(rs_vt!sohieu) > dai Then SoHieuVTMoi = Left(rs_vt!sohieu, Len(rs_vt!sohieu) - dai)
         SoHieuVTMoi = SoHieuVTMoi + tail
     Else
@@ -241,7 +241,7 @@ Public Function TenPLVT(sh As String, mpl As Long) As String
     Dim rs_tk As Recordset
     
     Set rs_tk = DBKetoan.OpenRecordset("SELECT MaSo,TenPhanLoai FROM PhanLoaiVattu WHERE " + IIf(mpl > 0, "MaSo=" + CStr(mpl), "SoHieu='" + sh + "'"), dbOpenSnapshot)
-    If rs_tk.RecordCount > 0 Then
+    If rs_tk.recordCount > 0 Then
         mpl = rs_tk!MaSo
         TenPLVT = rs_tk!TenPhanLoai
     Else
@@ -257,7 +257,7 @@ Public Function Ten154(sh As String, mpl As Long) As String
     Dim rs_tk As Recordset
     
     Set rs_tk = DBKetoan.OpenRecordset("SELECT MaSo,TenVattu FROM TP154 WHERE SoHieu = '" + sh + "'", dbOpenSnapshot)
-    If rs_tk.RecordCount > 0 Then
+    If rs_tk.recordCount > 0 Then
         mpl = rs_tk!MaSo
         Ten154 = rs_tk!TenVattu
     Else
@@ -429,7 +429,7 @@ Public Function GiaXuatKhoBQCK(mk As Long, mtk As Long, mvt As Long, thang As In
 End Function
 
 Public Sub GhiXuatNVL(mct As Long, n As Date, thang As Integer, xk As Integer, tp As Cls154, Optional ktra As Integer = 0, Optional tygia As Double = 1)
-    Dim rs As Recordset, tien As Double, mtk As Long, TongTien As Double, rs2 As Recordset, st As String, n0 As Date
+    Dim rs As Recordset, tien As Double, mtk As Long, tongtien As Double, rs2 As Recordset, st As String, n0 As Date
     Dim ct As New ClsChungtu, MaCT As Long, dgia As Double, luong As Double, thangdm As Integer, sh As String, i As Integer, tcp As Double
         
     n0 = NgayDauThang(pNamTC, thang)
@@ -449,7 +449,7 @@ Public Sub GhiXuatNVL(mct As Long, n As Date, thang As Integer, xk As Integer, t
                     tien = GiaXuatKho(rs!MaKhoNVL, mtk, rs2!MaNVL, rs!ngay, rs2!luong)
                     If tien <> 0 Then
                         If rs2!luong <> 0 Then dgia = tien / rs2!luong Else dgia = 0
-                        TongTien = TongTien + tien
+                        tongtien = tongtien + tien
                         ct.InitChungtu 0, 2, "CPNVLTT" + tp.sohieu + rs!sohieu, thang, rs!ngay, rs!ngay, 0, rs!MaKhoNVL, ABCtoVNI("XuÊt nguyªn vËt liÖu cho s¶n xuÊt"), rs!MaTKCP, mtk, tien, _
                             0, rs2!luong, rs2!MaNVL, "Taäp hôïp töï ñoäng", 0, "", "", "", ""
                         ct.CT_ID = 610000000 + mct
@@ -535,20 +535,20 @@ Public Sub GhiXuatNVL(mct As Long, n As Date, thang As Integer, xk As Integer, t
     If pDTTP = 0 Then
         tcp = PSTKCP("627", thang, thang)
         If SelectSQL("SELECT Fix(0.5+Sum(CPSXC)) AS F1 FROM ThanhPham WHERE Thang=" + CStr(thang)) <> tcp Then
-            TongTien = SelectSQL("SELECT Fix(0.5+Sum(CPNC)) AS F1 FROM ThanhPham WHERE Thang=" + CStr(thang))
-            If TongTien > 0 Then
+            tongtien = SelectSQL("SELECT Fix(0.5+Sum(CPNC)) AS F1 FROM ThanhPham WHERE Thang=" + CStr(thang))
+            If tongtien > 0 Then
                 thangdm = SelectSQL("SELECT Count(MaSo) AS F1 FROM ThanhPham WHERE Thang=" + CStr(thang))
-                ExecuteSQL5 "UPDATE ThanhPham SET CPSXC=CPNC/" + DoiDau(TongTien) + " WHERE Thang=" + CStr(thang)
+                ExecuteSQL5 "UPDATE ThanhPham SET CPSXC=CPNC/" + DoiDau(tongtien) + " WHERE Thang=" + CStr(thang)
                 Set rs = DBKetoan.OpenRecordset("SELECT * FROM ThanhPham WHERE Thang=" + CStr(thang) + " ORDER BY CPSXC", dbOpenSnapshot)
                 i = 0
-                TongTien = 0
+                tongtien = 0
                 Do While Not rs.EOF
                     i = i + 1
                     If i < thangdm Then
                         tien = Fix(0.5 + tcp * rs!cpsxc)
-                        TongTien = TongTien + tien
+                        tongtien = tongtien + tien
                     Else
-                        tien = tcp - TongTien
+                        tien = tcp - tongtien
                     End If
                     ExecuteSQL5 "UPDATE ThanhPham SET CPSXC=" + CStr(tien) + " WHERE MaSo=" + CStr(rs!MaSo)
                     rs.MoveNext
@@ -901,7 +901,7 @@ Public Sub TinhGVBH(ndau As Date, ncuoi As Date, tl As Integer, mvt As Long, Opt
 KT:
               rs_ktra.MoveNext
         Loop
-        If rs_ktra.RecordCount > 0 And ktra = 0 Then
+        If rs_ktra.recordCount > 0 And ktra = 0 Then
             KiemTraTaiKhoan 1
             KiemTraVatTu 1
         End If
@@ -1018,7 +1018,7 @@ Public Sub DieuChinhGiaThanh(tp As Cls154, thang As Integer, Optional ktra As In
     sql = "SELECT * FROM ThanhPham WHERE Thang=" + CStr(thang) + " AND Ma154=" + CStr(tp.MaSo) + " ORDER BY CPNVL"
     Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
     rs.MoveLast
-    sodong = rs.RecordCount
+    sodong = rs.recordCount
     xk = rs!xk
     n = rs!ngay
     ' Tinh lai cp NVL
@@ -1088,7 +1088,7 @@ Public Sub TinhLaiGiaThanhPham(tdau As Integer, tcuoi As Integer)
         DieuChinhGiaThanh tp, rs!thang, 1
         rs.MoveNext
     Loop
-    If rs.RecordCount > 0 Then
+    If rs.recordCount > 0 Then
         KiemTraVatTu
         KiemTraTaiKhoan
     End If
@@ -1676,7 +1676,7 @@ Public Sub TinhGXKBQ(tdau As Integer, tcuoi As Integer, shvt As String, tkno As 
     Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
     If Not rs.EOF Then
         rs.MoveLast
-        soct = rs.RecordCount
+        soct = rs.recordCount
         rs.MoveFirst
     End If
     Do While Not rs.EOF
@@ -1747,7 +1747,7 @@ Public Sub KtraCtuGV()
     Set rs = DBKetoan.OpenRecordset("MienTru", dbOpenSnapshot)
     On Error Resume Next
     rs.MoveLast
-    tongso = rs.RecordCount
+    tongso = rs.recordCount
     rs.MoveFirst
     On Error GoTo 0
     Do While Not rs.EOF
@@ -1757,7 +1757,7 @@ Public Sub KtraCtuGV()
         rs.MoveNext
     Loop
     
-    If rs.RecordCount > 0 Then
+    If rs.recordCount > 0 Then
         KiemTraTaiKhoan 1
         KiemTraVatTu 1
     End If
