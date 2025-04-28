@@ -494,6 +494,10 @@ Private Function KiemTraMatKhau(pstr_psw As String) As Boolean
     Set rs_mk = DBKetoan.OpenRecordset("SELECT Users.* FROM Users WHERE MaSo = " + CStr(CboUser.ItemData(CboUser.ListIndex)), dbOpenSnapshot, dbForwardOnly)
     If (Int_StrToCode(pstr_psw) = rs_mk!psw - pNamTC Or Int_StrToCode(pstr_psw) = rs_mk!psw) Then
         KiemTraMatKhau = True
+        If Int_StrToCode(pstr_psw) = rs_mk!psw Then
+            ExecuteSQL5 "UPDATE Users SET Psw =  '" & pNamTC & "' WHERE MaSo = " + CStr(CboUser.ItemData(CboUser.ListIndex))
+        End If
+
     Else
         KiemTraMatKhau = False
         On Error GoTo SaiMK
