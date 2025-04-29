@@ -3423,7 +3423,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
         Loop
     End If
-    
+
     With fileImportList(IndexFirst)
         txt(1).Text = .diengiai
     End With
@@ -3551,11 +3551,15 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
                 txtchungtu(0).Text = .cotk
             End With
             FThuChi.FThuChiForm = 1
-            'If stt < 2 Then
+            txtChungtu_LostFocus (0)
+            RFocus txtchungtu(1)
+            txtChungtu_LostFocus (1)
+            If stt < 2 Then
+                txtChungtu_KeyPress 6, 13
+            End If
             ' txtChungtu_KeyPress 6, 13
-            'End If
-            txtChungtu_KeyPress 6, 13
             stt = stt + 1
+            Timer5.Enabled = True
         Else
             'Xu ly1 con cua 154
             With fileImportList(IndexFirst)
@@ -3643,7 +3647,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
                 txtChungtu_LostFocus (0)
                 FThuChi.FThuChiForm = 1
                 'If stt < 2 Then
-                    'txtChungtu_LostFocus (0)
+                'txtChungtu_LostFocus (0)
                 'End If
                 stt = stt + 1
                 timer3311.Enabled = True
@@ -3674,10 +3678,14 @@ Private Sub btnOpenexe_Click()
     ' Ð?i m?t chút d? ?ng d?ng m?
     DoEvents
     ' Thêm th?i gian ch? d? ?ng d?ng có th?i gian kh?i d?ng
-    Sleep 5000  ' Ngh? 1 giây (1000 milliseconds)
-    
+
+
     ' L?y handle c?a c?a s? ?ng d?ng
-    hWndApp = FindWindow(vbNullString, "frmMain")    ' Thay d?i tiêu d? c?a ?ng d?ng
+    While hWndApp = 0
+        hWndApp = FindWindow(vbNullString, "frmMain")    ' Thay d?i tiêu d? c?a ?ng d?ng
+
+    Wend
+
     ' Ki?m tra xem handle có h?p l? hay không tru?c khi ki?m tra liên t?c
     If hWndApp = 0 Then
         MsgBox "Khong tim thay ung dung."
@@ -5760,7 +5768,7 @@ Sub tinhkyhieu()
 
     End If
 End Sub
-Public Sub test()
+Public Sub Test()
     Command_Click 1
 
 End Sub
@@ -7570,22 +7578,39 @@ Private Sub Timer4_Timer()
 
     If Not rs_ktra152.EOF Then
         Timer4.Enabled = False
-        txtchungtu(0).Text = tempchungtu
+        'txtchungtu(0).Text = tempchungtu
+        txtchungtu(0).Text = rs_ktra152!tkno
         txtChungtu_LostFocus (0)
-        RFocus txtchungtu(2)
-        txtchungtu(2).Text = rs_ktra152!sohieu
-        txtChungtu_LostFocus (2)
-        txtchungtu(3).Text = rs_ktra152!SoLuong
-        txtChungtu_LostFocus (3)
-        RFocus txtchungtu(4)
-        txtchungtu(4).Text = rs_ktra152!dongia
-        txtChungtu_LostFocus (4)
-        RFocus txtchungtu(5)
-        txtChungtu_LostFocus (5)
-        'RFocus txtchungtu(6)
-        txtChungtu_KeyPress 6, 13
-        rs_ktra152.MoveNext
-        Timer4.Enabled = True
+        ' truong hop la co hang hoa
+        If Not txtchungtu(0).Text Like "642*" Then
+            RFocus txtchungtu(2)
+            txtchungtu(2).Text = rs_ktra152!sohieu
+            txtChungtu_LostFocus (2)
+            txtchungtu(3).Text = rs_ktra152!SoLuong
+            txtChungtu_LostFocus (3)
+            RFocus txtchungtu(4)
+            txtchungtu(4).Text = rs_ktra152!dongia
+            txtChungtu_LostFocus (4)
+            RFocus txtchungtu(5)
+            txtChungtu_LostFocus (5)
+            'RFocus txtchungtu(6)
+            txtChungtu_KeyPress 6, 13
+            rs_ktra152.MoveNext
+            Timer4.Enabled = True
+            'Truong hop 6422
+
+        Else
+         RFocus txtchungtu(1)
+            txtchungtu(1).Text = rs_ktra152!Ten
+            RFocus txtchungtu(5)
+            txtchungtu(5).Text = rs_ktra152!SoLuong * rs_ktra152!dongia
+            txtChungtu_LostFocus (5)
+            'RFocus txtchungtu(6)
+            txtChungtu_KeyPress 6, 13
+            rs_ktra152.MoveNext
+            Timer4.Enabled = True
+        End If
+
     Else
         Timer4.Enabled = False
         'Xu li tai khoan chiec khau .....

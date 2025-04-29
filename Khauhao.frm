@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.5#0"; "COMCTL32.OCX"
 Begin VB.Form frmKhauHao 
    AutoRedraw      =   -1  'True
    BackColor       =   &H00FFFFC0&
@@ -291,7 +291,7 @@ Dim rs_khauhao As Recordset
       On Error GoTo Err_NoCurrentRecord
             rs_khauhao.MoveLast
       On Error GoTo 0
-      parSoPS = rs_khauhao.RecordCount
+      parSoPS = rs_khauhao.recordCount
       ReDim arPhatSinh(0 To parSoPS) As tpPhatSinh
       rs_khauhao.MoveFirst
       ' C¸c dßng ph¸t sinh ®èi øng cña tµi kho¶n chi phÝ khÊu hao

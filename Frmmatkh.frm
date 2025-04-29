@@ -285,6 +285,42 @@ Public Sub CheckAndCreateTableImportDetail()
 
     End If
 End Sub
+Public Sub CreateLicense()
+    Dim tdf As DAO.TableDef
+    Dim fld As DAO.Field
+    Dim tableExists As Boolean
+    Dim tableName As String
+
+    tableName = "tbLicensekey"
+    tableExists = False
+
+    ' Ki?m tra t?n t?i b?ng
+    For Each tdf In DBKetoan.TableDefs
+        If tdf.Name = tableName Then
+            tableExists = True
+            Exit For
+        End If
+    Next tdf
+
+
+    If Not tableExists Then
+        ' T?o b?ng n?u chua t?n t?i
+        Set tdf = DBKetoan.CreateTableDef(tableName)
+
+        ' T?o tru?ng Name
+        Set fld = tdf.CreateField("Type", dbText, 255)
+        tdf.Fields.Append fld
+        ' T?o tru?ng hoadonpath
+        Set fld = tdf.CreateField("Year", dbText, 255)
+        tdf.Fields.Append fld
+        Set fld = tdf.CreateField("Totals", dbText, 255)
+        tdf.Fields.Append fld
+
+        ' Thêm b?ng vào co s? d? li?u
+        DBKetoan.TableDefs.Append tdf
+
+    End If
+End Sub
 Public Sub CheckAndCreateTable()
     Dim tdf As DAO.TableDef
     Dim fld As DAO.Field

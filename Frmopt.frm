@@ -72,11 +72,11 @@ Begin VB.Form FrmOptions
       ForeColor       =   &H00FFFFC0&
       Height          =   285
       Index           =   4
-      Left            =   6000
+      Left            =   7440
       MaxLength       =   300
       TabIndex        =   103
       Text            =   "0"
-      Top             =   2520
+      Top             =   3480
       Width           =   1335
    End
    Begin VB.TextBox Text 
@@ -95,7 +95,7 @@ Begin VB.Form FrmOptions
       MaxLength       =   30
       TabIndex        =   92
       Text            =   "..."
-      Top             =   1350
+      Top             =   1560
       Width           =   1215
    End
    Begin VB.Frame Frame 
@@ -113,8 +113,70 @@ Begin VB.Form FrmOptions
       Index           =   0
       Left            =   0
       TabIndex        =   56
-      Top             =   -40
-      Width           =   9050
+      Top             =   120
+      Width           =   9075
+      Begin VB.Frame Frame1 
+         BackColor       =   &H00FFFFC0&
+         Caption         =   "Frame1"
+         Height          =   1095
+         Left            =   3840
+         TabIndex        =   115
+         Top             =   2160
+         Width           =   5055
+         Begin VB.TextBox Text2 
+            Height          =   360
+            Left            =   3360
+            TabIndex        =   119
+            Top             =   600
+            Width           =   1455
+         End
+         Begin VB.TextBox Text1 
+            Height          =   360
+            Left            =   1800
+            TabIndex        =   118
+            Top             =   600
+            Width           =   1455
+         End
+         Begin VB.OptionButton Option2 
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "Theo n¨m"
+            Height          =   240
+            Left            =   360
+            TabIndex        =   117
+            Top             =   720
+            Width           =   1575
+         End
+         Begin VB.OptionButton Option1 
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "§¨ng ký vÜnh viÔn"
+            Height          =   240
+            Left            =   360
+            TabIndex        =   116
+            Top             =   270
+            Width           =   1935
+         End
+      End
+      Begin VB.ComboBox Combo 
+         BeginProperty Font 
+            Name            =   "VK Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Index           =   3
+         ItemData        =   "Frmopt.frx":AFC4
+         Left            =   9120
+         List            =   "Frmopt.frx":AFDC
+         Style           =   2  'Dropdown List
+         TabIndex        =   12
+         Top             =   840
+         Visible         =   0   'False
+         Width           =   735
+      End
       Begin VB.TextBox Text 
          BeginProperty Font 
             Name            =   "VK Sans Serif"
@@ -206,9 +268,9 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   375
          Index           =   55
-         Left            =   6840
+         Left            =   9120
          TabIndex        =   95
-         Top             =   2160
+         Top             =   0
          Visible         =   0   'False
          Width           =   255
       End
@@ -224,11 +286,11 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   285
          Index           =   9
-         Left            =   8160
+         Left            =   9360
          MaxLength       =   20
          TabIndex        =   16
          Text            =   "..."
-         Top             =   2880
+         Top             =   1080
          Visible         =   0   'False
          Width           =   510
       End
@@ -246,9 +308,9 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   375
          Index           =   27
-         Left            =   6000
+         Left            =   9120
          TabIndex        =   15
-         Top             =   2160
+         Top             =   1920
          Visible         =   0   'False
          Width           =   735
       End
@@ -292,27 +354,6 @@ Begin VB.Form FrmOptions
          Visible         =   0   'False
          Width           =   255
       End
-      Begin VB.ComboBox Combo 
-         BeginProperty Font 
-            Name            =   "VK Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   315
-         Index           =   3
-         ItemData        =   "Frmopt.frx":AFC4
-         Left            =   8160
-         List            =   "Frmopt.frx":AFDC
-         Style           =   2  'Dropdown List
-         TabIndex        =   12
-         Top             =   2160
-         Visible         =   0   'False
-         Width           =   735
-      End
       Begin VB.TextBox Text 
          BeginProperty Font 
             Name            =   "VK Sans Serif"
@@ -325,11 +366,11 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   285
          Index           =   17
-         Left            =   7680
+         Left            =   9120
          MaxLength       =   30
          TabIndex        =   23
          Text            =   "..."
-         Top             =   2880
+         Top             =   1080
          Visible         =   0   'False
          Width           =   375
       End
@@ -365,11 +406,11 @@ Begin VB.Form FrmOptions
          Height          =   315
          Index           =   1
          ItemData        =   "Frmopt.frx":B040
-         Left            =   6840
+         Left            =   9120
          List            =   "Frmopt.frx":B06B
          Style           =   2  'Dropdown List
          TabIndex        =   18
-         Top             =   2880
+         Top             =   480
          Visible         =   0   'False
          Width           =   615
       End
@@ -596,11 +637,11 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   285
          Index           =   14
-         Left            =   7200
+         Left            =   9360
          MaxLength       =   2
          TabIndex        =   19
          Text            =   "0"
-         Top             =   2160
+         Top             =   120
          Visible         =   0   'False
          Width           =   615
       End
@@ -714,10 +755,10 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   255
          Index           =   12
-         Left            =   7440
+         Left            =   8880
          TabIndex        =   85
          Tag             =   "Activities"
-         Top             =   3360
+         Top             =   1320
          Visible         =   0   'False
          Width           =   975
       End
@@ -735,10 +776,10 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   255
          Index           =   11
-         Left            =   7800
+         Left            =   8880
          TabIndex        =   84
          Tag             =   "Class"
-         Top             =   3480
+         Top             =   1680
          Visible         =   0   'False
          Width           =   975
       End
@@ -895,7 +936,7 @@ Begin VB.Form FrmOptions
          Index           =   4
          Left            =   3720
          TabIndex        =   65
-         Top             =   1395
+         Top             =   1440
          Width           =   375
       End
       Begin VB.Label Label 
@@ -1012,10 +1053,10 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   255
          Index           =   17
-         Left            =   7680
+         Left            =   9240
          TabIndex        =   59
          Tag             =   "Month from Date"
-         Top             =   2280
+         Top             =   360
          Visible         =   0   'False
          Width           =   375
       End
@@ -1074,7 +1115,7 @@ Begin VB.Form FrmOptions
       Index           =   1
       Left            =   0
       TabIndex        =   69
-      Top             =   3840
+      Top             =   3960
       Width           =   9050
       Begin VB.CheckBox ChkVT 
          BackColor       =   &H00FFFFC0&
@@ -2284,6 +2325,7 @@ Dim ttVT As Integer
 Dim mst As String
 Dim suatencn As Integer
 Dim kb As Integer
+Dim typeRegistry As Integer
  
 Private Sub active_Click()
 
@@ -2329,8 +2371,11 @@ Private Sub Combo_Click(Index As Integer)
 End Sub
 
 Private Sub Form_Activate()
-' Combo(0).Enabled = False
-If (SelectSQL("select count(*) as f1 from chungtu") > 0) Then Combo(0).Enabled = False
+    Option1.Value = True
+    Text1.Visible = False
+    Text2.Visible = False
+    ' Combo(0).Enabled = False
+    If (SelectSQL("select count(*) as f1 from chungtu") > 0) Then Combo(0).Enabled = False
 
 End Sub
 
@@ -2388,6 +2433,18 @@ Private Sub Form_Load()
    Frame(2).Enabled = False
    If Len(Text(7).Text) >= 9 Then Chbanthuoc.Enabled = False
    
+End Sub
+
+Private Sub Option1_Click()
+    Text1.Visible = False
+    Text2.Visible = False
+    typeRegistry = 1
+End Sub
+
+Private Sub Option2_Click()
+    Text1.Visible = True
+    Text2.Visible = True
+    typeRegistry = 2
 End Sub
 
 Private Sub OptVT_Click(Index As Integer)
