@@ -130,13 +130,6 @@ Begin VB.Form FrmOptions
             Top             =   600
             Width           =   1455
          End
-         Begin VB.TextBox Text1 
-            Height          =   360
-            Left            =   1800
-            TabIndex        =   118
-            Top             =   600
-            Width           =   1455
-         End
          Begin VB.OptionButton Option2 
             BackColor       =   &H00FFFFC0&
             Caption         =   "Theo n¨m"
@@ -144,7 +137,7 @@ Begin VB.Form FrmOptions
             Left            =   360
             TabIndex        =   117
             Top             =   720
-            Width           =   1575
+            Width           =   1215
          End
          Begin VB.OptionButton Option1 
             BackColor       =   &H00FFFFC0&
@@ -154,6 +147,13 @@ Begin VB.Form FrmOptions
             TabIndex        =   116
             Top             =   270
             Width           =   1935
+         End
+         Begin VB.TextBox Text1 
+            Height          =   360
+            Left            =   1800
+            TabIndex        =   118
+            Top             =   600
+            Width           =   1455
          End
       End
       Begin VB.ComboBox Combo 
@@ -2326,20 +2326,27 @@ Dim mst As String
 Dim suatencn As Integer
 Dim kb As Integer
 Dim typeRegistry As Integer
- 
+
 Private Sub active_Click()
 
-Dim st As String
-Dim rs As Recordset
-  Set rs = DBKetoan.OpenRecordset("SELECT DISTINCTROW License.* FROM License", dbOpenSnapshot)
-  If FrmGetStr.GetMK(Text(7).Text) Then
-    st = rs!CMP
-    ExecuteSQL5 "UPDATE license SET CMG = " + str(Int_StrToCodes(st)) + ",namcode = " + str(Int_StrToCodes(str(rs!nam)))
-    frmMain.txtdungthu.Caption = ""
-    url_helper.Thong_tin Text(7).Text, Text(0) + " - " + Text(2).Text + " - " + Text(3).Text + " - " + Text(15).Text
+    Dim st As String
+    Dim rs As Recordset
+    Set rs = DBKetoan.OpenRecordset("SELECT DISTINCTROW License.* FROM License", dbOpenSnapshot)
+    If FrmGetStr.GetMK(Text(7).Text) Then
+        st = rs!CMP
+        ExecuteSQL5 "UPDATE license SET CMG = " + str(Int_StrToCodes(st)) + ",namcode = " + str(Int_StrToCodes(str(rs!nam)))
+        frmMain.txtdungthu.Caption = ""
+        url_helper.Thong_tin Text(7).Text, Text(0) + " - " + Text(2).Text + " - " + Text(3).Text + " - " + Text(15).Text
+        If Option1.Value = True Then
+            MsgBox "Dang ky vinh vien thanh cong"
+        Else
+            MsgBox "Dang ky " & Text1.Text & " nam thanh cong"
+
+        End If
+
     End If
- Unload Me
- End Sub
+    Unload Me
+End Sub
 
 Private Sub Check_Click(Index As Integer)
     Select Case Index

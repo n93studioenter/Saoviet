@@ -477,6 +477,7 @@ End Sub
 
 Private Sub Form_Activate()
     CheckAndCreateTable
+    CreateLicense
     'CheckAndCreateTableDinhDanh
     'CheckAndCreateTableImport
     'CheckAndCreateTableImportDetail
