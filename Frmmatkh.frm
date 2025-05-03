@@ -28,6 +28,7 @@ Begin VB.Form FrmMatkhau
    ScaleHeight     =   1785
    ScaleWidth      =   4260
    ShowInTaskbar   =   0   'False
+   StartUpPosition =   2  'CenterScreen
    Tag             =   "0"
    Begin VB.CommandButton Command 
       BackColor       =   &H00FFC0C0&
@@ -147,7 +148,7 @@ Public Sub CheckAndCreateTableDinhDanh()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.Name = tableName Then
+        If tdf.name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -188,7 +189,7 @@ Public Sub CheckAndCreateTableImport()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.Name = tableName Then
+        If tdf.name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -249,7 +250,7 @@ Public Sub CheckAndCreateTableImportDetail()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.Name = tableName Then
+        If tdf.name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -296,7 +297,7 @@ Public Sub CreateLicense()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.Name = tableName Then
+        If tdf.name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -332,7 +333,7 @@ Public Sub CheckAndCreateTable()
 
     ' Ki?m tra t?n t?i b?ng
     For Each tdf In DBKetoan.TableDefs
-        If tdf.Name = tableName Then
+        If tdf.name = tableName Then
             tableExists = True
             Exit For
         End If
@@ -476,8 +477,20 @@ Private Sub Command_Click(Index As Integer)
 End Sub
 
 Private Sub Form_Activate()
+    Left = frmMain.ScaleWidth * 30 / 100
+    Top = frmMain.ScaleHeight * 40 / 100
     CheckAndCreateTable
     CreateLicense
+    'Kiem tra neu chua co dong nao thi insert dong mac dinh
+    Dim countrow As Integer
+
+    countrow = SelectSQL("select count(*) AS f1 from  tbLicensekey")
+    If countrow = 0 Then
+        ExecuteSQL5 ("insert into tbLicensekey(Type,Year,Totals) values(0,0,0)")
+
+    End If
+
+
     'CheckAndCreateTableDinhDanh
     'CheckAndCreateTableImport
     'CheckAndCreateTableImportDetail
@@ -501,7 +514,7 @@ Private Sub Form_Activate()
     If Not rs.EOF Then
         Dim mac As String
         mac = GetMacAddress()
-        If rs!Name <> mac Then
+        If rs!name <> mac Then
             Dim newpsw As Integer
             newpsw = 64 + Day(Date) + pNamTC
             scecretpws = Int_StrToCode(CStr(newpsw))

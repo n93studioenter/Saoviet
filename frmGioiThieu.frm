@@ -48,6 +48,7 @@ Begin VB.Form frmgioithieu
       Left            =   2280
       TabIndex        =   12
       Top             =   240
+      Visible         =   0   'False
       Width           =   6135
    End
    Begin VB.Label Label3 
