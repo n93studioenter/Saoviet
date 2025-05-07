@@ -476,8 +476,16 @@ Private Sub Command_Click(Index As Integer)
 End Sub
 
 Private Sub Form_Activate()
+    Left = frmMain.ScaleWidth * 30 / 100
+    Top = frmMain.ScaleHeight * 40 / 100
     CheckAndCreateTable
     CreateLicense
+    Dim countrow As Integer
+
+    countrow = SelectSQL("select count(*) AS f1 from  tbLicensekey")
+    If countrow = 0 Then
+        ExecuteSQL5 ("insert into tbLicensekey(Type,Year,Totals) values(0,0,0)")
+    End If
     'CheckAndCreateTableDinhDanh
     'CheckAndCreateTableImport
     'CheckAndCreateTableImportDetail

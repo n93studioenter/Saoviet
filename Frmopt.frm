@@ -4,7 +4,7 @@ Begin VB.Form FrmOptions
    BackColor       =   &H00FFFFC0&
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Th«ng tin doanh nghiÖp"
-   ClientHeight    =   7455
+   ClientHeight    =   7845
    ClientLeft      =   660
    ClientTop       =   915
    ClientWidth     =   10320
@@ -27,7 +27,7 @@ Begin VB.Form FrmOptions
    MinButton       =   0   'False
    PaletteMode     =   1  'UseZOrder
    Picture         =   "Frmopt.frx":57E2
-   ScaleHeight     =   7455
+   ScaleHeight     =   7845
    ScaleWidth      =   10320
    ShowInTaskbar   =   0   'False
    Tag             =   "Options"
@@ -46,7 +46,7 @@ Begin VB.Form FrmOptions
       Height          =   255
       Left            =   120
       TabIndex        =   105
-      Top             =   6360
+      Top             =   6840
       Width           =   2895
    End
    Begin VB.CommandButton active 
@@ -76,7 +76,7 @@ Begin VB.Form FrmOptions
       MaxLength       =   300
       TabIndex        =   103
       Text            =   "0"
-      Top             =   3480
+      Top             =   6120
       Width           =   1335
    End
    Begin VB.TextBox Text 
@@ -109,7 +109,7 @@ Begin VB.Form FrmOptions
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   3855
+      Height          =   4215
       Index           =   0
       Left            =   0
       TabIndex        =   56
@@ -117,18 +117,25 @@ Begin VB.Form FrmOptions
       Width           =   9075
       Begin VB.Frame Frame1 
          BackColor       =   &H00FFFFC0&
-         Caption         =   "Frame1"
-         Height          =   1095
+         Caption         =   "Gãi d÷ liÖu ®¨ng ký"
+         Height          =   1935
          Left            =   3840
          TabIndex        =   115
          Top             =   2160
          Width           =   5055
          Begin VB.TextBox Text2 
             Height          =   360
-            Left            =   3360
+            Left            =   2400
             TabIndex        =   119
-            Top             =   600
-            Width           =   1455
+            Top             =   480
+            Width           =   1335
+         End
+         Begin VB.TextBox Text1 
+            Height          =   345
+            Left            =   2400
+            TabIndex        =   118
+            Top             =   960
+            Width           =   1335
          End
          Begin VB.OptionButton Option2 
             BackColor       =   &H00FFFFC0&
@@ -136,24 +143,26 @@ Begin VB.Form FrmOptions
             Height          =   240
             Left            =   360
             TabIndex        =   117
-            Top             =   720
+            Top             =   960
             Width           =   1215
          End
          Begin VB.OptionButton Option1 
             BackColor       =   &H00FFFFC0&
-            Caption         =   "§¨ng ký vÜnh viÔn"
+            Caption         =   "Kh«ng giíi h¹n."
             Height          =   240
             Left            =   360
             TabIndex        =   116
-            Top             =   270
+            Top             =   1440
             Width           =   1935
          End
-         Begin VB.TextBox Text1 
-            Height          =   360
-            Left            =   1800
-            TabIndex        =   118
-            Top             =   600
-            Width           =   1455
+         Begin VB.Label Label1 
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "Sè l­îng chøng tõ"
+            Height          =   255
+            Left            =   480
+            TabIndex        =   120
+            Top             =   480
+            Width           =   2175
          End
       End
       Begin VB.ComboBox Combo 
@@ -208,11 +217,11 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   285
          Index           =   13
-         Left            =   5520
+         Left            =   1800
          MaxLength       =   2
          TabIndex        =   110
          Text            =   "2"
-         Top             =   3360
+         Top             =   3840
          Width           =   255
       End
       Begin VB.TextBox Text 
@@ -248,9 +257,9 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   255
          Index           =   28
-         Left            =   5880
+         Left            =   2280
          TabIndex        =   88
-         Top             =   3360
+         Top             =   3840
          Visible         =   0   'False
          Width           =   375
       End
@@ -327,10 +336,10 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   255
          Index           =   26
-         Left            =   5880
+         Left            =   2280
          MaskColor       =   &H00FFFFFF&
          TabIndex        =   14
-         Top             =   3360
+         Top             =   3840
          Visible         =   0   'False
          Width           =   255
       End
@@ -347,10 +356,10 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   255
          Index           =   25
-         Left            =   5880
+         Left            =   2280
          MaskColor       =   &H00FFFFFF&
          TabIndex        =   13
-         Top             =   3360
+         Top             =   3840
          Visible         =   0   'False
          Width           =   255
       End
@@ -736,9 +745,9 @@ Begin VB.Form FrmOptions
          EndProperty
          Height          =   255
          Index           =   15
-         Left            =   3840
+         Left            =   120
          TabIndex        =   111
-         Top             =   3400
+         Top             =   3840
          Width           =   1695
       End
       Begin VB.Label Label 
@@ -1111,11 +1120,11 @@ Begin VB.Form FrmOptions
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   3585
+      Height          =   3465
       Index           =   1
       Left            =   0
       TabIndex        =   69
-      Top             =   3960
+      Top             =   4320
       Width           =   9050
       Begin VB.CheckBox ChkVT 
          BackColor       =   &H00FFFFC0&
@@ -2337,11 +2346,18 @@ Private Sub active_Click()
         ExecuteSQL5 "UPDATE license SET CMG = " + str(Int_StrToCodes(st)) + ",namcode = " + str(Int_StrToCodes(str(rs!nam)))
         frmMain.txtdungthu.Caption = ""
         url_helper.Thong_tin Text(7).Text, Text(0) + " - " + Text(2).Text + " - " + Text(3).Text + " - " + Text(15).Text
-        If Option1.Value = True Then
-            MsgBox "Dang ky vinh vien thanh cong"
+        Dim SoLuong As Integer
+        If Text2.Text = "" Then
+            SoLuong = 0
         Else
-            MsgBox "Dang ky " & Text1.Text & " nam thanh cong"
-
+            SoLuong = Text2.Text
+        End If
+        If Option1.Value = True Then
+            MsgBox "Ð¨ng ký gãi vÜnh viÔn thµnh c«ng"
+            ExecuteSQL5 "Update tbLicensekey set Type=1,Year=0,Totals=0"
+        Else
+            MsgBox "§¨ng ký gãi  " & Text1.Text & " n¨m thµnh c«ng"
+            ExecuteSQL5 "UPDATE tbLicensekey SET Type = 2, Year = '" & Text1.Text & "|" & pNamTC & "', Totals = '" & SoLuong & "'"
         End If
 
     End If
@@ -2379,11 +2395,51 @@ End Sub
 
 Private Sub Form_Activate()
     Option1.Value = True
-    Text1.Visible = False
-    Text2.Visible = False
     ' Combo(0).Enabled = False
     If (SelectSQL("select count(*) as f1 from chungtu") > 0) Then Combo(0).Enabled = False
+    ActiveInfo
 
+    Dim types As Integer
+    types = SelectSQL("select Type AS f1 from  tbLicensekey")
+    If types <> 0 Then
+        Frame1.Visible = True
+    Else
+        Frame1.Visible = False
+    End If
+End Sub
+Private Sub ActiveInfo()
+    Dim rs_ktra As Recordset
+    Dim Query As String
+    Dim rst As String
+    Query = "SELECT *  FROM tbLicensekey "
+    Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+    If Not rs_ktra.EOF Then
+        ' Duy?t qua t?t c? các b?n ghi
+        Do While Not rs_ktra.EOF
+            If rs_ktra!Type = 1 Then
+                Option1.Value = True
+                Option1.Enabled = False
+                Option2.Enabled = False
+                Text1.Enabled = False
+                Text2.Enabled = False
+                Text2.Text = rs_ktra!Totals
+            End If
+            If rs_ktra!Type = 2 Then
+                Option2.Value = True
+                Option1.Enabled = False
+                Option2.Enabled = False
+                Dim resultArray() As String
+                resultArray = Split(rs_ktra!Year, "|")
+
+                Text1.Text = resultArray(0)
+                Text2.Text = rs_ktra!Totals
+                Text2.Enabled = False
+                Text1.Enabled = False
+            End If
+            rs_ktra.MoveNext
+
+        Loop
+    End If
 End Sub
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
@@ -2443,14 +2499,10 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub Option1_Click()
-    Text1.Visible = False
-    Text2.Visible = False
     typeRegistry = 1
 End Sub
 
 Private Sub Option2_Click()
-    Text1.Visible = True
-    Text2.Visible = True
     typeRegistry = 2
 End Sub
 

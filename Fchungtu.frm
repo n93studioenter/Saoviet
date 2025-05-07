@@ -7,7 +7,7 @@ Begin VB.Form FrmChungtu
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   0  'None
    Caption         =   "NhÀp ch¯ng tı"
-   ClientHeight    =   8685
+   ClientHeight    =   8835
    ClientLeft      =   60
    ClientTop       =   705
    ClientWidth     =   18180
@@ -16,12 +16,29 @@ Begin VB.Form FrmChungtu
    KeyPreview      =   -1  'True
    LinkTopic       =   "Voucher"
    PaletteMode     =   1  'UseZOrder
-   ScaleHeight     =   8685
+   ScaleHeight     =   8835
    ScaleWidth      =   18180
    StartUpPosition =   2  'CenterScreen
    Tag             =   "0"
    WhatsThisButton =   -1  'True
    WhatsThisHelp   =   -1  'True
+   Begin VB.CommandButton Command5 
+      Caption         =   " Ho∏ Æ¨n"
+      BeginProperty Font 
+         Name            =   "VK Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   12240
+      TabIndex        =   170
+      Top             =   4680
+      Width           =   975
+   End
    Begin VB.Timer timer1542 
       Enabled         =   0   'False
       Interval        =   1000
@@ -79,7 +96,7 @@ Begin VB.Form FrmChungtu
       TabIndex        =   167
       Tag             =   "35"
       ToolTipText     =   "Depreciation"
-      Top             =   4380
+      Top             =   4280
       Width           =   1575
    End
    Begin VB.Timer timer3311 
@@ -112,8 +129,8 @@ Begin VB.Form FrmChungtu
    Begin VB.Timer Timer3 
       Enabled         =   0   'False
       Interval        =   250
-      Left            =   4320
-      Top             =   5880
+      Left            =   5040
+      Top             =   5520
    End
    Begin VB.CommandButton btnImport 
       Caption         =   "Import"
@@ -234,7 +251,7 @@ Begin VB.Form FrmChungtu
       Left            =   3120
       List            =   "Fchungtu.frx":57E4
       Style           =   2  'Dropdown List
-      TabIndex        =   148
+      TabIndex        =   0
       Top             =   0
       Width           =   1095
    End
@@ -253,7 +270,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   9
       Left            =   120
-      TabIndex        =   146
+      TabIndex        =   147
       Tag             =   "Account Balance Report 2"
       Top             =   6560
       Width           =   2055
@@ -273,7 +290,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   100
       Left            =   120
-      TabIndex        =   145
+      TabIndex        =   146
       Tag             =   "Journal Ledger"
       Top             =   6230
       Width           =   1815
@@ -293,7 +310,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   36
       Left            =   120
-      TabIndex        =   144
+      TabIndex        =   145
       Tag             =   "Detail Report of Payable and Receivable"
       Top             =   7840
       Width           =   1815
@@ -304,7 +321,7 @@ Begin VB.Form FrmChungtu
       Left            =   1920
       LinkItem        =   "SË hi÷u vÀt t≠ c«n xem"
       MaxLength       =   20
-      TabIndex        =   143
+      TabIndex        =   144
       Tag             =   "0"
       Top             =   7770
       Width           =   1095
@@ -315,7 +332,7 @@ Begin VB.Form FrmChungtu
       Left            =   3120
       Picture         =   "Fchungtu.frx":57E6
       Style           =   1  'Graphical
-      TabIndex        =   142
+      TabIndex        =   143
       Top             =   7800
       Width           =   255
    End
@@ -334,7 +351,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   12
       Left            =   120
-      TabIndex        =   141
+      TabIndex        =   142
       Tag             =   "Inventory detail report"
       Top             =   7220
       Width           =   1815
@@ -345,7 +362,7 @@ Begin VB.Form FrmChungtu
       Left            =   1920
       LinkItem        =   "SË hi÷u vÀt t≠ c«n xem"
       MaxLength       =   20
-      TabIndex        =   147
+      TabIndex        =   148
       Tag             =   "0"
       Top             =   7140
       Width           =   1095
@@ -356,7 +373,7 @@ Begin VB.Form FrmChungtu
       Left            =   3120
       Picture         =   "Fchungtu.frx":5C60
       Style           =   1  'Graphical
-      TabIndex        =   140
+      TabIndex        =   141
       Top             =   7160
       Width           =   255
    End
@@ -387,7 +404,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   0
       Left            =   120
-      TabIndex        =   139
+      TabIndex        =   140
       Tag             =   "Account Detail Report"
       Top             =   7530
       Width           =   1815
@@ -398,7 +415,7 @@ Begin VB.Form FrmChungtu
       Left            =   3120
       Picture         =   "Fchungtu.frx":60DA
       Style           =   1  'Graphical
-      TabIndex        =   138
+      TabIndex        =   139
       Top             =   7480
       Width           =   255
    End
@@ -409,7 +426,7 @@ Begin VB.Form FrmChungtu
       Left            =   1920
       List            =   "Fchungtu.frx":6556
       Style           =   2  'Dropdown List
-      TabIndex        =   137
+      TabIndex        =   138
       Top             =   8130
       Width           =   1095
    End
@@ -420,7 +437,7 @@ Begin VB.Form FrmChungtu
       Left            =   480
       List            =   "Fchungtu.frx":655A
       Style           =   2  'Dropdown List
-      TabIndex        =   136
+      TabIndex        =   137
       Top             =   8130
       Width           =   975
    End
@@ -438,7 +455,7 @@ Begin VB.Form FrmChungtu
       EndProperty
       Height          =   300
       Left            =   3000
-      TabIndex        =   135
+      TabIndex        =   136
       Top             =   8160
       Width           =   615
    End
@@ -450,7 +467,7 @@ Begin VB.Form FrmChungtu
       ItemData        =   "Fchungtu.frx":655C
       Left            =   8160
       List            =   "Fchungtu.frx":655E
-      TabIndex        =   132
+      TabIndex        =   133
       Text            =   "CboNT"
       ToolTipText     =   "ß¨n gi∏ m∆c Æﬁnh"
       Top             =   2760
@@ -465,7 +482,7 @@ Begin VB.Form FrmChungtu
       ItemData        =   "Fchungtu.frx":6560
       Left            =   9840
       List            =   "Fchungtu.frx":6588
-      TabIndex        =   131
+      TabIndex        =   132
       Tag             =   "0"
       Text            =   "CboNT"
       ToolTipText     =   "Ngoπi t÷ ph∏t sinh"
@@ -482,7 +499,7 @@ Begin VB.Form FrmChungtu
       Left            =   6360
       List            =   "Fchungtu.frx":65B5
       Style           =   2  'Dropdown List
-      TabIndex        =   130
+      TabIndex        =   131
       ToolTipText     =   "Ngoπi t÷ ph∏t sinh"
       Top             =   2640
       Visible         =   0   'False
@@ -502,7 +519,7 @@ Begin VB.Form FrmChungtu
       EndProperty
       Height          =   255
       Left            =   13680
-      TabIndex        =   129
+      TabIndex        =   130
       Tag             =   "Direct Export"
       Top             =   720
       Visible         =   0   'False
@@ -522,7 +539,7 @@ Begin VB.Form FrmChungtu
       EndProperty
       Height          =   255
       Left            =   13680
-      TabIndex        =   128
+      TabIndex        =   129
       Tag             =   "Direct Export"
       Top             =   960
       Visible         =   0   'False
@@ -532,7 +549,7 @@ Begin VB.Form FrmChungtu
       Caption         =   "Check3"
       Height          =   375
       Left            =   14280
-      TabIndex        =   126
+      TabIndex        =   127
       Top             =   840
       Visible         =   0   'False
       Width           =   855
@@ -541,7 +558,7 @@ Begin VB.Form FrmChungtu
       Caption         =   "Check3"
       Height          =   375
       Left            =   14400
-      TabIndex        =   125
+      TabIndex        =   126
       Top             =   720
       Visible         =   0   'False
       Width           =   735
@@ -550,7 +567,7 @@ Begin VB.Form FrmChungtu
       Caption         =   "Check3"
       Height          =   255
       Left            =   15240
-      TabIndex        =   124
+      TabIndex        =   125
       Top             =   1920
       Visible         =   0   'False
       Width           =   135
@@ -560,7 +577,7 @@ Begin VB.Form FrmChungtu
       Left            =   14040
       LinkItem        =   "SË hi÷u ch¯ng tı"
       MaxLength       =   20
-      TabIndex        =   123
+      TabIndex        =   124
       Tag             =   "11"
       Top             =   5520
       Visible         =   0   'False
@@ -571,7 +588,7 @@ Begin VB.Form FrmChungtu
       Left            =   14040
       LinkItem        =   "SË hi÷u ch¯ng tı"
       MaxLength       =   20
-      TabIndex        =   122
+      TabIndex        =   123
       Tag             =   "11"
       Top             =   5880
       Visible         =   0   'False
@@ -591,7 +608,7 @@ Begin VB.Form FrmChungtu
       Left            =   14040
       LinkItem        =   "SË hi÷u ch¯ng tı"
       MaxLength       =   20
-      TabIndex        =   121
+      TabIndex        =   122
       Tag             =   "11"
       Top             =   6240
       Visible         =   0   'False
@@ -611,7 +628,7 @@ Begin VB.Form FrmChungtu
       EndProperty
       Height          =   255
       Left            =   14280
-      TabIndex        =   120
+      TabIndex        =   121
       Tag             =   "Direct Export"
       Top             =   5280
       Visible         =   0   'False
@@ -631,7 +648,7 @@ Begin VB.Form FrmChungtu
       EndProperty
       Height          =   255
       Left            =   14040
-      TabIndex        =   119
+      TabIndex        =   120
       Tag             =   "Direct Export"
       Top             =   6960
       Visible         =   0   'False
@@ -642,7 +659,7 @@ Begin VB.Form FrmChungtu
       Height          =   315
       Left            =   14520
       Style           =   2  'Dropdown List
-      TabIndex        =   118
+      TabIndex        =   119
       Top             =   1200
       Visible         =   0   'False
       Width           =   600
@@ -673,7 +690,7 @@ Begin VB.Form FrmChungtu
       Height          =   315
       Left            =   15120
       MaxLength       =   20
-      TabIndex        =   115
+      TabIndex        =   116
       Tag             =   "14"
       Text            =   "0"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
@@ -696,7 +713,7 @@ Begin VB.Form FrmChungtu
       Index           =   3
       Left            =   6840
       Style           =   2  'Dropdown List
-      TabIndex        =   112
+      TabIndex        =   113
       Top             =   360
       Width           =   1695
    End
@@ -718,9 +735,9 @@ Begin VB.Form FrmChungtu
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   110
+      TabIndex        =   111
       Tag             =   "Conversion"
-      Top             =   720
+      Top             =   555
       Width           =   1575
    End
    Begin VB.CommandButton CmdChitiet 
@@ -737,7 +754,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Left            =   13080
       Picture         =   "Fchungtu.frx":BD99
-      TabIndex        =   108
+      TabIndex        =   109
       Tag             =   "-1"
       ToolTipText     =   "Ghi ph∏t sinh"
       Top             =   2160
@@ -752,7 +769,7 @@ Begin VB.Form FrmChungtu
       Index           =   10
       Left            =   13920
       MaxLength       =   20
-      TabIndex        =   19
+      TabIndex        =   20
       Tag             =   "14"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
       Top             =   2040
@@ -775,7 +792,7 @@ Begin VB.Form FrmChungtu
       Index           =   6
       Left            =   11480
       MaxLength       =   20
-      TabIndex        =   17
+      TabIndex        =   18
       Tag             =   "14"
       Text            =   "0"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
@@ -799,7 +816,7 @@ Begin VB.Form FrmChungtu
       Index           =   5
       Left            =   9795
       MaxLength       =   20
-      TabIndex        =   16
+      TabIndex        =   17
       Tag             =   "14"
       Text            =   "0"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
@@ -823,7 +840,7 @@ Begin VB.Form FrmChungtu
       Index           =   4
       Left            =   8230
       MaxLength       =   20
-      TabIndex        =   15
+      TabIndex        =   16
       Tag             =   "14"
       Text            =   "0"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
@@ -847,7 +864,7 @@ Begin VB.Form FrmChungtu
       Index           =   3
       Left            =   7155
       MaxLength       =   20
-      TabIndex        =   14
+      TabIndex        =   15
       Tag             =   "14"
       Text            =   "0"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
@@ -859,7 +876,7 @@ Begin VB.Form FrmChungtu
       Caption         =   "Command2"
       Height          =   375
       Left            =   14400
-      TabIndex        =   105
+      TabIndex        =   106
       Top             =   360
       Visible         =   0   'False
       Width           =   615
@@ -868,7 +885,7 @@ Begin VB.Form FrmChungtu
       Caption         =   "Command1"
       Height          =   375
       Left            =   14400
-      TabIndex        =   104
+      TabIndex        =   105
       Top             =   0
       Visible         =   0   'False
       Width           =   615
@@ -878,7 +895,7 @@ Begin VB.Form FrmChungtu
       Index           =   1
       Left            =   5040
       MaxLength       =   20
-      TabIndex        =   3
+      TabIndex        =   4
       Tag             =   "1"
       Top             =   360
       Width           =   1215
@@ -888,7 +905,7 @@ Begin VB.Form FrmChungtu
       Height          =   315
       Left            =   8760
       Style           =   2  'Dropdown List
-      TabIndex        =   9
+      TabIndex        =   10
       Top             =   1440
       Width           =   2145
    End
@@ -897,7 +914,7 @@ Begin VB.Form FrmChungtu
       Index           =   0
       Left            =   5040
       MaxLength       =   500
-      TabIndex        =   4
+      TabIndex        =   5
       Tag             =   "14"
       ToolTipText     =   "Gı m„ kh·ch h‡ng nÍu ch?a taÔo maı m„ thÏ  t? gı m„ m?i v‡o ?‚y v‡ Ù MST, tÍn kh·ch h‡ng, ??ai ch? ch??ng trÏnh s? t? ghi l?i."
       Top             =   720
@@ -908,7 +925,7 @@ Begin VB.Form FrmChungtu
       Index           =   7
       Left            =   3120
       MaxLength       =   500
-      TabIndex        =   6
+      TabIndex        =   7
       Tag             =   "16"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
       Top             =   1080
@@ -919,7 +936,7 @@ Begin VB.Form FrmChungtu
       Index           =   8
       Left            =   8760
       MaxLength       =   200
-      TabIndex        =   7
+      TabIndex        =   8
       Tag             =   "17"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
       Top             =   1080
@@ -930,7 +947,7 @@ Begin VB.Form FrmChungtu
       Index           =   9
       Left            =   6840
       MaxLength       =   20
-      TabIndex        =   5
+      TabIndex        =   6
       Tag             =   "15"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
       Top             =   720
@@ -941,7 +958,7 @@ Begin VB.Form FrmChungtu
       Caption         =   "Frame1"
       Height          =   1695
       Left            =   14280
-      TabIndex        =   71
+      TabIndex        =   72
       Top             =   6000
       Visible         =   0   'False
       Width           =   2655
@@ -950,7 +967,7 @@ Begin VB.Form FrmChungtu
          Index           =   3
          Left            =   480
          MaxLength       =   20
-         TabIndex        =   127
+         TabIndex        =   128
          Tag             =   "1"
          Top             =   360
          Visible         =   0   'False
@@ -961,7 +978,7 @@ Begin VB.Form FrmChungtu
          Caption         =   "&B∏o gi∏"
          Height          =   255
          Left            =   2640
-         TabIndex        =   92
+         TabIndex        =   93
          Tag             =   "&Quotation"
          Top             =   3120
          Visible         =   0   'False
@@ -974,7 +991,7 @@ Begin VB.Form FrmChungtu
          Left            =   1320
          LinkItem        =   "Di‘n gi∂i ch¯ng tı"
          MaxLength       =   150
-         TabIndex        =   90
+         TabIndex        =   91
          Top             =   3720
          Visible         =   0   'False
          Width           =   5655
@@ -987,7 +1004,7 @@ Begin VB.Form FrmChungtu
          Left            =   1800
          MaxLength       =   20
          MultiLine       =   -1  'True
-         TabIndex        =   88
+         TabIndex        =   89
          Tag             =   "0"
          Text            =   "Fchungtu.frx":C273
          Top             =   2640
@@ -1000,7 +1017,7 @@ Begin VB.Form FrmChungtu
          Index           =   0
          Left            =   2160
          Style           =   2  'Dropdown List
-         TabIndex        =   86
+         TabIndex        =   87
          Tag             =   """"""
          Top             =   2040
          Width           =   3015
@@ -1013,7 +1030,7 @@ Begin VB.Form FrmChungtu
          Left            =   1440
          List            =   "Fchungtu.frx":C277
          Style           =   2  'Dropdown List
-         TabIndex        =   82
+         TabIndex        =   83
          ToolTipText     =   "Danh s∏ch Æ¨n vﬁ t›nh"
          Top             =   1440
          Visible         =   0   'False
@@ -1028,7 +1045,7 @@ Begin VB.Form FrmChungtu
          Left            =   7560
          MaxLength       =   3
          MultiLine       =   -1  'True
-         TabIndex        =   81
+         TabIndex        =   82
          Tag             =   "0"
          Text            =   "Fchungtu.frx":C279
          Top             =   1440
@@ -1042,7 +1059,7 @@ Begin VB.Form FrmChungtu
          Left            =   4440
          MaxLength       =   20
          MultiLine       =   -1  'True
-         TabIndex        =   80
+         TabIndex        =   81
          Tag             =   "0"
          Text            =   "Fchungtu.frx":C27B
          Top             =   1440
@@ -1055,7 +1072,7 @@ Begin VB.Form FrmChungtu
          Index           =   2
          Left            =   1200
          Style           =   2  'Dropdown List
-         TabIndex        =   78
+         TabIndex        =   79
          ToolTipText     =   "Nh n chuÈt ph∂i Æ” Æ®ng k˝"
          Top             =   840
          Width           =   4455
@@ -1066,7 +1083,7 @@ Begin VB.Form FrmChungtu
          Index           =   0
          Left            =   1200
          Style           =   2  'Dropdown List
-         TabIndex        =   74
+         TabIndex        =   75
          ToolTipText     =   "Nh n chuÈt ph∂i Æ” Æ®ng k˝"
          Top             =   480
          Visible         =   0   'False
@@ -1078,7 +1095,7 @@ Begin VB.Form FrmChungtu
          Index           =   1
          Left            =   4440
          Style           =   2  'Dropdown List
-         TabIndex        =   73
+         TabIndex        =   74
          ToolTipText     =   "Nh n chuÈt ph∂i Æ” Æ®ng k˝"
          Top             =   480
          Visible         =   0   'False
@@ -1090,7 +1107,7 @@ Begin VB.Form FrmChungtu
          Index           =   2
          Left            =   7680
          Style           =   2  'Dropdown List
-         TabIndex        =   72
+         TabIndex        =   73
          ToolTipText     =   "Nh n chuÈt ph∂i Æ” Æ®ng k˝"
          Top             =   480
          Visible         =   0   'False
@@ -1102,7 +1119,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   16
          Left            =   360
-         TabIndex        =   91
+         TabIndex        =   92
          Top             =   3720
          Visible         =   0   'False
          Width           =   855
@@ -1114,7 +1131,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   17
          Left            =   840
-         TabIndex        =   89
+         TabIndex        =   90
          Tag             =   "Ex. Rate"
          Top             =   2640
          Visible         =   0   'False
@@ -1127,7 +1144,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   1
          Left            =   600
-         TabIndex        =   87
+         TabIndex        =   88
          Tag             =   "Class"
          Top             =   2040
          Width           =   1335
@@ -1139,7 +1156,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   12
          Left            =   600
-         TabIndex        =   85
+         TabIndex        =   86
          Top             =   1515
          Visible         =   0   'False
          Width           =   735
@@ -1151,7 +1168,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   22
          Left            =   6240
-         TabIndex        =   84
+         TabIndex        =   85
          Top             =   1440
          Width           =   1215
       End
@@ -1162,7 +1179,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   25
          Left            =   3120
-         TabIndex        =   83
+         TabIndex        =   84
          Top             =   1440
          Visible         =   0   'False
          Width           =   1215
@@ -1173,7 +1190,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   14
          Left            =   240
-         TabIndex        =   79
+         TabIndex        =   80
          Tag             =   "Index"
          Top             =   840
          Width           =   855
@@ -1184,7 +1201,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   0
          Left            =   240
-         TabIndex        =   77
+         TabIndex        =   78
          Tag             =   "Index"
          Top             =   480
          Visible         =   0   'False
@@ -1196,7 +1213,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   1
          Left            =   3480
-         TabIndex        =   76
+         TabIndex        =   77
          Tag             =   "Index"
          Top             =   480
          Visible         =   0   'False
@@ -1208,7 +1225,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   2
          Left            =   6720
-         TabIndex        =   75
+         TabIndex        =   76
          Tag             =   "Index"
          Top             =   480
          Visible         =   0   'False
@@ -1219,7 +1236,7 @@ Begin VB.Form FrmChungtu
       BackColor       =   &H00FFFFFF&
       Height          =   975
       Left            =   2640
-      TabIndex        =   57
+      TabIndex        =   58
       Top             =   3480
       Visible         =   0   'False
       Width           =   7575
@@ -1230,7 +1247,7 @@ Begin VB.Form FrmChungtu
          Left            =   3000
          Picture         =   "Fchungtu.frx":C27D
          Style           =   1  'Graphical
-         TabIndex        =   64
+         TabIndex        =   65
          Top             =   480
          Width           =   375
       End
@@ -1241,7 +1258,7 @@ Begin VB.Form FrmChungtu
          Left            =   1560
          LinkItem        =   "SË hi÷u vÀt t≠ c«n xem"
          MaxLength       =   20
-         TabIndex        =   63
+         TabIndex        =   64
          Tag             =   "0"
          Top             =   525
          Width           =   1335
@@ -1252,7 +1269,7 @@ Begin VB.Form FrmChungtu
          Left            =   3000
          Picture         =   "Fchungtu.frx":C6F7
          Style           =   1  'Graphical
-         TabIndex        =   61
+         TabIndex        =   62
          Tag             =   "0"
          Top             =   120
          Width           =   375
@@ -1263,7 +1280,7 @@ Begin VB.Form FrmChungtu
          Left            =   1560
          LinkItem        =   "SË hi÷u vÀt t≠ c«n xem"
          MaxLength       =   20
-         TabIndex        =   60
+         TabIndex        =   61
          Tag             =   "0"
          Top             =   165
          Width           =   1335
@@ -1275,7 +1292,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   1
          Left            =   3480
-         TabIndex        =   65
+         TabIndex        =   66
          Tag             =   "1"
          Top             =   600
          Width           =   3855
@@ -1286,7 +1303,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   0
          Left            =   3480
-         TabIndex        =   62
+         TabIndex        =   63
          Tag             =   "1"
          Top             =   120
          Width           =   3855
@@ -1307,7 +1324,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   19
          Left            =   120
-         TabIndex        =   59
+         TabIndex        =   60
          Tag             =   "Object"
          Top             =   600
          Width           =   1335
@@ -1328,7 +1345,7 @@ Begin VB.Form FrmChungtu
          Height          =   255
          Index           =   18
          Left            =   120
-         TabIndex        =   58
+         TabIndex        =   59
          Tag             =   "Deb. Account"
          Top             =   240
          Width           =   1335
@@ -1348,7 +1365,7 @@ Begin VB.Form FrmChungtu
       EndProperty
       Height          =   375
       Left            =   12600
-      TabIndex        =   70
+      TabIndex        =   71
       Tag             =   "0"
       Top             =   4680
       Visible         =   0   'False
@@ -1360,20 +1377,20 @@ Begin VB.Form FrmChungtu
       BackColor       =   &H00C0FFC0&
       Height          =   315
       Index           =   9
-      Left            =   13380
+      Left            =   13140
       MaxLength       =   5
-      TabIndex        =   18
+      TabIndex        =   19
       Tag             =   "0"
       Text            =   "0"
       Top             =   2040
-      Width           =   550
+      Width           =   795
    End
    Begin VB.CommandButton CmdPhieu 
       Caption         =   "&4 TCNH"
       Height          =   375
       Index           =   3
-      Left            =   10680
-      TabIndex        =   51
+      Left            =   10080
+      TabIndex        =   52
       Tag             =   "0"
       Top             =   4680
       Visible         =   0   'False
@@ -1385,7 +1402,7 @@ Begin VB.Form FrmChungtu
       Left            =   15480
       LinkItem        =   "SË hi÷u ch¯ng tı"
       MaxLength       =   100
-      TabIndex        =   11
+      TabIndex        =   12
       Tag             =   "11"
       Top             =   2880
       Visible         =   0   'False
@@ -1405,7 +1422,7 @@ Begin VB.Form FrmChungtu
       EndProperty
       Height          =   255
       Left            =   2160
-      TabIndex        =   56
+      TabIndex        =   57
       Tag             =   "Direct Export"
       Top             =   5280
       Width           =   1455
@@ -1413,10 +1430,10 @@ Begin VB.Form FrmChungtu
    Begin VB.CommandButton CmdDanhSach 
       Height          =   375
       Index           =   0
-      Left            =   7200
+      Left            =   6600
       Picture         =   "Fchungtu.frx":CB71
       Style           =   1  'Graphical
-      TabIndex        =   28
+      TabIndex        =   29
       Top             =   4680
       Width           =   1095
    End
@@ -1435,7 +1452,7 @@ Begin VB.Form FrmChungtu
       Height          =   375
       Index           =   2
       Left            =   11760
-      TabIndex        =   50
+      TabIndex        =   51
       Tag             =   "0"
       Top             =   4680
       Visible         =   0   'False
@@ -1445,10 +1462,10 @@ Begin VB.Form FrmChungtu
       BackColor       =   &H00E0E0E0&
       Height          =   375
       Index           =   4
-      Left            =   4800
+      Left            =   4200
       Picture         =   "Fchungtu.frx":DF3B
       Style           =   1  'Graphical
-      TabIndex        =   52
+      TabIndex        =   53
       Tag             =   "&Print"
       Top             =   4680
       Width           =   1080
@@ -1459,7 +1476,7 @@ Begin VB.Form FrmChungtu
       Left            =   16200
       Picture         =   "Fchungtu.frx":F39D
       Style           =   1  'Graphical
-      TabIndex        =   29
+      TabIndex        =   30
       Top             =   3840
       Visible         =   0   'False
       Width           =   375
@@ -1478,8 +1495,8 @@ Begin VB.Form FrmChungtu
       EndProperty
       Height          =   375
       Index           =   1
-      Left            =   9600
-      TabIndex        =   49
+      Left            =   9000
+      TabIndex        =   50
       Tag             =   "0"
       Top             =   4680
       Visible         =   0   'False
@@ -1500,7 +1517,7 @@ Begin VB.Form FrmChungtu
       Height          =   375
       Index           =   0
       Left            =   10680
-      TabIndex        =   48
+      TabIndex        =   49
       Tag             =   "0"
       Top             =   4680
       Visible         =   0   'False
@@ -1524,9 +1541,9 @@ Begin VB.Form FrmChungtu
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   22
+      TabIndex        =   23
       Tag             =   "Sales Invoice"
-      Top             =   1930
+      Top             =   1815
       Width           =   1575
    End
    Begin VB.CommandButton SSCmdV 
@@ -1542,7 +1559,7 @@ Begin VB.Form FrmChungtu
       EndProperty
       Height          =   285
       Left            =   14160
-      TabIndex        =   37
+      TabIndex        =   38
       Top             =   6600
       Visible         =   0   'False
       Width           =   255
@@ -1565,10 +1582,10 @@ Begin VB.Form FrmChungtu
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   26
+      TabIndex        =   27
       Tag             =   "34"
       ToolTipText     =   "Assets Revaluation"
-      Top             =   3555
+      Top             =   3465
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1589,10 +1606,10 @@ Begin VB.Form FrmChungtu
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   25
+      TabIndex        =   26
       Tag             =   "33"
       ToolTipText     =   "Assets Decreasing"
-      Top             =   3145
+      Top             =   3060
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1613,10 +1630,10 @@ Begin VB.Form FrmChungtu
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   24
+      TabIndex        =   25
       Tag             =   "32"
       ToolTipText     =   "Assets Increasing"
-      Top             =   2740
+      Top             =   2655
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1632,15 +1649,15 @@ Begin VB.Form FrmChungtu
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00400000&
-      Height          =   395
+      Height          =   375
       HelpContextID   =   800
       Index           =   0
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   20
+      TabIndex        =   21
       Tag             =   "Common"
-      Top             =   300
+      Top             =   120
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1661,9 +1678,9 @@ Begin VB.Form FrmChungtu
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   21
+      TabIndex        =   22
       Tag             =   "Import Inventory"
-      Top             =   1130
+      Top             =   975
       Width           =   1575
    End
    Begin VB.OptionButton OptLoai 
@@ -1684,9 +1701,9 @@ Begin VB.Form FrmChungtu
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   107
+      TabIndex        =   108
       Tag             =   "Export Inventory"
-      Top             =   1530
+      Top             =   1395
       Width           =   1575
    End
    Begin VB.TextBox txt 
@@ -1695,7 +1712,7 @@ Begin VB.Form FrmChungtu
       Left            =   5040
       LinkItem        =   "SË hi÷u ch¯ng tı"
       MaxLength       =   20
-      TabIndex        =   2
+      TabIndex        =   3
       Tag             =   "106"
       Top             =   0
       Width           =   1215
@@ -1706,7 +1723,7 @@ Begin VB.Form FrmChungtu
       Left            =   3120
       LinkItem        =   "Di‘n gi∂i ch¯ng tı"
       MaxLength       =   500
-      TabIndex        =   8
+      TabIndex        =   9
       Tag             =   "18"
       Top             =   1440
       Width           =   5400
@@ -1719,7 +1736,7 @@ Begin VB.Form FrmChungtu
       Left            =   10920
       List            =   "Fchungtu.frx":F819
       Style           =   2  'Dropdown List
-      TabIndex        =   10
+      TabIndex        =   11
       Tag             =   "19"
       Top             =   1440
       Width           =   2175
@@ -1737,24 +1754,24 @@ Begin VB.Form FrmChungtu
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00400000&
-      Height          =   395
+      Height          =   390
       Index           =   3
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   23
+      TabIndex        =   24
       Tag             =   "Conversion"
-      Top             =   2340
+      Top             =   2240
       Width           =   1575
    End
    Begin VB.CommandButton Command 
       BackColor       =   &H00E0E0E0&
       Height          =   375
       Index           =   3
-      Left            =   8400
+      Left            =   7800
       Picture         =   "Fchungtu.frx":F81B
       Style           =   1  'Graphical
-      TabIndex        =   34
+      TabIndex        =   35
       Tag             =   "&Return"
       Top             =   4680
       Width           =   1080
@@ -1763,10 +1780,10 @@ Begin VB.Form FrmChungtu
       BackColor       =   &H00E0E0E0&
       Height          =   375
       Index           =   2
-      Left            =   6000
+      Left            =   5400
       Picture         =   "Fchungtu.frx":10C3D
       Style           =   1  'Graphical
-      TabIndex        =   33
+      TabIndex        =   34
       Tag             =   "&Delete"
       Top             =   4680
       Width           =   1080
@@ -1775,10 +1792,10 @@ Begin VB.Form FrmChungtu
       BackColor       =   &H00E0E0E0&
       Height          =   375
       Index           =   1
-      Left            =   3615
+      Left            =   3000
       Picture         =   "Fchungtu.frx":1211F
       Style           =   1  'Graphical
-      TabIndex        =   31
+      TabIndex        =   32
       Tag             =   "&Save"
       Top             =   4680
       Width           =   1080
@@ -1787,10 +1804,10 @@ Begin VB.Form FrmChungtu
       BackColor       =   &H00E0E0E0&
       Height          =   375
       Index           =   0
-      Left            =   2400
+      Left            =   1800
       Picture         =   "Fchungtu.frx":1354D
       Style           =   1  'Graphical
-      TabIndex        =   32
+      TabIndex        =   33
       Tag             =   "&Add"
       Top             =   4680
       Width           =   1080
@@ -1803,7 +1820,7 @@ Begin VB.Form FrmChungtu
       Index           =   2
       Left            =   5835
       MaxLength       =   20
-      TabIndex        =   13
+      TabIndex        =   14
       Tag             =   "0"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
       Top             =   2040
@@ -1817,7 +1834,7 @@ Begin VB.Form FrmChungtu
       Left            =   2160
       LinkItem        =   "SË hi÷u tµi kho∂n ho∆c chi ti’t c„ ph∏t sinh (nh n ENTER Æ” xem danh s∏ch)"
       MaxLength       =   20
-      TabIndex        =   12
+      TabIndex        =   13
       Tag             =   "21"
       Text            =   "?"
       ToolTipText     =   "Nh n ph›m ? ho∆c click Æ” hi÷n th´ng tin"
@@ -1832,7 +1849,7 @@ Begin VB.Form FrmChungtu
       Left            =   2940
       LinkItem        =   "T™n tµi kho∂n ho∆c chi ti’t"
       MaxLength       =   50
-      TabIndex        =   30
+      TabIndex        =   31
       TabStop         =   0   'False
       Top             =   2040
       Width           =   2950
@@ -1855,17 +1872,17 @@ Begin VB.Form FrmChungtu
       Left            =   120
       MaskColor       =   &H80000001&
       Style           =   1  'Graphical
-      TabIndex        =   27
+      TabIndex        =   28
       Tag             =   "35"
       ToolTipText     =   "Depreciation"
-      Top             =   3970
+      Top             =   3865
       Width           =   1575
    End
    Begin MSMask.MaskEdBox MedNgay 
       Height          =   315
       Index           =   0
       Left            =   3120
-      TabIndex        =   0
+      TabIndex        =   1
       Top             =   375
       Width           =   1095
       _ExtentX        =   1931
@@ -1889,7 +1906,7 @@ Begin VB.Form FrmChungtu
       Height          =   315
       Index           =   1
       Left            =   3120
-      TabIndex        =   1
+      TabIndex        =   2
       Top             =   720
       Width           =   1095
       _ExtentX        =   1931
@@ -1912,7 +1929,7 @@ Begin VB.Form FrmChungtu
    Begin MSGrid.Grid Grid2 
       Height          =   3015
       Left            =   3600
-      TabIndex        =   134
+      TabIndex        =   135
       Tag             =   "1"
       Top             =   5160
       Width           =   9795
@@ -1935,6 +1952,15 @@ Begin VB.Form FrmChungtu
       Cols            =   8
       FixedRows       =   0
       FixedCols       =   0
+   End
+   Begin VB.CommandButton Command4 
+      Caption         =   "Import"
+      Height          =   375
+      Left            =   17160
+      TabIndex        =   163
+      Top             =   8040
+      Visible         =   0   'False
+      Width           =   975
    End
    Begin MSGrid.Grid GrdChungtu 
       Height          =   2220
@@ -1963,14 +1989,18 @@ Begin VB.Form FrmChungtu
       HighLight       =   0   'False
       MousePointer    =   1
    End
-   Begin VB.CommandButton Command4 
-      Caption         =   "Import"
+   Begin MSForms.TextBox txtPhanloaichungtu 
       Height          =   375
-      Left            =   17160
-      TabIndex        =   163
-      Top             =   8040
+      Left            =   12480
+      TabIndex        =   171
+      Top             =   600
       Visible         =   0   'False
-      Width           =   975
+      Width           =   495
+      VariousPropertyBits=   746604571
+      Size            =   "873;661"
+      FontHeight      =   165
+      FontCharSet     =   0
+      FontPitchAndFamily=   2
    End
    Begin VB.Label txttinh_gia_ban 
       BackColor       =   &H00E0E0E0&
@@ -2008,7 +2038,7 @@ Begin VB.Form FrmChungtu
       Left            =   9840
       TabIndex        =   157
       Tag             =   "Month"
-      Top             =   8400
+      Top             =   8160
       Width           =   2295
    End
    Begin VB.Label Label 
@@ -2028,7 +2058,7 @@ Begin VB.Form FrmChungtu
       Left            =   12360
       TabIndex        =   156
       Tag             =   "Month"
-      Top             =   8400
+      Top             =   8160
       Width           =   1335
    End
    Begin MSForms.Label Label2 
@@ -2118,11 +2148,11 @@ Begin VB.Form FrmChungtu
       ForeColor       =   &H00000000&
       Height          =   600
       Index           =   8
-      Left            =   0
-      TabIndex        =   133
+      Left            =   -120
+      TabIndex        =   134
       Tag             =   "Bill Code"
       Top             =   4560
-      Width           =   18255
+      Width           =   15255
    End
    Begin VB.Label Label1 
       BackColor       =   &H00E0E0E0&
@@ -2139,7 +2169,7 @@ Begin VB.Form FrmChungtu
       Height          =   135
       Index           =   7
       Left            =   13680
-      TabIndex        =   117
+      TabIndex        =   118
       Tag             =   "Bill Code"
       Top             =   480
       Visible         =   0   'False
@@ -2161,7 +2191,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   6
       Left            =   18120
-      TabIndex        =   116
+      TabIndex        =   117
       Tag             =   "Bill Code"
       Top             =   360
       UseMnemonic     =   0   'False
@@ -2183,7 +2213,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   26
       Left            =   6240
-      TabIndex        =   114
+      TabIndex        =   115
       Tag             =   "V. Code"
       Top             =   0
       Width           =   3135
@@ -2204,7 +2234,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   15
       Left            =   6300
-      TabIndex        =   113
+      TabIndex        =   114
       Tag             =   "Voucher Type"
       Top             =   465
       Width           =   495
@@ -2224,9 +2254,9 @@ Begin VB.Form FrmChungtu
       Height          =   4575
       Index           =   5
       Left            =   0
-      TabIndex        =   111
+      TabIndex        =   112
       Tag             =   "Bill Code"
-      Top             =   240
+      Top             =   0
       Width           =   1815
    End
    Begin VB.Label LbKho 
@@ -2244,7 +2274,7 @@ Begin VB.Form FrmChungtu
       Height          =   135
       Index           =   3
       Left            =   16500
-      TabIndex        =   109
+      TabIndex        =   110
       Tag             =   "Store"
       Top             =   2520
       Width           =   15
@@ -2264,7 +2294,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   16
       Left            =   4250
-      TabIndex        =   97
+      TabIndex        =   98
       Tag             =   "Liability Code"
       Top             =   800
       Width           =   855
@@ -2284,7 +2314,7 @@ Begin VB.Form FrmChungtu
       Height          =   135
       Index           =   2
       Left            =   14760
-      TabIndex        =   106
+      TabIndex        =   107
       Tag             =   "Store"
       Top             =   4920
       Width           =   75
@@ -2294,7 +2324,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   9
       Left            =   3000
-      TabIndex        =   103
+      TabIndex        =   104
       Tag             =   "Amount before Tax"
       Top             =   2160
       Width           =   1575
@@ -2304,7 +2334,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   10
       Left            =   3120
-      TabIndex        =   102
+      TabIndex        =   103
       Tag             =   "Tax Rate"
       Top             =   2160
       Width           =   1335
@@ -2315,7 +2345,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   12
       Left            =   4560
-      TabIndex        =   101
+      TabIndex        =   102
       Tag             =   "Taxable Amount"
       Top             =   2160
       Visible         =   0   'False
@@ -2326,7 +2356,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   13
       Left            =   4920
-      TabIndex        =   100
+      TabIndex        =   101
       Tag             =   "Payment Type"
       Top             =   4320
       Width           =   1575
@@ -2346,7 +2376,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   4
       Left            =   4440
-      TabIndex        =   99
+      TabIndex        =   100
       Tag             =   "Bill Code"
       Top             =   465
       Width           =   615
@@ -2366,7 +2396,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   0
       Left            =   8760
-      TabIndex        =   98
+      TabIndex        =   99
       Tag             =   "Address"
       Top             =   840
       Width           =   615
@@ -2386,7 +2416,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   1
       Left            =   1890
-      TabIndex        =   96
+      TabIndex        =   97
       Tag             =   "Description"
       Top             =   1170
       Width           =   1215
@@ -2407,7 +2437,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   2
       Left            =   120
-      TabIndex        =   95
+      TabIndex        =   96
       Tag             =   "Address"
       Top             =   0
       Visible         =   0   'False
@@ -2428,7 +2458,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   3
       Left            =   6450
-      TabIndex        =   94
+      TabIndex        =   95
       Tag             =   "Tax Code"
       Top             =   820
       Width           =   375
@@ -2438,7 +2468,7 @@ Begin VB.Form FrmChungtu
       ForeColor       =   &H00FF0000&
       Height          =   615
       Left            =   13440
-      TabIndex        =   93
+      TabIndex        =   94
       Tag             =   "1"
       Top             =   120
       Visible         =   0   'False
@@ -2463,7 +2493,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   24
       Left            =   13920
-      TabIndex        =   69
+      TabIndex        =   70
       Top             =   1800
       Width           =   1180
       WordWrap        =   -1  'True
@@ -2486,10 +2516,10 @@ Begin VB.Form FrmChungtu
       ForeColor       =   &H00FFFFFF&
       Height          =   255
       Index           =   23
-      Left            =   13380
-      TabIndex        =   68
+      Left            =   13140
+      TabIndex        =   69
       Top             =   1800
-      Width           =   550
+      Width           =   795
       WordWrap        =   -1  'True
    End
    Begin VB.Label Label 
@@ -2508,7 +2538,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   21
       Left            =   15480
-      TabIndex        =   67
+      TabIndex        =   68
       Tag             =   "Salesman"
       Top             =   4320
       Visible         =   0   'False
@@ -2533,7 +2563,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   20
       Left            =   1800
-      TabIndex        =   66
+      TabIndex        =   67
       Tag             =   "No."
       Top             =   1800
       Width           =   375
@@ -2543,7 +2573,7 @@ Begin VB.Form FrmChungtu
       ForeColor       =   &H00FF0000&
       Height          =   255
       Left            =   14520
-      TabIndex        =   55
+      TabIndex        =   56
       Tag             =   "1"
       Top             =   2880
       Visible         =   0   'False
@@ -2564,7 +2594,7 @@ Begin VB.Form FrmChungtu
       Height          =   15
       Index           =   11
       Left            =   14760
-      TabIndex        =   54
+      TabIndex        =   55
       Tag             =   "Input by"
       Top             =   1680
       Visible         =   0   'False
@@ -2589,7 +2619,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   13
       Left            =   8235
-      TabIndex        =   53
+      TabIndex        =   54
       Tag             =   "Unit price"
       Top             =   1800
       Width           =   1575
@@ -2632,7 +2662,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   0
       Left            =   1925
-      TabIndex        =   38
+      TabIndex        =   39
       Tag             =   "Month"
       Top             =   100
       Width           =   1095
@@ -2652,7 +2682,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   1
       Left            =   1920
-      TabIndex        =   39
+      TabIndex        =   40
       Tag             =   "V. Date"
       Top             =   465
       Width           =   1200
@@ -2672,7 +2702,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   2
       Left            =   1920
-      TabIndex        =   35
+      TabIndex        =   36
       Tag             =   "B. Date"
       Top             =   810
       Width           =   960
@@ -2692,7 +2722,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   3
       Left            =   4440
-      TabIndex        =   36
+      TabIndex        =   37
       Tag             =   "V. Code"
       Top             =   90
       Width           =   615
@@ -2712,7 +2742,7 @@ Begin VB.Form FrmChungtu
       Height          =   240
       Index           =   4
       Left            =   1920
-      TabIndex        =   47
+      TabIndex        =   48
       Tag             =   "Desc. (V)"
       Top             =   1500
       Width           =   735
@@ -2732,7 +2762,7 @@ Begin VB.Form FrmChungtu
       Height          =   15
       Index           =   0
       Left            =   13560
-      TabIndex        =   46
+      TabIndex        =   47
       Tag             =   "Store"
       Top             =   1560
       Visible         =   0   'False
@@ -2758,7 +2788,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   10
       Left            =   11475
-      TabIndex        =   45
+      TabIndex        =   46
       Tag             =   "Credit"
       Top             =   1800
       Width           =   1650
@@ -2782,7 +2812,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   9
       Left            =   9795
-      TabIndex        =   44
+      TabIndex        =   45
       Tag             =   "Debit"
       Top             =   1800
       Width           =   1695
@@ -2806,7 +2836,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   8
       Left            =   7155
-      TabIndex        =   43
+      TabIndex        =   44
       Tag             =   "Quantity"
       Top             =   1800
       Width           =   1095
@@ -2830,7 +2860,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   7
       Left            =   5835
-      TabIndex        =   42
+      TabIndex        =   43
       Tag             =   "Code"
       Top             =   1800
       Width           =   1335
@@ -2854,7 +2884,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   6
       Left            =   2940
-      TabIndex        =   41
+      TabIndex        =   42
       Tag             =   "Description"
       Top             =   1800
       Width           =   2955
@@ -2878,7 +2908,7 @@ Begin VB.Form FrmChungtu
       Height          =   255
       Index           =   5
       Left            =   2160
-      TabIndex        =   40
+      TabIndex        =   41
       Tag             =   "Account"
       Top             =   1800
       Width           =   795
@@ -3063,9 +3093,9 @@ Const NH = "112"
 Dim IsImport As Boolean
 
 Dim countbanhang As Integer
- 
-Dim tempchungtu As String
 
+Dim tempchungtu As String
+Dim phanloaict As Integer
 Dim rs_ktra152 As Recordset
 Dim rs_ktra154c As Recordset
 Dim rs_ktra711 As Recordset
@@ -3103,18 +3133,18 @@ Dim SetLoaiEnable As Boolean
 Dim shct As String
 Dim xddu As Boolean
 Dim TenTC As String, DiachiTC As String, ctgoc As String, TenNX As String, DiaChiNX As String, TenBH As String, DiaChiBH As String, MSTBH As String, unc1 As String, unc2 As String, unc3 As String, MaKHBH As Long, HanTT As Date
-Attribute DiachiTC.VB_VarUserMemId = 1073938472
-Attribute ctgoc.VB_VarUserMemId = 1073938472
-Attribute TenNX.VB_VarUserMemId = 1073938472
-Attribute DiaChiNX.VB_VarUserMemId = 1073938472
-Attribute TenBH.VB_VarUserMemId = 1073938472
-Attribute DiaChiBH.VB_VarUserMemId = 1073938472
-Attribute MSTBH.VB_VarUserMemId = 1073938472
-Attribute unc1.VB_VarUserMemId = 1073938472
-Attribute unc2.VB_VarUserMemId = 1073938472
-Attribute unc3.VB_VarUserMemId = 1073938472
-Attribute MaKHBH.VB_VarUserMemId = 1073938472
-Attribute HanTT.VB_VarUserMemId = 1073938472
+Attribute DiachiTC.VB_VarUserMemId = 1073938473
+Attribute ctgoc.VB_VarUserMemId = 1073938473
+Attribute TenNX.VB_VarUserMemId = 1073938473
+Attribute DiaChiNX.VB_VarUserMemId = 1073938473
+Attribute TenBH.VB_VarUserMemId = 1073938473
+Attribute DiaChiBH.VB_VarUserMemId = 1073938473
+Attribute MSTBH.VB_VarUserMemId = 1073938473
+Attribute unc1.VB_VarUserMemId = 1073938473
+Attribute unc2.VB_VarUserMemId = 1073938473
+Attribute unc3.VB_VarUserMemId = 1073938473
+Attribute MaKHBH.VB_VarUserMemId = 1073938473
+Attribute HanTT.VB_VarUserMemId = 1073938473
 Dim HD() As tpHoaDon, hdcount As Integer
 Attribute HD.VB_VarUserMemId = 1073938459
 Attribute hdcount.VB_VarUserMemId = 1073938459
@@ -3160,7 +3190,7 @@ Public Sub AutoCLickLoai()
     RFocus CboThang
     DisplayFileImportList
 End Sub
-Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As String, ByVal sohd As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal TongTien As String, ByVal VAT As String, ByVal sohieutp As String)
+Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As String, ByVal sohd As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal TongTien As String, ByVal VAT As String, ByVal sohieutp As String, ByVal TgTCThue As String, ByVal TgTThue As String)
     Dim fileImport As ClsFileImport
     Set fileImport = New ClsFileImport
 
@@ -3178,6 +3208,8 @@ Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As 
     fileImport.ThueTK = tkThue
     fileImport.diengiai = diengiai
     fileImport.TongTien = TongTien
+    fileImport.TgTCThue = TgTCThue
+    fileImport.TgTThue = TgTThue
     fileImport.VAT = VAT
     fileImport.sohieutp = sohieutp
     fileImportList.Add fileImport
@@ -3326,7 +3358,7 @@ Private Sub btnImport_Click()
         ' Duy?t qua t?t c? c·c b?n ghi
         Do While Not rs_ktra.EOF
             ' L?y s? lu?ng tru?ng
-            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!TongTien, rs_ktra!VAT, rs_ktra!sohieutp
+            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!TongTien, rs_ktra!VAT, rs_ktra!sohieutp, rs_ktra!TgTCThue, rs_ktra!TgTThue
             rs_ktra.MoveNext
         Loop
     End If
@@ -3370,7 +3402,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
     End If
 
     ' If item.notk = "6422" Or item.notk = "6421" Then
-    If item.notk Like "642*" Then
+    If item.notk Like "642*" Or item.notk Like "242*" Then
         OptLoai(0).Value = True
         OptLoai_LostFocus 0
         RFocus CboThang
@@ -3605,7 +3637,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
     End If
 
-    If txtchungtu(0).Text Like "642*" Then
+    If txtchungtu(0).Text Like "642*" Or txtchungtu(0).Text Like "242*" Then
         'If (txtchungtu(0).Text = "6422") Then
         With fileImportList(IndexFirst)
             MedNgay(0).Text = Format(.ngay, "dd/mm/yy")
@@ -3616,8 +3648,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
         txtChungtu_LostFocus (0)
         With fileImportList(IndexFirst)
-            txtchungtu(5).Text = .TongTien
-
+            txtchungtu(5).Text = .TgTCThue
         End With
         RFocus txtchungtu(6)
         txtChungtu_KeyPress 6, 13
@@ -3637,6 +3668,13 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         End With
 
         txtChungtu_LostFocus (2)
+        RFocus txtchungtu(5)
+        txtChungtu_LostFocus (5)
+        With fileImportList(IndexFirst)
+            RFocus txtchungtu(5)
+            txtchungtu(5).Text = .TgTThue
+        End With
+
         RFocus txtchungtu(6)
         txtChungtu_KeyPress 6, 13
 
@@ -3655,6 +3693,11 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
                 FThuChi.FThuChiForm = 1
                 If stt < 2 Then
                     txtChungtu_LostFocus (0)
+                    RFocus txtchungtu(6)
+                    txtChungtu_KeyPress 6, 13
+                    Else
+                    RFocus txtchungtu(6)
+                    txtChungtu_KeyPress 6, 13
                 End If
 
                 stt = stt + 1
@@ -3683,7 +3726,6 @@ Private Sub btnOpenexe_Click()
     ' L?y handle c?a c?a s? ?ng d?ng
     While hWndApp = 0
         hWndApp = FindWindow(vbNullString, "frmMain")    ' Thay d?i tiÍu d? c?a ?ng d?ng
-
     Wend
 
     ' Ki?m tra xem handle cÛ h?p l? hay khÙng tru?c khi ki?m tra liÍn t?c
@@ -3727,6 +3769,8 @@ Private Sub CheckWindow()
             Dim textss2 As String
             textss2 = SuperTrim(allText)
             If textss = textss2 Then
+                 Sleep (1000)    ' Ho?c b?n cÛ th? d˘ng m?t vÚng l?p d? ki?m tra tÏnh tr?ng c?a ?ng d?ng
+                 AppActivate Me.Caption
                 timerImport.Enabled = True
 
             End If
@@ -5865,7 +5909,6 @@ Public Sub Command_Click(Index As Integer)
     Select Case Index
     Case 0:
         kiem_tra_so_dong
-
         MaSoCT = 0
         XoaPhieuTrenManHinh
         '  Command_Click 2
@@ -6389,7 +6432,6 @@ KT:
         CboNguon(1).Visible = True
         CboLoai.Visible = True
     End If
-
 End Sub
 '====================================================================================================
 ' Hi”n thﬁ cˆa sÊ danh s∏ch ch¯ng tı vµ hi”n thﬁ ch¯ng tı Æ≠Óc ch‰n
@@ -6720,6 +6762,11 @@ End Sub
 Public Sub cmdReset_Click()
     ' L‡m r?ng danh s·ch fileImportList
 End Sub
+
+Private Sub Command5_Click()
+      frmBrowser.Show vbModal
+End Sub
+
 Private Sub Form_Activate()
     countbanhang = 1
     Dim ithang As Integer
@@ -6796,6 +6843,65 @@ Private Sub Form_Activate()
     '        End If
     '    End If
 End Sub
+
+Function kiemtralicenkey() As Boolean
+
+    Dim rs_ktra As Recordset
+    Dim Query As String
+    Dim rst As String
+    Dim types As Integer
+    Dim sochungtu As Double
+    Query = "SELECT *  FROM tbLicensekey"
+    Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+    If Not rs_ktra.EOF Then
+        ' Duy?t qua t?t c? c·c b?n ghi
+        Do While Not rs_ktra.EOF
+            Dim resultArray() As String
+            sochungtu = CDbl(rs_ktra!Totals)
+            types = CInt(rs_ktra!Type)
+            rs_ktra.MoveNext
+        Loop
+    End If
+
+    Dim KT As Boolean
+    KT = True
+    Dim rss As Recordset
+
+    'N?u dang ky vinh vien
+    If types = 1 And sochungtu > 0 Then
+        If (SelectSQL("SELECT count(*) as F1 FROM HoaDon ") >= sochungtu) Then
+            Command(0).Enabled = False
+            Command(1).Enabled = False
+            KT = False
+        Else
+            Command(0).Enabled = True
+            Command(1).Enabled = True
+        End If
+
+    End If
+    If types = 2 And sochungtu <> 0 Then
+        If (SelectSQL("SELECT count(*) as F1 FROM HoaDon ") >= sochungtu) Then
+            Command(0).Enabled = False
+            Command(1).Enabled = False
+            KT = False
+        Else
+            Command(0).Enabled = True
+            Command(1).Enabled = True
+        End If
+    End If
+    If types = -1 Then
+        Command(0).Enabled = False
+        Command(1).Enabled = False
+        KT = False
+    End If
+
+    ' –Ûng Recordset
+    If Not rs_ktra Is Nothing Then
+        Set rs_ktra = Nothing
+    End If
+    kiemtralicenkey = KT
+End Function
+
 Function kiem_tra_so_dong() As Boolean
     Dim KT As Boolean
     Dim so
@@ -7268,8 +7374,8 @@ End Sub
 ' ß∆t ch’ ÆÈ nhÀp cho loπi phi’u t≠¨ng ¯ng
 '====================================================================================================
 Public Sub OptLoai_Click(Index As Integer)
-   
 
+    txtPhanloaichungtu.Text = Index
     ' chon nut khau hao
     If Index = 5 Then
         btnOpenexe_Click
@@ -7316,9 +7422,8 @@ Public Sub OptLoai_Click(Index As Integer)
         CboLoai.Visible = True
     End If
     ' danh_sach_chung_tu
-
+    kiemtralicenkey
     RFocus CboThang
-
 End Sub
 Private Sub OptLoai_LostFocus(Index As Integer)
     FrmDsCT.CboThang(0).Text = "1/" + CStr(pNamTC)
@@ -9319,6 +9424,7 @@ Private Sub XoaPhieuTrenManHinh()
     Label(25).Visible = False
     txtchungtu(11).Visible = False
     CboNT(3).Visible = False
+    kiemtralicenkey
 End Sub
 '====================================================================================================
 ' ThÒ tÙc hi”n thﬁ nÈi dung phi’u tr™n mµn h◊nh
@@ -9788,7 +9894,6 @@ KT2:
 KetThuc:
     rs_chungtu.Close
     Set rs_chungtu = Nothing
-
 End Function
 '====================================================================================================
 ' NhÀp dﬂng ph∏t sinh mÌi

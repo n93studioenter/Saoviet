@@ -5,18 +5,18 @@ Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "CRYSTL32.OCX"
 Begin VB.Form frmMain 
    AutoRedraw      =   -1  'True
    BackColor       =   &H00FFC0C0&
-   ClientHeight    =   10170
-   ClientLeft      =   4035
-   ClientTop       =   -2520
-   ClientWidth     =   10200
+   ClientHeight    =   9720
+   ClientLeft      =   3990
+   ClientTop       =   -2985
+   ClientWidth     =   18930
    FillColor       =   &H00FD8866&
    ForeColor       =   &H00400000&
    Icon            =   "frmMain.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Sao Viet Accounting Software"
-   Picture         =   "frmMain.frx":57E2
-   ScaleHeight     =   10170
-   ScaleWidth      =   10200
+   Picture         =   "frmMain.frx":424A
+   ScaleHeight     =   9720
+   ScaleWidth      =   18930
    Tag             =   "11"
    WindowState     =   2  'Maximized
    Begin ComctlLib.Toolbar tbToolBar 
@@ -126,7 +126,7 @@ Begin VB.Form frmMain
    Begin VB.CommandButton Command 
       BackColor       =   &H0000C000&
       Caption         =   "NhËp chøng tõ"
-      DragIcon        =   "frmMain.frx":583C24
+      DragIcon        =   "frmMain.frx":58268C
       BeginProperty Font 
          Name            =   "VK Sans Serif"
          Size            =   9.75
@@ -140,7 +140,7 @@ Begin VB.Form frmMain
       Index           =   0
       Left            =   1440
       MaskColor       =   &H0000C000&
-      Picture         =   "frmMain.frx":59491E
+      Picture         =   "frmMain.frx":593386
       Style           =   1  'Graphical
       TabIndex        =   60
       Tag             =   "Voucher"
@@ -163,7 +163,7 @@ Begin VB.Form frmMain
       Index           =   1
       Left            =   1440
       MaskColor       =   &H0000C000&
-      Picture         =   "frmMain.frx":59A100
+      Picture         =   "frmMain.frx":598B68
       Style           =   1  'Graphical
       TabIndex        =   59
       Tag             =   "Detail Report"
@@ -186,7 +186,7 @@ Begin VB.Form frmMain
       Index           =   2
       Left            =   1440
       MaskColor       =   &H0000C000&
-      Picture         =   "frmMain.frx":59F8E2
+      Picture         =   "frmMain.frx":59E34A
       Style           =   1  'Graphical
       TabIndex        =   58
       Tag             =   "Financial Report"
@@ -327,7 +327,7 @@ Begin VB.Form frmMain
       Height          =   165
       Index           =   4
       Left            =   1800
-      Picture         =   "frmMain.frx":5A50C4
+      Picture         =   "frmMain.frx":5A3B2C
       Style           =   1  'Graphical
       TabIndex        =   3
       Top             =   240
@@ -434,9 +434,9 @@ Begin VB.Form frmMain
       Height          =   390
       Left            =   0
       TabIndex        =   57
-      Top             =   9780
-      Width           =   10200
-      _ExtentX        =   17992
+      Top             =   9330
+      Width           =   18930
+      _ExtentX        =   33390
       _ExtentY        =   688
       SimpleText      =   ""
       _Version        =   327682
@@ -460,7 +460,7 @@ Begin VB.Form frmMain
          EndProperty
          BeginProperty Panel4 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Style           =   6
-            TextSave        =   "21/04/25"
+            TextSave        =   "05/05/25"
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
@@ -483,6 +483,13 @@ Begin VB.Form frmMain
       _Version        =   348160
       WindowState     =   2
       PrintFileLinesPerPage=   60
+   End
+   Begin VB.Image Image1 
+      Height          =   1725
+      Left            =   17040
+      Picture         =   "frmMain.frx":5A45AE
+      Top             =   360
+      Width           =   1500
    End
    Begin VB.Label Label3 
       BackColor       =   &H00FFC0C0&
@@ -509,7 +516,7 @@ Begin VB.Form frmMain
    Begin VB.Label Label3 
       BackColor       =   &H00FFC0C0&
       BackStyle       =   0  'Transparent
-      Caption         =   "Cho DN cã sè chøng tõ Ýt h¬n 500 vµ doanh thu nhá h¬n 5 tû/ n¨m."
+      Caption         =   "B¹n cã thÓ dïng víi giíi h¹n 100 chøng tõ, møc doanh thu 200 triÖu"
       BeginProperty Font 
          Name            =   "VK Sans Serif"
          Size            =   9.75
@@ -520,17 +527,17 @@ Begin VB.Form frmMain
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FFFF&
-      Height          =   285
+      Height          =   435
       Index           =   16
-      Left            =   9840
+      Left            =   6480
       TabIndex        =   67
       Top             =   8760
-      Width           =   6735
+      Width           =   6975
    End
    Begin VB.Label Label3 
       BackColor       =   &H00FFC0C0&
       BackStyle       =   0  'Transparent
-      Caption         =   "MiÔn phÝ vµ lu«n nh­ thÕ: "
+      Caption         =   "NhÊn vµo ®©y ®Ó t¹o míi trªn mµn h×nh"
       BeginProperty Font 
          Name            =   "VK Sans Serif"
          Size            =   9.75
@@ -546,7 +553,7 @@ Begin VB.Form frmMain
       Left            =   9840
       TabIndex        =   65
       Top             =   8520
-      Width           =   2775
+      Width           =   6855
    End
    Begin VB.Label txtdungthu 
       BackColor       =   &H00FFC0C0&
@@ -562,9 +569,9 @@ Begin VB.Form frmMain
       EndProperty
       ForeColor       =   &H0000FFFF&
       Height          =   450
-      Left            =   4800
+      Left            =   6840
       TabIndex        =   0
-      Top             =   1200
+      Top             =   1680
       Width           =   9375
    End
    Begin VB.Label lbCty 
@@ -900,9 +907,9 @@ Begin VB.Form frmMain
       ForeColor       =   &H00C00000&
       Height          =   330
       Index           =   0
-      Left            =   3840
+      Left            =   3960
       TabIndex        =   46
-      Top             =   2000
+      Top             =   2040
       Width           =   10695
    End
    Begin VB.Label lbCty 
@@ -921,9 +928,9 @@ Begin VB.Form frmMain
       ForeColor       =   &H00C00000&
       Height          =   330
       Index           =   2
-      Left            =   5280
+      Left            =   4800
       TabIndex        =   45
-      Top             =   2500
+      Top             =   2520
       Width           =   9375
    End
    Begin VB.Label lbCty 
@@ -1131,51 +1138,51 @@ Begin VB.Form frmMain
       BeginProperty Images {0713E8C2-850A-101B-AFC0-4210102A8DA7} 
          NumListImages   =   12
          BeginProperty ListImage1 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5A5B46
+            Picture         =   "frmMain.frx":5A5696
             Key             =   ""
          EndProperty
          BeginProperty ListImage2 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5A6E58
+            Picture         =   "frmMain.frx":5A69A8
             Key             =   ""
          EndProperty
          BeginProperty ListImage3 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5A816A
+            Picture         =   "frmMain.frx":5A7CBA
             Key             =   ""
          EndProperty
          BeginProperty ListImage4 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5A947C
+            Picture         =   "frmMain.frx":5A8FCC
             Key             =   ""
          EndProperty
          BeginProperty ListImage5 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5AA78E
+            Picture         =   "frmMain.frx":5AA2DE
             Key             =   ""
          EndProperty
          BeginProperty ListImage6 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5ABAA0
+            Picture         =   "frmMain.frx":5AB5F0
             Key             =   ""
          EndProperty
          BeginProperty ListImage7 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5AC6F2
+            Picture         =   "frmMain.frx":5AC242
             Key             =   ""
          EndProperty
          BeginProperty ListImage8 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5AE244
+            Picture         =   "frmMain.frx":5ADD94
             Key             =   ""
          EndProperty
          BeginProperty ListImage9 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5AEEF6
+            Picture         =   "frmMain.frx":5AEA46
             Key             =   ""
          EndProperty
          BeginProperty ListImage10 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5B02F8
+            Picture         =   "frmMain.frx":5AFE48
             Key             =   ""
          EndProperty
          BeginProperty ListImage11 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5B266A
+            Picture         =   "frmMain.frx":5B21BA
             Key             =   ""
          EndProperty
          BeginProperty ListImage12 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMain.frx":5B2A5C
+            Picture         =   "frmMain.frx":5B25AC
             Key             =   ""
          EndProperty
       EndProperty
@@ -2268,15 +2275,46 @@ End Sub
 Private Sub File1_Click()
 'hung
 End Sub
+ 
 
-Private Sub Form_Activate() ' viet menu
-        
-        ExecuteSQL5_Themmoi ("ALTER TABLE license  ADD tenhoadon text")
-        ExecuteSQL5 ("ALTER TABLE license ALTER COLUMN TaiKhoanVN TEXT(200)")
-        ExecuteSQL5 ("ALTER TABLE license ALTER COLUMN DiaChi TEXT(200)")
-        ExecuteSQL5 ("ALTER TABLE license ALTER COLUMN FAX TEXT(200)")
-        ExecuteSQL5 ("UPDATE HOADON SET KyHieu = '01GTKT3/001' WHERE KYHIEU = '...'")
-mnDuLieu.Caption = "Xö lý"
+Private Function ParseJson(json As String, key As String) As String
+    Dim dict As Object
+    Set dict = CreateObject("Scripting.Dictionary")
+
+    Dim parts() As String
+    parts = Split(json, ",")
+
+    Dim part As Variant
+    For Each part In parts
+        Dim kv() As String
+        kv = Split(part, ":")
+        If UBound(kv) = 1 Then
+            dict(Trim(Replace(kv(0), """", ""))) = Trim(Replace(kv(1), """", ""))
+        End If
+    Next part
+
+    ParseJson = dict(key)
+End Function
+
+Private Sub Form_Activate()    ' viet menu
+ 
+
+    Image1.Left = (Me.ScaleWidth * 87 / 100)
+    Image1.Top = (Me.ScaleHeight * 5 / 100)
+    Command1.Left = (Me.ScaleWidth * 90 / 100)
+    Command1.Top = (Me.ScaleHeight * 80 / 100)
+    Label3(0).Left = (Me.ScaleWidth * 76 / 100)
+    Label3(0).Top = (Me.ScaleHeight * 85 / 100)
+
+    Label3(16).Left = (Me.ScaleWidth * 61.4 / 100)
+    Label3(16).Top = (Me.ScaleHeight * 88 / 100)
+
+    ExecuteSQL5_Themmoi ("ALTER TABLE license  ADD tenhoadon text")
+    ExecuteSQL5 ("ALTER TABLE license ALTER COLUMN TaiKhoanVN TEXT(200)")
+    ExecuteSQL5 ("ALTER TABLE license ALTER COLUMN DiaChi TEXT(200)")
+    ExecuteSQL5 ("ALTER TABLE license ALTER COLUMN FAX TEXT(200)")
+    ExecuteSQL5 ("UPDATE HOADON SET KyHieu = '01GTKT3/001' WHERE KYHIEU = '...'")
+    mnDuLieu.Caption = "Xö lý"
 
     StationList
 End Sub
@@ -2301,7 +2339,7 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
 
     If (Shift And vbCtrlMask) > 0 And KeyCode = vbKeyD Then
         ChDir pCurDir + "DATA"
-        Recycle "K*" + "_" + CStr(LbCty(0).tag) + ".SAS"
+        Recycle "K*" + "_" + CStr(lbCty(0).tag) + ".SAS"
     End If
 
     If (Shift And vbCtrlMask) > 0 And KeyCode = vbKeyF Then
@@ -2341,9 +2379,12 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
         'ExecuteSQL5 "update License set TenCty = '" + ModSAS.Federo16(rs!TenCty, CStr(rs!NamTC)) + "',DiaChi = '" + ModSAS.Federo16(rs!DiaChi, CStr(rs!NamTC)) + "',MaSoThue = '" + ModSAS.Federo16(rs!masothue, CStr(rs!NamTC)) + "',CMP = '" + ModSAS.Federo16(IIf(IsNull(rs!CMP), "", rs!CMP), CStr(rs!NamTC)) + "'"
         Dim ma_so_so As String
         'ma_so_so = ModSAS.Federo16Decrypt("dad`dccefucgcqcici", opotion_1)
-        ma_so_so = "1@35^7*9)1"
-        SetPsw pDataPath, pPSW, ma_so_so
+        'ma_so_so = "1@35^7*9)1"
+        'SetPsw pDataPath, pPSW, ma_so_so
         'SaveSetting "MyApp", "Settings", "FirstRun", "False"
+
+        ExecuteSQL5 ("Update tbLicensekey set Type=-1")
+        ExecuteSQL5 ("Update License set CMG=249991")
         WSpace.Close
         End
     End If
@@ -2462,14 +2503,15 @@ Private Sub Form_Load()
     ExecuteSQL_them_query "DanhSachVatTu", sqqq
 
 
-LbCty(4).Visible = False
+lbCty(4).Visible = False
 'If Year(DateTime.Date) < 2018 Then
 'Label3(12).Caption = "§¬n vÞ triÓn khai: Lª V¨n L¸y"
 'Label3(13).Caption = "Sè ®iÖn tho¹i: 093 3415 959"
 'End If
 ban_quyen = 0
 If (boolean_kiemtra() = False) Then
-        frmMain.txtdungthu.Caption = ABCtoVNI("PhÇn mÒm hÕt h¹n dïng, vui lßng liªn hÖ víi nhµ cung cÊp!")
+        'frmMain.txtdungthu.Caption = ABCtoVNI("PhÇn mÒm hÕt h¹n dïng, vui lßng liªn hÖ víi nhµ cung cÊp!")
+        frmMain.txtdungthu.Caption = "PhÇn mÒm hÕt h¹n dïng, vui lßng liªn hÖ víi nhµ cung cÊp!"
         If (SelectSQL("SELECT count(*) as F1 FROM ChungTu ") > 100 Or SelectSQL("SELECT sum(duco_12) as F1 from hethongtk where sohieu ='511' ") > 200000000) Then
             ban_quyen = 1
            Else
@@ -2607,101 +2649,128 @@ End Sub
 
 Private Sub mnDL_Click(Index As Integer)
     Dim sql As String
-    
+
     If User_Right <> 0 Or (Me.tag Mod 10 = 0) Or (User_Right = 2) Then
         NoRight 0
         Exit Sub
     End If
     Me.MousePointer = 11
-    
-     
+
+
     Select Case Index
-        Case 0:
-            If Not STDetail Then
-                NoRight 1
-                GoTo KT
-            End If
-            KiemTraVatTu
-'            Dim i  As Integer
-'            Dim rs As Recordset
-'            Set rs = DBKetoan.OpenRecordset("SELECT mavattu,sum(luong_0) as luong from VTdaunam ", dbOpenSnapshot)
-'            For i = 0 To rs.RecordCount
-'            ExecuteSQL5 ("update solothuoc set ")
-'            Next
-'
-'            SoLoThuoc
-            
-         Case 20:
-           
-               FrmNguyente.Show 1
-          
-        Case 1:
-            KiemTraTaiKhoan
-            
-        Case 3:
-            If FPsw.GetPswX() = "UCDIT" Then
-                sql = FrmGetStr.GetString("LÖnh xö lý:", App.ProductName)
-                If Len(sql) > 0 Then ExecuteSQL5 sql
-            End If
-        Case 6:
-          
-            ExecuteSQL5 ("DELETE FROM SOLOTHUOC1")
-            ExecuteSQL5 ("INSERT INTO SOLOTHUOC1  SELECT MAVATTU,SOLO,HANDUNG,CONLAI AS SOLUONG  FROM DANHSAchvattu")
-            ExecuteSQL5 ("DELETE FROM SOLOTHUOC")
-            ExecuteSQL5 ("INSERT INTO SOLOTHUOC  SELECT MAVATTU,SOLO,HANDUNG,SOLUONG  FROM SoLoThuoc1")
-'            If KtraMKAdmin Then
-'                If MsgBox("B¹n ch¾c ch¾n kÕt thóc n¨m " + CStr(pNamTC) + " vµ chuyÓn sang n¨m míi ?" _
-'                    , vbYesNo + vbExclamation, App.ProductName) <> vbYes Then GoTo KT
-'
-'                HienThongBao "ChuyÓn sè d­ cuèi kú ...  Xin vui lßng chê !", 1
-'                ChuyenNamMoi
-'                lbCty(7).Caption = CStr(pNamTC)
-'                LietKeNam
-'            End If
-            If (boolean_kiemtra() = False) Then
+    Case 0:
+        If Not STDetail Then
+            NoRight 1
+            GoTo KT
+        End If
+        KiemTraVatTu
+        '            Dim i  As Integer
+        '            Dim rs As Recordset
+        '            Set rs = DBKetoan.OpenRecordset("SELECT mavattu,sum(luong_0) as luong from VTdaunam ", dbOpenSnapshot)
+        '            For i = 0 To rs.RecordCount
+        '            ExecuteSQL5 ("update solothuoc set ")
+        '            Next
+        '
+        '            SoLoThuoc
+
+    Case 20:
+
+        FrmNguyente.Show 1
+
+    Case 1:
+        KiemTraTaiKhoan
+
+    Case 3:
+        If FPsw.GetPswX() = "UCDIT" Then
+            sql = FrmGetStr.GetString("LÖnh xö lý:", App.ProductName)
+            If Len(sql) > 0 Then ExecuteSQL5 sql
+        End If
+    Case 6:
+        Dim rs_ktra As Recordset
+        Dim Query As String
+        Dim rst As String
+        Query = "SELECT *  FROM tbLicensekey "
+        Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+        If Not rs_ktra.EOF Then
+            ' Duy?t qua t?t c? các b?n ghi
+            Do While Not rs_ktra.EOF
+                If rs_ktra!Type = 2 Then
+                    Dim resultArray() As String
+                    resultArray = Split(rs_ktra!Year, "|")
+                    Dim chk As Integer
+                    chk = (CInt(resultArray(0)) - 1) + CInt(resultArray(1)) - pNamTC
+                    If chk <= 0 Then
+                        MsgBox "Gãi d÷ liÖu theo n¨m ®· hÕt, vui lßng liªn hÖ ®Ó ®­îc chuyÓn sang n¨m míi"
+                        Me.MousePointer = 0
+                        Exit Sub
+                    End If
+                End If
+                If rs_ktra!Type <> 2 And rs_ktra!Type <> 1 Then
+                    MsgBox "§¨ng ký license ®Ó ®­îc thùc hiÖn chøc n¨ng nµy"
+                    Me.MousePointer = 0
+                    Exit Sub
+                End If
+                rs_ktra.MoveNext
+            Loop
+
+        End If
+        ExecuteSQL5 ("DELETE FROM SOLOTHUOC1")
+        ExecuteSQL5 ("INSERT INTO SOLOTHUOC1  SELECT MAVATTU,SOLO,HANDUNG,CONLAI AS SOLUONG  FROM DANHSAchvattu")
+        ExecuteSQL5 ("DELETE FROM SOLOTHUOC")
+        ExecuteSQL5 ("INSERT INTO SOLOTHUOC  SELECT MAVATTU,SOLO,HANDUNG,SOLUONG  FROM SoLoThuoc1")
+        '            If KtraMKAdmin Then
+        '                If MsgBox("B¹n ch¾c ch¾n kÕt thóc n¨m " + CStr(pNamTC) + " vµ chuyÓn sang n¨m míi ?" _
+                         '                    , vbYesNo + vbExclamation, App.ProductName) <> vbYes Then GoTo KT
+        '
+        '                HienThongBao "ChuyÓn sè d­ cuèi kú ...  Xin vui lßng chê !", 1
+        '                ChuyenNamMoi
+        '                lbCty(7).Caption = CStr(pNamTC)
+        '                LietKeNam
+        '            End If
+        If (boolean_kiemtra() = False) Then
             Dim tongsodong As String
             tongsodong = SelectSQL("SELECT count(*) as F1 FROM ChungTu ")
             ExecuteSQL5 "UPDATE license SET sodongId =" + CStr(Int_StrToCodes(tongsodong)) + " , sodong = sodong+ " + CStr(tongsodong)
-            
-           
-            End If
-            
-            If KtraMKAdmin Then
-                If MsgBox("B¹n ch¾c ch¾n kÕt thóc n¨m " + CStr(pNamTC) + " vµ chuyÓn sang n¨m míi ?" _
-                    , vbYesNo + vbExclamation, App.ProductName) <> vbYes Then GoTo KT
-                
-                HienThongBao "ChuyÓn sè d­ cuèi kú ...  Xin vui lßng chê !", 1
-               ChuyenNamMoi
-                LbCty(7).Caption = CStr(pNamTC)
-                LietKeNam
-            End If
-'            Else
-'             MsgBox ("B¹n ph¶i active tr­¬c khi kÕt chuyªn")
-'            End If
-           
-        Case 9: FrmKC.Show vbModal
-        Case 10: FrmPBCP.Show vbModal
-        Case 11: FrmThKC.Show vbModal
-        Case 14:
-       Form3.chuyen_so_du_dau_ky
+
+
+        End If
+
+        If KtraMKAdmin Then
+            If MsgBox("B¹n ch¾c ch¾n kÕt thóc n¨m " + CStr(pNamTC) + " vµ chuyÓn sang n¨m míi ?" _
+             , vbYesNo + vbExclamation, App.ProductName) <> vbYes Then GoTo KT
+
+            HienThongBao "ChuyÓn sè d­ cuèi kú ...  Xin vui lßng chê !", 1
+            ChuyenNamMoi
+            lbCty(7).Caption = CStr(pNamTC)
+            LietKeNam
+        End If
+        '            Else
+        '             MsgBox ("B¹n ph¶i active tr­¬c khi kÕt chuyªn")
+        '            End If
+
+    Case 9: FrmKC.Show vbModal
+    Case 10: FrmPBCP.Show vbModal
+    Case 11: FrmThKC.Show vbModal
+    Case 14:
+        Form3.chuyen_so_du_dau_ky
         'Form3.Show vbModal ' FrmCTGS.Show vbModal
-        Case 16:
-            sql = GetSetting(IniPath, "LastYear", "IncTax" + CStr(pNamTC), 0)
-            sql = InputBox("Sè ®iÒu chØnh", "ThuÕ thu nhËp doanh nghiÖp " + CStr(pNamTC - 1), sql)
-            If IsNumeric(sql) Then SaveSetting IniPath, "LastYear", "IncTax" + CStr(pNamTC), sql
-        Case 17:
-            sql = ChonTenTep("Chän tÖp d÷ liÖu cña n¨m TC tr­íc (L­u ý cÇn ch¹y kiÓm tra sè liÖu cña n¨m cò)", &H4&, "*.MDB", 1)
-            If Len(sql) = 0 Then GoTo KT
-            LaySoDauNam sql
-        Case 19: If KtraMKAdmin Then FrmE.Show 1
-        Case 21:
-            If KtraMKAdmin Then
-                sql = FrmDB.ChonTepLuu(frmMain.LbCty(8).Caption, pNamTC)
-                If Len(sql) > 0 Then
-                    CloseUp 1
-                    OpenDB sql
-                End If
+    Case 16:
+        sql = GetSetting(IniPath, "LastYear", "IncTax" + CStr(pNamTC), 0)
+        sql = InputBox("Sè ®iÒu chØnh", "ThuÕ thu nhËp doanh nghiÖp " + CStr(pNamTC - 1), sql)
+        If IsNumeric(sql) Then SaveSetting IniPath, "LastYear", "IncTax" + CStr(pNamTC), sql
+    Case 17:
+        sql = ChonTenTep("Chän tÖp d÷ liÖu cña n¨m TC tr­íc (L­u ý cÇn ch¹y kiÓm tra sè liÖu cña n¨m cò)", &H4&, "*.MDB", 1)
+        If Len(sql) = 0 Then GoTo KT
+        LaySoDauNam sql
+    Case 19: If KtraMKAdmin Then FrmE.Show 1
+    Case 21:
+        If KtraMKAdmin Then
+            sql = FrmDB.ChonTepLuu(frmMain.lbCty(8).Caption, pNamTC)
+            If Len(sql) > 0 Then
+                CloseUp 1
+                OpenDB sql
             End If
+        End If
     End Select
 KT:
     HienThongBao "", 1
@@ -2810,12 +2879,12 @@ X1:
             ChonTenTep "", 0, "", 3
         Case 9:                                             ' Dat may in
             ChonTenTep "", cdlCFBoth, "", 4
-            If Len(dlgCommonDialog.FontName) > 1 And (LoaiFont(dlgCommonDialog.FontName) = FontFlag Or KiemTraMaSoThue(LbCty(8).Caption, "03")) Then
+            If Len(dlgCommonDialog.FontName) > 1 And (LoaiFont(dlgCommonDialog.FontName) = FontFlag Or KiemTraMaSoThue(lbCty(8).Caption, "03")) Then
                 pFontName = dlgCommonDialog.FontName
                 pFontSize = dlgCommonDialog.FontSize
                 ExecuteSQL5 "UPDATE License SET FontName='" + pFontName + "', FontSize=" + CStr(pFontSize)
-                LbCty(0).FontName = pFontName
-                LbCty(1).FontName = pFontName
+                lbCty(0).FontName = pFontName
+                lbCty(1).FontName = pFontName
                 mnHT(10).Caption = IIf(FontFlag <> 2, "ChuyÓn ®æi CSDL sang font ABC", "ChuyÓn ®æi CSDL sang font VNI")
                 SetFont Me
             End If
@@ -2842,10 +2911,10 @@ X1:
             FrmMatkhau.tag = 1
             FrmMatkhau.Show 1
         Case 16:
-            If (Not IsNumeric(Left(LbCty(8).Caption, 2))) Then GoTo KT
-            If CInt(Left(LbCty(8).Caption, 3)) = 0 Then GoTo KT
-            If (Len(pMST) > 0 And Left(LbCty(8).Caption, Len(pMST)) = pMST) Then GoTo B
-            If FrmGetStr.GetMK(LbCty(8).Caption) Then
+            If (Not IsNumeric(Left(lbCty(8).Caption, 2))) Then GoTo KT
+            If CInt(Left(lbCty(8).Caption, 3)) = 0 Then GoTo KT
+            If (Len(pMST) > 0 And Left(lbCty(8).Caption, Len(pMST)) = pMST) Then GoTo B
+            If FrmGetStr.GetMK(lbCty(8).Caption) Then
 B:
                 UpDateDB
                 GetLicense
@@ -2899,7 +2968,7 @@ Private Sub mnNam_Click(Index As Integer)
     Next
     pNamTC = CInt5(mnNam(Index).Caption)
     
-    LbCty(7).Caption = CStr(pNamTC)
+    lbCty(7).Caption = CStr(pNamTC)
     Me.MousePointer = 0
 End Sub
 
@@ -3303,17 +3372,17 @@ Private Sub GetLicense()
     pTenCty = rs_license!TenCty
     pTenCn = rs_license!tencn
 
-    LbCty(2).Caption = rs_license!DiaChi
-    LbCty(3).Caption = rs_license!Tel
-    LbCty(4).Caption = rs_license!Fax
-    LbCty(5).Caption = rs_license!TaiKhoanVN
-    LbCty(6).Caption = rs_license!TaiKhoanNT
+    lbCty(2).Caption = rs_license!DiaChi
+    lbCty(3).Caption = rs_license!Tel
+    lbCty(4).Caption = rs_license!Fax
+    lbCty(5).Caption = rs_license!TaiKhoanVN
+    lbCty(6).Caption = rs_license!TaiKhoanNT
     pNamTC = rs_license!NamTC
     pThangDauKy = rs_license!thang
-    LbCty(7).Caption = CStr(pNamTC)
-    LbCty(8).Caption = rs_license!masothue
-    LbCty(13).Caption = rs_license!email
-    LbCty(14).Caption = rs_license!sofax
+    lbCty(7).Caption = CStr(pNamTC)
+    lbCty(8).Caption = rs_license!masothue
+    lbCty(13).Caption = rs_license!email
+    lbCty(14).Caption = rs_license!sofax
     pBaoGia = (rs_license!Flag1 Mod 1000) \ 100
     pNVBH = (rs_license!Flag1 Mod 10000) \ 1000
 
@@ -3346,10 +3415,10 @@ Private Sub GetLicense()
         Lb(0).Caption = "10.1"
     End Select
     If pVersion <> 3 Then Lb(0).Caption = Lb(0).Caption    ' + IIf((rs_license!Flag1 Mod 100000000) \ 10000000 > 0, "1", "0") + IIf((rs_license!Flag1 Mod 10000000) \ 1000000 > 0, "1", "0") + IIf((rs_license!Flag1 Mod 1000000) \ 100000 > 0, "1", "0") + IIf((rs_license!Flag1 Mod 100000) \ 10000 > 0, "1", "0")
-    Chk(0).Value = (rs_license!Flag1 Mod 100000000) \ 10000000
-    Chk(1).Value = (rs_license!Flag1 Mod 10000000) \ 1000000
-    Chk(2).Value = (rs_license!Flag1 Mod 1000000) \ 100000
-    Chk(3).Value = (rs_license!Flag1 Mod 100000) \ 10000
+    chk(0).Value = (rs_license!Flag1 Mod 100000000) \ 10000000
+    chk(1).Value = (rs_license!Flag1 Mod 10000000) \ 1000000
+    chk(2).Value = (rs_license!Flag1 Mod 1000000) \ 100000
+    chk(3).Value = (rs_license!Flag1 Mod 100000) \ 10000
 
     Command(6).Visible = ((rs_license!Flag1 Mod 1000000) \ 100000 > 0)
 
@@ -3396,11 +3465,11 @@ Private Sub GetLicense()
     CTGS_GV = rs_license!CTGS_GV
     pFontName = rs_license!FontName
     pFontSize = rs_license!FontSize
-    LbCty(0).FontName = pFontName
-    LbCty(1).FontName = pFontName
-    LbCty(10).Caption = rs_license!Quan
-    LbCty(11).Caption = rs_license!ThanhPho
-    frmMain.LbCty(9).Caption = rs_license!email
+    lbCty(0).FontName = pFontName
+    lbCty(1).FontName = pFontName
+    lbCty(10).Caption = rs_license!Quan
+    lbCty(11).Caption = rs_license!ThanhPho
+    frmMain.lbCty(9).Caption = rs_license!email
     pSoKT = rs_license!SoKT
     mnDL(13).Visible = (pSoKT Mod 100 >= 10)
     '    mnDL(14).Visible = (pSoKT Mod 100 >= 10)
@@ -3455,7 +3524,8 @@ Private Sub GetLicense()
         Me.Caption = Me.Caption + sh + IIf(pVersion < 2, " - Training Version", " - Ch­¬ng tr×nh phèi hîp ®µo t¹o")
     End If
     If (boolean_kiemtra() = False) Then
-        frmMain.txtdungthu.Caption = ABCtoVNI("PhÇn mÒm hÕt h¹n dïng, vui lßng liªn hÖ víi nhµ cung cÊp!")
+        'frmMain.txtdungthu.Caption = ABCtoVNI("PhÇn mÒm hÕt h¹n dïng, vui lßng liªn hÖ víi nhµ cung cÊp!")
+        frmMain.txtdungthu.Caption = "PhÇn mÒm hÕt h¹n dïng, vui lßng liªn hÖ víi nhµ cung cÊp!"
         ' dung khoa nut thay doi cau hinh doanh nghiep
 
         If (SelectSQL("SELECT count(*) as F1 FROM ChungTu ") + rs_license!sodong > 300 Or SelectSQL("SELECT  DateDiff('d',min(NgayCT ), max(NgayCT ))  as F1 from chungtu") > 90) Then
@@ -3489,9 +3559,9 @@ Private Sub GetLicense()
         pSHPT = "131"
     End If
 
-    LbCty(0).tag = rs_license!TenCty_ID
-    LbCty(0).Caption = pTenCty
-    LbCty(1).Caption = pTenCn
+    lbCty(0).tag = rs_license!TenCty_ID
+    lbCty(0).Caption = pTenCty
+    lbCty(1).Caption = pTenCn
     Frame(0).Visible = pSongNgu
 
     mnXoa(0).tag = 0
@@ -3724,9 +3794,9 @@ Private Function StationList() As Integer
         End If
     Next
     If miLoop > 1 Then
-        LbCty(12).Caption = "C¸c m¸y tr¹m: " + sql
+        lbCty(12).Caption = "C¸c m¸y tr¹m: " + sql
     Else
-        LbCty(12).Caption = ""
+        lbCty(12).Caption = ""
     End If
     
     StationList = miLoop

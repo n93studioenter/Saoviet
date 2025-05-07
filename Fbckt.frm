@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.5#0"; "COMCTL32.OCX"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{0D452EE1-E08F-101A-852E-02608C4D0BB4}#2.0#0"; "FM20.DLL"
@@ -252,124 +252,124 @@ Begin VB.Form FBcKt
       TabCaption(1)   =   "VËt t­, thµnh phÈm"
       TabPicture(1)   =   "Fbckt.frx":57FE
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "LbTenVT(0)"
-      Tab(1).Control(1)=   "LbTenTk(4)"
-      Tab(1).Control(2)=   "LbTenTk(10)"
-      Tab(1).Control(3)=   "LbTenTk(11)"
-      Tab(1).Control(4)=   "LbCT(0)"
-      Tab(1).Control(5)=   "LbCT(1)"
-      Tab(1).Control(6)=   "Line(4)"
-      Tab(1).Control(7)=   "Line(6)"
-      Tab(1).Control(8)=   "txtShTk(4)"
-      Tab(1).Control(9)=   "ChkDu(3)"
-      Tab(1).Control(10)=   "CboLoai(0)"
-      Tab(1).Control(11)=   "ChkDu(2)"
-      Tab(1).Control(12)=   "OptBC(10)"
-      Tab(1).Control(13)=   "OptBC(11)"
-      Tab(1).Control(14)=   "OptBC(12)"
-      Tab(1).Control(15)=   "OptBC(13)"
-      Tab(1).Control(16)=   "OptBC(14)"
-      Tab(1).Control(17)=   "OptBC(15)"
-      Tab(1).Control(18)=   "OptBC(16)"
-      Tab(1).Control(19)=   "cmdtk(4)"
-      Tab(1).Control(20)=   "OptBC(33)"
-      Tab(1).Control(21)=   "CboVV(0)"
-      Tab(1).Control(22)=   "ChkDu(4)"
-      Tab(1).Control(23)=   "CboLoai(1)"
-      Tab(1).Control(24)=   "cmdtk(10)"
-      Tab(1).Control(25)=   "ChkDu(7)"
-      Tab(1).Control(26)=   "OptBC(44)"
-      Tab(1).Control(27)=   "cmdtk(11)"
-      Tab(1).Control(28)=   "txtShTk(11)"
-      Tab(1).Control(29)=   "OptBC(46)"
-      Tab(1).Control(30)=   "OptBC(50)"
-      Tab(1).Control(31)=   "OptBC(51)"
-      Tab(1).Control(32)=   "OptBC(52)"
-      Tab(1).Control(33)=   "OptBC(59)"
-      Tab(1).Control(34)=   "cmdCT(0)"
-      Tab(1).Control(35)=   "OptBC(60)"
-      Tab(1).Control(36)=   "txtShVT(0)"
-      Tab(1).Control(37)=   "OptBC(64)"
-      Tab(1).Control(38)=   "OptBC(65)"
-      Tab(1).Control(39)=   "cmdvt(0)"
-      Tab(1).Control(40)=   "OptBC(54)"
-      Tab(1).Control(41)=   "Frame(5)"
-      Tab(1).Control(42)=   "txtShTk(10)"
-      Tab(1).Control(43)=   "OptBC(43)"
-      Tab(1).Control(44)=   "OptBC(74)"
-      Tab(1).Control(45)=   "OptBC(77)"
-      Tab(1).Control(46)=   "cmdCT(1)"
-      Tab(1).Control(47)=   "txtCT(1)"
-      Tab(1).Control(48)=   "txtCT(0)"
-      Tab(1).Control(49)=   "CboHD"
+      Tab(1).Control(0)=   "CboHD"
+      Tab(1).Control(1)=   "txtCT(0)"
+      Tab(1).Control(2)=   "txtCT(1)"
+      Tab(1).Control(3)=   "cmdCT(1)"
+      Tab(1).Control(4)=   "OptBC(77)"
+      Tab(1).Control(5)=   "OptBC(74)"
+      Tab(1).Control(6)=   "OptBC(43)"
+      Tab(1).Control(7)=   "txtShTk(10)"
+      Tab(1).Control(8)=   "Frame(5)"
+      Tab(1).Control(9)=   "OptBC(54)"
+      Tab(1).Control(10)=   "cmdvt(0)"
+      Tab(1).Control(11)=   "OptBC(65)"
+      Tab(1).Control(12)=   "OptBC(64)"
+      Tab(1).Control(13)=   "txtShVT(0)"
+      Tab(1).Control(14)=   "OptBC(60)"
+      Tab(1).Control(15)=   "cmdCT(0)"
+      Tab(1).Control(16)=   "OptBC(59)"
+      Tab(1).Control(17)=   "OptBC(52)"
+      Tab(1).Control(18)=   "OptBC(51)"
+      Tab(1).Control(19)=   "OptBC(50)"
+      Tab(1).Control(20)=   "OptBC(46)"
+      Tab(1).Control(21)=   "txtShTk(11)"
+      Tab(1).Control(22)=   "cmdtk(11)"
+      Tab(1).Control(23)=   "OptBC(44)"
+      Tab(1).Control(24)=   "ChkDu(7)"
+      Tab(1).Control(25)=   "cmdtk(10)"
+      Tab(1).Control(26)=   "CboLoai(1)"
+      Tab(1).Control(27)=   "ChkDu(4)"
+      Tab(1).Control(28)=   "CboVV(0)"
+      Tab(1).Control(29)=   "OptBC(33)"
+      Tab(1).Control(30)=   "cmdtk(4)"
+      Tab(1).Control(31)=   "OptBC(16)"
+      Tab(1).Control(32)=   "OptBC(15)"
+      Tab(1).Control(33)=   "OptBC(14)"
+      Tab(1).Control(34)=   "OptBC(13)"
+      Tab(1).Control(35)=   "OptBC(12)"
+      Tab(1).Control(36)=   "OptBC(11)"
+      Tab(1).Control(37)=   "OptBC(10)"
+      Tab(1).Control(38)=   "ChkDu(2)"
+      Tab(1).Control(39)=   "CboLoai(0)"
+      Tab(1).Control(40)=   "ChkDu(3)"
+      Tab(1).Control(41)=   "txtShTk(4)"
+      Tab(1).Control(42)=   "Line(6)"
+      Tab(1).Control(43)=   "Line(4)"
+      Tab(1).Control(44)=   "LbCT(1)"
+      Tab(1).Control(45)=   "LbCT(0)"
+      Tab(1).Control(46)=   "LbTenTk(11)"
+      Tab(1).Control(47)=   "LbTenTk(10)"
+      Tab(1).Control(48)=   "LbTenTk(4)"
+      Tab(1).Control(49)=   "LbTenVT(0)"
       Tab(1).ControlCount=   50
       TabCaption(2)   =   "Doanh thu - C«ng nî"
       TabPicture(2)   =   "Fbckt.frx":581A
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "Label(3)"
-      Tab(2).Control(1)=   "LbTenVT(1)"
-      Tab(2).Control(2)=   "lbkh(1)"
-      Tab(2).Control(3)=   "lbkh(0)"
-      Tab(2).Control(4)=   "Line(1)"
-      Tab(2).Control(5)=   "Line(9)"
-      Tab(2).Control(6)=   "Line(10)"
-      Tab(2).Control(7)=   "txtHan"
-      Tab(2).Control(8)=   "OptBC(17)"
-      Tab(2).Control(9)=   "OptBC(34)"
-      Tab(2).Control(10)=   "OptBC(35)"
-      Tab(2).Control(11)=   "Frame(3)"
-      Tab(2).Control(12)=   "OptBC(36)"
-      Tab(2).Control(13)=   "OptBC(37)"
-      Tab(2).Control(14)=   "OptBC(38)"
-      Tab(2).Control(15)=   "cmdvt(1)"
-      Tab(2).Control(16)=   "txtShVT(1)"
-      Tab(2).Control(17)=   "OptBC(120)"
-      Tab(2).Control(18)=   "OptBC(49)"
+      Tab(2).Control(0)=   "Frame(4)"
+      Tab(2).Control(1)=   "cmdkh(0)"
+      Tab(2).Control(2)=   "txtshkh(1)"
+      Tab(2).Control(3)=   "txtshkh(0)"
+      Tab(2).Control(4)=   "cmdkh(1)"
+      Tab(2).Control(5)=   "ChkDu(14)"
+      Tab(2).Control(6)=   "OptBC(84)"
+      Tab(2).Control(7)=   "OptBC(82)"
+      Tab(2).Control(8)=   "OptBC(81)"
+      Tab(2).Control(9)=   "OptBC(80)"
+      Tab(2).Control(10)=   "OptBC(78)"
+      Tab(2).Control(11)=   "MedNgay(0)"
+      Tab(2).Control(12)=   "OptBC(70)"
+      Tab(2).Control(13)=   "OptBC(53)"
+      Tab(2).Control(14)=   "OptBC(67)"
+      Tab(2).Control(15)=   "OptBC(66)"
+      Tab(2).Control(16)=   "OptBC(63)"
+      Tab(2).Control(17)=   "OptBC(62)"
+      Tab(2).Control(18)=   "OptBC(58)"
       Tab(2).Control(19)=   "OptBC(57)"
-      Tab(2).Control(20)=   "OptBC(58)"
-      Tab(2).Control(21)=   "OptBC(62)"
-      Tab(2).Control(22)=   "OptBC(63)"
-      Tab(2).Control(23)=   "OptBC(66)"
-      Tab(2).Control(24)=   "OptBC(67)"
-      Tab(2).Control(25)=   "OptBC(53)"
-      Tab(2).Control(26)=   "OptBC(70)"
-      Tab(2).Control(27)=   "MedNgay(0)"
-      Tab(2).Control(28)=   "OptBC(78)"
-      Tab(2).Control(29)=   "OptBC(80)"
-      Tab(2).Control(30)=   "OptBC(81)"
-      Tab(2).Control(31)=   "OptBC(82)"
-      Tab(2).Control(32)=   "OptBC(84)"
-      Tab(2).Control(33)=   "ChkDu(14)"
-      Tab(2).Control(34)=   "cmdkh(1)"
-      Tab(2).Control(35)=   "txtshkh(0)"
-      Tab(2).Control(36)=   "txtshkh(1)"
-      Tab(2).Control(37)=   "cmdkh(0)"
-      Tab(2).Control(38)=   "Frame(4)"
+      Tab(2).Control(20)=   "OptBC(49)"
+      Tab(2).Control(21)=   "OptBC(120)"
+      Tab(2).Control(22)=   "txtShVT(1)"
+      Tab(2).Control(23)=   "cmdvt(1)"
+      Tab(2).Control(24)=   "OptBC(38)"
+      Tab(2).Control(25)=   "OptBC(37)"
+      Tab(2).Control(26)=   "OptBC(36)"
+      Tab(2).Control(27)=   "Frame(3)"
+      Tab(2).Control(28)=   "OptBC(35)"
+      Tab(2).Control(29)=   "OptBC(34)"
+      Tab(2).Control(30)=   "OptBC(17)"
+      Tab(2).Control(31)=   "txtHan"
+      Tab(2).Control(32)=   "Line(10)"
+      Tab(2).Control(33)=   "Line(9)"
+      Tab(2).Control(34)=   "Line(1)"
+      Tab(2).Control(35)=   "lbkh(0)"
+      Tab(2).Control(36)=   "lbkh(1)"
+      Tab(2).Control(37)=   "LbTenVT(1)"
+      Tab(2).Control(38)=   "Label(3)"
       Tab(2).ControlCount=   39
       TabCaption(3)   =   "Tµi s¶n cè ®Þnh"
       TabPicture(3)   =   "Fbckt.frx":5836
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "OptBC(79)"
-      Tab(3).Control(1)=   "OptBC(71)"
-      Tab(3).Control(2)=   "OptBC(68)"
-      Tab(3).Control(3)=   "OptBC(61)"
-      Tab(3).Control(4)=   "OptBC(45)"
-      Tab(3).Control(5)=   "Frame(2)"
-      Tab(3).Control(6)=   "OptBC(31)"
-      Tab(3).Control(7)=   "OptBC(30)"
-      Tab(3).Control(8)=   "OptBC(29)"
-      Tab(3).Control(9)=   "OptBC(28)"
+      Tab(3).Control(0)=   "Line(11)"
+      Tab(3).Control(1)=   "OptBC(18)"
+      Tab(3).Control(2)=   "OptBC(19)"
+      Tab(3).Control(3)=   "OptBC(20)"
+      Tab(3).Control(4)=   "OptBC(21)"
+      Tab(3).Control(5)=   "OptBC(22)"
+      Tab(3).Control(6)=   "OptBC(23)"
+      Tab(3).Control(7)=   "OptBC(24)"
+      Tab(3).Control(8)=   "OptBC(25)"
+      Tab(3).Control(9)=   "OptBC(26)"
       Tab(3).Control(10)=   "OptBC(27)"
-      Tab(3).Control(11)=   "OptBC(26)"
-      Tab(3).Control(12)=   "OptBC(25)"
-      Tab(3).Control(13)=   "OptBC(24)"
-      Tab(3).Control(14)=   "OptBC(23)"
-      Tab(3).Control(15)=   "OptBC(22)"
-      Tab(3).Control(16)=   "OptBC(21)"
-      Tab(3).Control(17)=   "OptBC(20)"
-      Tab(3).Control(18)=   "OptBC(19)"
-      Tab(3).Control(19)=   "OptBC(18)"
-      Tab(3).Control(20)=   "Line(11)"
+      Tab(3).Control(11)=   "OptBC(28)"
+      Tab(3).Control(12)=   "OptBC(29)"
+      Tab(3).Control(13)=   "OptBC(30)"
+      Tab(3).Control(14)=   "OptBC(31)"
+      Tab(3).Control(15)=   "Frame(2)"
+      Tab(3).Control(16)=   "OptBC(45)"
+      Tab(3).Control(17)=   "OptBC(61)"
+      Tab(3).Control(18)=   "OptBC(68)"
+      Tab(3).Control(19)=   "OptBC(71)"
+      Tab(3).Control(20)=   "OptBC(79)"
       Tab(3).ControlCount=   21
       Begin VB.PictureBox Picture1 
          Height          =   15
@@ -3704,9 +3704,9 @@ If OptTG(0).Value = False Then
                     If Index = 0 Then GoTo KhongIn
                     Set rs_tk = DBKetoan.OpenRecordset("SELECT DISTINCTROW KhachHang.MaSo,KhachHang.SoHieu,KhachHang.Ten FROM (SoDuKhachHang INNER JOIN HethongTK ON SoDuKhachHang.MaTaiKhoan=HethongTK.MaSo) INNER JOIN KhachHang ON SoDuKhachHang.MaKhachHang=KhachHang.MaSo WHERE HethongTK.SoHieu LIKE '" + txtShTk(7).Text + "*' GROUP BY KhachHang.MaSo,KhachHang.SoHieu,KhachHang.Ten", dbOpenSnapshot)
                     StopPrint = False
-                    If rs_tk.RecordCount > 0 Then
+                    If rs_tk.recordCount > 0 Then
                         rs_tk.MoveLast
-                        GauGe.Max = rs_tk.RecordCount
+                        GauGe.Max = rs_tk.recordCount
                         GauGe.Value = 0
                         rs_tk.MoveFirst
                     End If
@@ -3848,13 +3848,13 @@ KhongIn:
     ErrMsg er_KoXem
     GoTo LoiBC
 Bad:
-    If Err.Number = 20510 Then
+    If Err.number = 20510 Then
         frmMain.Rpt.Formulas(52) = ""
         frmMain.Rpt.Formulas(53) = ""
         frmMain.Rpt.Formulas(54) = ""
         GoTo a
     End If
-    MsgBox "Error " + CStr(Err.Number) + ": " + Err.Description, vbExclamation, App.ProductName
+    MsgBox "Error " + CStr(Err.number) + ": " + Err.Description, vbExclamation, App.ProductName
 LoiBC:
     HienThongBao Me.Caption, 1
     GauGe.Value = GauGe.Max
@@ -4706,9 +4706,9 @@ Private Function InCTNoQuaHan(ngayh As Date, songay As Integer, mpl As Long) As 
     Set rs_tk = DBKetoan.OpenRecordset("SELECT DISTINCTROW KhachHang.MaSo,KhachHang.SoHieu,KhachHang.Ten " _
         & " FROM ((KhachHang INNER JOIN SoDuKhachHang ON KhachHang.MaSo=SoDuKhachHang.MaKhachHang) INNER JOIN HethongTK ON SoDuKhachHang.MaTaiKhoan=HethongTK.MaSo) INNER JOIN PhanLoaiKhachHang ON KhachHang.MaPhanLoai=PhanLoaiKhachHang.MaSo " _
         & " WHERE TK_ID=" + CStr(TKCNKH_ID) + " AND (SoDuKhachHang.DuNo_" + CStr(i - 1) + ">0 OR SoDuKhachHang.No_" + CStr(i) + ">0) " + IIf(mpl > 0, " AND PhanLoaiKhachHang.SoHieu LIKE '" + MaSo2SoHieu(mpl, "PhanLoaiKhachHang") + "*'", "") + " ORDER BY KhachHang.SoHieu DESC", dbOpenSnapshot)
-    If rs_tk.RecordCount > 0 Then
+    If rs_tk.recordCount > 0 Then
         rs_tk.MoveLast
-        GauGe.Max = rs_tk.RecordCount
+        GauGe.Max = rs_tk.recordCount
     End If
     i = 0
     Do While (Not rs_tk.BOF) And (Not StopPrint)
@@ -4725,7 +4725,7 @@ Private Function InCTNoQuaHan(ngayh As Date, songay As Integer, mpl As Long) As 
             dk = True
             Set rs_ct = DBKetoan.OpenRecordset("SELECT DISTINCTROW ChungTu.* FROM " + ChungTu2TKNC(-1) _
                 & "WHERE (TK_ID=" + CStr(TKCNKH_ID) + ") AND (MaKH = " + CStr(rs_tk!MaSo) + ") AND (NgayCT <= #" + Format(ngayh, Mask_DB) + "#) ORDER BY NgayCT DESC", dbOpenSnapshot)
-            If rs_ct.RecordCount > 0 Then
+            If rs_ct.recordCount > 0 Then
                 Do While (Not rs_ct.EOF) And (duno > 0 Or (dk And duco > 0))
                     If rs_ct!NgayCT + songay < ngayh Then
                         i = i + 1
@@ -5067,7 +5067,7 @@ Dim TD As Double
             End If
             rs_binhquan.MoveNext
       Loop
-      If rs_binhquan.RecordCount > 0 Then
+      If rs_binhquan.recordCount > 0 Then
             If thg_cuoi > thg_dau + 1 Then
                   NS = NS / (thg_cuoi - thg_dau)
                   TBS = TBS / (thg_cuoi - thg_dau)
@@ -5939,7 +5939,7 @@ Private Sub InLCNoiBo(mkho As Long, tdau As Integer, tcuoi As Integer, ndau As D
     sql = "SELECT DISTINCTROW MaNguon FROM ChungTu WHERE MaLoai=4 AND MaKho=" + CStr(mkho) + " AND " + wsql + " GROUP BY MaNguon"
     i = 0
     Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If rs.RecordCount = 0 Then GoTo KetThuc
+    If rs.recordCount = 0 Then GoTo KetThuc
     
     GauGe.Max = 5
     Recycle pCurDir + "LCNoiBo.XLS"
@@ -6030,7 +6030,7 @@ Private Sub InBKGiaThanh(thang As Integer)
         
     sql = "SELECT DISTINCTROW MaNVL FROM ThanhPham INNER JOIN DinhMuc ON ThanhPham.MaTP=DinhMuc.MaTP WHERE ThanhPham.Thang=" + CStr(thang) + " AND MaNVL>0 GROUP BY MaNVL"
     Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If rs.RecordCount = 0 Then GoTo KetThuc
+    If rs.recordCount = 0 Then GoTo KetThuc
     
     GauGe.Max = 5
     Recycle pCurDir + "GiaThanh.XLS"
@@ -6145,7 +6145,7 @@ Private Sub InBKGiaThanh2(tdau As Integer, tcuoi As Integer)
         
     sql = "SELECT DISTINCTROW MaVattu FROM ChungTu WHERE " + WThang("ThangCT", tdau, tcuoi) + " AND MaVattu>0 AND MaTP>0 GROUP BY MaVattu"
     Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If rs.RecordCount = 0 Then GoTo KetThuc
+    If rs.recordCount = 0 Then GoTo KetThuc
     
     GauGe.Max = 5
     Recycle pCurDir + "GiaThanh.XLS"
@@ -6282,7 +6282,7 @@ Private Sub InBangKeTon(tcuoi As Integer, ngay As Date, mtk As Long, mloai As Lo
     sql = "SELECT DISTINCTROW MaCha FROM BaoCaoCP GROUP BY MaCha"
     i = 0
     Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If rs.RecordCount = 0 Then GoTo KetThuc
+    If rs.recordCount = 0 Then GoTo KetThuc
     
     GauGe.Max = 5
     Recycle pCurDir + "LCNoiBo.XLS"
@@ -6622,7 +6622,7 @@ Private Function THPSNhomCN2(ms As Long, tdau As Integer, tcuoi As Integer) As B
 KhongIn:
         rs.MoveNext
     Loop
-    THPSNhomCN2 = (rs.RecordCount > 0)
+    THPSNhomCN2 = (rs.recordCount > 0)
     rs.Close
     Set rs = Nothing
     frmMain.Rpt.ReportFileName = "THPSCT.RPT"
@@ -7642,7 +7642,7 @@ Private Function SoChiTiet3(TK As String, tdau As Integer, tcuoi As Integer, nda
     sql = "SELECT DISTINCTROW LEFT(HethongTK.SoHieu,3) AS SH FROM (ChungTu INNER JOIN HethongTK ON ChungTu.MaTKNo=HethongTK.MaSo) INNER JOIN HethongTK AS TK ON ChungTu.MaTKCo=TK.MaSo" _
         & " WHERE TK.SoHieu LIKE '" + TK + "*' AND TK.TK_ID=" + CStr(TKDT_ID) + " AND " + wsql + "  GROUP BY LEFT(HethongTK.SoHieu,3)"
     Set rs = DBKetoan.OpenRecordset(sql, dbOpenSnapshot)
-    If rs.RecordCount = 0 Then GoTo KgIn
+    If rs.recordCount = 0 Then GoTo KgIn
     Do While Not rs.EOF And i < 5
         i = i + 1
         frmMain.Rpt.Formulas(2 + i) = "TK" + CStr(i) + "='" + rs!sh + "'"

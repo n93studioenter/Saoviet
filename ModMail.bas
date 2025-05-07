@@ -141,7 +141,7 @@ Global Const LEAVE = 1
 Global Const OVER = 2
 
 ' Drag (controls)
-Global Const CANCEL = 0
+Global Const Cancel = 0
 Global Const BEGIN_DRAG = 1
 Global Const END_DRAG = 2
 
@@ -1760,7 +1760,7 @@ Function SendSocketBinary(TCPSocket As Long, FullBuffer As String)
   Dim RemainingBuffer As String
   Dim RemainingLength As Long
   
-  DialogPrintBinary "[" + Trim$(Str$(TCPSocket)) + "-->]", FullBuffer
+  DialogPrintBinary "[" + Trim$(str$(TCPSocket)) + "-->]", FullBuffer
   
   RemainingBuffer = FullBuffer
   
@@ -1834,7 +1834,7 @@ Function ReceiveSocketBinary(TCPSocket As Long, SocketResponse As String) As Lon
   ResponseLength = Status
   SocketResponse = Left(SocketResponse, ResponseLength)
   'Debug.Print "Successful receive of " & ResponseLength & " bytes"
-  DialogPrintBinary "[-->" + Trim$(Str$(TCPSocket)) + "] ", SocketResponse
+  DialogPrintBinary "[-->" + Trim$(str$(TCPSocket)) + "] ", SocketResponse
   ReceiveSocketBinary = True
   'Debug.Print ReceiveSocketBinary
   
@@ -1929,7 +1929,7 @@ Sub DialogPrintBinary(ByVal PrintPrefix As String, ByVal PrintText As String)
   DialogText = DialogText + PrintPrefix + Chr(13) + Chr(10)
   
   For X = 1 To Len(PrintText)
-    DialogText = DialogText + Right(Space(4) + Str(Asc(Mid$(PrintText, X, 1))), 4)
+    DialogText = DialogText + Right(Space(4) + str(Asc(Mid$(PrintText, X, 1))), 4)
     If Int(X / 16) = X / 16 Then DialogText = DialogText + Chr(13) + Chr(10)
   Next X
   DialogText = DialogText + Chr(13) + Chr(10) + Chr(13) + Chr(10)
@@ -2016,7 +2016,7 @@ Function SocketError(ErrorCode) As String
     Case 11003: SocketError = "WSANO_RECOVERY"
     Case 11004: SocketError = "WSANO_DATA"
     Case Else
-       SocketError = "UNKNOWN ERROR CODE" + Str$(ErrorCode)
+       SocketError = "UNKNOWN ERROR CODE" + str$(ErrorCode)
   End Select
 End Function
 

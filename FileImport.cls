@@ -30,6 +30,8 @@ Private m_CoTK As String
 Private m_ThueTK As String
 Private m_DienGiai As String
 Private m_TongTien As String
+Private m_TgTCThue As String
+Private m_TgTThue As String
 Private m_Vat As String
 Private m_SohieuTP As String
 Public Property Get id() As String
@@ -40,11 +42,11 @@ Public Property Let id(Value As String)
     m_ID = Value
 End Property
 ' Thu?c tính Name
-Public Property Get name() As String
-    name = m_Name
+Public Property Get Name() As String
+    Name = m_Name
 End Property
 
-Public Property Let name(Value As String)
+Public Property Let Name(Value As String)
     m_Name = Value
 End Property
 ' Thu?c tính Name
@@ -66,11 +68,11 @@ Public Property Let ngay(Value As Date)
 End Property
 
 ' Thu?c tính SoHD
-Public Property Get soHD() As String
-    soHD = m_SoHD
+Public Property Get sohd() As String
+    sohd = m_SoHD
 End Property
 
-Public Property Let soHD(Value As String)
+Public Property Let sohd(Value As String)
     m_SoHD = Value
 End Property
 Public Property Get khHD() As String
@@ -132,16 +134,28 @@ End Property
 Public Property Let ThueTK(Value As String)
     m_ThueTK = Value
 End Property
- Public Property Get tongtien() As String
-    tongtien = m_TongTien
+ Public Property Get TongTien() As String
+    TongTien = m_TongTien
 End Property
-Public Property Let tongtien(Value As String)
+Public Property Let TongTien(Value As String)
     m_TongTien = Value
 End Property
- Public Property Get vat() As String
-    vat = m_Vat
+ Public Property Get TgTCThue() As String
+    TgTCThue = m_TgTCThue
 End Property
-Public Property Let vat(Value As String)
+Public Property Let TgTCThue(Value As String)
+    m_TgTCThue = Value
+End Property
+Public Property Get TgTThue() As String
+    TgTThue = m_TgTThue
+End Property
+Public Property Let TgTThue(Value As String)
+    m_TgTThue = Value
+End Property
+ Public Property Get VAT() As String
+    VAT = m_Vat
+End Property
+Public Property Let VAT(Value As String)
     m_Vat = Value
 End Property
  Public Property Get sohieutp() As String
