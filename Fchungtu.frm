@@ -135,11 +135,10 @@ Begin VB.Form FrmChungtu
    Begin VB.CommandButton btnImport 
       Caption         =   "Import"
       Height          =   375
-      Left            =   11640
+      Left            =   12240
       TabIndex        =   165
-      Top             =   5520
-      Visible         =   0   'False
-      Width           =   735
+      Top             =   4080
+      Width           =   975
    End
    Begin VB.TextBox Text1 
       Height          =   285
@@ -3345,7 +3344,6 @@ End Sub
 
 Private Sub btnImport_Click()
     Set fileImportList = New Collection
-
     IsImport = True
     ' Duyet du lieu tu tb_import
     Dim rs_ktra As Recordset
@@ -3534,8 +3532,21 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
         Else
             'Neu la 153
-            If txtchungtu(0).Text Like "5113*" Then
+            If txtchungtu(0).Text Like "5113*" Or txtchungtu(0).Text Like "5112*" Then
                 With fileImportList(IndexFirst)
+                    If txtchungtu(0).Text Like "5112*" Then
+                        Query = "SELECT * FROM TP154 WHERE SoHieu='" & .sohieutp & "'"
+                        Dim rs_ktra1544 As Recordset
+                        Set rs_ktra1544 = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+                        If Not rs_ktra1544.EOF Then
+                            RFocus txtchungtu(2)
+                            txtchungtu(2).Text = rs_ktra1544!sohieu
+                            txtChungtu_LostFocus (2)
+
+                            rs_ktra1544.MoveNext
+                        End If
+                    End If
+
                     txtchungtu(6).Text = .TongTien
                     txtChungtu_KeyPress 6, 13
                 End With
@@ -3695,7 +3706,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
                     txtChungtu_LostFocus (0)
                     RFocus txtchungtu(6)
                     txtChungtu_KeyPress 6, 13
-                    Else
+                Else
                     RFocus txtchungtu(6)
                     txtChungtu_KeyPress 6, 13
                 End If
@@ -3713,42 +3724,40 @@ End Sub
 
 Private Sub btnOpenexe_Click()
     Dim exePath As String
-    exePath = App.path & "\\Tools\\Debug\SaovietTax.exe"
+    exePath = App.path & "\\Tools\\Debug\\SaovietTax.exe"
 
-    'MsgBox exePath
-    ' exePath = "C:\TCP\Saoviet\SaovietWF\SaovietWF\bin\Debug\SaovietWF.exe"    ' Thay b?ng du?ng d?n th?c t?
-    Shell exePath, vbNormalFocus  ' Thay d?i du?ng d?n t?i ?ng d?ng c?a b?n
-    ' Ð?i m?t chút d? ?ng d?ng m?
-    DoEvents
-    ' Thêm th?i gian ch? d? ?ng d?ng có th?i gian kh?i d?ng
-
+    ' Shell d? m? ?ng d?ng
+    Shell exePath, vbNormalFocus
+    DoEvents  ' Ð? d?m b?o ?ng d?ng có th?i gian kh?i d?ng
 
     ' L?y handle c?a c?a s? ?ng d?ng
+    hWndApp = 0  ' Kh?i t?o bi?n hWndApp
+
     While hWndApp = 0
-        hWndApp = FindWindow(vbNullString, "frmMain")    ' Thay d?i tiêu d? c?a ?ng d?ng
+        hWndApp = FindWindow(vbNullString, "frmMain")  ' Thay d?i tiêu d? c?a ?ng d?ng
+        DoEvents  ' Cho phép x? lý s? ki?n khác
     Wend
 
-    ' Ki?m tra xem handle có h?p l? hay không tru?c khi ki?m tra liên t?c
+    ' Ki?m tra handle có h?p l? hay không
     If hWndApp = 0 Then
-        MsgBox "Khong tim thay ung dung."
+        MsgBox "Không tìm th?y ?ng d?ng."
     Else
-        ' B?t d?u ki?m tra c? quay
+        ' Ð?i m?t chút tru?c khi ki?m tra l?i
+        Sleep 1000
         CheckWindow
     End If
 End Sub
+
 Private Sub CheckWindow()
-' Ki?m tra liên t?c xem c?a s? còn t?n t?i hay không
+    ' Ki?m tra liên t?c xem c?a s? còn t?n t?i hay không
     Do
         If IsWindow(hWndApp) = 0 Then
-            'btnImport_Click
+            ' Ð?c file status.txt khi c?a s? không còn t?n t?i
             Dim FilePath As String
-            Dim FileNum As Integer
-            Dim fileContent As String
             FilePath = App.path & "\\Hoadon\\status.txt"
 
-            ' FilePath = "C:\S.T.E 25\S.T.E 25\Hoadon\status.txt"
-
-            FileNum = FreeFile    'L?y s? file t? do
+            Dim FileNum As Integer
+            FileNum = FreeFile  ' L?y s? file tr?ng
 
             Dim lineText As String
             Dim allText As String
@@ -3759,20 +3768,20 @@ Private Sub CheckWindow()
             ' Ð?c t?ng dòng d?n h?t file
             Do Until EOF(FileNum)
                 Line Input #FileNum, lineText
-                allText = allText & lineText & vbCrLf    'N?i dòng và xu?ng dòng
+                allText = allText & lineText & vbCrLf  ' N?i dòng và xu?ng dòng
             Loop
 
             ' Ðóng file
             Close #FileNum
+
+            ' Ki?m tra n?i dung file
             Dim textss As String
             textss = "ButtonClicked"
             Dim textss2 As String
             textss2 = SuperTrim(allText)
-            If textss = textss2 Then
-                 Sleep (1000)    ' Ho?c b?n có th? dùng m?t vòng l?p d? ki?m tra tình tr?ng c?a ?ng d?ng
-                 AppActivate Me.Caption
-                timerImport.Enabled = True
 
+            If textss = textss2 Then
+                timerImport.Enabled = True
             End If
 
             Exit Do
@@ -10945,7 +10954,7 @@ Private Sub txtsh_LostFocus(Index As Integer)
         Set tkxt = New ClsTaikhoan
         tkxt.InitTaikhoanSohieu txtsh(0).Text
         txtsh(0).tag = IIf(tkxt.MaSo > 0 And tkxt.tkcon = 0, tkxt.MaSo, 0)
-        Lb(0).Caption = tkxt.Ten
+        lb(0).Caption = tkxt.Ten
         vis = (tkxt.tk_id = TKCNKH_ID Or tkxt.tk_id = TKCNPT_ID Or (tkxt.loai = 6 And pDTTP <> 0))
         If Left(txtsh(0).Text, 3) = "154" Then
             vis = True
@@ -10953,7 +10962,7 @@ Private Sub txtsh_LostFocus(Index As Integer)
 
         Label(19).Enabled = vis
         txtsh(1).Enabled = vis
-        Lb(1).Enabled = vis
+        lb(1).Enabled = vis
         cmd(1).Enabled = vis
         cmd(0).tag = IIf(tkxt.tk_id = TKCNKH_ID Or tkxt.tk_id = TKCNPT_ID, 1, IIf(tkxt.loai = 6 And pDTTP <> 0, 2, 0))
         Set tkxt = Nothing
@@ -10962,14 +10971,14 @@ Private Sub txtsh_LostFocus(Index As Integer)
             Set khxt = New ClsKhachHang
             khxt.InitKhachHangSohieu txtsh(1).Text
             txtsh(1).tag = khxt.MaSo
-            Lb(1).Caption = khxt.Ten
+            lb(1).Caption = khxt.Ten
             Set khxt = Nothing
         End If
         If cmd(0).tag = 2 Then
             Set tpxt = New Cls154
             tpxt.InitTPSohieu txtsh(1).Text
             txtsh(1).tag = tpxt.MaSo
-            Lb(1).Caption = tpxt.TenVattu
+            lb(1).Caption = tpxt.TenVattu
             Set tpxt = Nothing
         End If
 
@@ -10977,7 +10986,7 @@ Private Sub txtsh_LostFocus(Index As Integer)
             Set tpxt = New Cls154
             tpxt.InitTPSohieu txtsh(1).Text
             txtsh(1).tag = tpxt.MaSo
-            Lb(1).Caption = tpxt.TenVattu
+            lb(1).Caption = tpxt.TenVattu
             Set tpxt = Nothing
         End If
 
