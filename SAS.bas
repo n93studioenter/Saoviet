@@ -460,7 +460,7 @@ Public Sub KiemTraVatTu(Optional ktraxuat As Integer = 0)
       Dim rs_ktra As Recordset, i As Integer, sql As String, st As String, st2 As String, idx As Index
     
       For i = 0 To DBKetoan.TableDefs("Vattu").Indexes.count - 1
-        If DBKetoan.TableDefs("Vattu").Indexes(i).Name = "SoHieu" Then GoTo tt
+        If DBKetoan.TableDefs("Vattu").Indexes(i).name = "SoHieu" Then GoTo tt
      Next
           
      FixCode "Vattu", "MaSo"
@@ -1815,7 +1815,7 @@ Public Sub UpDateDB()
     Dim i As Integer, sql As String, j As Integer, s As Boolean
     
     If DBKetoan.TableDefs("Users").Fields("VT").Type = dbInteger Then
-        DBKetoan.TableDefs("Users").Fields("VT").Name = "OR"
+        DBKetoan.TableDefs("Users").Fields("VT").name = "OR"
         DBKetoan.TableDefs("Users").Fields.Append DBKetoan.TableDefs("Users").CreateField("VT", dbLong)
         DBKetoan.TableDefs("Users").Fields!vt.DefaultValue = 0
         ExecuteSQL5 "UPDATE Users SET VT=IIF(MaSo=1,1111111111,0)"
@@ -2066,12 +2066,12 @@ Public Sub UpDateDB()
     
         If TruongDaCo("ThanhPham", "MaTaiKhoan") Then
             Set tdf = DBKetoan.TableDefs!ThanhPham
-            tdf.Fields("MaTaiKhoan").Name = "MaTK"
+            tdf.Fields("MaTaiKhoan").name = "MaTK"
         End If
         
         If TruongDaCo("ThanhPham", "MaVattu") Then
             Set tdf = DBKetoan.TableDefs!ThanhPham
-            tdf.Fields("MaVattu").Name = "MaTP"
+            tdf.Fields("MaVattu").name = "MaTP"
         End If
         
         ThemTruong "ThanhPham", "MaTKCP", dbLong
@@ -2949,13 +2949,13 @@ Public Sub SetDefaultValue()
         For j = 0 To DBKetoan.TableDefs(i).Fields.count - 1
                 Select Case DBKetoan.TableDefs(i).Fields(j).Type
                     Case dbInteger:
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
                     Case dbLong, dbDouble:  DBKetoan.TableDefs(i).Fields(j).DefaultValue = 0
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "=0 WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
                     Case dbText:   DBKetoan.TableDefs(i).Fields(j).DefaultValue = "..."
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "='...' WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "='...' WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
                     Case dbDate:   DBKetoan.TableDefs(i).Fields(j).DefaultValue = CVDate("#1/1/80#")
-                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).Name + " SET " + DBKetoan.TableDefs(i).Fields(j).Name + "=#1/1/80# WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).Name + ")", False
+                        ExecuteSQL5 "UPDATE " + DBKetoan.TableDefs(i).name + " SET " + DBKetoan.TableDefs(i).Fields(j).name + "=#1/1/80# WHERE IsNull(" + DBKetoan.TableDefs(i).Fields(j).name + ")", False
                 End Select
         Next
     Next
@@ -3248,8 +3248,8 @@ Private Function QueryDaCo2(qname As String, qname2 As String) As Boolean
     QueryDaCo2 = False
     L = Len(qname)
     For i = 0 To DBKetoan.QueryDefs.count - 1
-        If Left(UCase(DBKetoan.QueryDefs(i).Name), L) = UCase(qname) Then
-            qname2 = DBKetoan.QueryDefs(i).Name
+        If Left(UCase(DBKetoan.QueryDefs(i).name), L) = UCase(qname) Then
+            qname2 = DBKetoan.QueryDefs(i).name
             QueryDaCo2 = True
             Exit For
         End If

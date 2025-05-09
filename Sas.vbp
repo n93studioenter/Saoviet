@@ -125,8 +125,13 @@ Startup="Sub Main"
 HelpFile="SAS.HLP"
 NoControlUpgrade=1
 Title="VietStar Accounting"
+<<<<<<< HEAD
 ExeName32="VietStar20.8.exe"
 Path32="..\..\..\Users\Admin\Desktop"
+=======
+ExeName32="VietStar20.3.exe"
+Path32="..\..\Users\Admin\Desktop"
+>>>>>>> origin/master
 Command32=""
 Name="SAOVIET_ACC"
 HelpContextID="0"

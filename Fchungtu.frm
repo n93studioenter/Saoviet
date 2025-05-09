@@ -5,7 +5,7 @@ Object = "{0D452EE1-E08F-101A-852E-02608C4D0BB4}#2.0#0"; "FM20.DLL"
 Begin VB.Form FrmChungtu 
    AutoRedraw      =   -1  'True
    BackColor       =   &H00E0E0E0&
-   BorderStyle     =   0  'None
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "NhËp chøng tõ"
    ClientHeight    =   8835
    ClientLeft      =   60
@@ -15,6 +15,8 @@ Begin VB.Form FrmChungtu
    Icon            =   "Fchungtu.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Voucher"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   8835
    ScaleWidth      =   18180
@@ -751,12 +753,12 @@ Begin VB.Form FrmChungtu
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   13080
+      Left            =   13560
       Picture         =   "Fchungtu.frx":BD99
       TabIndex        =   109
       Tag             =   "-1"
       ToolTipText     =   "Ghi ph¸t sinh"
-      Top             =   2160
+      Top             =   2640
       Visible         =   0   'False
       Width           =   250
    End
@@ -1376,20 +1378,32 @@ Begin VB.Form FrmChungtu
       BackColor       =   &H00C0FFC0&
       Height          =   315
       Index           =   9
+<<<<<<< HEAD
       Left            =   13140
+=======
+      Left            =   13020
+>>>>>>> origin/master
       MaxLength       =   5
       TabIndex        =   19
       Tag             =   "0"
       Text            =   "0"
       Top             =   2040
+<<<<<<< HEAD
       Width           =   795
+=======
+      Width           =   915
+>>>>>>> origin/master
    End
    Begin VB.CommandButton CmdPhieu 
       Caption         =   "&4 TCNH"
       Height          =   375
       Index           =   3
       Left            =   10080
+<<<<<<< HEAD
       TabIndex        =   52
+=======
+      TabIndex        =   51
+>>>>>>> origin/master
       Tag             =   "0"
       Top             =   4680
       Visible         =   0   'False
@@ -1495,7 +1509,11 @@ Begin VB.Form FrmChungtu
       Height          =   375
       Index           =   1
       Left            =   9000
+<<<<<<< HEAD
       TabIndex        =   50
+=======
+      TabIndex        =   49
+>>>>>>> origin/master
       Tag             =   "0"
       Top             =   4680
       Visible         =   0   'False
@@ -2148,7 +2166,11 @@ Begin VB.Form FrmChungtu
       Height          =   600
       Index           =   8
       Left            =   -120
+<<<<<<< HEAD
       TabIndex        =   134
+=======
+      TabIndex        =   133
+>>>>>>> origin/master
       Tag             =   "Bill Code"
       Top             =   4560
       Width           =   15255
@@ -2515,10 +2537,17 @@ Begin VB.Form FrmChungtu
       ForeColor       =   &H00FFFFFF&
       Height          =   255
       Index           =   23
+<<<<<<< HEAD
       Left            =   13140
       TabIndex        =   69
       Top             =   1800
       Width           =   795
+=======
+      Left            =   13110
+      TabIndex        =   68
+      Top             =   1800
+      Width           =   915
+>>>>>>> origin/master
       WordWrap        =   -1  'True
    End
    Begin VB.Label Label 
@@ -2786,8 +2815,13 @@ Begin VB.Form FrmChungtu
       ForeColor       =   &H00FFFFFF&
       Height          =   255
       Index           =   10
+<<<<<<< HEAD
       Left            =   11475
       TabIndex        =   46
+=======
+      Left            =   11480
+      TabIndex        =   45
+>>>>>>> origin/master
       Tag             =   "Credit"
       Top             =   1800
       Width           =   1650
@@ -3189,15 +3223,19 @@ Public Sub AutoCLickLoai()
     RFocus CboThang
     DisplayFileImportList
 End Sub
+<<<<<<< HEAD
 Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As String, ByVal sohd As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal TongTien As String, ByVal VAT As String, ByVal sohieutp As String, ByVal TgTCThue As String, ByVal TgTThue As String)
+=======
+Public Sub AddImportData(ByVal id As String, ByVal name As String, ByVal mst As String, ByVal soHD As String, ByVal khHD As String, ByVal ngay As Date, ByVal types As String, ByVal path As String, ByVal tkno As String, ByVal TkCo As String, ByVal tkThue As String, ByVal diengiai As String, ByVal tongtien As String, ByVal vat As String, ByVal sohieutp As String)
+>>>>>>> origin/master
     Dim fileImport As ClsFileImport
     Set fileImport = New ClsFileImport
 
     ' Gán giá tr? cho các thu?c tính
     fileImport.id = id
-    fileImport.Name = Name
+    fileImport.name = name
     fileImport.mst = mst
-    fileImport.sohd = sohd
+    fileImport.soHD = soHD
     fileImport.khHD = khHD
     fileImport.ngay = ngay
     fileImport.types = types
@@ -3206,10 +3244,15 @@ Public Sub AddImportData(ByVal id As String, ByVal Name As String, ByVal mst As 
     fileImport.notk = tkno
     fileImport.ThueTK = tkThue
     fileImport.diengiai = diengiai
+<<<<<<< HEAD
     fileImport.TongTien = TongTien
     fileImport.TgTCThue = TgTCThue
     fileImport.TgTThue = TgTThue
     fileImport.VAT = VAT
+=======
+    fileImport.tongtien = tongtien
+    fileImport.vat = vat
+>>>>>>> origin/master
     fileImport.sohieutp = sohieutp
     fileImportList.Add fileImport
 
@@ -3356,7 +3399,11 @@ Private Sub btnImport_Click()
         ' Duy?t qua t?t c? các b?n ghi
         Do While Not rs_ktra.EOF
             ' L?y s? lu?ng tru?ng
+<<<<<<< HEAD
             AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!TongTien, rs_ktra!VAT, rs_ktra!sohieutp, rs_ktra!TgTCThue, rs_ktra!TgTThue
+=======
+            AddImportData rs_ktra!id, rs_ktra!Ten, rs_ktra!mst, rs_ktra!SHDon, rs_ktra!KHHDon, rs_ktra!NLap, "", "", rs_ktra!tkno, rs_ktra!TkCo, rs_ktra!tkThue, rs_ktra!Noidung, rs_ktra!tongtien, rs_ktra!vat, rs_ktra!sohieutp
+>>>>>>> origin/master
             rs_ktra.MoveNext
         Loop
     End If
@@ -3427,7 +3474,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
     Dim myDate As Date
     myDate = CDate(item.ngay)
-    txt(0).Text = item.sohd
+    txt(0).Text = item.soHD
     txtVT(1).Text = item.khHD
 
     CboThang.Text = Month(myDate) & "/" & Year(myDate)
@@ -3482,12 +3529,12 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             '1331 thue
             txtchungtu(0).Text = item.ThueTK
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = item.VAT
+            txtchungtu(2).Text = item.vat
             Dim number As Long
-            Dim VAT As Integer
-            VAT = CInt(item.VAT)
+            Dim vat As Integer
+            vat = CInt(item.vat)
             number = CLng(Replace(txtchungtu(5).Text, ",", ""))
-            number = number * VAT / 100
+            number = number * vat / 100
             txtchungtu(5).Text = number * (-1)
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
@@ -3534,6 +3581,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             'Neu la 153
             If txtchungtu(0).Text Like "5113*" Or txtchungtu(0).Text Like "5112*" Then
                 With fileImportList(IndexFirst)
+<<<<<<< HEAD
                     If txtchungtu(0).Text Like "5112*" Then
                         Query = "SELECT * FROM TP154 WHERE SoHieu='" & .sohieutp & "'"
                         Dim rs_ktra1544 As Recordset
@@ -3548,6 +3596,9 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
                     End If
 
                     txtchungtu(6).Text = .TongTien
+=======
+                    txtchungtu(6).Text = .tongtien
+>>>>>>> origin/master
                     txtChungtu_KeyPress 6, 13
                 End With
             End If
@@ -3574,7 +3625,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             RFocus txtchungtu(2)
             txtchungtu(2).Text = rs_ktra154!sohieu
             txtChungtu_LostFocus (2)
-            txtchungtu(5).Text = item.TongTien
+            txtchungtu(5).Text = item.tongtien
             txtChungtu_LostFocus (5)
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
@@ -3585,7 +3636,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
             '1331
             txtchungtu(0).Text = 1331
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = item.VAT
+            txtchungtu(2).Text = item.vat
             txtChungtu_LostFocus (2)
             RFocus txtchungtu(6)
             txtChungtu_KeyPress 6, 13
@@ -3659,7 +3710,12 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
 
         txtChungtu_LostFocus (0)
         With fileImportList(IndexFirst)
+<<<<<<< HEAD
             txtchungtu(5).Text = .TgTCThue
+=======
+            txtchungtu(5).Text = .tongtien
+
+>>>>>>> origin/master
         End With
         RFocus txtchungtu(6)
         txtChungtu_KeyPress 6, 13
@@ -3675,7 +3731,7 @@ Private Sub Xulyimport(ByVal item As ClsFileImport)
         End With
         txtChungtu_LostFocus (0)
         With fileImportList(IndexFirst)
-            txtchungtu(2).Text = .VAT
+            txtchungtu(2).Text = .vat
         End With
 
         txtChungtu_LostFocus (2)
@@ -4187,7 +4243,7 @@ Public Sub CmdChitiet_chon()
         End If
     End If
 
-    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vBH > 0 And vattu.VAT > 0 And vBH <> vattu.VAT Then
+    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vBH > 0 And vattu.vat > 0 And vBH <> vattu.vat Then
         If MsgBox("MÆt hµng kh«ng cïng thuÕ suÊt VAT! TiÕp tôc ?", vbYesNo + vbCritical, App.ProductName) <> vbYes Then
             RFocus txtchungtu(2)
             Exit Sub
@@ -4321,7 +4377,7 @@ Public Sub CmdChitiet_chon()
                 h.MaKhachHang = HD(hdcount).MaKhachHang
                 h.MauSo = HD(hdcount).MauSo
                 h.KyHieu = HD(hdcount).KyHieu
-                h.sohd = HD(hdcount).sohd
+                h.soHD = HD(hdcount).soHD
                 h.NgayPH = HD(hdcount).NgayPH
                 h.tygia = HD(hdcount).tygia
             Else
@@ -4365,7 +4421,7 @@ Public Sub CmdChitiet_chon()
             ' --------------------
             ' vua them vao sau
             If hdcount <= 0 Then
-                h.sohd = txt(0).Text    'so hoa don
+                h.soHD = txt(0).Text    'so hoa don
             End If
             h.KyHieu = txtVT(1).Text
             h.MatHang = txt(1).Text
@@ -4613,7 +4669,7 @@ KT:
         MSTBH = ckh.mst
         MaKHBH = ckh.MaSo
     End If
-    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vattu.VAT > 0 Then vBH = vattu.VAT
+    If pVAT2 > 0 And loaict = 8 And vattu.MaSo > 0 And vattu.vat > 0 Then vBH = vattu.vat
     NhapDongMoi taikhoan.sohieu
 
     Erase mct1
@@ -5019,7 +5075,7 @@ B:
                     Else
                         frmMain.Rpt.Formulas(13) = "TyLe='ThuÕ GTGT (" + CStr(HD(hdcount).TyLe) + "%):'"
                     End If
-                    frmMain.Rpt.Formulas(18) = "HoaDon='" + ABCtoVNI("Ho¸ ®¬n : ") + HD(hdcount).MauSo + ABCtoVNI(" - Sè : ") + HD(hdcount).sohd + ABCtoVNI(" - Sè : ") + HD(hdcount).KyHieu + ABCtoVNI(" - Ngµy : ") + Format(HD(hdcount).NgayPH, Mask_DR) + "'"
+                    frmMain.Rpt.Formulas(18) = "HoaDon='" + ABCtoVNI("Ho¸ ®¬n : ") + HD(hdcount).MauSo + ABCtoVNI(" - Sè : ") + HD(hdcount).soHD + ABCtoVNI(" - Sè : ") + HD(hdcount).KyHieu + ABCtoVNI(" - Ngµy : ") + Format(HD(hdcount).NgayPH, Mask_DR) + "'"
                 End If
                 ms = HD(hdcount).MaKhachHang
             Else
@@ -5292,7 +5348,7 @@ Sub In_hoa_don2(sotien As String, i As Integer, k As Integer, xxx As String, sod
     Case 0, 7, 8:
         If hdcount >= 0 Then
             frmMain.Rpt.Formulas(11) = "TyLe=" + CStr(HD(hdcount).TyLe)
-            frmMain.Rpt.Formulas(16) = "SoHD='" + HD(hdcount).sohd + "'"
+            frmMain.Rpt.Formulas(16) = "SoHD='" + HD(hdcount).soHD + "'"
             ms = HD(hdcount).MaKhachHang
             HTTT = HD(hdcount).HTTT
             frmMain.Rpt.Formulas(17) = "TyGia=" + DoiDau(HD(hdcount).tygia)
@@ -5467,11 +5523,11 @@ Sub In_hoa_don1(sotien As String, i As Integer, k As Integer, xxx As String, sod
         dem1 = 100
         dem = 90
         Dim g, kk As Integer
-        Dim TongTien As Double
+        Dim tongtien As Double
         Dim thoat As Boolean
         thoat = True
         kk = 1
-        TongTien = 0
+        tongtien = 0
         Dim mang_stt(100) As String
         Dim mang_diengiai(100) As String
         Dim mang_dvt(100) As String
@@ -5918,6 +5974,10 @@ Public Sub Command_Click(Index As Integer)
     Select Case Index
     Case 0:
         kiem_tra_so_dong
+<<<<<<< HEAD
+=======
+       ' kiemtralicenkey
+>>>>>>> origin/master
         MaSoCT = 0
         XoaPhieuTrenManHinh
         '  Command_Click 2
@@ -6441,6 +6501,10 @@ KT:
         CboNguon(1).Visible = True
         CboLoai.Visible = True
     End If
+<<<<<<< HEAD
+=======
+kiemtralicenkey
+>>>>>>> origin/master
 End Sub
 '====================================================================================================
 ' HiÓn thÞ cöa sæ danh s¸ch chøng tõ vµ hiÓn thÞ chøng tõ ®­îc chän
@@ -6602,7 +6666,7 @@ Private Sub Command3_Click()
 End Sub
 
 
-Sub GetcustomerByMST(ByVal mst As String, ByVal Name As String, ByVal Address As String)
+Sub GetcustomerByMST(ByVal mst As String, ByVal name As String, ByVal Address As String)
     Dim rs_ktra As Recordset
     Dim Query As String
 
@@ -6624,7 +6688,7 @@ Sub GetcustomerByMST(ByVal mst As String, ByVal Name As String, ByVal Address As
         Dim getMst As String
         getMst = Right(txtVT(9).Text, 4)
         txtVT(0).Text = getMst
-        txtVT(7).Text = Name
+        txtVT(7).Text = name
         txtVT(8).Text = Address
     End If
 
@@ -6777,6 +6841,9 @@ Private Sub Command5_Click()
 End Sub
 
 Private Sub Form_Activate()
+
+    Left = frmMain.ScaleWidth * 17 / 100
+    Top = frmMain.ScaleHeight * 10 / 100
     countbanhang = 1
     Dim ithang As Integer
     'Add item cho cbbThang
@@ -6840,6 +6907,7 @@ Private Sub Form_Activate()
     '   ExecuteSQL5_Themmoi ("ALTER TABLE chungtu DROP COLUMN LoaiHD")
 
     kiem_tra_so_dong
+    kiemtralicenkey
     ' RFocus Command4
 
     '    If (boolean_kiemtra() = False) Then
@@ -6852,15 +6920,23 @@ Private Sub Form_Activate()
     '        End If
     '    End If
 End Sub
+<<<<<<< HEAD
 
 Function kiemtralicenkey() As Boolean
 
+=======
+Function kiemtralicenkey() As Boolean
+>>>>>>> origin/master
     Dim rs_ktra As Recordset
     Dim Query As String
     Dim rst As String
     Dim types As Integer
     Dim sochungtu As Double
+<<<<<<< HEAD
     Query = "SELECT *  FROM tbLicensekey"
+=======
+    Query = "SELECT *  FROM tbLicensekey "
+>>>>>>> origin/master
     Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
     If Not rs_ktra.EOF Then
         ' Duy?t qua t?t c? các b?n ghi
@@ -6882,6 +6958,7 @@ Function kiemtralicenkey() As Boolean
             Command(0).Enabled = False
             Command(1).Enabled = False
             KT = False
+<<<<<<< HEAD
         Else
             Command(0).Enabled = True
             Command(1).Enabled = True
@@ -6889,6 +6966,14 @@ Function kiemtralicenkey() As Boolean
 
     End If
     If types = 2 And sochungtu <> 0 Then
+=======
+        End If
+    Else
+        Command(0).Enabled = True
+        Command(1).Enabled = True
+    End If
+    If types = 2 Then
+>>>>>>> origin/master
         If (SelectSQL("SELECT count(*) as F1 FROM HoaDon ") >= sochungtu) Then
             Command(0).Enabled = False
             Command(1).Enabled = False
@@ -6904,10 +6989,14 @@ Function kiemtralicenkey() As Boolean
         KT = False
     End If
 
+<<<<<<< HEAD
     ' Ðóng Recordset
     If Not rs_ktra Is Nothing Then
         Set rs_ktra = Nothing
     End If
+=======
+
+>>>>>>> origin/master
     kiemtralicenkey = KT
 End Function
 
@@ -6919,7 +7008,7 @@ Function kiem_tra_so_dong() As Boolean
         Dim rss As Recordset
 
         Set rss = DBKetoan.OpenRecordset("SELECT DISTINCTROW License.* FROM License", dbOpenSnapshot)
-        ' If (SelectSQL("SELECT count(*) as F1 FROM ChungTu ") + rss!sodong > 300) Then ' so nghiep vu gioi han
+        ' If (SelectSQL("SELECT count(*) as F1 FROM ChungTu ") + rss!sodong > 300) Then    ' so nghiep vu gioi han
         If (ban_quyen = 1) Then
             Command(0).Enabled = False
             Command(1).Enabled = False
@@ -7433,6 +7522,11 @@ Public Sub OptLoai_Click(Index As Integer)
     ' danh_sach_chung_tu
     kiemtralicenkey
     RFocus CboThang
+<<<<<<< HEAD
+=======
+    'kiemtralicenkey
+
+>>>>>>> origin/master
 End Sub
 Private Sub OptLoai_LostFocus(Index As Integer)
     FrmDsCT.CboThang(0).Text = "1/" + CStr(pNamTC)
@@ -7629,7 +7723,7 @@ Private Sub timer154_Timer()
             End If
 
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = .VAT
+            txtchungtu(2).Text = .vat
             txtChungtu_LostFocus (2)
             txtChungtu_KeyPress 6, 13
             txtchungtu(0) = .cotk
@@ -7777,7 +7871,7 @@ Private Sub Timer4_Timer()
             End If
 
             txtChungtu_LostFocus (0)
-            txtchungtu(2).Text = .VAT
+            txtchungtu(2).Text = .vat
             txtChungtu_LostFocus (2)
             txtChungtu_KeyPress 6, 13
             txtchungtu(0) = .cotk
@@ -9559,7 +9653,7 @@ Public Function HienPhieuTrenManHinh(p As Integer) As Integer
                         .MaKhachHang = rs_chungtu!MaKhachHang
                         .loai = rs_chungtu!LoaiHD
                         .KyHieu = rs_chungtu!KyHieu
-                        .sohd = rs_chungtu!shd
+                        .soHD = rs_chungtu!shd
                         .NgayPH = rs_chungtu!NgayPH
                         .MatHang = rs_chungtu!MatHang
                         .SoLuong = rs_chungtu!SoLuong
@@ -9732,7 +9826,7 @@ KT1:
                         .MaKhachHang = rs_chungtu!MaKhachHang
                         .loai = rs_chungtu!LoaiHD
                         .KyHieu = rs_chungtu!KyHieu
-                        .sohd = rs_chungtu!shd
+                        .soHD = rs_chungtu!shd
                         .NgayPH = rs_chungtu!NgayPH
                         .MatHang = rs_chungtu!MatHang
                         .SoLuong = rs_chungtu!SoLuong
@@ -9903,6 +9997,10 @@ KT2:
 KetThuc:
     rs_chungtu.Close
     Set rs_chungtu = Nothing
+<<<<<<< HEAD
+=======
+    'kiemtralicenkey
+>>>>>>> origin/master
 End Function
 '====================================================================================================
 ' NhËp dßng ph¸t sinh míi

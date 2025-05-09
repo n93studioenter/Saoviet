@@ -117,7 +117,11 @@ Begin VB.Form FrmOptions
       Width           =   9075
       Begin VB.Frame Frame1 
          BackColor       =   &H00FFFFC0&
+<<<<<<< HEAD
          Caption         =   "Gãi d÷ liÖu ®¨ng ký"
+=======
+         Caption         =   "Frame1"
+>>>>>>> origin/master
          Height          =   1935
          Left            =   3840
          TabIndex        =   115
@@ -125,6 +129,7 @@ Begin VB.Form FrmOptions
          Width           =   5055
          Begin VB.TextBox Text2 
             Height          =   360
+<<<<<<< HEAD
             Left            =   2400
             TabIndex        =   119
             Top             =   480
@@ -136,6 +141,19 @@ Begin VB.Form FrmOptions
             TabIndex        =   118
             Top             =   960
             Width           =   1335
+=======
+            Left            =   2880
+            TabIndex        =   119
+            Top             =   720
+            Width           =   1935
+         End
+         Begin VB.TextBox Text1 
+            Height          =   360
+            Left            =   480
+            TabIndex        =   118
+            Top             =   720
+            Width           =   1695
+>>>>>>> origin/master
          End
          Begin VB.OptionButton Option2 
             BackColor       =   &H00FFFFC0&
@@ -143,7 +161,11 @@ Begin VB.Form FrmOptions
             Height          =   240
             Left            =   360
             TabIndex        =   117
+<<<<<<< HEAD
             Top             =   960
+=======
+            Top             =   360
+>>>>>>> origin/master
             Width           =   1215
          End
          Begin VB.OptionButton Option1 
@@ -159,10 +181,17 @@ Begin VB.Form FrmOptions
             BackColor       =   &H00FFFFC0&
             Caption         =   "Sè l­îng chøng tõ"
             Height          =   255
+<<<<<<< HEAD
             Left            =   480
             TabIndex        =   120
             Top             =   480
             Width           =   2175
+=======
+            Left            =   2880
+            TabIndex        =   120
+            Top             =   360
+            Width           =   855
+>>>>>>> origin/master
          End
       End
       Begin VB.ComboBox Combo 
@@ -2346,6 +2375,7 @@ Private Sub active_Click()
         ExecuteSQL5 "UPDATE license SET CMG = " + str(Int_StrToCodes(st)) + ",namcode = " + str(Int_StrToCodes(str(rs!nam)))
         frmMain.txtdungthu.Caption = ""
         url_helper.Thong_tin Text(7).Text, Text(0) + " - " + Text(2).Text + " - " + Text(3).Text + " - " + Text(15).Text
+<<<<<<< HEAD
         Dim SoLuong As Integer
         If Text2.Text = "" Then
             SoLuong = 0
@@ -2358,6 +2388,14 @@ Private Sub active_Click()
         Else
             MsgBox "§¨ng ký gãi  " & Text1.Text & " n¨m thµnh c«ng"
             ExecuteSQL5 "UPDATE tbLicensekey SET Type = 2, Year = '" & Text1.Text & "|" & pNamTC & "', Totals = '" & SoLuong & "'"
+=======
+        If Option1.Value = True Then
+            MsgBox "Dang ky vinh vien thanh cong"
+            ExecuteSQL5 "Update tbLicensekey set Type=1,Year=0,Totals=0"
+        Else
+            MsgBox "Dang ky " & Text1.Text & " nam thanh cong"
+            ExecuteSQL5 "UPDATE tbLicensekey SET Type = 2, Year = '" & Text1.Text & "|" & pNamTC & "', Totals = '" & Text2.Text & "'"
+>>>>>>> origin/master
         End If
 
     End If
@@ -2399,13 +2437,23 @@ Private Sub Form_Activate()
     If (SelectSQL("select count(*) as f1 from chungtu") > 0) Then Combo(0).Enabled = False
     ActiveInfo
 
+<<<<<<< HEAD
     Dim types As Integer
     types = SelectSQL("select Type AS f1 from  tbLicensekey")
     If types <> 0 Then
+=======
+    Dim Types As Integer
+    Types = SelectSQL("select Type AS f1 from  tbLicensekey")
+    If Types <> 0 Then
+>>>>>>> origin/master
         Frame1.Visible = True
     Else
         Frame1.Visible = False
     End If
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 End Sub
 Private Sub ActiveInfo()
     Dim rs_ktra As Recordset

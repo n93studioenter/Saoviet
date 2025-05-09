@@ -5,9 +5,15 @@ Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "CRYSTL32.OCX"
 Begin VB.Form frmMain 
    AutoRedraw      =   -1  'True
    BackColor       =   &H00FFC0C0&
+<<<<<<< HEAD
    ClientHeight    =   9570
    ClientLeft      =   3990
    ClientTop       =   -2835
+=======
+   ClientHeight    =   9720
+   ClientLeft      =   3990
+   ClientTop       =   -2985
+>>>>>>> origin/master
    ClientWidth     =   18930
    FillColor       =   &H00FD8866&
    ForeColor       =   &H00400000&
@@ -15,7 +21,11 @@ Begin VB.Form frmMain
    KeyPreview      =   -1  'True
    LinkTopic       =   "Sao Viet Accounting Software"
    Picture         =   "frmMain.frx":424A
+<<<<<<< HEAD
    ScaleHeight     =   9570
+=======
+   ScaleHeight     =   9720
+>>>>>>> origin/master
    ScaleWidth      =   18930
    Tag             =   "11"
    WindowState     =   2  'Maximized
@@ -434,7 +444,11 @@ Begin VB.Form frmMain
       Height          =   390
       Left            =   0
       TabIndex        =   57
+<<<<<<< HEAD
       Top             =   9180
+=======
+      Top             =   9330
+>>>>>>> origin/master
       Width           =   18930
       _ExtentX        =   33390
       _ExtentY        =   688
@@ -445,23 +459,24 @@ Begin VB.Form frmMain
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   8819
             MinWidth        =   8819
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   12347
             MinWidth        =   12347
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel4 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Style           =   6
+<<<<<<< HEAD
             TextSave        =   "08/05/25"
             Key             =   ""
+=======
+            TextSave        =   "03/05/25"
+>>>>>>> origin/master
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -516,7 +531,11 @@ Begin VB.Form frmMain
    Begin VB.Label Label3 
       BackColor       =   &H00FFC0C0&
       BackStyle       =   0  'Transparent
+<<<<<<< HEAD
       Caption         =   "B¹n cã thÓ dïng víi giíi h¹n 100 chøng tõ, møc doanh thu 200 triÖu"
+=======
+      Caption         =   "B¹n cã thÓ dïng víi giíi h¹n 100 chøng tõ, møc doanh thu hai tr¨m triÖu "
+>>>>>>> origin/master
       BeginProperty Font 
          Name            =   "VK Sans Serif"
          Size            =   9.75
@@ -532,12 +551,20 @@ Begin VB.Form frmMain
       Left            =   6480
       TabIndex        =   67
       Top             =   8760
+<<<<<<< HEAD
       Width           =   6975
+=======
+      Width           =   8055
+>>>>>>> origin/master
    End
    Begin VB.Label Label3 
       BackColor       =   &H00FFC0C0&
       BackStyle       =   0  'Transparent
+<<<<<<< HEAD
       Caption         =   "NhÊn vµo ®©y ®Ó t¹o míi trªn mµn h×nh"
+=======
+      Caption         =   "NhÊn vµo ®©y  ®Ó t¹o c«ng ty míi trªn mµn h×nh"
+>>>>>>> origin/master
       BeginProperty Font 
          Name            =   "VK Sans Serif"
          Size            =   9.75
@@ -553,7 +580,11 @@ Begin VB.Form frmMain
       Left            =   9840
       TabIndex        =   65
       Top             =   8520
+<<<<<<< HEAD
       Width           =   6855
+=======
+      Width           =   5415
+>>>>>>> origin/master
    End
    Begin VB.Label txtdungthu 
       BackColor       =   &H00FFC0C0&
@@ -2162,7 +2193,7 @@ Private Sub Command_Click(Index As Integer)
             End If
             pPhieu = 0
            ' frmTaiLieu.Show 1
-            FrmChungtu.Show 1
+            FrmChungtu.Show 0
           
             Set FrmChungtu = Nothing
           Case 1:
@@ -2277,6 +2308,7 @@ Private Sub File1_Click()
 End Sub
  
 
+<<<<<<< HEAD
 Private Function ParseJson(json As String, key As String) As String
     Dim dict As Object
     Set dict = CreateObject("Scripting.Dictionary")
@@ -2310,6 +2342,18 @@ Private Sub Form_Activate()    ' viet menu
     Label3(16).Left = (Me.ScaleWidth * 61.4 / 100)
     Label3(16).Top = (Me.ScaleHeight * 88 / 100)
 
+=======
+Private Sub Form_Activate()    ' viet menu
+    Image1.Left = (Me.ScaleWidth * 90 / 100)
+    Image1.Top = (Me.ScaleHeight * 5 / 100)
+    Command1.Left = (Me.ScaleWidth * 90 / 100)
+    Command1.Top = (Me.ScaleHeight * 80 / 100)
+    Label3(0).Left = (Me.ScaleWidth * 71.5 / 100)
+    Label3(0).Top = (Me.ScaleHeight * 85 / 100)
+
+    Label3(16).Left = (Me.ScaleWidth * 59 / 100)
+    Label3(16).Top = (Me.ScaleHeight * 88 / 100)
+>>>>>>> origin/master
     ExecuteSQL5_Themmoi ("ALTER TABLE license  ADD tenhoadon text")
     ExecuteSQL5 ("ALTER TABLE license ALTER COLUMN TaiKhoanVN TEXT(200)")
     ExecuteSQL5 ("ALTER TABLE license ALTER COLUMN DiaChi TEXT(200)")
@@ -2380,12 +2424,20 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
         'ExecuteSQL5 "update License set TenCty = '" + ModSAS.Federo16(rs!TenCty, CStr(rs!NamTC)) + "',DiaChi = '" + ModSAS.Federo16(rs!DiaChi, CStr(rs!NamTC)) + "',MaSoThue = '" + ModSAS.Federo16(rs!masothue, CStr(rs!NamTC)) + "',CMP = '" + ModSAS.Federo16(IIf(IsNull(rs!CMP), "", rs!CMP), CStr(rs!NamTC)) + "'"
         Dim ma_so_so As String
         'ma_so_so = ModSAS.Federo16Decrypt("dad`dccefucgcqcici", opotion_1)
+<<<<<<< HEAD
         'ma_so_so = "1@35^7*9)1"
+=======
+        ' ma_so_so = "1@35^7*9)1"
+>>>>>>> origin/master
         'SetPsw pDataPath, pPSW, ma_so_so
         'SaveSetting "MyApp", "Settings", "FirstRun", "False"
 
         ExecuteSQL5 ("Update tbLicensekey set Type=-1")
+<<<<<<< HEAD
         ExecuteSQL5 ("Update License set CMG=249991")
+=======
+
+>>>>>>> origin/master
         WSpace.Close
         End
     End If
@@ -2649,6 +2701,31 @@ Public Sub mnCn_Click(Index As Integer)
 End Sub
 
 Private Sub mnDL_Click(Index As Integer)
+    Dim rs_ktra As Recordset
+    Dim Query As String
+    Dim rst As String
+    Query = "SELECT *  FROM tbLicensekey "
+    Set rs_ktra = DBKetoan.OpenRecordset(Query, dbOpenSnapshot)
+    If Not rs_ktra.EOF Then
+        ' Duy?t qua t?t c? các b?n ghi
+        Do While Not rs_ktra.EOF
+            If rs_ktra!Type = 2 Then
+                Dim resultArray() As String
+                resultArray = Split(rs_ktra!Year, "|")
+                Dim Chk As Integer
+                Chk = (CInt(resultArray(0)) - 1) + CInt(resultArray(1)) - pNamTC
+                If Chk <= 0 Then
+                    MsgBox "Goi du lieu da het vui long lien he de duoc nang cap"
+                    Exit Sub
+                End If
+            End If
+            If rs_ktra!Type <> 2 And rs_ktra!Type <> 1 Then
+                MsgBox "Ban khong cho chuc nang nay"
+                Exit Sub
+            End If
+            rs_ktra.MoveNext
+        Loop
+    End If
     Dim sql As String
 
     If User_Right <> 0 Or (Me.tag Mod 10 = 0) Or (User_Right = 2) Then
@@ -2687,6 +2764,7 @@ Private Sub mnDL_Click(Index As Integer)
             If Len(sql) > 0 Then ExecuteSQL5 sql
         End If
     Case 6:
+<<<<<<< HEAD
         Dim rs_ktra As Recordset
         Dim Query As String
         Dim rst As String
@@ -2715,6 +2793,9 @@ Private Sub mnDL_Click(Index As Integer)
             Loop
 
         End If
+=======
+
+>>>>>>> origin/master
         ExecuteSQL5 ("DELETE FROM SOLOTHUOC1")
         ExecuteSQL5 ("INSERT INTO SOLOTHUOC1  SELECT MAVATTU,SOLO,HANDUNG,CONLAI AS SOLUONG  FROM DANHSAchvattu")
         ExecuteSQL5 ("DELETE FROM SOLOTHUOC")
